@@ -1,0 +1,12 @@
+ GetProjectFolder←{
+     ⍝ ⍵ ←→ Project Space
+     ⍝ ← ←→ Project Folder
+     n←⍕⍵
+     s d←↓⍉{0::⍵ ⋄ ⎕SE.UCMD']ACRE.Projects'}0 2⍴⊂''
+     i←s⍳⊂n
+     i<≢d:i⊃d
+     l←0⊃⎕NPARTS ⎕WSID
+     l≡'':l
+     p←{1↓('.'≠⍵)⊂⍵}n
+     l,∊p,¨'/'
+ }

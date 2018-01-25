@@ -1,0 +1,7 @@
+:Namespace
+    CaseCode←'On'
+    Load←''
+    Open←''
+    ProjectSpace←'#.CarlisleGroup.AcreTools'
+    StartUp←''
+:EndNamespace

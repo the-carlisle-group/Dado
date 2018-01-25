@@ -1,0 +1,17 @@
+ BuildPackage←{             ⍝
+     ⍝ ⍺ ←→ ⎕LX
+     ⍝ ⍵ ←→ Project Space
+     ⍝
+     ⍺←''                  ⍝ ⎕LX
+     lx←⎕LX                ⍝ Note
+     ⎕LX←⍺                 ⍝
+     pf←ProjectFolder ⍵    ⍝ Project Folder
+     pn←{↑⌽('/'≠⍵)⊂⍵}pf    ⍝ Project Name
+     df←pf,'.acre/',pn     ⍝ Distribution Folder. For now, so Git does not track changes
+     _←⎕MKDIR df           ⍝ Create distribution folder
+     _←0 ⎕SAVE df,'/',pn   ⍝ Save workspace
+     ps pd←↓⍉⎕SE.UCMD']ACRE.Projects'⍝ Project spaces, folders
+     _←df∘CopyProjectResources¨pd   ⍝
+     ⎕LX←lx                ⍝ Restore
+     0
+ }

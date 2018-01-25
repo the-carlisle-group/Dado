@@ -1,0 +1,11 @@
+ CopyProjectResources←{
+   ⍝ ⍺ ←→ Package folder
+   ⍝ ⍵ ←→ Project folder
+     p←¯2↑('/'≠⍵)⊂⍵         ⍝ Project company and name
+     nf←⍺,'/',∊p,¨'/'       ⍝ New project folder
+     _←2 ⎕MKDIR nf          ⍝ Create the directory
+     sf←⍵,'Files'           ⍝ Source Files folder
+     tf←nf,'Files'          ⍝ Target
+     _←CopyFolder sf tf     ⍝ Copy it
+     0
+ }

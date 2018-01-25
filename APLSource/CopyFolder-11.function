@@ -1,0 +1,7 @@
+ CopyFolder←{                      ⍝ Copy Folder
+     c←fso''                      ⍝ File System Object
+     ⍵≡'?':⊃c.GetMethodInfo↑⎕SI   ⍝ Argument Info
+     0::SigErr 37 'Folder not copied.'⍝ Any problem
+     6::0                         ⍝ Success (Handle Value Error)
+     {0}c.CopyFolder ⍵            ⍝ Run Method
+ }
