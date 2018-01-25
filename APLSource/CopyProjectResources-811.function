@@ -5,6 +5,7 @@
      nf←⍺,'/',∊p,¨'/'       ⍝ New project folder
      _←2 ⎕MKDIR nf          ⍝ Create the directory
      sf←⍵,'Files'           ⍝ Source Files folder
+     ~⎕NEXISTS sf:0         ⍝ Nothing to do
      tf←nf,'Files'          ⍝ Target
      _←CopyFolder sf tf     ⍝ Copy it
      0

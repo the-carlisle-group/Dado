@@ -1,0 +1,5 @@
+ Z←fso X;F;A
+⍝ Create File System Object
+ A←'Scripting.FileSystemObject'
+ 'F'⎕WC'OLECLIENT'A
+ Z←F
