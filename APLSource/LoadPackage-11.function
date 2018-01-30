@@ -12,7 +12,11 @@
      _←{6::0 ⋄ z←s q.⎕CY ws}0        ⍝ Copy in the namespace
      r←⍎s                            ⍝ Project Space
      r.ProjectFolder←⍵               ⍝ Note it
-     d←(↑⎕NPARTS ⍵)∘,¨c.Open         ⍝ Dependent Packages
+     n←c.Open                        ⍝ Dependent names
+     b←~∨/¨n∊¨⊂'/\'                  ⍝ No Company included
+     k←¯1↓↑⎕NPARTS ⍵                ⍝ Once
+     k←b{⍺:⍵ ⋄ ¯1↓↑⎕NPARTS ⍵}¨⊂k      ⍝ Maybe twice
+     d←k,¨'/',¨n                     ⍝ Dependent Packages
      0=≢d:,⊂'Loaded: ',⍵             ⍝ None
      (⊂'Loaded: ',⍵),⊃,/∇¨d          ⍝ Load 'em
  }
