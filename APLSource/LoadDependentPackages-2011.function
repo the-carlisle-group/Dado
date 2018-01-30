@@ -1,0 +1,9 @@
+ LoadDependentPackages←{
+     pf←↑⎕NPARTS ⎕WSID        ⍝ Package Folder
+     cf←pf,'acreconfig.txt'
+     t←⎕NGET cf
+     dn←                      ⍝ Dependent names
+     pl←↑⎕NPARTS ¯1↓↑pf       ⍝ Package Library
+     p←pl∘,¨dn                ⍝ Fqp
+     LoadPackage¨p            ⍝ Load Each
+ }

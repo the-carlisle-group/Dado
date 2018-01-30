@@ -1,6 +1,7 @@
  CopyProjectResources←{
-   ⍝ ⍺ ←→ Package folder
-   ⍝ ⍵ ←→ Project folder
+     ⍝ ⍺ ←→ Package folder
+     ⍝ ⍵ ←→ Project folder
+     OBSOLETE
      p←¯2↑('/'≠⍵)⊂⍵         ⍝ Project company and name
      nf←⍺,'/',∊p,¨'/'       ⍝ New project folder
      _←2 ⎕MKDIR nf          ⍝ Create the directory
@@ -8,5 +9,6 @@
      ~⎕NEXISTS sf:0         ⍝ Nothing to do
      tf←nf,'Files'          ⍝ Target
      _←CopyFolder sf tf     ⍝ Copy it
+     _←CopyFile(⍵,'acreconfig.txt')(nf,'acreconfig.txt')
      0
  }
