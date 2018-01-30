@@ -1,22 +1,17 @@
- BuildPackage←{             ⍝
-     ⍝ ⍺ ←→ ⎕LX
+ BuildPackage←{
      ⍝ ⍵ ←→ Project Space
-
-     ⍺←''                  ⍝ ⎕LX
-     lx←⎕LX                ⍝ Note
-     ⎕LX←⍺                 ⍝
-     pf←GetProjectFolder ⍵ ⍝ Project Folder
-     pn←{↑⌽('/'≠⍵)⊂⍵}pf    ⍝ Project Name
-     df←pf,'.acre/',pn     ⍝ Package Folder! Distribution Folder. For now, so Git does not track changes
-     _←DeleteFolder df     ⍝ Delete it first
-     _←⎕MKDIR df           ⍝ Create distribution folder
-     _←0 ⎕SAVE df,'/APLSource'         ⍝ Save workspace
-
-
-
-
-     _←CopyFolder(pf,'/Files')(df,'/Files')       ⍝ Copy it
-     _←CopyFile(pf,'/acreconfig.txt')(df,'/acreconfig.txt')
-     ⎕LX←lx                ⍝ Restore
-     0
+     _←ClearOtherProjects ⍵   ⍝ Clear all other open projects
+     pf←GetProjectFolder ⍵    ⍝ Project Folder
+     pn←{↑⌽('/'≠⍵)⊂⍵}pf       ⍝ Project Name
+     df←pf,'.acre/',pn        ⍝ Package Folder
+     _←DeleteFolder df        ⍝ Delete it first
+     _←⎕MKDIR df              ⍝ Create package folder
+     _←0 ⎕SAVE df,'/APLSource'⍝ Save workspace
+     rs←pf,'/Files'           ⍝ Resource source
+     rt←df,'/Files'           ⍝ Resource target
+     _←CopyFolder rs rt       ⍝ Copy it
+     cs←pf,'/acreconfig.txt'  ⍝ Config Source
+     ct←df,'/acreconfig.txt'  ⍝ Config target
+     _←CopyFile cs ct         ⍝ Copy it
+     0                        ⍝ Done
  }

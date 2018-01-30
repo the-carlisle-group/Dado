@@ -1,16 +1,18 @@
  LoadPackage←{
      ⍝ ⍵ ←→ Package Folder
-     ~⎕NEXISTS ⍵:⎕←'Package not found: ',⍵
-     f←'file://',⍵,'/acreconfig.txt'⍝ Config File
-     c←1 ⎕FIX f                     ⍝ Config space
-     s←c.ProjectSpace               ⍝ Project Space
-     p←(-1+(⌽s)⍳'.')↓s              ⍝ Parent Space
-     q←⍎p ⎕NS''                     ⍝ Ensure it exists
-     ws←⍵,'/APLSource.dws'          ⍝ Workspace
-     _←{6::0 ⋄ z←s q.⎕CY ws}0       ⍝ Copy in the namespace
-     r←⍎s                           ⍝ Project Space
-     r.ProjectFolder←⍵              ⍝ Note it
-     d←(↑⎕NPARTS ⍵)∘,¨c.Open        ⍝ Dependent Packages
-     _←∇¨d                          ⍝ Load 'em
-     0
+     ⍝ ← ←→ List of packages loaded
+     ~⎕NEXISTS ⍵:,⊂'Not found: ',⍵
+     f←'file://',⍵,'/acreconfig.txt' ⍝ Config File
+     c←1 ⎕FIX f                      ⍝ Config space
+     s←c.ProjectSpace                ⍝ Project Space
+     9=⎕NC s:,⊂'Already loaded :',⍵  ⍝ Already loaded
+     p←(-1+(⌽s)⍳'.')↓s               ⍝ Parent Space
+     q←⍎p ⎕NS''                      ⍝ Ensure it exists
+     ws←⍵,'/APLSource.dws'           ⍝ Workspace
+     _←{6::0 ⋄ z←s q.⎕CY ws}0        ⍝ Copy in the namespace
+     r←⍎s                            ⍝ Project Space
+     r.ProjectFolder←⍵               ⍝ Note it
+     d←(↑⎕NPARTS ⍵)∘,¨c.Open         ⍝ Dependent Packages
+     0=≢d:,⊂'Loaded: ',⍵             ⍝ None
+     (⊂'Loaded: ',⍵),⊃,/∇¨d          ⍝ Load 'em
  }
