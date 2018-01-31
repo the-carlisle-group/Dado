@@ -1,0 +1,11 @@
+ SetAcreConfig←{
+     ⍝ Sets up AcreConfig in each project space
+     s f←↓⍉⎕SE.UCMD']Projects'
+     0=≢s:0
+     r←⍎¨s
+     n←{'file://',⍵,'/acreconfig.txt'}¨f
+     c←1 ⎕FIX¨n
+     c.ProjectFolder←f
+     r.AcreConfig←c
+     0
+ }

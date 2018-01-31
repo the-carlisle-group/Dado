@@ -1,0 +1,12 @@
+ OpenProject←{
+    ⍝ Temporary Cover for ]acre.OpenProject
+    ⍝ that sets up AcreConfig in each project space
+     _←⎕SE.UCMD']acre.OpenProject ',⍵
+     s f←↓⍉⎕SE.UCMD']Projects'
+     r←⍎¨s
+     n←{'file://',⍵,'/acreconfig.txt'}¨f  ⍝ Config Files
+     c←1 ⎕FIX¨n                           ⍝ Config spaces
+     c.ProjectFolder←f
+     r.AcreConfig←c                       ⍝ Project Space
+     0
+ }
