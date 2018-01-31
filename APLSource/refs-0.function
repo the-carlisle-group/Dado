@@ -1,0 +1,6 @@
+ refs←{                              ⍝ Vector of sub-space references for ⍵.
+     ⍺←⍬ ⋄ (≢⍺)↓⍺{                   ⍝ default exclusion list.
+         ⍵∊⍺:⍺                       ⍝ already been here: quit.
+         ⍵.(↑∇∘⍎⍨/⌽(⊂⍺∪⍵),↓⎕NL 9)    ⍝ recursively traverse any sub-spaces.
+     }⍵                              ⍝ for given starting ref.
+ }

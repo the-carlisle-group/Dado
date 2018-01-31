@@ -1,0 +1,8 @@
+ SetReference←{
+     ⍝ Inject Source into Target as Name
+     ⍝ ⍵←Source Target Name
+     s t n←⍵
+     r←refs t
+     _←⍎'v.',n,'←s'
+     0
+ }
