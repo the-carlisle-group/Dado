@@ -1,15 +1,20 @@
  RunInProcess←{
-     ⍝ In a new APL Process, run Function ⍵
-     ⍝ After opening project ⍺
-     ⍝ Project Space ⍵ is provided as the left arg to function
+     ⍝ ⍺ ←→ Project folder or space
+     ⍝ ⍵ ←→ Function [Argument]
+     ⍝ In a new APL Process, open project ⍺
+     ⍝ then run Function with project space ⍺ as left argment
+     ⍝ and Argument as right argument.
+     f a←{2=≡⍵:⍵ ⋄ ⍵''}⍵
+     pf←{9≠⎕DR'⍵':⍵ ⋄ ⍵.AcreConfig.ProjectFolder}⍺
      cl←#.GetCommandLineArgs
      q←{'"',⍵,'"'}
      nl←⊂q 0⊃cl
      tf←AcreConfig.ProjectFolder
      ws←tf,'Files/Stub.dws'
      nl,←⊂q ws
-     nl,←⊂'AcreProject=',⍺.AcreConfig.ProjectFolder
-     nl,←⊂'AcreFunction=',⍵
+     nl,←⊂'AcreProject=',pf
+     nl,←⊂'AcreFunction=',f
+     nl,←⊂'AcreArgument=',a
      nl,←⊂'maxws=2g'
      z←⎕CMD(1↓∊' ',¨nl)''
      0

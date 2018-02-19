@@ -1,17 +1,17 @@
  BuildPackage←{
      ⍝ ⍵ ←→ Project Space
-     _←ClearOtherProjects ⍵   ⍝ Clear all other open projects
-     pf←GetProjectFolder ⍵    ⍝ Project Folder
-     pn←{↑⌽('/'≠⍵)⊂⍵}pf       ⍝ Project Name
-     df←pf,'.acre/',pn        ⍝ Package Folder
-     _←DeleteFolder df        ⍝ Delete it first
-     _←⎕MKDIR df              ⍝ Create package folder
-     _←0 ⎕SAVE df,'/APLSource'⍝ Save workspace
-     rs←pf,'/Files'           ⍝ Resource source
-     rt←df,'/Files'           ⍝ Resource target
-     _←CopyFolder rs rt       ⍝ Copy it
-     cs←pf,'/acreconfig.txt'  ⍝ Config Source
-     ct←df,'/acreconfig.txt'  ⍝ Config target
-     _←CopyFile cs ct         ⍝ Copy it
-     0                        ⍝ Done
+     _←ClearOtherProjects ⍵        ⍝ Clear all other open projects
+     pf←⍵.AcreConfig.ProjectFolder ⍝ Project Folder
+     pn←{↑⌽('/'≠⍵)⊂⍵}pf            ⍝ Project Name
+     df←pf,'.acre/',pn             ⍝ Package Folder
+     _←DeleteFolder df             ⍝ Delete it first
+     _←⎕MKDIR df                   ⍝ Create package folder
+     _←0 ⎕SAVE df,'/APLSource'     ⍝ Save workspace
+     rs←pf,'/Files'                ⍝ Resource source
+     rt←df,'/Files'                ⍝ Resource target
+     _←CopyFolder rs rt            ⍝ Copy it
+     cs←pf,'/acreconfig.txt'       ⍝ Config Source
+     ct←df,'/acreconfig.txt'       ⍝ Config target
+     _←CopyFile cs ct              ⍝ Copy it
+     0                             ⍝ Done
  }
