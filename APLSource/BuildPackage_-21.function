@@ -1,0 +1,21 @@
+ BuildPackage_←{
+     ⍝ ⍺ ←→ Project Space
+     c←⍺.AcreConfig                ⍝ Configuration settings
+     pf←c.ProjectFolder            ⍝ Project Folder
+     pn←{↑⌽('/'≠⍵)⊂⍵}pf            ⍝ Project Name
+     df←pf,'dist/',pn,'/'          ⍝ Package folder
+     _←DeleteFolder ¯1↓df          ⍝ Delete it first
+     _←2 ⎕MKDIR df                 ⍝ Ensure it exists
+     rf←{2=≡⍵:⍵ ⋄ ,⊂⍵}c.RuntimeFolders
+     rs←pf∘,¨rf
+     rt←df∘,¨rf
+     _←CopyFolder¨rs{⍺ ⍵}¨rt       ⍝ Copy each
+     cs←pf,'acreconfig.txt'        ⍝ Config Source
+     ct←df,'acreconfig.txt'        ⍝ Config target
+     _←CopyFile cs ct              ⍝ Copy it
+     _←ClearOtherProjects ⍺        ⍝ Clear all other open projects
+     es←⍺.⎕NL ¯9                   ⍝ Existing Spaces
+     _←⍺.⎕EX¨es~c.RuntimeSpaces    ⍝ Delete non-runtime spaces
+     _←0 ⎕SAVE df,'APLSource'      ⍝ Save workspace
+     0                             ⍝ Done
+ }

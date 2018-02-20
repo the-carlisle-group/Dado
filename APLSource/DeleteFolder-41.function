@@ -2,7 +2,6 @@
      c←fso''                      ⍝ File System Object
      ⍵≡'?':⊃c.GetMethodInfo↑⎕SI   ⍝ Argument Info
      ~⎕NEXISTS ⍵:0                ⍝ No folder, no problem
-     0::SigErr 37('Unable to delete folder ',⍵)⍝ Any problem
      6::0                         ⍝ Success (Handle Value from no result)
-     c.DeleteFolder ⍵             ⍝ Run Method (Returns Folder Object)
+     c.DeleteFolder⊂⍵             ⍝ Run Method (Returns Folder Object)
  }

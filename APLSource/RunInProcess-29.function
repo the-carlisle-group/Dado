@@ -5,7 +5,7 @@
      ⍝ then run Function with project space ⍺ as left argment
      ⍝ and Argument as right argument.
      f a←{2=≡⍵:⍵ ⋄ ⍵''}⍵
-     pf←{9≠⎕DR'⍵':⍵ ⋄ ⍵.AcreConfig.ProjectFolder}⍺
+     pf←{326≠⎕DR ⍵:⍵ ⋄ ⍵.AcreConfig.ProjectFolder}⍺
      cl←#.GetCommandLineArgs
      q←{'"',⍵,'"'}
      nl←⊂q 0⊃cl
