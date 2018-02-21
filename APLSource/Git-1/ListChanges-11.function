@@ -1,0 +1,16 @@
+ ListChanges←{
+     ref←⍵
+     settings←getSettings ref
+     branch←GetCurrentBranch ref
+     repName←settings.ProjectFolder
+     untracked←GetUntrackedFiles ref
+     changed←⎕CMD'git -C "',settings.ProjectFolder,'"  diff --name-only'
+     data←⍬
+     data,←(⊂'Changed: '),¨changed
+     data,←(⊂'Added: '),¨untracked
+
+     ⎕←''
+     ⎕←'Repository=',repName,': Branch=',branch,'; Not Committed!'
+     ⎕←''
+     ⎕←⊃data
+ }

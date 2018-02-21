@@ -1,0 +1,4 @@
+ GetCurrentBranch←{
+     settings←getSettings ⍵
+     0⊃⎕CMD'git -C "',settings.ProjectFolder,'"  rev-parse --abbrev-ref HEAD'
+ }
