@@ -1,0 +1,9 @@
+ ClearDevelopmentCode←{
+     ⍝ ⍵ ←→ Project Space
+     c←⍵.AcreConfig
+     p←'RuntimeSpaces'
+     r←{0=c.⎕NC ⍵:'' ⋄ c⍎⍵}p
+     es←⍵.⎕NL ¯9
+     _←⍵.⎕EX¨es~r
+     0
+ }

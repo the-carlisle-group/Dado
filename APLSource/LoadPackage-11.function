@@ -2,10 +2,8 @@
      ⍝ ⍵ ←→ Package Folder
      ⍝ ← ←→ List of packages loaded
      ~⎕NEXISTS ⍵:,⊂'Not found: ',⍵
-     f←'file://',⍵,'/acreconfig.txt' ⍝ Config File
-     c←1 ⎕FIX f                      ⍝ Config space
-     s←c.ProjectSpace                ⍝ Project Space
-     s.ProjectFolder←⍵
+     c←GetConfigSpace ⍵
+     s←c.ProjectSpace
      9=⎕NC s:,⊂'Already loaded :',⍵  ⍝ Already loaded
      p←(-1+(⌽s)⍳'.')↓s               ⍝ Parent Space
      q←⍎p ⎕NS''                      ⍝ Ensure it exists

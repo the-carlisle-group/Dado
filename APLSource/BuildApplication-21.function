@@ -1,0 +1,4 @@
+ BuildApplication←{
+     ⍝ ⍵ ←→ Project Folder or Space
+     ⍵ RunInProcess'#.CarlisleGroup.AcreTools.BuildApplication_'
+ }

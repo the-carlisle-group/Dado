@@ -1,0 +1,8 @@
+ BuildApplicationWS_←{
+     ⍝ ⍺ ←→ AcreTools project
+     ⍝ ⍵ ←→ Project Folder
+     c←GetConfigSpace ⍵
+     #.⎕LX←'#.CarlisleGroup.AcreTools.StartApplication ''',c.ProjectName,''''
+     _←0 ⎕SAVE c.ApplicationFolder,c.ProjectName
+     0
+ }

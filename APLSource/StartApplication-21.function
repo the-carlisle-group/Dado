@@ -1,0 +1,7 @@
+ StartApplication←{
+     ⍝ ⍵ ←→ Name of application/primary package
+     p←↑⎕NPARTS ⎕WSID
+     s←LoadPackage p,⍵
+     c←GetConfigSpace p,⍵
+     ⍎c.ApplicationStartup
+ }

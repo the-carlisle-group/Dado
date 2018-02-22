@@ -1,0 +1,9 @@
+ GetConfigSpace←{
+     ⍝ ⍵ ←→ ProjectFolder
+     c←1 ⎕FIX'file://',⍵,'/acreconfig.txt'
+     c.ProjectFolder←⍵
+     c.ProjectName←1⊃⎕NPARTS ¯1↓⍵
+     c.PackageFolder←⍵,'dist/Package/',c.ProjectName,'/'
+     c.ApplicationFolder←⍵,'dist/Application/',c.ProjectName,'/'
+     c
+ }
