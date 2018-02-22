@@ -1,0 +1,5 @@
+ getSettings←{
+     9=⍵.⎕NC'AcreConfig':⍵.AcreConfig
+     _←##.SetAcreConfig''
+     ⍵.AcreConfig
+ }
