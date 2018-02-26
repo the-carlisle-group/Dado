@@ -3,14 +3,20 @@
      settings←getSettings ref
      branch←GetCurrentBranch ref
      repName←settings.ProjectFolder
+     deleted←GetDeletedFiles ref
      untracked←GetUntrackedFiles ref
+     untracked~←deleted
+     untracked←(~(5↑¨untracked)∊⊂'.acre')/untracked
+
      changed←⎕CMD'git -C "',settings.ProjectFolder,'"  diff --name-only'
      data←⍬
      data,←(⊂'Changed: '),¨changed
      data,←(⊂'Added: '),¨untracked
-
+     data,←(⊂'Deleted: '),¨deleted
      ⎕←''
-     ⎕←'Repository=',repName,': Branch=',branch,'; Not Committed!'
+     ⎕←(20↑'Repository: '),repName
+     ⎕←(20↑'Branch: '),branch
+     ⎕←'Not Committed!'
      ⎕←''
      ⎕←⊃data
  }
