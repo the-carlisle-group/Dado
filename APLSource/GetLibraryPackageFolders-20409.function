@@ -1,0 +1,4 @@
+ GetLibraryPackageFolders←{    ⍝ Gets grandchildren folders
+     f←{⊃0 1(⎕NINFO⍠1)⍵,'*'}
+     ⊃,/f¨(f ⍵),¨'/'
+ }

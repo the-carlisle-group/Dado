@@ -1,0 +1,13 @@
+ GetSubFolders←{
+     ⍝ ⍵ ←→ Folder
+     ⍝ ⍺ ←→ Up to depth ⍺ if positive
+     ⍝      At exact depth ⍺ if negative
+     ⍝      All if 0
+     ⍺←1
+     s←×⍺
+     n t←0 1(⎕NINFO⍠1)⍵,'/*'
+     f←(t=1)/n
+     0=≢f:f       ⍝ look at adding ⍵ here!
+     ⍺≤1:f
+     (k/f),⊃,/(⍺-⍺≠0)∇¨f
+ }

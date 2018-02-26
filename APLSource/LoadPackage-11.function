@@ -1,6 +1,8 @@
  LoadPackage←{
+     ⍝ ⍺ ←→ Load dependent packages
      ⍝ ⍵ ←→ Package Folder
      ⍝ ← ←→ List of packages loaded
+     ⍺←1
      ~⎕NEXISTS ⍵:,⊂'Not found: ',⍵
      c←GetConfigSpace ⍵
      s←c.ProjectSpace
@@ -11,6 +13,7 @@
      _←{6::0 ⋄ z←s q.⎕CY ws}0        ⍝ Copy in the namespace
      r←⍎s                            ⍝ Project Space
      r.AcreConfig←c                  ⍝ Note it
+     ⍺=0:r                           ⍝ Do not load dependent.
      n←c.Open                        ⍝ Dependent names
      b←~∨/¨n∊¨⊂'/\'                  ⍝ No Company included
      k←¯1↓↑⎕NPARTS ⍵                 ⍝ Once

@@ -1,0 +1,5 @@
+ LoadPackageLibrary←{
+     ⍝ ⍵ ←→ Package Library Folder
+     f←GetLibraryPackageFolders ⍵
+     0 LoadPackage¨f
+ }

@@ -1,0 +1,7 @@
+ Z←GetSubFolderNames X;F;SF;N
+ F←GetFolder X
+ N←''
+ :For SF :In F.SubFolders
+     N,←⊂SF.Name
+ :EndFor
+ Z←N

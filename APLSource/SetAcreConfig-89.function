@@ -3,12 +3,7 @@
      s f←↓⍉⎕SE.UCMD']Projects'
      0=≢s:0
      r←⍎¨s
-     n←{'file://',⍵,'/acreconfig.txt'}¨f
-     c←1 ⎕FIX¨n
-     c.ProjectFolder←f
-     c.ProjectName←{1⊃⎕NPARTS ¯1↓⍵}¨f
-     c.PackageFolder←c.ProjectName{⍵,'dist/Package/',⍺,'/'}¨f
-     c.ApplicationFolder←c.ProjectName{⍵,'dist/Application/',⍺,'/'}¨f
+     c←GetConfigSpace¨f
      r.AcreConfig←c
      0
  }

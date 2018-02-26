@@ -2,7 +2,7 @@
      ⍝ ⍺ ←→ AcreTools project
      ⍝ ⍵ ←→ Project Folder
      c←GetConfigSpace ⍵
-     #.⎕LX←'#.CarlisleGroup.AcreTools.StartApplication ''',c.ProjectName,''''
+     #.⎕LX←'#.CarlisleGroup.AcreTools.StartApplication ''',c.FullProjectName,''''
      _←0 ⎕SAVE c.ApplicationFolder,c.ProjectName
      0
  }
