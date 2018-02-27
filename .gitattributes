@@ -1,2 +1,11 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+*.function linguist-language=apl
+*.operator linguist-language=apl
+*.class linguist-language=apl
+*.script linguist-language=apl
+*.charstring linguist-language=apl
+*.charList linguist-language=apl
+*.dws linguist-language=apl
+*.dyapp linguist-language=apl
