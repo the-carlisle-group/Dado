@@ -1,0 +1,16 @@
+ GetDependencies←{
+     ⍝ ⍵ ←→ Primary Package/Project Folder
+     ⍝ ← ←→ List of dependenent Folders
+
+
+     ⍝ WORK IN PROGRESS!
+     c←GetConfigSpace ⍵              ⍝ Get Config Space
+     n←c.Open                        ⍝ Dependent names
+     0=≢n:''                         ⍝ Or ⍵?
+     b←~∨/¨n∊¨⊂'/\'                  ⍝ No Company included
+     l←                              ⍝ Library folder, grand parent
+     k←¯1↓↑⎕NPARTS ⍵                 ⍝ Once
+     k←b{⍺:⍵ ⋄ ¯1↓↑⎕NPARTS ⍵}¨⊂k     ⍝ Maybe twice
+     d←k,¨'/',¨n                     ⍝ Dependent Packages
+     d,⊃,/∇¨d                        ⍝
+ }

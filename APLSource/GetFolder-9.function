@@ -1,6 +1,0 @@
- GetFolder←{                      ⍝ Get Folder
-     c←fso''                      ⍝ File System Object
-     ⍵≡'?':⊃c.GetMethodInfo↑⎕SI   ⍝ Argument Info
-     0::⎕SIGNAL ⎕EN               ⍝ Any problem
-     c.GetFolder⊂⍵               ⍝ Run Method (Returns Folder Object)
- }

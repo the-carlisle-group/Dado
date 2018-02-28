@@ -11,6 +11,8 @@
      sf←¯1↓¨c.PackageFolder                  ⍝ Source folders
      tf←af∘,¨c.FullProjectName               ⍝ Target folders
      _←CopyFolder¨sf{⍺ ⍵}¨tf                 ⍝ Copy all packages to application folder
-     _←RunInProcess'#.CarlisleGroup.AcreTools.BuildApplicationWS_'⍺.AcreConfig.ProjectFolder
-     0                                             ⍝ Exit process
+     f←'#.CarlisleGroup.AcreTools.BuildApplicationWS_'
+     ra←⍺.AcreConfig.ProjectFolder
+     _←RunInProcess f ra
+     0                                       ⍝ Exit process
  }

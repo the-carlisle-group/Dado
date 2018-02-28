@@ -1,0 +1,5 @@
+ LoadPackageCollection←{
+     ⍝ ⍵ ←→ Package Collection Folder
+     f←¯2 GetSubFolders ¯1↓⍵
+     LoadPackage¨f
+ }
