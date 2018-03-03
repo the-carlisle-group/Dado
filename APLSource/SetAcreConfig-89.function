@@ -4,6 +4,6 @@
      0=≢s:0
      r←⍎¨s
      c←GetConfigSpace¨f
-     r.AcreConfig←c
+     r.AcreConfig←r.⎕NS c
      0
  }

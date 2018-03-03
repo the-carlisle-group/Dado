@@ -1,0 +1,17 @@
+ CopyRuntimeAssets←{
+     ⍝ ⍺ ←→ Application Folder
+     ⍝ ⍵ ←→ Config space
+     sf←⍵.ProjectFolder           ⍝ Source Folder
+     tf←⍺,⍵.FullProjectName,'/'   ⍝ Target Folder
+     _←2 ⎕MKDIR tf                ⍝ Create it
+     cs←sf,'acreconfig.txt'       ⍝ Config Source
+     ct←tf,'acreconfig.txt'       ⍝ Config target
+     _←CopyFile cs ct             ⍝ Copy it
+     0=⍵.⎕NC'RuntimeFolders':0
+     0=≢⍵.RuntimeFolders:0
+     rf←{2=≡⍵:⍵ ⋄ ,⊂⍵}⍵.RuntimeFolders
+     rs←sf∘,¨rf
+     rt←tf∘,¨rf
+     _←CopyFolder¨rs{⍺ ⍵}¨rt
+     0
+ }

@@ -1,0 +1,20 @@
+ CopyRuntimeCode←{
+     ⍝ ⍵ ←→ Config space
+     ⍝ For now just Copy APL Source
+     sf←⍵.ProjectFolder,'APLSource'
+     tf←⍵.PackageFolder,'APLSource'
+     _←CopyFolder sf tf
+     0
+
+
+
+     ⍝ To do : copy only runtime stuff
+     ⍝ Work on this:
+     0=⍵.⎕NC'RuntimeSpaces':0
+     0=≢⍵.RuntimeSpaces:0
+     rf←{2=≡⍵:⍵ ⋄ ,⊂⍵}⍵.RuntimeSpaces
+     rs←(⍵.ProjectFolder,'APLSource')∘,¨rf
+     rt←(⍵.PackageFolder,'APLSource')∘,¨rf
+     _←CopyFolder¨rs{⍺ ⍵}¨rt
+     0
+ }

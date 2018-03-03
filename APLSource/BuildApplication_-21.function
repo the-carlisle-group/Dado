@@ -1,18 +1,16 @@
  BuildApplication_←{
      ⍝ ⍺ ←→ Project Space
-     ⍝ Assumes all packages created, ready to go.
      pc←⍺.AcreConfig                         ⍝ Primary config space
      af←pc.ApplicationFolder                 ⍝ Application Folder
      _←DeleteFolder ¯1↓af                    ⍝ Delete it first
      _←2 ⎕MKDIR af                           ⍝ Create it
      s←⍎¨(⎕SE.UCMD']ACRE.Projects')[;0]      ⍝ All project/package spaces
      c←s.AcreConfig                          ⍝ All Config spaces
-     _←2 ⎕MKDIR¨{af,'/',⍵}¨∪c.ProjectAuthor  ⍝ Create Company/Author Folders
-     sf←¯1↓¨c.PackageFolder                  ⍝ Source folders
-     tf←af∘,¨c.FullProjectName               ⍝ Target folders
-     _←CopyFolder¨sf{⍺ ⍵}¨tf                 ⍝ Copy all packages to application folder
-     f←'#.CarlisleGroup.AcreTools.BuildApplicationWS_'
-     ra←⍺.AcreConfig.ProjectFolder
-     _←RunInProcess f ra
+     _←af∘CopyRuntimeAssets¨c                ⍝ Copy runtime files/folders
+     _←ClearDevelopmentCode¨s                ⍝ Keep only runtime code
+     n←pc.FullProjectName
+     #.Packages←(⊂n),c.FullProjectName~⊂n    ⍝ Note
+     #.⎕LX←'#.CarlisleGroup.AcreTools.StartApplication 0'
+     _←0 ⎕SAVE af,pc.ProjectName             ⍝ Save Applicaton workspace
      0                                       ⍝ Exit process
  }

@@ -4,6 +4,7 @@
      ⍝ In a new APL Process, open project ⍺
      ⍝ then run Function with project space ⍺ as left argment
      ⍝ and Argument as right argument.
+     _←SetAcreConfig 0
      ⍺←⎕THIS
      f a←{2=≡⍵:⍵ ⋄ ⍵''}⍵
      pf←{326≠⎕DR ⍵:⍵ ⋄ ⍵.AcreConfig.ProjectFolder}⍺
