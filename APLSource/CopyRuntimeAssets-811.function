@@ -1,8 +1,8 @@
  CopyRuntimeAssets←{
      ⍝ ⍺ ←→ Application Folder
      ⍝ ⍵ ←→ Config space
+     tf←⍺                         ⍝ Target Folder
      sf←⍵.ProjectFolder           ⍝ Source Folder
-     tf←⍺,⍵.FullProjectName,'/'   ⍝ Target Folder
      _←2 ⎕MKDIR tf                ⍝ Create it
      cs←sf,'acreconfig.txt'       ⍝ Config Source
      ct←tf,'acreconfig.txt'       ⍝ Config target

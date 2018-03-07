@@ -3,7 +3,6 @@
      c←⍺.AcreConfig                ⍝ Configuration settings
      df←c.PackageFolder            ⍝ Package folder
      _←DeleteFolder ¯1↓df          ⍝ Delete it first
-     _←2 ⎕MKDIR df                 ⍝ Ensure it exists
      _←df CopyRuntimeAssets c      ⍝ Copy runtime folders
      _←CopyRuntimeCode c           ⍝ Copy runtime code
      0                             ⍝ Done

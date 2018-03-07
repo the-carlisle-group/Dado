@@ -6,7 +6,8 @@
      _←2 ⎕MKDIR af                           ⍝ Create it
      s←⍎¨(⎕SE.UCMD']ACRE.Projects')[;0]      ⍝ All project/package spaces
      c←s.AcreConfig                          ⍝ All Config spaces
-     _←af∘CopyRuntimeAssets¨c                ⍝ Copy runtime files/folders
+     tf←af∘,¨c.FullProjectName,¨'/'          ⍝ Target Folders
+     _←tf CopyRuntimeAssets¨c                ⍝ Copy runtime files/folders
      _←ClearDevelopmentCode¨s                ⍝ Keep only runtime code
      n←pc.FullProjectName
      #.Packages←(⊂n),c.FullProjectName~⊂n    ⍝ Note
