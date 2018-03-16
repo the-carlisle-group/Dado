@@ -1,0 +1,4 @@
+ GetTempDir←{
+     APLVersion.OS≡'Linux':'/tmp'
+     ↑0 ⎕NINFO↑⎕CMD'echo %temp%'
+ }
