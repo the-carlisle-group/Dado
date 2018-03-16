@@ -1,9 +1,13 @@
  BuildPackage_←{
      ⍝ ⍺ ←→ Project Space
-     c←⍺.AcreConfig                ⍝ Configuration settings
-     df←c.PackageFolder            ⍝ Package folder
-     _←DeleteFolder ¯1↓df          ⍝ Delete it first
-     _←df CopyRuntimeAssets c      ⍝ Copy runtime folders
-     _←CopyRuntimeCode c           ⍝ Copy runtime code
-     0                             ⍝ Done
+     aa←⍎⍵
+     c←⍺.AcreConfig
+     df←c.PackageFolder
+     _←DeleteFolder ¯1↓df
+     pf←c.ProjectFolder
+     _←InitTargetFolder pf df
+     _←CopyRuntimeAssets pf df
+     _←aa CopyDevelopmentAssets pf df
+     _←CopyRuntimeCode c
+     0
  }

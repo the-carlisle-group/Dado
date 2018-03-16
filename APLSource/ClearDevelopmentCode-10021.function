@@ -1,5 +1,8 @@
  ClearDevelopmentCode←{
+     ⍝ ⍺ ←→ All Assets Flag
      ⍝ ⍵ ←→ Project Space
+     ⍺←0
+     ⍺:0
      c←⍵.AcreConfig
      p←'RuntimeSpaces'
      r←{0=c.⎕NC ⍵:'' ⋄ c⍎⍵}p

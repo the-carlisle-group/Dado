@@ -1,0 +1,8 @@
+ InitTargetFolder←{
+     sf tf←⍵
+     _←2 ⎕MKDIR tf
+     cs←sf,'acreconfig.txt'       ⍝ Config Source
+     ct←tf,'acreconfig.txt'       ⍝ Config target
+     _←CopyFile cs ct             ⍝ Copy it
+     0
+ }

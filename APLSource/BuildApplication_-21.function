@@ -1,5 +1,8 @@
  BuildApplication_←{
      ⍝ ⍺ ←→ Project Space
+     ⍝ ⍵ ←→ '0', include runtime assets only
+     ⍝      '1'  include all assets
+     aa←⍎⍵                                   ⍝ All assets
      pc←⍺.AcreConfig                         ⍝ Primary config space
      af←pc.ApplicationFolder                 ⍝ Application Folder
      _←DeleteFolder ¯1↓af                    ⍝ Delete it first
@@ -7,8 +10,12 @@
      s←⍎¨(⎕SE.UCMD']ACRE.Projects')[;0]      ⍝ All project/package spaces
      c←s.AcreConfig                          ⍝ All Config spaces
      tf←af∘,¨c.FullProjectName,¨'/'          ⍝ Target Folders
-     _←tf CopyRuntimeAssets¨c                ⍝ Copy runtime files/folders
-     _←ClearDevelopmentCode¨s                ⍝ Keep only runtime code
+     sf←c.ProjectFolder
+     k←sf{⍺ ⍵}¨tf
+     _←InitTargetFolder¨k
+     _←CopyRuntimeAssets¨k
+     _←aa CopyDevelopmentAssets¨k
+     _←aa ClearDevelopmentCode¨s             ⍝ Keep only runtime code
      n←pc.FullProjectName
      #.Packages←(⊂n),c.FullProjectName~⊂n    ⍝ Note
      #.⎕LX←'#.CarlisleGroup.AcreTools.StartApplication 0'

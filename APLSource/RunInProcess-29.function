@@ -16,7 +16,7 @@
      nl,←⊂q ws
      nl,←⊂'AcreProject=',pf
      nl,←⊂'AcreFunction=',f
-     nl,←⊂'AcreArgument=',a
+     nl,←⊂'AcreArgument=',⍕a
      nl,←⊂'maxws=2g'
      z←⎕CMD(1↓∊' ',¨nl)''
      0
