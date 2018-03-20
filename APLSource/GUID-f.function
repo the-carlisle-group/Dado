@@ -1,0 +1,8 @@
+ Z←GUID
+ :If APLVersion.OS≡'Windows'
+     Z←{s←'S'⎕WC'OLEServer' ⋄ 128↑S.ClassID}0
+ :Else
+     Z←{⎕ML←3 ⋄ ↑⎕SH'uuidgen'}''
+     Z←'{',Z,'}'
+ :EndIf
+ Z←Z~' '
