@@ -1,0 +1,15 @@
+ CopyAPLSource←{
+     ⍝ ⍺ ←→ All assets flag
+     ⍝ ⍵ ←→ Config space
+     ⍝ Copy all source, then delete dev spaces if applicable
+     sf←⍵.ProjectFolder,'APLSource'
+     tf←⍵.PackageFolder,'APLSource'
+     _←CopyFolder sf tf
+     ⍺:0
+     p←'DevelopmentSpaces'
+     0=⍵.⎕NC p:0
+     s←⍵⍎p
+     df←{tf,'/',⍵,'-',ComputeCaseCode ⍵}¨s
+     _←DeleteFolder¨df
+     0
+ }

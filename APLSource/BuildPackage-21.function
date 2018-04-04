@@ -1,4 +1,15 @@
  BuildPackage←{
-     ⍝ ⍵ ←→ Project folder or Project Space
-     ⍵ RunInProcess'#.CarlisleGroup.AcreTools.BuildPackage_'
+     ⍝ ⍺ ←→ 0, include only runtime code/assets
+     ⍝      1, include all code/assets
+     ⍝ ⍵ ←→ Project Folder or Space
+     ⍺←0
+     c←GetConfigSpace ⍵
+     df←c.PackageFolder
+     _←DeleteFolder ¯1↓df
+     pf←c.ProjectFolder
+     _←InitTargetFolder pf df
+     _←CopyRuntimeAssets pf df
+     _←⍺ CopyDevelopmentAssets pf df
+     _←⍺ CopyAPLSource c
+     0
  }

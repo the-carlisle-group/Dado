@@ -4,9 +4,8 @@
      ⍺←0
      ⍺:0
      c←⍵.AcreConfig
-     p←'RuntimeSpaces'
-     r←{0=c.⎕NC ⍵:'' ⋄ c⍎⍵}p
-     es←⍵.⎕NL ¯9
-     _←⍵.⎕EX¨es~r
+     p←'DevelopmentSpaces'
+     0=c.⎕NC p:0
+     _←⍵.⎕EX¨c⍎p
      0
  }

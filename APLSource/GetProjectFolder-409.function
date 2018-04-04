@@ -1,0 +1,5 @@
+ GetProjectFolder←{
+     ⍝ ⍵ ←→ Project Folder or ProjectSpace
+     326≠⎕DR ⍵:⍵
+     ⍵.AcreConfig.ProjectFolder
+ }

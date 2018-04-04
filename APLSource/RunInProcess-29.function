@@ -4,15 +4,14 @@
      ⍝ In a new APL Process, open project ⍺
      ⍝ then run Function with project space ⍺ as left argment
      ⍝ and Argument as right argument.
-     _←SetAcreConfig 0
      ⍺←⎕THIS
+     pf←GetProjectFolder ⍺
      f a←{2=≡⍵:⍵ ⋄ ⍵''}⍵
-     pf←{326≠⎕DR ⍵:⍵ ⋄ ⍵.AcreConfig.ProjectFolder}⍺
      cl←#.GetCommandLineArgs
      q←{'"',⍵,'"'}
      nl←⊂q 0⊃cl
      tf←AcreConfig.ProjectFolder
-     ws←tf,'Files/Stub.dws'
+     ws←tf,'Assets/Runtime/Stub.dws'
      nl,←⊂q ws
      nl,←⊂'AcreProject=',pf
      nl,←⊂'AcreFunction=',f
