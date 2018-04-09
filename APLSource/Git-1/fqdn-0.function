@@ -1,0 +1,1 @@
+ fqdn←{0=≢⍵:⍵ ⋄ 'itemname'⎕SE.acre.run ⍵}

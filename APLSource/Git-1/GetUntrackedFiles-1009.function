@@ -1,5 +1,5 @@
  GetUntrackedFiles←{
      bash←'git -C "',⍵.AcreConfig.ProjectFolder,'"  ls-files -o'
      res←⎕CMD bash
-     res
+     fqdn res
  }

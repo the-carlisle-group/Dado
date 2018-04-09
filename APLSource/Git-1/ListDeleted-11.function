@@ -1,0 +1,6 @@
+ ListDeleted←{
+     pf←⍵.AcreConfig.ProjectFolder
+     bash←'git -C "',pf,'" ls-files -d'
+     res←⎕CMD bash
+     ⊃fqdn(⊆pf),¨res
+ }
