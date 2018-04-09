@@ -1,4 +1,5 @@
  ListChanges←{
+     fqdn←{0=≢⍵:⍵ ⋄ 'itemname'⎕SE.acre.run ⍵}
      ref←⍵
      settings←⍵.AcreConfig
      branch←GetCurrentBranch ref
@@ -10,9 +11,9 @@
 
      changed←⎕CMD'git -C "',settings.ProjectFolder,'"  diff --name-only'
      data←⍬
-     data,←(⊂'Changed: '),¨changed
-     data,←(⊂'Added: '),¨untracked
-     data,←(⊂'Deleted: '),¨deleted
+     data,←(⊂'Changed: '),¨fqdn changed
+     data,←(⊂'Added: '),¨fqdn untracked
+     data,←(⊂'Deleted: '),¨fqdn deleted
      ⎕←''
      ⎕←(20↑'Repository: '),repName
      ⎕←(20↑'Branch: '),branch
