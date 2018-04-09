@@ -1,6 +1,5 @@
  GetUntrackedFiles←{
-     settings←getSettings ⍵
-     bash←'git -C "',settings.ProjectFolder,'"  ls-files -o'
+     bash←'git -C "',⍵.AcreConfig.ProjectFolder,'"  ls-files -o'
      res←⎕CMD bash
      res
  }

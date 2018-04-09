@@ -1,6 +1,6 @@
  ListChanges←{
      ref←⍵
-     settings←getSettings ref
+     settings←⍵.AcreConfig
      branch←GetCurrentBranch ref
      repName←settings.ProjectFolder
      deleted←GetDeletedFiles ref
