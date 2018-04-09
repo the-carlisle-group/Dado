@@ -1,5 +1,0 @@
- GetDeletedFiles←{
-     bash←'git -C "',⍵.AcreConfig.ProjectFolder,'"  ls-files -d'
-     res←⎕CMD bash
-     res
- }
