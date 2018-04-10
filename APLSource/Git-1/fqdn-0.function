@@ -4,6 +4,7 @@
      list←((819⌶)10↑¨⍵)∊⊂'aplsource/'
      foos←list/⍵
      files←pf,¨(~list)/⍵
+     0=≢foos:files
      foos←'itemname'⎕SE.acre.run foos
      foos,files
  }
