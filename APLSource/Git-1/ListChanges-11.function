@@ -1,22 +1,6 @@
  ListChanges←{
-     ref←⍵
-     settings←⍵.AcreConfig
-     pf←settings.ProjectFolder
-     branch←GetCurrentBranch ref
-     deleted←↓ListDeleted ref
-     untracked←↓ListUntracked ref
-     untracked~←deleted
-
-     changed←⎕CMD'git -C "',pf,'"  diff --name-only'
-     changed←fqdn(⊆pf),¨changed
-     data←⍬
-     data,←(⊂'Changed: '),¨changed
-     data,←(⊂'Added:   '),¨untracked
-     data,←(⊂'Deleted: '),¨deleted
-     ⎕←''
-     ⎕←(20↑'Repository: '),pf
-     ⎕←(20↑'Branch:     '),branch
-     ⎕←'Not Committed!'
-     ⎕←''
-     ⎕←⊃data
+     pf←⍵.AcreConfig.ProjectFolder
+     bash←'git -C "',pf,'"  diff --name-only'
+     changed←⎕CMD bash
+     ⍵ fqdn changed
  }

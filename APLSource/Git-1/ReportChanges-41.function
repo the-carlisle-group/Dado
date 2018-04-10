@@ -1,0 +1,20 @@
+ ReportChanges←{
+     ref←⍵
+     settings←⍵.AcreConfig
+     pf←settings.ProjectFolder
+     branch←GetCurrentBranch ref
+     deleted←ListDeleted ref
+     untracked←ListUntracked ref
+     untracked~←deleted
+     changed←ListChanges ref
+     data←⍬
+     data,←(⊂'Changed: '),¨changed
+     data,←(⊂'Added:   '),¨untracked
+     data,←(⊂'Deleted: '),¨deleted
+     ⎕←''
+     ⎕←(20↑'Repository: '),pf
+     ⎕←(20↑'Branch:     '),branch
+     ⎕←'Not Committed!'
+     ⎕←''
+     ⎕←⊃data
+ }

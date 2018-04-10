@@ -1,1 +1,9 @@
- fqdn←{0=≢⍵:⍵ ⋄ 'itemname'⎕SE.acre.run ⍵}
+ fqdn←{
+     0=≢⍵:⍵
+     pf←⊆⍺.AcreConfig.ProjectFolder
+     list←((819⌶)10↑¨⍵)∊⊂'aplsource/'
+     foos←list/⍵
+     files←pf,¨(~list)/⍵
+     foos←'itemname'⎕SE.acre.run foos
+     foos,files
+ }
