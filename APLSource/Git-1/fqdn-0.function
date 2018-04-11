@@ -5,6 +5,6 @@
      foos←list/⍵
      files←pf,¨(~list)/⍵
      0=≢foos:files
-     foos←'itemname'⎕SE.acre.run foos
+     foos←'itemname'⎕SE.acre.run pf,¨foos
      foos,files
  }
