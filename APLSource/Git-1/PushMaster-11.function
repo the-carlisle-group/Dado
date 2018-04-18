@@ -1,0 +1,7 @@
+ PushMaster←{
+     ⍝ ⍺ ←→ [ProjectSpace]
+     ⍝ ⍵ ←→ n/a
+     ⍺←0
+     p←GetProjectSpace ⍺
+     p RunGitCommand'push origin master'
+ }

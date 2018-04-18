@@ -1,0 +1,7 @@
+ UpdateFromMaster←{
+     ⍝ ⍺ ←→ ProjectSpace
+     ⍝ ⍵ ←→ ''
+     ⍺←0
+     p←GetProjectSpace ⍺
+     p RunGitCommand'merge master'
+ }

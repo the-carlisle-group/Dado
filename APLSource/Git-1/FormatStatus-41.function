@@ -1,0 +1,14 @@
+ FormatStatus←{
+     ⍝ ⍺ ←→ Project Space
+     ⍝ ⍵ ←→ Result of Status or Diff
+     0=≢⍵:⍵
+     pf←⍺.AcreConfig.ProjectFolder
+     m←⊃⍵
+     m←(~∧⌿' '=m)⊆m
+     f←m[;1]
+     b←'APLSource/'∘≡¨10↑¨f
+     ~∨/b:m
+     n←'itemname'⎕SE.acre.run pf∘,¨b/f
+     m[⍸b;1]←n
+     m
+ }

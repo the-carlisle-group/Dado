@@ -1,0 +1,8 @@
+ NewBranch←{
+     ⍝ ⍺ ←→ ProjectSpace
+     ⍝ ⍵ ←→ Branch
+     ⍝ ← ←→ New current branch
+     ⍺←0
+     p←GetProjectSpace ⍺
+     p RunGitCommand'checkout -b ',⍵,' master'
+ }

@@ -1,0 +1,10 @@
+ CheckOut←{
+     ⍝ ⍺ ←→ ProjectSpace
+     ⍝ ⍵ ←→ Branch
+     ⍝ ← ←→ New current branch
+     ⍺←0
+     p←GetProjectSpace ⍺
+     r←p RunGitCommand'checkout ',⍵
+     _←ReopenProject p
+     r
+ }

@@ -1,5 +1,6 @@
 ﻿:Namespace
     CaseCode←'On'
+    KeepHistory←'Off'
     Load←''
     Open←''
     ProjectSpace←'#.CarlisleGroup.AcreTools'

@@ -1,0 +1,8 @@
+ Fetch←{
+     ⍝ ⍺ ←→ ProjectSpace
+     ⍝ ⍵ ''
+     ⍺←0
+     p←GetProjectSpace ⍺
+     ⎕←p RunGitCommand'fetch origin'
+     p RunGitCommand'diff --name-status master origin/master'
+ }

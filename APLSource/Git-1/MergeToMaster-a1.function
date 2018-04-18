@@ -1,0 +1,24 @@
+ MergeToMaster←{
+     ⍝ ⍺ ←→ ProjectSpace
+     ⍝ ⍵ ←→ CommitMessage
+     ⍝ *********************************************************
+     ⍝ Merge a completed feature branch into the master
+     ⍝ ... Does a final commit on the feature branch first
+     ⍝     Updates from master firts, exits if conflicts
+     ⍝     Then squash on feature branch
+     ⍝     merges to master
+     ⍝
+     ⍝ *********************************************************
+     ⍺←0
+     p←GetProjectSpace ⍺
+     p IsDirty'':'Not merged. Uncommitted changes.'
+     r←p UpdateFromMaster''
+     p IsDirty'':⊃r⊣ReopenProject p
+     r,←↓p SquashBranch ⍵
+     b←GetCurrentBranch p
+     r,←p RunGitCommand'checkout master'
+     r,←p RunGitCommand'merge ',b
+     r,←p RunGitCommand'checkout ',b
+     _←ReopenProject p
+     ⊃r
+ }

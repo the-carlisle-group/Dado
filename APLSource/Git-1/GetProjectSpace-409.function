@@ -1,0 +1,9 @@
+ GetProjectSpace←{
+     ⍝ ⍵ ←→ ProjectSpace (then no-op)
+     ⍝ ⍵ ←→ 0, then look for ProjectSpace in context
+     ⍵≠0:⍵
+     {9=⍵.⎕NC'AcreConfig':⍵
+         ⍵=#:0
+         ∇ ⍵.##
+     }↑⌽⎕RSI
+ }

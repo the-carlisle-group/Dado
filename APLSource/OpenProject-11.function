@@ -1,0 +1,7 @@
+ OpenProject←{
+     ⍝ ⍵ ←→ Project Folder
+
+     r←⎕SE.UCMD']acre.OpenProject ',⍵,' -messages=off'
+     b←Git.GetCurrentBranch⍎r
+     r,'  Current branch: ',b
+ }

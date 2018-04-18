@@ -1,0 +1,6 @@
+ RunGitCommand←{
+     ⍝ ⍺ ←→ ProjectSpace
+     ⍝ ⍵ ←→ command
+     c←'git -C "',⍺.AcreConfig.ProjectFolder,'" ',⍵,' 2>&1'
+     ⎕CMD c
+ }

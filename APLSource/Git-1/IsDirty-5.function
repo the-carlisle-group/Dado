@@ -1,0 +1,5 @@
+ IsDirty←{
+     ⍺←0
+     p←GetProjectSpace ⍺
+     0<≢p Status''
+ }
