@@ -4,7 +4,7 @@
      ⍝ ← ←→ New current branch
      ⍺←0
      p←GetProjectSpace ⍺
-     r←p RunGitCommand'checkout ',⍵
-     _←ReopenProject p
-     r
+     p IsDirty'':'Uncommited changes.'
+     ⎕←p RunGitCommand'checkout ',⍵
+     ReopenProject p
  }

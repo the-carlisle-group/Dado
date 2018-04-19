@@ -3,22 +3,19 @@
      ⍝ ⍵ ←→ CommitMessage
      ⍝ *********************************************************
      ⍝ Merge a completed feature branch into the master
-     ⍝ ... Does a final commit on the feature branch first
-     ⍝     Updates from master firts, exits if conflicts
-     ⍝     Then squash on feature branch
-     ⍝     merges to master
+     ⍝     Updates from master first, exits if conflicts
      ⍝
+     ⍝     merges to master
      ⍝ *********************************************************
      ⍺←0
+     ' '∧.=⍵:'Empty commit message.'
      p←GetProjectSpace ⍺
-     p IsDirty'':'Not merged. Uncommitted changes.'
-     r←p UpdateFromMaster''
-     p IsDirty'':⊃r⊣ReopenProject p
-     r,←↓p SquashBranch ⍵
+     p IsDirty'':'Uncommitted changes.'
+     ⎕←p UpdateFromMaster''
+     p IsDirty'':ReopenProject p
      b←GetCurrentBranch p
-     r,←p RunGitCommand'checkout master'
-     r,←p RunGitCommand'merge ',b
-     r,←p RunGitCommand'checkout ',b
-     _←ReopenProject p
-     ⊃r
+     ⎕←p RunGitCommand'checkout master'
+     ⎕←p RunGitCommand'merge --squash ',b
+     ⎕←p RunGitCommand'commit -m "',⍵,'"'
+     ReopenProject p
  }

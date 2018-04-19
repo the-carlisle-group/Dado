@@ -1,0 +1,5 @@
+ DeleteBranch←{
+     ⍺←0
+     p←GetProjectSpace ⍺
+     p RunGitCommand'branch -d ',⍵
+ }
