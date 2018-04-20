@@ -1,0 +1,10 @@
+ WhereAmI←{
+     ⍺←0
+     p←GetProjectSpace ⍺
+     c←p.AcreConfig
+     r←⊂'Project ',c.ProjectFolder
+     r,←⊂'Branch: ',GetCurrentBranch p
+     r,←⊂'Namespace: ',↑⌽⎕NSI
+     r,←⊂'Uncommited changes: ',(p IsDirty'')⊃'No' 'Yes'
+     ⊃r
+ }

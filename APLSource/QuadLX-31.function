@@ -1,0 +1,6 @@
+ QuadLX;z
+ #.Git←Git
+ z←('#.Git.WhereAmI''''',⊂'ER')⎕PFKEY 6
+ z←('#.Git.ChangesUncommitted''''',⊂'ER')⎕PFKEY 7
+ z←('#.Git.ChangesCommitted''''',⊂'ER')⎕PFKEY 8
+ z←('#.Git.Commit''''',⊂'ER')⎕PFKEY 9

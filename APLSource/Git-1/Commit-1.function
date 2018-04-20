@@ -4,7 +4,6 @@
      m←⍵,(0=≢⍵)/'Save point'
      ⍺←0
      p←GetProjectSpace ⍺
-     r←p RunGitCommand'add --all'
-     r,←p RunGitCommand'commit -m "',m,'"'
-     ⊃r
+     ⎕←p RunGitCommand'add --all'
+     p RunGitCommand'commit -m "',m,'"'
  }

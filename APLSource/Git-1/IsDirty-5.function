@@ -1,5 +1,6 @@
  IsDirty←{
+     ⍝ Are there uncommited changes?
      ⍺←0
      p←GetProjectSpace ⍺
-     0<≢p Status''
+     0<≢p RunGitCommand'status --short'
  }

@@ -11,11 +11,9 @@
      ' '∧.=⍵:'Empty commit message.'
      p←GetProjectSpace ⍺
      p IsDirty'':'Uncommitted changes.'
-     ⎕←p UpdateFromMaster''
-     p IsDirty'':ReopenProject p
      b←GetCurrentBranch p
-     ⎕←p RunGitCommand'checkout master'
-     ⎕←p RunGitCommand'merge --squash ',b
-     ⎕←p RunGitCommand'commit -m "',⍵,'"'
+     ⎕←⊃p RunGitCommand'checkout master'
+     ⎕←⊃p RunGitCommand'merge --squash ',b
+     ⎕←⊃p RunGitCommand'commit -m "',⍵,'"'
      ReopenProject p
  }

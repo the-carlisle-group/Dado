@@ -4,5 +4,5 @@
     Load←''
     Open←''
     ProjectSpace←'#.CarlisleGroup.AcreTools'
-    StartUp←''
+    StartUp←'QuadLX'
 :EndNamespace
