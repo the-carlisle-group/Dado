@@ -1,6 +1,7 @@
  WhereAmI←{
      ⍺←0
      p←GetProjectSpace ⍺
+     p=0:'Not in project'
      c←p.AcreConfig
      r←⊂'Project ',c.ProjectFolder
      r,←⊂'Branch: ',GetCurrentBranch p

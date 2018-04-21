@@ -1,7 +1,0 @@
- ChangesCommitted←{
-     ⍝ Show all committed changes in current branch.
-     ⍺←0
-     p←GetProjectSpace ⍺
-     r←p RunGitCommand'diff --name-status master...'
-     p FormatStatus r
- }

@@ -1,7 +1,7 @@
  FormatStatus←{
      ⍝ ⍺ ←→ Project Space
      ⍝ ⍵ ←→ Result of Status or Diff
-     0=≢⍵:⍵
+     0=≢⍵:' {none}'
      pf←⍺.AcreConfig.ProjectFolder
      m←⊃⍵
      b←~∧⌿' '=m

@@ -1,0 +1,17 @@
+ Changes←{
+     ⍺←0
+     p←GetProjectSpace ⍺
+     p=0:'Not in project'
+     c←p.AcreConfig
+     b←GetCurrentBranch p
+     n←↑⌽{(⍵≠'/')⊆⍵}c.ProjectFolder
+     z←⊂'Project/Branch: ',n,'/',b
+     ⍝ z,←⊂'Current namespace: ',↑⌽⎕NSI
+     z,←⊂'Uncommitted Changes:'
+     r←p RunGitCommand'status --short'
+     z,←↓⍕p FormatStatus r
+     z,←⊂'Committed Changes:'
+     r←p RunGitCommand'diff --name-status master...'
+     z,←↓⍕p FormatStatus r
+     ⊃z
+ }
