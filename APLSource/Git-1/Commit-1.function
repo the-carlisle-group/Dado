@@ -1,9 +1,10 @@
  Commit←{
      ⍝ ⍺ ←→ ProjectSpace
      ⍝ ⍵ ←→ Message
-     m←⍵,(0=≢⍵)/'Save point'
      ⍺←0
      p←GetProjectSpace ⍺
+     0=p:'Not in project'
+     m←⍵,(0=≢⍵)/'Save point'
      _←p RunGitCommand'add --all'
      p RunGitCommand'commit -m "',m,'"'
  }

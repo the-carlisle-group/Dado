@@ -6,7 +6,6 @@
      b←GetCurrentBranch p
      n←↑⌽{(⍵≠'/')⊆⍵}c.ProjectFolder
      z←⊂'Project/Branch: ',n,'/',b
-     ⍝ z,←⊂'Current namespace: ',↑⌽⎕NSI
      z,←⊂'Uncommitted Changes:'
      r←p RunGitCommand'status --short'
      z,←↓⍕p FormatStatus r

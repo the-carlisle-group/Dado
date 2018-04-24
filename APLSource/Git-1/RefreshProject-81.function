@@ -1,0 +1,6 @@
+ RefreshProject←{
+     ⍝ ⍺ ←→ [Project Folder]
+     ⍺←0
+     p←GetProjectSpace ⍺
+     ⎕SE.UCMD']Acre.Refresh ',⍕p
+ }

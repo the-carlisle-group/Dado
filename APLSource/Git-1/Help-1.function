@@ -1,0 +1,21 @@
+ Help←{
+     r←''
+     r,←⊂'⍝ *** From Anywhere ***'
+     r,←⊂'⍝.Git.Refresh 0              ⍝ F5: Refresh workspace from disk'
+     r,←⊂'#.Git.Branches 0             ⍝ F8 Lists all branches.'
+     r,←⊂'#.Git.Checkout ''branch''      ⍝ Switch branches.'
+     r,←⊂'#.Git.NewBranch ''name''       ⍝ Create a new branch based on master.'
+     r,←⊂''
+     r,←⊂'⍝ *** From Feature Branch ***'
+     r,←⊂'#.Git.Changes 0              ⍝ F7: Lists committed and uncommited changes.'
+     r,←⊂'#.Git.Commit ''''              ⍝ F9: Commit to feature branch'
+     r,←⊂'#.Git.UpdateFromMaster ''''    ⍝ Update feature branch from master'
+     r,←⊂'#.Git.MergeToMaster ''''       ⍝ Merge feature branch into master.'
+     r,←⊂''
+     r,←⊂'⍝ *** From Master Branch ***'
+     r,←⊂'#.Git.PullMaster ''''          ⍝ Update local master from remote.'
+     r,←⊂'#.Git.PushMaster''''           ⍝ Update remote master from local.'
+     r,←⊂'#.Git.DeleteBranch ''branch''  ⍝ Delete a branch'
+     r,←⊂'#.Git.RollbackMaster''branch'' ⍝ Roll back one commit on the master.'
+     ⊃r
+ }

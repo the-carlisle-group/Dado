@@ -15,5 +15,5 @@
      ⎕←⊃p RunGitCommand'checkout master'
      ⎕←⊃p RunGitCommand'merge --squash ',b
      ⎕←⊃p RunGitCommand'commit -m "',⍵,'"'
-     ReopenProject p
+     p RefreshProject 0
  }

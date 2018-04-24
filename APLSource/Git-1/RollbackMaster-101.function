@@ -1,8 +1,9 @@
  RollbackMaster←{
-    ⍝ Roll back one commit.
+     ⍝ Roll back one commit.
      ⍺←0
      p←GetProjectSpace ⍺
      b←GetCurrentBranch p
      b≢'master':'Not on master'
-     p RunGitCommand'reset --hard HEAD~1'
+     ⎕←p RunGitCommand'reset --hard HEAD~1'
+     p RefreshProject 0
  }

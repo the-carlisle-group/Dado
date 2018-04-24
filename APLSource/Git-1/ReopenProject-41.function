@@ -1,6 +1,0 @@
- ReopenProject←{
-     ⍝ ⍵ ←→ Project Folder
-     _←⎕SE.UCMD']Acre.OpenProject ',⍵.AcreConfig.ProjectFolder
-     _←('⎕THIS⊣⎕CS ⎕CS ''#''',⊂'ER')⎕PFKEY 5
-     ⎕NQ ⎕SE'KeyPress' 'F5'
- }

@@ -6,5 +6,5 @@
      p IsDirty'':'UncommittedChanges'
      ⎕←⊃p RunGitCommand'fetch origin master:master'
      ⎕←⊃p RunGitCommand'merge master'
-     ReopenProject p
+     p RefreshProject 0
  }

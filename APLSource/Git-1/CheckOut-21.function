@@ -6,5 +6,5 @@
      p←GetProjectSpace ⍺
      p IsDirty'':'Uncommited changes.'
      ⎕←p RunGitCommand'checkout ',⍵
-     ReopenProject p
+     p RefreshProject 0
  }

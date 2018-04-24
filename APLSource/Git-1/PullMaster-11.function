@@ -7,5 +7,6 @@
      b≢'master':'Not on master branch.'
      p IsDirty'':'Uncommitted changes.'
      ⎕←p RunGitCommand'fetch origin'
-     p RunGitCommand'merge origin/master'
+     ⎕←p RunGitCommand'merge origin/master'
+     p RefreshProject 0
  }
