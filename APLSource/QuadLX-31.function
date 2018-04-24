@@ -1,6 +1,7 @@
  QuadLX;z
+ ⍝ Set function keys.
  #.Git←Git
- z←('#.Git.ReopenProject''''',⊂'ER')⎕PFKEY 7
+ z←('#.Git.RefreshProject''''',⊂'ER')⎕PFKEY 5
+ z←('#.Git.Branches''''',⊂'ER')⎕PFKEY 6
  z←('#.Git.Changes''''',⊂'ER')⎕PFKEY 7
- z←('#.Git.Branches''''',⊂'ER')⎕PFKEY 8
  z←('#.Git.Commit''''',⊂'ER')⎕PFKEY 9

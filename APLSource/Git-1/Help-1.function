@@ -2,7 +2,7 @@
      r←''
      r,←⊂'⍝ *** From Anywhere ***'
      r,←⊂'⍝.Git.Refresh 0              ⍝ F5: Refresh workspace from disk'
-     r,←⊂'#.Git.Branches 0             ⍝ F8 Lists all branches.'
+     r,←⊂'#.Git.Branches 0             ⍝ F6: Lists all branches.'
      r,←⊂'#.Git.Checkout ''branch''      ⍝ Switch branches.'
      r,←⊂'#.Git.NewBranch ''name''       ⍝ Create a new branch based on master.'
      r,←⊂''
