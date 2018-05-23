@@ -1,0 +1,19 @@
+ Restore←{
+     ⍝ Restore an item to previous version
+     ⍝ ⍵[0] ←→ ItemName (the fully qualified namespace path)
+     ⍝ ⍵[1] ←→ Optional commit hash
+     ⍺←0
+     n c←⍵
+     p←GetProjectSpace ⍺
+     fn←↑'sourcefile'⎕SE.acre.run n
+     rn←(≢p.AcreConfig.ProjectFolder)↓fn
+
+
+     ⎕←p RunGitCommand'checkout ',c,' -- ',rn
+
+
+     ⍝ ⎕←p RunGitCommand'checkout HEAD~',(⍕n),' -- ',rn
+     p RefreshProject 0
+
+
+ }

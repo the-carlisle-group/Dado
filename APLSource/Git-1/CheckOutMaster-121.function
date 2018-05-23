@@ -1,0 +1,10 @@
+ CheckOutMaster←{
+     ⍝ ⍺ ←→ [ProjectSpace]
+     ⍝ ⍵ ←→ n/a
+     ⍝ ← ←→ New current branch
+     ⍺←0
+     p←GetProjectSpace ⍺
+     p IsDirty'':'Uncommited changes.'
+     ⎕←p RunGitCommand'checkout master'
+     p RefreshProject 0
+ }

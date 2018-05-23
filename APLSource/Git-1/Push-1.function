@@ -1,0 +1,9 @@
+ Push←{
+     ⍝ Push Current Branch
+     ⍝ ⍺ ←→ [ProjectSpace]
+     ⍝ ⍵ ←→ n/a
+     ⍺←0
+     p←GetProjectSpace ⍺
+     b←GetCurrentBranch p
+     p RunGitCommand'push origin ',b
+ }
