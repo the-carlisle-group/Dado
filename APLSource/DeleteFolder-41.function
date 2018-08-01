@@ -1,4 +1,5 @@
  DeleteFolder←{                   ⍝ Delete folder ⍵
+     0=≢⍵:0                       ⍝ Domain error on ⎕NEXISTS empty strings
      ~⎕NEXISTS ⍵:0                ⍝ No folder, no problem
      cmd←(APLVersion.OS≡'Linux')⊃'rmdir /S /Q ' 'rm -r '
      cmd,←'"',⍵,'"'
