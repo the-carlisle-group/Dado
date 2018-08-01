@@ -1,0 +1,6 @@
+ GetCurrentDirectory←{
+     ⍝ Get current working directory.  No trailing slash is added by OS calls.
+     APLVersion.OS≢'Windows':0⊃⎕SH'pwd'
+     f←'getdir'⎕NA'I4 KERNEL32.C32|GetCurrentDirectory* I4 >T[]'
+     {(0⊃⍵)↑(1⊃⍵)}getdir 260 260
+ }
