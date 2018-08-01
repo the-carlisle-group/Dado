@@ -1,8 +1,13 @@
  ns←APLVersion;⎕ML;ver
- ⎕ML←3
- ver←'.'⎕WG'APLVersion'
- ns←⎕NS''
- ns.Bit64←'64'≡¯2↑0⊃ver
- ns.OS←ns.Bit64{⍺:¯3↓⍵ ⋄ ⍵}0⊃ver
- ns.BuildID←1⊃ver
- ns.Runtime←'Runtime'≡3⊃ver
+ ⍝ Trad fun 10-15% faster than wrapping in dFN
+ :If 0=⎕NC'_aplVersion'
+     ⎕ML←3
+     ver←'.'⎕WG'APLVersion'
+     (_aplVersion ns)←⎕NS''
+     ns.Bit64←'64'≡¯2↑0⊃ver
+     ns.OS←ns.Bit64{⍺:¯3↓⍵ ⋄ ⍵}0⊃ver
+     ns.BuildID←1⊃ver
+     ns.Runtime←'Runtime'≡3⊃ver
+     ns.Build←1⊃'.'⎕VFI 1⊃ver
+ :EndIf
+ ns←_aplVersion
