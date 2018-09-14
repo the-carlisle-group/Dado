@@ -1,0 +1,19 @@
+ WritePackageCodeFile←{
+     ⍝ ⍵ ←→ Project Space
+     ⍝ ⍺ ←→ 0, include only runtime code
+     ⍝      1, include all code
+     ⍺←0
+     c←GetConfigSpace ⍵
+     d←(~⍺)/⍵{0::'' ⋄ ⍎¨⊆⍺⍎⍵}'DevelopmentSpaces'
+     r←(refs ⍵)~d
+     s←⍕¨r
+     n←r.⎕NL⊂-3 4
+     p←⊃,/s{⍺∘,¨'.',¨⍵}¨n
+     f←c.PackageFolder,'APLSource.dcf'
+     _←1 ⎕NDELETE f
+     t←f ⎕FCREATE 0
+     _←p ⎕FAPPEND t
+     _←(⎕CR¨p)⎕FAPPEND¨t
+     _←⎕FUNTIE t
+     0
+ }

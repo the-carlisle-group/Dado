@@ -1,5 +1,5 @@
  CopyDevelopmentAssets←{
-     ~⍺:0
+     ~↑⍺:0
      sf tf←⍵
      ds←sf,'Assets/Development'
      dt←tf,'Assets/Development'

@@ -5,4 +5,5 @@
     Open←''
     ProjectSpace←'#.CarlisleGroup.AcreTools'
     StartUp←'QuadLX'
+    Version←'1.0.0'
 :EndNamespace

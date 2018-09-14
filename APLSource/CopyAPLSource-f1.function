@@ -5,7 +5,7 @@
      sf←⍵.ProjectFolder,'APLSource'
      tf←⍵.PackageFolder,'APLSource'
      _←CopyFolder sf tf
-     ⍺:0
+     ↑⍺:0
      p←'DevelopmentSpaces'
      0=⍵.⎕NC p:0
      s←⍵⍎p

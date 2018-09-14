@@ -1,15 +1,18 @@
  BuildPackage←{
-     ⍝ ⍺ ←→ 0, include only runtime code/assets
-     ⍝      1, include all code/assets
+     ⍝ ⍺[0] ←→ 0,  include only runtime code/assets
+     ⍝         1,  include all code/assets
+     ⍝ ⍺[1] ←→ 1|0 create (or not) an APLSource.dcf code file
      ⍝ ⍵ ←→ Project Folder or Space
-     ⍺←0
+     ⍺←0 0
      c←GetConfigSpace ⍵
      df←c.PackageFolder
      _←DeleteFolder ¯1↓df
      pf←c.ProjectFolder
-     _←InitTargetFolder pf df
+     _←⍵ InitTargetFolder pf df
      _←CopyRuntimeAssets pf df
      _←⍺ CopyDevelopmentAssets pf df
      _←⍺ CopyAPLSource c
+     ~1⊃⍺:0
+     _←(↑⍺)WritePackageCodeFile ⍵
      0
  }

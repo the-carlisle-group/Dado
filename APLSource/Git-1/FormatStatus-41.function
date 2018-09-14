@@ -9,6 +9,7 @@
      m←b⊆m
      f←m[;1]
      b←'APLSource/'∘≡¨10↑¨f
+     b←b∧~'R'=↑¨m[;0]
      ~∨/b:m
      n←'itemname'⎕SE.acre.run pf∘,¨b/f
      m[⍸b;1]←n

@@ -1,0 +1,5 @@
+ GetShortHash←{
+     ⍺←0
+     p←GetProjectSpace ⍺
+     ↑p RunGitCommand'rev-parse --short HEAD'
+ }
