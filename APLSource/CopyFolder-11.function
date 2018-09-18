@@ -1,4 +1,4 @@
- CopyFolder←{                      ⍝ Copy Folder
+ CopyFolder←{                     ⍝ Copy Folder
      c←fso''                      ⍝ File System Object
      ⍵≡'?':⊃c.GetMethodInfo↑⎕SI   ⍝ Argument Info
      0::SigErr 37 'Folder not copied.'⍝ Any problem
