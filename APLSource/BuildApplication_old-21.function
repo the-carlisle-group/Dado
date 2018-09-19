@@ -1,7 +1,0 @@
- BuildApplication_old←{
-     ⍝ ⍺ ←→ 0, include only runtime code/assets
-     ⍝      1, include all code/assets
-     ⍝ ⍵ ←→ Project Folder or Space
-     ⍺←0
-     ⍵ RunInProcess'#.CarlisleGroup.AcreTools.BuildApplication_'⍺
- }

@@ -1,19 +1,18 @@
  BuildApplication←{
      ⍝ ⍵ ←→ Project Folder or Space
      ⍝ Assumes all packages already created
-     pc←GetConfigSpace ⍵.AcreConfig.ProjectFolder  ⍝ Primary config space
+     pf←GetProjectFolder ⍵
+     pc←GetConfigSpace pf               ⍝ Primary config space
      af←pc.ApplicationFolder            ⍝ Application Folder
      _←DeleteFolder ¯1↓af               ⍝ Delete it first
      _←2 ⎕MKDIR af                      ⍝ Create it
-     dp←'c:/APLProjects/CarlisleGroup/'∘,¨'FlipDB' 'Rumba' 'AcreTools' 'CashFlow' ⍝ ******TEMP Dependent Packages (for now)
-     c←GetConfigSpace¨dp,¨'/'           ⍝ Dependent Config spaces
+     dp←GetDependencies pf              ⍝ Dependent projects
+     c←GetConfigSpace¨dp                ⍝ Dependent Config spaces
      ac←pc,c                            ⍝ All config spaces
      sf←ac.PackageFolder                ⍝ Source package folders  - These could really come from anywhere..
      tf←af∘,¨ac.FullProjectName         ⍝ Target package folders, under application folder
      _←2 ⎕MKDIR¨tf                      ⍝ Create target dirs
      _←tf ⎕NCOPY¨sf,¨⊂'Assets'          ⍝ Copy Assets
-     ⍝ BUG !!!!! THIS WAY TOO:  _←(tf,¨⊂'/Assets')⎕NCOPY¨sf,¨⊂'Assets'    ⍝ Copy Assets
      _←tf ⎕NCOPY¨sf,¨⊂'acreconfig.txt'  ⍝ Copy config file
-     ⍝  _←CopyFolder¨(sf,¨⊂'Assets'){⍺ ⍵}¨tf,¨⊂'/Assets'
      RunInProcess'#.CarlisleGroup.AcreTools.BuildApplicationWorkspace'pc.ProjectFolder
  }

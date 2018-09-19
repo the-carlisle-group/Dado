@@ -4,8 +4,9 @@
      ⍝ This is run in a separate process
      ⍝ Called from BuildApplication
      pc←GetConfigSpace ⍵
-     dp←'c:/APLProjects/CarlisleGroup/'∘,¨'FlipDB' 'Rumba' 'CashFlow' 'AcreTools' ⍝ ******TEMP Dependent Packages (for now)
-     dc←GetConfigSpace¨dp,¨'/'
+     pf←pc.ProjectFolder
+     dp←GetDependencies pf
+     dc←GetConfigSpace¨dp
      ac←pc,dc
      load←{⎕SE.UCMD']ACRE.LoadProject ',⍵}
      s←load¨⌽ac.PackageFolder
