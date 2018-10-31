@@ -1,0 +1,8 @@
+{
+   "name": "acretools",
+   "version": "0.0.1",
+   "private": false,
+   "dependencies": {
+      "acre-tools": "^0.0.1"
+  }
+}
