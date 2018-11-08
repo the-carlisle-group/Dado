@@ -1,0 +1,10 @@
+ FileToItem←{
+
+     b←'APLSource/'⍷⍵
+     ~∨/b:⍵
+     t f←(~b)⊆b
+
+
+     FormatStatus
+
+ }

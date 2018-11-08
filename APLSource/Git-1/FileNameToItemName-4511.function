@@ -1,0 +1,8 @@
+ FileNameToItemName←{
+     f←DecodeOctalEncoding ⍵
+     'APLSource/'≢10↑f:f
+     ⍺←0
+     p←GetProjectSpace ⍺
+     pf←p.AcreConfig.ProjectFolder
+     ⊃'itemname'⎕SE.acre.run pf,f
+ }

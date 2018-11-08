@@ -1,0 +1,6 @@
+ GetFullyQualifiedItemName←{
+     ''≡⍵:⍵
+     '#'=↑⍵:⍵
+     '/'∊⍵:⍵
+     (↑⌽⎕NSI),'.',⍵
+ }

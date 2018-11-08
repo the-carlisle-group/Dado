@@ -1,0 +1,7 @@
+ ExistingAncestor←{
+     ⍝ ⍵ ←→ FQN of an item
+     ⍝ ← ←→ Nearest existing parent space
+     p←(⍸'.'=⍵)↑¨⊂⍵
+     i←¯1++/0≠⎕NC p
+     ⍎i⊃p
+ }

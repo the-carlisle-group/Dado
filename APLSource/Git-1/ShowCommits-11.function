@@ -1,0 +1,4 @@
+ ShowCommits←{
+     n←(⍵>0)/'-',⍕⍵
+     ⊃RunGitCommand'log ',n,' --pretty=format:"%h %an, %ar, %s"'
+ }

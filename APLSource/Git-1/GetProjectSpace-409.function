@@ -1,9 +1,12 @@
  GetProjectSpace←{
      ⍝ ⍵ ←→ ProjectSpace (then no-op)
      ⍝ ⍵ ←→ 0, then look for ProjectSpace in context
-     ⍵≠0:⍵
-     {9=⍵.⎕NC'AcreConfig':⍵
+     ⍝ ⍵ ←→ FQP of item, then find space
+     f←{9=⍵.⎕NC'AcreConfig':⍵
          ⍵=#:0
          ∇ ⍵.##
-     }↑⌽⎕RSI
+     }
+     9=⎕NC'⍵':⍵
+     '#'=↑⍵:f ExistingAncestor ⍵
+     f↑⌽⎕RSI
  }

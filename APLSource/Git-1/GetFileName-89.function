@@ -1,0 +1,12 @@
+ GetFileName←{
+     ⍝ ⍺ ←→ Project Space
+     ⍝ ⍵ ←→ ''
+     ⍝ ⍵← '#.Space.Foo'
+     ⍝ ⍵← '/folder/file.txt'
+     0=≢⍵:⍵
+     '/'∊⍵:('/'=↑⍵)↓⍵
+     ⍺←0
+     p←GetProjectSpace ⍺
+     pf←p.AcreConfig.ProjectFolder
+     (≢pf)↓↑'sourcefile'⎕SE.acre.run ⍵
+ }

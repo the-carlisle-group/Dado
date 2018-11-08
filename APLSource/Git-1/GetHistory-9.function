@@ -1,0 +1,16 @@
+ GetHistory←{
+     ⍝ ⍵←'' for entire commit history
+     ⍝  ←'filename' for specific file
+     ⍝  ←'itemname' #.Space.Foo, etc
+     n←GetFullyQualifiedItemName ⍵
+     p←GetProjectSpace n
+     f←p GetFileName n
+     g←'log  --name-status --pretty="*%h,%an,%ai"'
+     r←p RunGitCommand g,(f≢'')/' --follow -- ',f
+     s←p ProcessLog r
+     f≡'':s
+     h fn←s.CommitHash s.FileName
+     s.Diff←h{7↓p RunGitCommand'show ',⍺,' ',⍵}¨fn
+     s.Value←h{p RunGitCommand'show ',⍺,':',⍵}¨fn
+     s
+ }

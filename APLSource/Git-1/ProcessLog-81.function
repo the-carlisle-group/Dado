@@ -1,0 +1,36 @@
+ ProcessLog←{
+     ⍝ ⍵ ←→ Results of git log  (with --name-status)
+     ⍝ ⍺ ←→ Project Space
+     p←⍺
+     pf←⍺.AcreConfig.ProjectFolder
+     l←⍵~⊂''
+     b←'*'=↑¨l
+     cl←b/l
+     fl←DecodeOctalEncoding¨(~b)/l
+     n←{¯1+-2-/⍸⍵,1}b         ⍝ Lines/Files per commit
+     cc←≢cl
+     ch un cd←↓⍉⊃{(','≠⍵)⊆⍵}¨cl
+     ts←↓(cc,6)⍴1⊃' -:'⎕VFI,20↑[1]⊃cd
+     q←{(' '≠⍵)⊆⍵}¨fl
+     fs←0⊃¨q
+     rn←'R'=↑¨fs
+     ok←{(2=⍵)∨rn∧3=⍵}≢¨q ⍝ Error, probably due to blanks in file name
+     fn1←1⊃¨q
+     fn2←2⊃¨q,¨⊂⊂''
+
+
+     s←⎕NS''
+     s.FileName←fn1
+     s.FileName2←fn2
+     s.APLItemName←p FileNameToItemName¨fn1
+     s.APLItemName2←p FileNameToItemName¨fn2
+     s.Status←↑¨fs
+     s.IsAPLItem←'APLSource/'∘≡¨10↑¨fn1
+     s.Deleted←'D'=s.Status
+     s.CommitHash←n/1↓¨ch
+     s.CommitBy←n/un
+     s.CommitDate←n/cd
+     s.CommitTS←n/ts
+     s.MostRecent←{(⍵⍳⍵)=⍳≢⍵}fn1
+     s
+ }

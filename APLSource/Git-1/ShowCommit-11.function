@@ -1,0 +1,6 @@
+ ShowCommit←{
+     ⍺←0
+     p←GetProjectSpace ⍺
+     r←p RunGitCommand'log ',⍵,' -1 --name-status'
+     ⊃p ProcessFileLine¨r
+ }

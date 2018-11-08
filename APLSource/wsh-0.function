@@ -1,0 +1,5 @@
+ Z←wsh X;W;A
+⍝ Create Windows Shell Object
+ A←'WScript.Shell'
+ 'W'⎕WC'OLECLIENT'A
+ Z←W
