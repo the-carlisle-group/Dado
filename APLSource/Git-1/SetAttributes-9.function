@@ -1,6 +1,6 @@
  SetAttributes←{
      s←GetHistory''
-     b←s.(MostRecent∧IsAPLItem∧~Deleted)
+     b←s.(MostRecent∧Exists)
      n←b/s.APLItemName
      a←⎕AT n
      a[;1]←7↑¨b/s.CommitTS

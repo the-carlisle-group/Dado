@@ -14,23 +14,25 @@
      q←{(' '≠⍵)⊆⍵}¨fl
      fs←0⊃¨q
      rn←'R'=↑¨fs
-     ok←{(2=⍵)∨rn∧3=⍵}≢¨q ⍝ Error, probably due to blanks in file name
      fn1←1⊃¨q
      fn2←2⊃¨q,¨⊂⊂''
-
-
      s←⎕NS''
-     s.FileName←fn1
+     s.OK←{(2=⍵)∨rn∧3=⍵}≢¨q ⍝ If not, probably due to blanks in file name
+     s.FileName1←fn1
      s.FileName2←fn2
-     s.APLItemName←p FileNameToItemName¨fn1
+     s.APLItemName1←p FileNameToItemName¨fn1
      s.APLItemName2←p FileNameToItemName¨fn2
      s.Status←↑¨fs
      s.IsAPLItem←'APLSource/'∘≡¨10↑¨fn1
      s.Deleted←'D'=s.Status
+     s.Renamed←'R'=s.Status
      s.CommitHash←n/1↓¨ch
      s.CommitBy←n/un
      s.CommitDate←n/cd
      s.CommitTS←n/ts
-     s.MostRecent←{(⍵⍳⍵)=⍳≢⍵}fn1
+     s.FileName←,1↑s.Renamed⊖⊃fn1 fn2
+     s.APLItemName←,1↑s.Renamed⊖⊃s.APLItemName1 s.APLItemName2
+     s.Exists←0<⎕NC s.APLItemName
+     s.MostRecent←{(⍵⍳⍵)=⍳≢⍵}s.FileName
      s
  }
