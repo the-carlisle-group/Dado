@@ -1,0 +1,5 @@
+ RebaseContinue←{
+     ⎕←RunGitCommand'add --all'
+     ⎕←RunGitCommand'rebase --continue'
+     'Rebase complete.'
+ }

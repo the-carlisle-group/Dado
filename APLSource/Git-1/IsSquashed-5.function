@@ -1,0 +1,6 @@
+ IsSquashed←{
+     c←GetCommits''
+     b←GetCurrentBranch''
+     ca←↑#.Git.RunGitCommand'merge-base master ',b
+     (7↑ca)≡1⊃c.Hash
+ }

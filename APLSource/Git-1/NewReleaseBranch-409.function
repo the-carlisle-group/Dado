@@ -1,0 +1,8 @@
+ NewReleaseBranch←{
+     ⍝ ⍵[0] ←→ 'x.y.0' ←→ Major and minor version (patch should be 0)
+     ⍝ ⍵[1] ←→ Base commit (defaults to master)
+     IsDirty'':'Uncommited changes.'
+     v c←2↑(⊆⍵),⊂'master'
+     ⎕←RunGitCommand'checkout -b release/',v,' ',c
+     RefreshProject 0
+ }

@@ -3,7 +3,7 @@
      n←r[;0]
      sn←{↑⌽('.'≠⍵)⊆⍵}¨n
      p←⍎¨n
-     b←GetCurrentBranch¨p
+     b←p GetCurrentBranch¨⊂''
      uc←≢¨p RunGitCommand¨⊂'status --short'
      cc←≢¨p RunGitCommand¨⊂'diff --name-status master...'
      h←↓¨'Project' 'Branch' 'UC' 'CC',[¯0.5]¨'-'

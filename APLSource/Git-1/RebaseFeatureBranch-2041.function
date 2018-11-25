@@ -1,0 +1,13 @@
+ RebaseFeatureBranch←{
+     p←GetProjectSpace 0
+     IsDirty'':'Uncommitted changes.'
+     ~IsSquashed'':'Squash commits first.'
+     b←GetCurrentBranch''
+     t f←('/'≠b)⊆b
+     t≢'feature':b,' is not a feature branch'
+     r←p RunGitCommand'rebase master'
+     ⎕←⊃p ProcessFileLine¨r
+     _←RefreshProject''
+     ~IsDirty'':'Rebase complete.'
+     'Manually merge, then run #.Git.RebaseContinue'
+ }

@@ -1,0 +1,13 @@
+ MergeFeatureBranch←{
+     ⍝ ⍵ ←→ ''
+     IsDirty'':'Uncommitted changes on branch.'
+     ~IsSquashed'':'Branch not squashed.'
+     ~IsRebased'':'Branch not rebased to master.'
+     b←GetCurrentBranch''
+     t f←('/'≠b)⊆b
+     t≢'feature':b,' is not a feature branch'
+     ⎕←⊃RunGitCommand'checkout master'
+     ⎕←⊃RunGitCommand'merge --ff-only ',b
+     ⎕←⊃DeleteBranch b
+     RefreshProject 0
+ }

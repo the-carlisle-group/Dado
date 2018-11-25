@@ -1,0 +1,3 @@
+ ShowTags←{
+     ⊃RunGitCommand'tag'
+ }

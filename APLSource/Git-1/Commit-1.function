@@ -4,8 +4,8 @@
      ⍺←0
      p←GetProjectSpace ⍺
      0=p:'Not in project'
-     nm←'master'≢GetCurrentBranch p
+     nm←'master'≢GetCurrentBranch''
      m←⍵,(nm∧0=≢⍵)/'Save point'
      _←p RunGitCommand'add --all'
-     p RunGitCommand'commit -m "',m,'"'
+     ⊃p RunGitCommand'commit -m "',m,'"'
  }

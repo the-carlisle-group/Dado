@@ -3,5 +3,5 @@
      ⍝ ⍵ ←→ n/a
      ⍺←0
      p←GetProjectSpace ⍺
-     p RunGitCommand'push origin master'
+     p RunGitCommand'push --tags origin master'
  }

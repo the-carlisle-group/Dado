@@ -11,6 +11,8 @@
      z,←↓⍕p FormatStatus r
      z,←⊂'Committed Changes:'
      r←p RunGitCommand'diff --name-status master...'
+     ⍝ Rethink this↑↑↑, should check for nearest ancestor, not master
+     ⍝ which may have advanced
      z,←↓⍕p FormatStatus r
      ⊃z
  }

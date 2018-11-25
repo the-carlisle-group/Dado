@@ -1,0 +1,5 @@
+ IsRebased←{
+     cb←GetCommits''
+     cm←GetCommits'master'
+     (0⊃cm.Hash)≡(1⊃cb.Hash)
+ }

@@ -1,0 +1,7 @@
+ GetTags←{
+     t←RunGitCommand'tag'
+     s←⎕NS''
+     s.Tag←t
+     s.NumericVersion←#.Git.GetNumericVersion¨t
+     s
+ }

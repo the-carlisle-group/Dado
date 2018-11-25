@@ -1,0 +1,7 @@
+ NewFeatureBranch←{
+     ⍝ ⍵ ←→ 'feature-name'
+     n←'-'@(' '∘=)⍵
+     IsDirty'':'Uncommited changes.'
+     ⎕←RunGitCommand'checkout -b feature/',n,' master'
+     RefreshProject 0
+ }

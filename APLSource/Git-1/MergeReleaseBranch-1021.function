@@ -1,0 +1,14 @@
+ MergeReleaseBranch←{
+     ⍝ ⍵ ←→ ''
+     IsDirty'':'Uncommitted changes.'
+     b←GetCurrentBranch''
+     t v←('/'≠b)⊆b
+     'release'≢t:b,' is not a release branch'
+     m←'Release ',v
+     _←Squash m
+     _←RunGitCommand'tag -a ',v,' -m "Release ',v,'"'
+     ⎕←⊃RunGitCommand'checkout master'
+     ⎕←⊃RunGitCommand'merge ',b
+     ⎕←⊃DeleteBranch b
+     RefreshProject 0
+ }

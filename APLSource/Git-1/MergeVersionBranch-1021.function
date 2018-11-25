@@ -1,0 +1,17 @@
+ MergeVersionBranch←{
+     ⍝ ⍵ ←→ ''
+     IsDirty'':'Uncommitted changes.'
+     b←GetCurrentBranch''
+     t v←('/'≠b)⊆b
+     'version'≢t:b,' is not a version branch'
+     n←GetNumericVersion v
+
+
+     m←'Version ',v
+     _←Squash m
+     _←RunGitCommand'tag -a ',v,' -m "Release ',v,'"'
+     ⎕←⊃RunGitCommand'checkout master'
+     ⎕←⊃RunGitCommand'merge ',b
+     ⎕←⊃DeleteBranch b
+     RefreshProject 0
+ }

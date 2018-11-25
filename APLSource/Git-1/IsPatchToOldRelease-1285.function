@@ -1,0 +1,8 @@
+ IsPatchToOldRelease←{
+     ⍝ ⍵ ←→ Patch version-  'x.y.z'
+     v←GetNumericVersion ⍵
+     0=2⊃v:0
+     s←GetTags''
+     l←↑{⍵[⍒⍵]}s.NumericVersion
+     v≢l+0 0 1
+ }
