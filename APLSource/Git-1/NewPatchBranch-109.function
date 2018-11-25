@@ -1,9 +1,0 @@
- NewPatchBranch←{
-     ⍝ ⍵ ←→ 'x.y.z' ←→ Existing version to patch
-     ⍝ New version will be 'x.y.z+1
-     ⍝ tag ⍵ should already exist, new version tag should not.
-     IsDirty'':'Uncommited changes.'
-     v←'.'@(' '∘=)⍕0 0 1+1⊃'.'⎕VFI ⍵
-     ⎕←RunGitCommand'checkout -b patch/',v,' ',⍵
-     RefreshProject 0
- }

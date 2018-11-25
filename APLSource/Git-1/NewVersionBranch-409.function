@@ -1,4 +1,4 @@
- NewVersion←{
+ NewVersionBranch←{
      ⍝ ⍵ ←→ 'x.y.0' [base] ←→ New Version to create
      ⍝ ⍵ ←→ 'x.y.z'        ←→ Existing version to patch
      IsDirty'':'Uncommited changes.'

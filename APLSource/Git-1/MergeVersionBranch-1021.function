@@ -4,14 +4,11 @@
      b←GetCurrentBranch''
      t v←('/'≠b)⊆b
      'version'≢t:b,' is not a version branch'
-     n←GetNumericVersion v
-
-
-     m←'Version ',v
-     _←Squash m
-     _←RunGitCommand'tag -a ',v,' -m "Release ',v,'"'
+     ⍝ Is it squashed and tagged?
+     op←IsPatchToOldRelease v
+     ms←op/'-s ours '
      ⎕←⊃RunGitCommand'checkout master'
-     ⎕←⊃RunGitCommand'merge ',b
+     ⎕←⊃RunGitCommand'merge ',ms,b
      ⎕←⊃DeleteBranch b
      RefreshProject 0
  }
