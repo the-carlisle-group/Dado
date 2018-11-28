@@ -1,13 +1,17 @@
  NewVersionBranch←{
+     ⍝ ⍵ ←→ '' [base]      ←→ Patch Current Release
      ⍝ ⍵ ←→ 'x.y.0' [base] ←→ New Version to create
      ⍝ ⍵ ←→ 'x.y.z'        ←→ Existing version to patch
      IsDirty'':'Uncommited changes.'
-     v c←2↑(⊆⍵),⊂'master'
+     q m←2↑(⊆⍵),⊂'master'
+     t←GetTags''
+     c←q≡''
+     v←c⊃q t.NextPatch
      n←GetNumericVersion v
-     e←(⊂v)∊(GetTags'').Tag
-     ⍝ (~e)∧0≠2⊃n:'New release must have 0 patch number.'
+     e←(⊂v)∊t.Tag
+     (~e)∧(~c)∧0≠2⊃n:'New release must have 0 patch number.'
      r←'.'@(' '∘=)⍕n+0 0 e
      ⎕←⊃PullMaster''
-     ⎕←⊃RunGitCommand'checkout -b version/',r,' ',e⊃c v
+     ⎕←⊃RunGitCommand'checkout -b version/',r,' ',e⊃m v
      RefreshProject 0
  }

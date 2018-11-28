@@ -4,9 +4,8 @@
      b←GetCurrentBranch''
      t v←('/'≠b)⊆b
      'version'≢t:b,' is not a version branch'
-     ⍝ Is it squashed and tagged?
-     op←IsPatchToOldRelease v
-     ms←op/'-s ours '
+     ⍝ Is it tagged???!!!
+     ms←(~IsLatestRelease v)/'-s ours '
      ⎕←⊃RunGitCommand'fetch origin master:master'
      ⎕←⊃RunGitCommand'checkout master'
      ⎕←⊃RunGitCommand'merge ',ms,b

@@ -1,8 +1,8 @@
  IsPatchToOldRelease←{
      ⍝ ⍵ ←→ Patch version-  'x.y.z'
+     ⍝ Assumes ⍵ is already tagged.
      v←GetNumericVersion ⍵
      0=2⊃v:0
      s←GetTags''
-     l←↑{⍵[⍒⍵]}s.NumericVersion
-     v≢l+0 0 1
+     v≢↑{⍵[⍒⍵]}s.NumericVersion
  }

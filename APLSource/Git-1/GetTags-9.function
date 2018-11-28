@@ -3,5 +3,7 @@
      s←⎕NS''
      s.Tag←t
      s.NumericVersion←#.Git.GetNumericVersion¨t
+     cv←↑{⍵[⍒⍵]}s.NumericVerion,⊂3⍴0
+     s.NextPatch←'.'@(' '∘=)⍕cv+0 0 1
      s
  }
