@@ -5,8 +5,9 @@
      v c←2↑(⊆⍵),⊂'master'
      n←GetNumericVersion v
      e←(⊂v)∊(GetTags'').Tag
-     (~e)∧0≠2⊃n:'New release must have 0 patch number.'
+     ⍝ (~e)∧0≠2⊃n:'New release must have 0 patch number.'
      r←'.'@(' '∘=)⍕n+0 0 e
-     ⎕←RunGitCommand'checkout -b version/',r,' ',e⊃c v
+     ⎕←⊃PullMaster''
+     ⎕←⊃RunGitCommand'checkout -b version/',r,' ',e⊃c v
      RefreshProject 0
  }

@@ -3,10 +3,9 @@
      ⍝ ⍵ ←→ n/a
      ⍺←0
      p←GetProjectSpace ⍺
-     b←GetCurrentBranch p
-     b≢'master':'Not on master branch.'
+     b←p GetCurrentBranch''
      p IsDirty'':'Uncommitted changes.'
-     ⎕←p RunGitCommand'fetch origin'
-     ⎕←p RunGitCommand'merge origin/master'
-     p RefreshProject 0
+     b≢'master':p RunGitCommand'fetch origin master:master'
+     ⎕←⊃p RunGitCommand'fetch origin'
+     p RunGitCommand'merge --ff-only origin/master'
  }

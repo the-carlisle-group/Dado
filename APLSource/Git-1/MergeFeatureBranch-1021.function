@@ -6,8 +6,10 @@
      b←GetCurrentBranch''
      t f←('/'≠b)⊆b
      t≢'feature':b,' is not a feature branch'
+     ⎕←⊃RunGitCommand'fetch origin master:master'
      ⎕←⊃RunGitCommand'checkout master'
      ⎕←⊃RunGitCommand'merge --ff-only ',b
      ⎕←⊃DeleteBranch b
+     ⎕←⊃PushMaster''
      RefreshProject 0
  }

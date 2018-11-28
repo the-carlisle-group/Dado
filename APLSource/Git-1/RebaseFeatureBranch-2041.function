@@ -5,6 +5,7 @@
      b←GetCurrentBranch''
      t f←('/'≠b)⊆b
      t≢'feature':b,' is not a feature branch'
+     ⎕←⊃RunGitCommand'fetch origin master:master'
      r←p RunGitCommand'rebase master'
      ⎕←⊃p ProcessFileLine¨r
      _←RefreshProject''
