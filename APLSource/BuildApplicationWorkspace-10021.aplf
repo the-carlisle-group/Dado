@@ -8,7 +8,7 @@
      dp←GetDependencies pf
      dc←GetConfigSpace¨dp
      ac←pc,dc
-     load←{⎕SE.UCMD']ACRE.LoadProject ',⍵}
+     load←{⎕SE.UCMD']ACRE.OpenProject ',⍵,' -dependencies=Off'}
      s←load¨⌽ac.PackageFolder
      #.Packages←ac.FullProjectName
      #.⎕LX←'#.CarlisleGroup.AcreTools.StartApplication 0'
