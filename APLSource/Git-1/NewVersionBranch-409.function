@@ -10,7 +10,9 @@
      n←GetNumericVersion v
      e←(⊂v)∊t.Tag
      (~e)∧(~c)∧0≠2⊃n:'New release must have 0 patch number.'
+     ⍝ (~e)∧(~c)∧         :'New release must be greater than...'
      r←'.'@(' '∘=)⍕n+0 0 e
+     (⊂r)∊t.Tag:'Target release ',r,' already exists.'
      ⎕←⊃PullMaster''
      ⎕←⊃RunGitCommand'checkout -b version/',r,' ',e⊃m v
      RefreshProject 0
