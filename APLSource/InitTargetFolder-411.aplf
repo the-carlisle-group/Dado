@@ -10,5 +10,7 @@
      t,←⊂'    BuildDate←',q ⍺ Git.GetCommitDate''
      t,←⊂':EndNamespace'
      _←(⊂t)⎕NPUT ct
+
+
      0
  }

@@ -1,0 +1,12 @@
+ NStoScript←{
+     n←⍵.⎕NL ¯2
+     v←⊆¨⍵⍎¨n
+     q←{'''',⍵,''''}
+     p←⊂4⍴' '
+     s←{1↓↑,/' ',¨q¨⍵}¨v
+     t←p,¨n,¨'←',¨s
+     r←⊂':Namespace'
+     r,←t
+     r,←⊂':EndNamespace'
+     r
+ }

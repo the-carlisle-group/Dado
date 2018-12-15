@@ -9,6 +9,8 @@
      _←DeleteFolder ¯1↓df
      pf←c.ProjectFolder
      _←⍵ InitTargetFolder pf df
+     rn←Git.GenerateReleaseNotes''
+     _←(⊂rn)⎕NPUT df,'ReleaseNotes.md'
      _←CopyRuntimeAssets pf df
      _←⍺ CopyDevelopmentAssets pf df
      _←⍺ CopyAPLSource c

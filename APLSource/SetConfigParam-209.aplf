@@ -1,0 +1,12 @@
+ SetConfigParam←{
+     ⍝ ⍵ ←→ Name and value
+     ⍝ ⍺ ←→ Project Space
+     n v←⍵
+     f←GetProjectFolder ⍺
+     ct←f,'acreconfig.txt'
+     c←1 ⎕FIX'file://',ct
+     _←n c.{⍎⍺,'←⍵'}v
+     t←NStoScript c
+     _←(⊂t)⎕NPUT ct 1
+     0
+ }

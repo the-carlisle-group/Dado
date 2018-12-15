@@ -15,5 +15,6 @@
      (⊂r)∊t.Tag:'Target release ',r,' already exists.'
      ⎕←⊃PullMaster''
      ⎕←⊃RunGitCommand'checkout -b version/',r,' ',e⊃m v
-     RefreshProject 0
+     _←RefreshProject 0
+     r
  }

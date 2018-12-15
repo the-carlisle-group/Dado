@@ -6,7 +6,7 @@
      pc←GetConfigSpace ⍵
      pf←pc.ProjectFolder
      dp←GetDependencies pf
-     dc←GetConfigSpace¨dp
+     dc←{0=≢dp:'' ⋄ GetConfigSpace¨dp}0
      ac←pc,dc
      load←{⎕SE.UCMD']ACRE.OpenProject ',⍵,' -dependencies=Off'}
      s←load¨⌽ac.PackageFolder

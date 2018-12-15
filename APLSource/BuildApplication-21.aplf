@@ -7,12 +7,12 @@
      _←DeleteFolder ¯1↓af               ⍝ Delete it first
      _←2 ⎕MKDIR af                      ⍝ Create it
      dp←GetDependencies pf              ⍝ Dependent projects
-     c←GetConfigSpace¨dp                ⍝ Dependent Config spaces
+     c←{0=≢dp:'' ⋄ GetConfigSpace¨dp}0  ⍝ Dependent Config spaces
      ac←pc,c                            ⍝ All config spaces
      sf←ac.PackageFolder                ⍝ Source package folders  - These could really come from anywhere..
      tf←af∘,¨ac.FullProjectName         ⍝ Target package folders, under application folder
      _←2 ⎕MKDIR¨tf                      ⍝ Create target dirs
-     _←tf ⎕NCOPY¨sf,¨⊂'Assets'          ⍝ Copy Assets
+     _←tf{~⎕NEXISTS ⍵:0 ⋄ ⍺ ⎕NCOPY ⍵}¨sf,¨⊂'Assets'  ⍝ Copy Assets
      _←tf ⎕NCOPY¨sf,¨⊂'acreconfig.txt'  ⍝ Copy config file
      RunInProcess'#.CarlisleGroup.AcreTools.BuildApplicationWorkspace'pc.ProjectFolder
  }
