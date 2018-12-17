@@ -2,9 +2,9 @@
      ⍝ ⍵ ←→ Specific Branch (defaults to current branch)
      ⍺←0
      p←GetProjectSpace ⍺
-     r←p RunGitCommand'log ',⍵,' --pretty=format:"%h∆%an∆%s"'
+     r←p RunGitCommand'log ',⍵,' --pretty=format:"%h∆%ci∆%an∆%s"'
      m←(⎕CSV⍠'Separator' '∆')⊂r
      s←⎕NS''
-     s.(Hash User Message)←↓⍉m
+     s.(Hash Date User Message)←↓⍉m
      s
  }

@@ -1,0 +1,10 @@
+ GenerateApplicationReleaseNotes←{
+     pf←⍵                         ⍝ Package folders (under application folder)
+     pn←⎕NGET¨pf,¨'ReleaseNotes'  ⍝ Release Notes for each package
+     c←GetConfigSpace¨pf          ⍝ Get the config file for each package
+     rd←⍎¨c.BuildDate~¨'-'        ⍝ Release date for each package in app
+     pr←GetPreviousReleaseDate'' ⍝ Previous Release Date of Primary package
+     gt←                          ⍝ TAO gt
+     b←rd gt pd                   ⍝ Keep these notes
+     ⊃,/b/pn                      ⍝ Application Notes
+ }

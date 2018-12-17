@@ -14,5 +14,11 @@
      _←2 ⎕MKDIR¨tf                      ⍝ Create target dirs
      _←tf{~⎕NEXISTS ⍵:0 ⋄ ⍺ ⎕NCOPY ⍵}¨sf,¨⊂'Assets'  ⍝ Copy Assets
      _←tf ⎕NCOPY¨sf,¨⊂'acreconfig.txt'  ⍝ Copy config file
+
+     ⍝ _←tf ⎕NCOPY¨sf,¨⊂'ReleaseNotes.md' ⍝ Copy release notes
+
+     ⍝ rn←GenerateApplicationReleaseNotes tf ⍝ Gen
+     ⍝ _←(⊂rn) ⎕NPUT af,'ReleaseNotes.md'
+
      RunInProcess'#.CarlisleGroup.AcreTools.BuildApplicationWorkspace'pc.ProjectFolder
  }
