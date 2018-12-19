@@ -3,7 +3,7 @@
      p←GetProjectSpace ⍺
      v←NewVersionBranch ⍵
      _←p ##.SetConfigParam'Version'v
-     _←##.GenerateReleaseNotes v
+     _←p ##.GenerateReleaseNotes v
      _←Commit''                     ⍝ Combine
      _←TagVersion''                 ⍝ ...with this
      _←##.BuildPackage p

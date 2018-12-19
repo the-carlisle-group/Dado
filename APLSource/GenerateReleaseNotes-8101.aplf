@@ -3,11 +3,13 @@
      ⍝ ⍵ ←→ Version '0.0.0'
      v←⍵
      pf←GetProjectFolder ⍺
-     rf←f,'ReleaseNotes/'
+     c←GetConfigSpace pf
+     rf←pf,'ReleaseNotes/'
      _←1 ⎕MKDIR rf
+     rd←'-'@(' '∘=)⍕3↑⎕TS
      ⍝ Package Notes:
-     p←GetCommits''
-     t←'# ',v,' Release Notes'
+     p←Git.GetCommits''
+     t←'# ',c.ProjectName,' Version ',v,' Release Notes ',rd
      b←'Version '∘≡¨8↑¨p.Message
      m←(~∨\b)/p.Message
      i←(⍕¨1+⍳≢m),¨⊂'. '
@@ -15,10 +17,10 @@
      _←rn nput rf,'ReleaseNotes.md'
      ⍝ Cumulative package notes
      cn←nget rf,'CumulativeNotes.md'
-     _←(rn,cn)nput rf,'CumulativeNotes.md'
+     _←(rn,(⊂''),cn)nput rf,'CumulativeNotes.md'
      ⍝ Cumulative Application Notes
      an←nget rf,'ApplicationNotes.md'
-     nn←GenerateApplicationReleaseNotes rn
-     _←(nn,an)nput rf,'ApplicationNotes.md'
+     nn←pf GenerateApplicationReleaseNotes rn
+     _←(nn,(⊂''),an)nput rf,'ApplicationNotes.md'
      0
  }

@@ -11,9 +11,8 @@
      pn←nget¨rf,¨⊂'ReleaseNotes.md'   ⍝ Dependent package notes
      c←GetConfigSpace¨kf              ⍝ Get the config file for each package
      rd←c.BuildDate                   ⍝ Release date for each package in app
-     pr←GetPreviousReleaseDate''      ⍝ Previous Release Date of Primary package
+     pr←GetLastReleaseDate''          ⍝ Previous Release Date of Primary package
      gt←{(⍳2)≢⍋⍺ ⍵}                   ⍝ TAO gt
      b←rd gt¨⊂pr                      ⍝ Keep these notes
-     ⍝ ~∨/b:⍵                         ⍝ None relevent
-     ⍵,⊃,/1↓¨b/pn                     ⍝ Application Notes
+     ¯1↓↑,/((⊂⍵),b/pn),¨⊂⊂''          ⍝ Application Notes
  }

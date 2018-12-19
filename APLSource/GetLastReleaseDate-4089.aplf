@@ -1,0 +1,5 @@
+ GetLastReleaseDate←{
+     c←Git.GetCommits''
+     b←'Version '∘≡¨8↑¨c.Message
+     (b⍳1)⊃c.Date,⊂''
+ }
