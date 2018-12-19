@@ -1,10 +1,19 @@
  GenerateApplicationReleaseNotes←{
-     pf←⍵                         ⍝ Package folders (under application folder)
-     pn←⎕NGET¨pf,¨'ReleaseNotes'  ⍝ Release Notes for each package
-     c←GetConfigSpace¨pf          ⍝ Get the config file for each package
-     rd←⍎¨c.BuildDate~¨'-'        ⍝ Release date for each package in app
-     pr←GetPreviousReleaseDate'' ⍝ Previous Release Date of Primary package
-     gt←                          ⍝ TAO gt
-     b←rd gt pd                   ⍝ Keep these notes
-     ⊃,/b/pn                      ⍝ Application Notes
+     ⍝ ⍺ ←→ Project Folder
+     ⍝ ⍵ ←→ Primary Project Notes
+     ⍝ ← ←→ Combined release notes
+     pf←GetProjectFolder ⍺
+     df←GetDependencies pf            ⍝ Primary,Dependent projects
+     0=≢df:⍵
+     c←GetConfigSpace¨df
+     kf←c.PackageFolder               ⍝ Dependent Package Folders
+     rf←kf,¨⊂'ReleaseNotes/'          ⍝ Release Note Folders
+     pn←nget¨rf,¨⊂'ReleaseNotes.md'   ⍝ Dependent package notes
+     c←GetConfigSpace¨kf              ⍝ Get the config file for each package
+     rd←c.BuildDate                   ⍝ Release date for each package in app
+     pr←GetPreviousReleaseDate''      ⍝ Previous Release Date of Primary package
+     gt←{(⍳2)≢⍋⍺ ⍵}                   ⍝ TAO gt
+     b←rd gt¨⊂pr                      ⍝ Keep these notes
+     ⍝ ~∨/b:⍵                         ⍝ None relevent
+     ⍵,⊃,/1↓¨b/pn                     ⍝ Application Notes
  }

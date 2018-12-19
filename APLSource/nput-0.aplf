@@ -1,0 +1,5 @@
+ nput←{
+     ⍝ ⍺←v/v
+     ⍝ ⍵←File name
+     (⊂⍺)⎕NPUT ⍵ 1
+ }

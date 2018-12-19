@@ -1,0 +1,6 @@
+ nget←{
+     ⍝ ⍵ ←→ File Name
+     ⍝ ← ←→ v/v
+     ~⎕NEXISTS ⍵:''
+     ↑⎕NGET ⍵ 1
+ }

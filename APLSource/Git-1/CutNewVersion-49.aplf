@@ -3,13 +3,13 @@
      p←GetProjectSpace ⍺
      v←NewVersionBranch ⍵
      _←p ##.SetConfigParam'Version'v
-     _←Commit''                ⍝ Combine
-     _←TagVersion''            ⍝ ...with this
+     _←##.GenerateReleaseNotes v
+     _←Commit''                     ⍝ Combine
+     _←TagVersion''                 ⍝ ...with this
      _←##.BuildPackage p
-     ⍝ ....
-     _←##.BuildApplication p   ⍝ Why not just do every time? Doesn't hurt, and ws may be useful.
-     ⎕←'Waiting...'            ⍝ This needs to be synchronous
-     _←⎕DL 5                   ⍝ The app ws needs to be built....
+     _←##.BuildApplication p        ⍝ Why not just do every time? Doesn't hurt, and ws may be useful.
+     ⎕←'Waiting...'                 ⍝ This needs to be synchronous
+     _←⎕DL 5                        ⍝ The app ws needs to be built....
      ⍝ ....
      _←##.BuildReleaseArtifacts p
      _←MergeVersionBranch''

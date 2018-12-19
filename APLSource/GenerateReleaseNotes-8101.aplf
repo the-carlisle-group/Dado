@@ -1,0 +1,24 @@
+ GenerateReleaseNotes←{
+     ⍝ ⍺ ←→ ProjectSpace
+     ⍝ ⍵ ←→ Version '0.0.0'
+     v←⍵
+     pf←GetProjectFolder ⍺
+     rf←f,'ReleaseNotes/'
+     _←1 ⎕MKDIR rf
+     ⍝ Package Notes:
+     p←GetCommits''
+     t←'# ',v,' Release Notes'
+     b←'Version '∘≡¨8↑¨p.Message
+     m←(~∨\b)/p.Message
+     i←(⍕¨1+⍳≢m),¨⊂'. '
+     rn←(⊂t),i,¨m
+     _←rn nput rf,'ReleaseNotes.md'
+     ⍝ Cumulative package notes
+     cn←nget rf,'CumulativeNotes.md'
+     _←(rn,cn)nput rf,'CumulativeNotes.md'
+     ⍝ Cumulative Application Notes
+     an←nget rf,'ApplicationNotes.md'
+     nn←GenerateApplicationReleaseNotes rn
+     _←(nn,an)nput rf,'ApplicationNotes.md'
+     0
+ }
