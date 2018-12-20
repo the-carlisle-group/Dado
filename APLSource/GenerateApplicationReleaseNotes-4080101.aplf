@@ -8,11 +8,12 @@
      c←GetConfigSpace¨df
      kf←c.PackageFolder               ⍝ Dependent Package Folders
      rf←kf,¨⊂'ReleaseNotes/'          ⍝ Release Note Folders
-     pn←nget¨rf,¨⊂'ReleaseNotes.md'   ⍝ Dependent package notes
+     pn←nget¨rf,¨⊂'PackageNotes.md'   ⍝ Dependent package notes
+     ln←{(⍵⍳⊂'')↑⍵}¨pn                ⍝ Keep only lastest notes
      c←GetConfigSpace¨kf              ⍝ Get the config file for each package
      rd←c.BuildDate                   ⍝ Release date for each package in app
      pr←GetLastReleaseDate''          ⍝ Previous Release Date of Primary package
      gt←{(⍳2)≢⍋⍺ ⍵}                   ⍝ TAO gt
      b←rd gt¨⊂pr                      ⍝ Keep these notes
-     ¯1↓↑,/((⊂⍵),b/pn),¨⊂⊂''          ⍝ Application Notes
+     ¯1↓↑,/((⊂⍵),b/ln),¨⊂⊂''          ⍝ Application Notes
  }
