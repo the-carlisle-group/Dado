@@ -10,6 +10,7 @@
      rf←kf,¨⊂'ReleaseNotes/'          ⍝ Release Note Folders
      pn←nget¨rf,¨⊂'PackageNotes.md'   ⍝ Dependent package notes
      ln←{(⍵⍳⊂'')↑⍵}¨pn                ⍝ Keep only lastest notes
+     ln←{z←⍵ ⋄ z[0]←⊂'#',0⊃⍵ ⋄ z}¨ln  ⍝ Add heading level for dependent packages
      c←GetConfigSpace¨kf              ⍝ Get the config file for each package
      rd←c.BuildDate                   ⍝ Release date for each package in app
      pr←GetLastReleaseDate''          ⍝ Previous Release Date of Primary package
