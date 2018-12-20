@@ -1,10 +1,10 @@
- TagVersion←{
+ TagRelease←{
      ⍝ ⍵ ←→ ''
      IsDirty'':'Uncommitted changes.'
      b←GetCurrentBranch''
      t v←('/'≠b)⊆b
-     'version'≢t:b,' is not a version branch'
-     m←'Version ',v
+     'release'≢t:b,' is not a release branch'
+     m←'Release ',v
      _←Squash m
      ⎕←⊃RunGitCommand'tag -a ',v,' -m "Version ',v,'"'
      'Done'

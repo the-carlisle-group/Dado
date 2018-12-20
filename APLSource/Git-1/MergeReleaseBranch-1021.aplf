@@ -1,9 +1,9 @@
- MergeVersionBranch←{
+ MergeReleaseBranch←{
      ⍝ ⍵ ←→ ''
      IsDirty'':'Uncommitted changes.'
      b←GetCurrentBranch''
      t v←('/'≠b)⊆b
-     'version'≢t:b,' is not a version branch'
+     'release'≢t:b,' is not a release branch'
      ⍝ Is it tagged???!!!
      ms←(~IsLatestRelease v)/'-s ours '
      ⎕←⊃RunGitCommand'fetch origin master:master'

@@ -1,6 +1,6 @@
- NewVersionBranch←{
+ NewReleaseBranch←{
      ⍝ ⍵ ←→ '' [base]      ←→ Patch Current Release
-     ⍝ ⍵ ←→ 'x.y.0' [base] ←→ New Version to create
+     ⍝ ⍵ ←→ 'x.y.0' [base] ←→ New release to create
      ⍝ ⍵ ←→ 'x.y.z'        ←→ Existing version to patch
      IsDirty'':'Uncommited changes.'
      q m←2↑(⊆⍵),⊂'master'
@@ -14,7 +14,7 @@
      r←'.'@(' '∘=)⍕n+0 0 e
      (⊂r)∊t.Tag:'Target release ',r,' already exists.'
      ⎕←⊃PullMaster''
-     ⎕←⊃RunGitCommand'checkout -b version/',r,' ',e⊃m v
+     ⎕←⊃RunGitCommand'checkout -b release/',r,' ',e⊃m v
      _←RefreshProject 0
      r
  }
