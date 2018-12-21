@@ -2,16 +2,16 @@
      ⍺←0
      p←GetProjectSpace ⍺
      v←NewReleaseBranch ⍵
-     _←p ##.SetConfigParam'Version'v
-     _←p ##.GenerateReleaseNotes v
+     _←p SetConfigParam'Version'v
+     _←p GenerateReleaseNotes v
      _←Commit''                     ⍝ Combine
-     _←TagRelease''                ⍝ ...with this
-     _←##.BuildPackage p
-     _←##.BuildApplication p        ⍝ Why not just do every time? Doesn't hurt, and ws may be useful.
+     _←TagRelease''                 ⍝ ...with this
+     _←BuildPackage p
+     _←BuildApplication p           ⍝ Why not just do every time? Doesn't hurt, and ws may be useful.
      ⎕←'Waiting...'                 ⍝ This needs to be synchronous
      _←⎕DL 5                        ⍝ The app ws needs to be built....
      ⍝ ....
-     _←##.BuildReleaseArtifacts p
+     _←BuildReleaseArtifacts p
      _←MergeReleaseBranch''
      'Done totally'
  }

@@ -1,4 +1,4 @@
- Changes←{
+ ShowChanges←{
      ⍺←0
      p←GetProjectSpace ⍺
      p=0:'Not in project'

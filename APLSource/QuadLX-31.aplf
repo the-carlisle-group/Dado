@@ -3,6 +3,6 @@
  #.A←⎕THIS
  z←('#.A.ShowProjects''''',⊂'ER')⎕PFKEY 4
  z←('#.A.RefreshProject''''',⊂'ER')⎕PFKEY 5
- z←('#.A.Branches''''',⊂'ER')⎕PFKEY 6
- z←('#.A.Changes''''',⊂'ER')⎕PFKEY 7
+ z←('#.A.ShowBranches''''',⊂'ER')⎕PFKEY 6
+ z←('#.A.ShowChanges''''',⊂'ER')⎕PFKEY 7
  z←('#.A.Commit''''',⊂'ER')⎕PFKEY 9
