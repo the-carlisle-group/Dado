@@ -1,5 +1,6 @@
  GetProjectFolder←{
      ⍝ ⍵ ←→ Project Folder or ProjectSpace
-     326≠⎕DR ⍵:⍵,(~(↑⌽⍵)∊'\/')/'/'
-     ⍵.AcreConfig.ProjectFolder
+     0=80|⎕DR ⍵:⍵,(~(↑⌽⍵)∊'\/')/'/'
+     p←GetProjectSpace ⍵
+     p.AcreConfig.ProjectFolder
  }

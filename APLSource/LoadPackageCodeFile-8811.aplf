@@ -1,6 +1,6 @@
  LoadPackageCodeFile←{
-⍝ ⍵ ←→ Component File
-⍝      usually: [Proj Name]/APLSource.dcf
+     ⍝ ⍵ ←→ Component File
+     ⍝      usually: [Proj Name]/APLSource.dcf
      ⎕ML←3 ⋄ ⎕IO←0
      t←⍵ ⎕FTIE 0
      v←⎕FREAD¨t,¨1+⍳--/2↑⎕FSIZE 1

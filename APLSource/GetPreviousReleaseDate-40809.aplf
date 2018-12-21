@@ -1,6 +1,0 @@
- GetPreviousReleaseDate←{
-     c←Git.GetCommits''
-     b←'Version '∘≡¨8↑¨c.Message
-     i←(+\b)⍳2
-     i⊃c.Date,⊂''
- }

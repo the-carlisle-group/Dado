@@ -1,7 +1,9 @@
  BuildApplication←{
-     ⍝ ⍵ ←→ Project Folder or Space
+     ⍝ ⍺ ←→ Project Folder or  Space
+     ⍝ ⍵ ←→ Undefined
      ⍝ Assumes all packages already created
-     pf←GetProjectFolder ⍵
+     ⍺←0
+     pf←GetProjectFolder ⍺
      pc←GetConfigSpace pf               ⍝ Primary config space
      af←pc.ApplicationFolder            ⍝ Application Folder
      _←DeleteFolder ¯1↓af               ⍝ Delete it first
@@ -14,9 +16,6 @@
      _←2 ⎕MKDIR¨tf                      ⍝ Create target dirs
      _←tf{~⎕NEXISTS ⍵:0 ⋄ ⍺ ⎕NCOPY ⍵}¨sf,¨⊂'Assets'  ⍝ Copy Assets
      _←tf ⎕NCOPY¨sf,¨⊂'acreconfig.txt'  ⍝ Copy config file
-     ⍝
      _←tf ⎕NCOPY¨sf,¨⊂'ReleaseNotes'    ⍝ Copy release notes Folder
-
-
      RunInProcess'#.CarlisleGroup.AcreTools.BuildApplicationWorkspace'pc.ProjectFolder
  }

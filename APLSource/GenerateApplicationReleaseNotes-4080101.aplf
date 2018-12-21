@@ -1,5 +1,5 @@
  GenerateApplicationReleaseNotes←{
-     ⍝ ⍺ ←→ Project Folder
+     ⍝ ⍺ ←→ Project Folder or Space
      ⍝ ⍵ ←→ Primary Project Notes
      ⍝ ← ←→ Combined release notes
      pf←GetProjectFolder ⍺

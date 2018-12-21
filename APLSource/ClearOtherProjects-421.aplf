@@ -1,6 +1,0 @@
- ClearOtherProjects←{
-     ⍝ ⍵ ←→ Project Space
-     s←(⎕SE.UCMD']ACRE.Projects')[;0]
-     _←⎕EX⊃s~⊂⍕⍵
-     0
- }
