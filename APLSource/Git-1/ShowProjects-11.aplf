@@ -1,4 +1,4 @@
- Projects←{
+ ShowProjects←{
      r←⎕SE.UCMD']acre.projects'
      n←r[;0]
      sn←{↑⌽('.'≠⍵)⊆⍵}¨n
