@@ -1,16 +1,18 @@
  ReleaseNewVersion←{
+     ⍝ ⍵ ←→ 'major'|'minor'| '' (for patch)
      ⍺←0
      p←GetProjectSpace ⍺
-     v←NewReleaseBranch ⍵
+     v←p GetNextVersion ⍵
+     v←p NewReleaseBranch ⍵
      _←p SetConfigParam'Version'v
      _←p GenerateReleaseNotes v
-     _←Commit''                     ⍝ Combine
-     _←TagRelease''                 ⍝ ...with this
-     _←BuildPackage p
-     _←BuildApplication p
+     _←p Commit''                     ⍝ Combine
+     _←p TagRelease''                 ⍝ ...with this
+     _←p BuildPackage 0 0
+     _←p BuildApplication''
      ⎕←'Waiting...'                 ⍝ This needs to be synchronous
      _←⎕DL 5                        ⍝ The app ws needs to be built....
-     _←BuildReleaseArtifacts p
-     _←MergeReleaseBranch''
+     _←p BuildReleaseArtifacts''
+     _←p MergeReleaseBranch''
      'Done totally'
  }

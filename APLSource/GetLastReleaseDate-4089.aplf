@@ -1,5 +1,7 @@
  GetLastReleaseDate←{
-     c←Git.GetCommits''
+     ⍺←0
+     p←GetProjectSpace ⍺
+     c←p GetCommits''
      b←'Release '∘≡¨8↑¨c.Message
      (b⍳1)⊃c.Date,⊂''
  }

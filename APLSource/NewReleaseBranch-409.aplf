@@ -1,20 +1,18 @@
  NewReleaseBranch←{
-     ⍝ ⍵ ←→ '' [base]      ←→ Patch Current Release
-     ⍝ ⍵ ←→ 'x.y.0' [base] ←→ New release to create
-     ⍝ ⍵ ←→ 'x.y.z'        ←→ Existing version to patch
-     IsDirty'':'Uncommited changes.'
+     ⍝ ⍵ ←→ 'x.y.z' [base] ←→ Version to Create or Patch
+     ⍝       If ⍵ does not exist, create ⍵
+     ⍝       If ⍵ does exist, create ⍵+0 0 1
+     ⍺←0
+     p←GetProjectSpace ⍺
+     p IsDirty'':'Uncommited changes.'
      q m←2↑(⊆⍵),⊂'master'
-     t←GetTags''
-     c←q≡''
-     v←c⊃q t.NextPatch
-     n←GetNumericVersion v
+     t←p GetTags''
      e←(⊂v)∊t.Tag
-     (~e)∧(~c)∧0≠2⊃n:'New release must have 0 patch number.'
-     ⍝ (~e)∧(~c)∧         :'New release must be greater than...'
-     r←'.'@(' '∘=)⍕n+0 0 e
-     (⊂r)∊t.Tag:'Target release ',r,' already exists.'
-     ⎕←⊃PullMaster''
-     ⎕←⊃RunGitCommand'checkout -b release/',r,' ',e⊃m v
-     _←RefreshProject 0
+     n←FormatVersion ⍵
+     r←FormatVersion n+0 0 e
+     (⊂r)∊t.Tag:'Target version ',r,' already exists.'
+     ⎕←⊃p PullMaster''
+     ⎕←⊃p RunGitCommand'checkout -b release/',r,' ',e⊃m v
+     _←p RefreshProject 0
      r
  }

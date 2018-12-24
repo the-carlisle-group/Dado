@@ -1,9 +1,10 @@
  GetTags←{
-     t←RunGitCommand'tag'
+     ⍺←0
+     p←GetProjectSpace ⍺
+     t←p RunGitCommand'tag'
      s←⎕NS''
      s.Tag←t
-     s.NumericVersion←#.Git.GetNumericVersion¨t
-     cv←↑{⍵[⍒⍵]}s.NumericVersion,⊂3⍴0
-     s.NextPatch←'.'@(' '∘=)⍕cv+0 0 1
+     s.NumericVersion←FormatVersion¨t
+     s.MostRecentVersion←↑{⍵[⍒⍵]}s.NumericVersion,⊂3⍴0
      s
  }

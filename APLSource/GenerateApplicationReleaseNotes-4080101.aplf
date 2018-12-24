@@ -2,7 +2,9 @@
      ⍝ ⍺ ←→ Project Folder or Space
      ⍝ ⍵ ←→ Primary Project Notes
      ⍝ ← ←→ Combined release notes
-     pf←GetProjectFolder ⍺
+     ⍺←0
+     p←GetProjectSpace ⍺
+     pf←GetProjectFolder p
      df←GetDependencies pf            ⍝ Primary,Dependent projects
      0=≢df:⍵
      c←GetConfigSpace¨df
@@ -13,7 +15,7 @@
      ln←{z←⍵ ⋄ z[0]←⊂'#',0⊃⍵ ⋄ z}¨ln  ⍝ Add heading level for dependent packages
      c←GetConfigSpace¨kf              ⍝ Get the config file for each package
      rd←c.BuildDate                   ⍝ Release date for each package in app
-     pr←GetLastReleaseDate''          ⍝ Previous Release Date of Primary package
+     pr←p GetLastReleaseDate''        ⍝ Previous Release Date of Primary package
      gt←{(⍳2)≢⍋⍺ ⍵}                   ⍝ TAO gt
      b←rd gt¨⊂pr                      ⍝ Keep these notes
      ¯1↓↑,/((⊂⍵),b/ln),¨⊂⊂''          ⍝ Application Notes

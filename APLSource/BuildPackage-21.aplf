@@ -4,7 +4,8 @@
      ⍝         1,  include all code/assets
      ⍝ ⍵[1] ←→ 1|0 create (or not) an APLSource.dcf code file
      ⍺←0
-     c←GetConfigSpace ⍺
+     p←GetProjectSpace ⍺
+     c←GetConfigSpace p
      df←c.PackageFolder
      _←DeleteFolder ¯1↓df
      pf←c.ProjectFolder

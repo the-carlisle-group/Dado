@@ -1,0 +1,9 @@
+ FormatVersion←{
+     ⍝ Self Inverse
+     ⍝ ⍵ ←→ 'x.y.z'
+     ⍝ ← ←→ x y z
+     ⍝ ⍵ ←→ x y z
+     ⍝ ← ←→ 'x.y.z'
+     80=⎕DR ⍵:1⊃'.'⎕VFI ⍵
+     '.'@(' '∘=)⍕⍵
+ }

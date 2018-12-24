@@ -1,7 +1,9 @@
  IsLatestRelease←{
      ⍝ ⍵ ←→ Version-  'x.y.z'
      ⍝ Assumes ⍵ is already tagged.
+     ⍺←0
+     p←GetProjectSpace ⍺
      n←GetNumericVersion ⍵
-     s←GetTags''
+     s←p GetTags''
      n≡↑{⍵[⍒⍵]}s.NumericVersion
  }

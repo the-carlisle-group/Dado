@@ -1,6 +1,8 @@
  BuildReleaseArtifacts←{
-     ⍝ ⍵ ←→ ProjectSpace
-     c←GetConfigSpace ⍵
+     ⍝ ⍺ ←→ ProjectSpace
+     ⍺←0
+     p←GetProjectSpace ⍺
+     c←GetConfigSpace p
      0=c.⎕NC'OnRelease':0
      ⍎c.OnRelease,' 0'
  }

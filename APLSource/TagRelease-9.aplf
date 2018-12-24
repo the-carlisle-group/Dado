@@ -1,11 +1,13 @@
  TagRelease←{
      ⍝ ⍵ ←→ ''
-     IsDirty'':'Uncommitted changes.'
-     b←GetCurrentBranch''
+     ⍺←0
+     p←GetProjectSpace ⍺
+     p IsDirty'':'Uncommitted changes.'
+     b←p GetCurrentBranch''
      t v←('/'≠b)⊆b
      'release'≢t:b,' is not a release branch'
      m←'Release ',v
-     _←Squash m
-     ⎕←⊃RunGitCommand'tag -a ',v,' -m "Version ',v,'"'
+     _←p Squash m
+     ⎕←⊃p RunGitCommand'tag -a ',v,' -m "Version ',v,'"'
      'Done'
  }

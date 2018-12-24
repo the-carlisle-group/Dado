@@ -1,0 +1,9 @@
+ GetNextVersion←{
+     ⍺←0
+     p←GetProjectSpace ⍺
+     b←'major' 'minor' ''∊⊂⍵
+     t←p GetTags''
+     v←t.MostRecentVersion
+     n←v+b×⌽∨\⌽b
+     FormatVersion n
+ }

@@ -1,8 +1,10 @@
  SetConfigParam←{
      ⍝ ⍵ ←→ Name and value
      ⍝ ⍺ ←→ Project Space
+     ⍺←0
+     p←GetProjectSpace ⍺
      n v←⍵
-     f←GetProjectFolder ⍺
+     f←GetProjectFolder p
      ct←f,'acreconfig.txt'
      c←1 ⎕FIX'file://',ct
      _←n c.{⍎⍺,'←⍵'}v
