@@ -6,7 +6,7 @@
      ⍺←0
      c←GetConfigSpace ⍺
      df←c.PackageFolder
-     _←DeleteFolder ¯1↓df
+     _←2 ⎕NDELETE ¯1↓df
      pf←c.ProjectFolder
      _←⍵ InitTargetFolder pf df
      _←(df,'ReleaseNotes')⎕NCOPY pf,'ReleaseNotes'

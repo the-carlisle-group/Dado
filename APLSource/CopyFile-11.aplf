@@ -1,7 +1,0 @@
- CopyFile←{                       ⍝ Copy File
-     c←fso''                      ⍝ File Sysem Object
-     ⍵≡'?':⊃c.GetMethodInfo↑⎕SI   ⍝ Argument Info
-     0::SigErr 37 'Unable to copy file.'⍝ Any problem
-     6::0                         ⍝ Success (Handle Value Error)
-     {0}c.CopyFile ⍵              ⍝ Run Method (Returns Folder Object)
- }

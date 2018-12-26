@@ -4,12 +4,12 @@
      ⍝ Copy all source, then delete dev spaces if applicable
      sf←⍵.ProjectFolder,'APLSource'
      tf←⍵.PackageFolder,'APLSource'
-     _←CopyFolder sf tf
+     _←tf ⎕NCOPY sf
      ↑⍺:0
      p←'DevelopmentSpaces'
      0=⍵.⎕NC p:0
      s←⍵⍎p
      df←{tf,'/',⍵,'-',ComputeCaseCode ⍵}¨s
-     _←DeleteFolder¨df
+     _←2 ⎕NDELETE¨df
      0
  }

@@ -5,6 +5,6 @@
      dt←tf,'Assets/Development'
      ~⎕NEXISTS ds:0
      _←1 ⎕MKDIR tf,'Assets'
-     _←CopyFolder ds dt
+     _←dt ⎕NCOPY ds
      0
  }

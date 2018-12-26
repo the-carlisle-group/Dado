@@ -4,6 +4,6 @@
      rt←tf,'Assets/Runtime'
      ~⎕NEXISTS rs:0
      _←1 ⎕MKDIR tf,'Assets'
-     _←CopyFolder rs rt
+     _←rt ⎕NCOPY rs
      0
  }
