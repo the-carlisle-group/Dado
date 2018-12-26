@@ -1,9 +1,9 @@
  CheckOut←{
-     ⍝ ⍺ ←→ ProjectSpace
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ Branch
      ⍝ ← ←→ New current branch
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      p IsDirty'':'Uncommited changes.'
      ⎕←p RunGitCommand'checkout ',⍵
      p RefreshProject 0

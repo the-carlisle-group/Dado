@@ -1,6 +1,7 @@
  GetProjectSpace←{
-     ⍝ ⍵ ←→ ProjectSpace (then no-op)
+     ⍝ ⍵ ←→ ProjectSpace
      ⍝ ⍵ ←→ 0, then look for ProjectSpace in context
+     ⍝ ⍵ ←→ ProjectFolder 'c:/asdf/ect.'
      ⍝ ⍵ ←→ FQP of item, then find space
      f←{9=⍵.⎕NC'AcreConfig':⍵
          ⍵=#:0
@@ -8,5 +9,9 @@
      }
      9=⎕NC'⍵':f ⍵
      '#'=↑⍵:f ExistingAncestor ⍵
-     f↑⌽⎕RSI
+     0≡⍵:f↑⌽⎕RSI
+     r←⎕SE.UCMD']acre.projects'
+     s←⍎¨r[;0]
+     i←s.AcreConfig.ProjectFolder⍳⊂⍵
+     i⊃s
  }

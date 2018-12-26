@@ -1,9 +1,10 @@
  NewReleaseBranch←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ 'x.y.z' [base] ←→ Version to Create or Patch
      ⍝       If ⍵ does not exist, create ⍵
      ⍝       If ⍵ does exist, create ⍵+0 0 1
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      p IsDirty'':'Uncommited changes.'
      q m←2↑(⊆⍵),⊂'master'
      t←p GetTags''

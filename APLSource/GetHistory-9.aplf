@@ -1,9 +1,18 @@
  GetHistory←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵←'' for entire commit history
      ⍝  ←'filename' for specific file
      ⍝  ←'itemname' #.Space.Foo, etc
+     ⍺←0
+     cp←GetProjectFolder ⍺            ⍝ context or calling project folder
+     q←'#'=↑⍵                         ⍝ Fully qualified name.
+     ⍝ Use cs
      n←GetFullyQualifiedItemName ⍵
-     p←GetProjectSpace n
+     p←{
+         q:(GetProjectSpace ExistingAncestor n).ProjectFolder
+         cp
+     }0
+     p←s.Project
      f←p GetFileName n
      g←'log  --name-status --pretty="*%h,%an,%ai"'
      r←p RunGitCommand g,(f≢'')/' --follow -- ',f

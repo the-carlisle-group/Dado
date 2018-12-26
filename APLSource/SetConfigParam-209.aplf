@@ -2,10 +2,9 @@
      ⍝ ⍵ ←→ Name and value
      ⍝ ⍺ ←→ Project Space
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      n v←⍵
-     f←GetProjectFolder p
-     ct←f,'acreconfig.txt'
+     ct←p,'acreconfig.txt'
      c←1 ⎕FIX'file://',ct
      _←n c.{⍎⍺,'←⍵'}v
      t←NStoScript c

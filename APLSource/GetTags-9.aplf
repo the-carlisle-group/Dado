@@ -1,6 +1,7 @@
  GetTags←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      t←p RunGitCommand'tag'
      s←⎕NS''
      s.Tag←t

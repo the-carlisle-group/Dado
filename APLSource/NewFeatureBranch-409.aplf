@@ -1,8 +1,12 @@
  NewFeatureBranch←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ 'feature-name'
+     ⍝
+     ⍺←0
+     p←GetProjectFolder ⍺
      n←'-'@(' '∘=)⍵
-     IsDirty'':'Uncommited changes.'
-     ⎕←⊃PullMaster''
-     ⎕←⊃RunGitCommand'checkout -b feature/',n,' master'
-     RefreshProject 0
+     p IsDirty'':'Uncommited changes.'
+     ⎕←⊃p PullMaster''
+     ⎕←⊃p RunGitCommand'checkout -b feature/',n,' master'
+     p RefreshProject 0
  }

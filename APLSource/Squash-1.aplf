@@ -1,13 +1,13 @@
  Squash←{
-     ⍝ ⍺ ←→ Project Space
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ Commit Message
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      b←p GetCurrentBranch''
      b≡'master':'No squashing the master.'
      p IsDirty'':'Uncommitted changes.'
      m←⍵,(0=≢⍵)/'Save point'
-     ca←↑#.Git.RunGitCommand'merge-base master ',b
+     ca←↑p RunGitCommand'merge-base master ',b
      ⎕←⊃p RunGitCommand'reset --soft ',ca
      ⎕←⊃p RunGitCommand'commit -m "',m,'"'
      'Done'

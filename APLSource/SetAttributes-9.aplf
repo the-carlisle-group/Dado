@@ -1,5 +1,8 @@
  SetAttributes←{
-     s←GetHistory''
+     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍺←0
+     p←GetProjectFolder ⍺
+     s←p GetHistory''
      b←s.(MostRecent∧Exists)
      n←b/s.APLItemName
      a←⎕AT n

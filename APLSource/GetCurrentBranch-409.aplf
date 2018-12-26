@@ -1,5 +1,6 @@
  GetCurrentBranch←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
-     p←GetProjectSpace ⍺
-     0⊃⎕CMD'git -C "',p.AcreConfig.ProjectFolder,'"  rev-parse --abbrev-ref HEAD'
+     p←GetProjectFolder ⍺
+     0⊃p RunGitCommand'rev-parse --abbrev-ref HEAD'
  }

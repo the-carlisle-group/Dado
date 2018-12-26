@@ -1,14 +1,16 @@
  RebaseFeatureBranch←{
-     p←GetProjectSpace 0
-     IsDirty'':'Uncommitted changes.'
-     ~IsSquashed'':'Squash commits first.'
-     b←GetCurrentBranch''
+     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍺←0
+     p←GetProjectSpace ⍺
+     p IsDirty'':'Uncommitted changes.'
+     ~p IsSquashed'':'Squash commits first.'
+     b←p GetCurrentBranch''
      t f←('/'≠b)⊆b
      t≢'feature':b,' is not a feature branch'
-     ⎕←⊃RunGitCommand'fetch origin master:master'
+     ⎕←⊃p RunGitCommand'fetch origin master:master'
      r←p RunGitCommand'rebase master'
      ⎕←⊃p ProcessFileLine¨r
-     _←RefreshProject''
-     ~IsDirty'':'Rebase complete.'
-     'Manually merge, then run #.Git.RebaseContinue'
+     _←p RefreshProject''
+     ~p IsDirty'':'Rebase complete.'
+     'Manually merge, then run RebaseContinue'
  }

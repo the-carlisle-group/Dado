@@ -1,7 +1,8 @@
  TagRelease←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ ''
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      p IsDirty'':'Uncommitted changes.'
      b←p GetCurrentBranch''
      t v←('/'≠b)⊆b

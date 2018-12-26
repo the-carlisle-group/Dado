@@ -1,3 +1,6 @@
  ShowTags←{
-     ⊃RunGitCommand'tag'
+     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍺←0
+     p←GetProjectFolder ⍺
+     ⊃p RunGitCommand'tag'
  }

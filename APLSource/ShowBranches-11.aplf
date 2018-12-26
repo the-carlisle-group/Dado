@@ -1,6 +1,6 @@
  ShowBranches←{
      ⍺←0
-     p←GetProjectSpace ⍺
-     p=0:'Not in project'
+     p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      ⊃p RunGitCommand'branch --list -a'
  }

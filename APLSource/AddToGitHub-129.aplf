@@ -1,7 +1,8 @@
  AddToGitHub←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ GitHub URL
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      ⎕←p RunGitCommand'remote add origin ',⍵
      ⎕←p RunGitCommand'remote -v'
      ⎕←p RunGitCommand'push -u origin master'

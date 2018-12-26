@@ -1,18 +1,21 @@
  MergeFeatureBranch←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ Commit Message
      ⍝      If '', defaults to branch name
-     IsDirty'':'Uncommitted changes on branch.'
-     b←GetCurrentBranch''
+     ⍺←0
+     p←GetProjectFolder ⍺
+     p IsDirty'':'Uncommitted changes on branch.'
+     b←p GetCurrentBranch''
      t f←('/'≠b)⊆b
      m←⍵,(0=≢⍵)/' '@('-'∘=)f
      t≢'feature':b,' is not a feature branch'
-     ⎕←Squash m
-     ~IsSquashed'':'Branch not squashed.'
-     ~IsRebased'':'Branch not rebased to master.'
-     ⎕←⊃RunGitCommand'fetch origin master:master'
-     ⎕←⊃RunGitCommand'checkout master'
-     ⎕←⊃RunGitCommand'merge --ff-only ',b
-     ⎕←⊃DeleteBranch b
-     ⎕←⊃PushMaster''
-     RefreshProject 0
+     ⎕←p Squash m
+     ~p IsSquashed'':'Branch not squashed.'
+     ~p IsRebased'':'Branch not rebased to master.'
+     ⎕←⊃p RunGitCommand'fetch origin master:master'
+     ⎕←⊃p RunGitCommand'checkout master'
+     ⎕←⊃p RunGitCommand'merge --ff-only ',b
+     ⎕←⊃p DeleteBranch b
+     ⎕←⊃p PushMaster''
+     p RefreshProject 0
  }

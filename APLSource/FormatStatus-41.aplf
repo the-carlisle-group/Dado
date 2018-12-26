@@ -1,8 +1,9 @@
  FormatStatus←{
-     ⍝ ⍺ ←→ Project Space
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ Result of Status or Diff
+     ⍺←0
+     p←GetProjectFolder ⍺
      0=≢⍵:' {none}'
-     pf←⍺.AcreConfig.ProjectFolder
      m←⊃⍵
      b←~∧⌿' '=m
      b[0]←1
@@ -11,7 +12,7 @@
      b←'APLSource/'∘≡¨10↑¨f
      b←b∧~'R'=↑¨m[;0]
      ~∨/b:m
-     n←'itemname'⎕SE.acre.run pf∘,¨b/f
+     n←'itemname'⎕SE.acre.run p∘,¨b/f
      m[⍸b;1]←n
      m
  }

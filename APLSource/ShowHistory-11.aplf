@@ -1,5 +1,8 @@
  ShowHistory←{
-     s←GetHistory ⍵
+     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍺←0
+     p←GetProjectFolder ⍺
+     s←p GetHistory ⍵
      c←↓⍕⍉⊃s.(CommitBy CommitDate Status CommitHash)
      l←80⍴'-'
      v←c{⍺ l,⍵,⊂''}¨s.Value

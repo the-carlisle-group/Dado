@@ -1,7 +1,8 @@
  GetCommits←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ Specific Branch (defaults to current branch)
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      r←p RunGitCommand'log ',⍵,' --pretty=format:"%h∆%ci∆%an∆%s"'
      m←(⎕CSV⍠'Separator' '∆')⊂r
      s←⎕NS''

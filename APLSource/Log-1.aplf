@@ -1,5 +1,6 @@
  Log←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      p RunGitCommand'log --oneline'
  }

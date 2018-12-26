@@ -1,5 +1,8 @@
  IsRebased←{
-     cb←GetCommits''
-     cm←GetCommits'master'
+     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍺←0
+     p←GetProjectFolder ⍺
+     cb←p GetCommits''
+     cm←p GetCommits'master'
      (0⊃cm.Hash)≡(1⊃cb.Hash)
  }

@@ -1,6 +1,7 @@
  Status←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      r←p RunGitCommand'status --short'
      p FormatStatus r
  }

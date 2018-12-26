@@ -1,11 +1,10 @@
  GenerateApplicationReleaseNotes←{
-     ⍝ ⍺ ←→ Project Folder or Space
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ Primary Project Notes
      ⍝ ← ←→ Combined release notes
      ⍺←0
-     p←GetProjectSpace ⍺
-     pf←GetProjectFolder p
-     df←GetDependencies pf            ⍝ Primary,Dependent projects
+     p←GetProjectFolder ⍺
+     df←GetDependencies p             ⍝ Primary,Dependent projects
      0=≢df:⍵
      c←GetConfigSpace¨df
      kf←c.PackageFolder               ⍝ Dependent Package Folders

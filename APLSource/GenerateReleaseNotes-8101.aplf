@@ -1,20 +1,19 @@
  GenerateReleaseNotes←{
-     ⍝ ⍺ ←→ ProjectSpace
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ Version '0.0.0'
      ⍺←0
-     p←GetProjectSpace ⍺
+     c←GetConfigSpace ⍺
+     p←c.ProjectFolder
      v←⍵
-     pf←GetProjectFolder p
-     c←GetConfigSpace pf
-     rf←pf,'ReleaseNotes/'
+     rf←p,'ReleaseNotes/'
      _←1 ⎕MKDIR rf
      rd←'-'@(' '∘=)⍕3↑⎕TS
      ⍝ Package Notes:
-     p←p GetCommits''
+     pn←p GetCommits''
      t←'# ',c.ProjectName,' Version ',v,' Release Notes ',rd
-     b←'Release '∘≡¨8↑¨p.Message
-     k←'~'≠↑¨p.Message
-     m←(k∧~∨\b)/p.Message
+     b←'Release '∘≡¨8↑¨pn.Message
+     k←'~'≠↑¨pn.Message
+     m←(k∧~∨\b)/pn.Message
      i←(⍕¨1+⍳≢m),¨⊂'. '
      rn←(⊂t),i,¨m
      cn←nget rf,'PackageNotes.md'

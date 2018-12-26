@@ -1,10 +1,9 @@
  Commit←{
-     ⍝ ⍺ ←→ ProjectSpace
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ Message
      ⍺←0
-     p←GetProjectSpace ⍺
-     0=p:'Not in project'
-     nm←'master'≢GetCurrentBranch''
+     p←GetProjectFolder ⍺
+     nm←'master'≢p GetCurrentBranch''
      m←⍵,(nm∧0=≢⍵)/'Save point'
      _←p RunGitCommand'add --all'
      ⊃p RunGitCommand'commit -m "',m,'"'

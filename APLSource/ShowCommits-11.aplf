@@ -1,4 +1,7 @@
  ShowCommits←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍺←0
+     p←GetProjectFolder ⍺
      n←(⍵>0)/'-',⍕⍵
-     ⊃RunGitCommand'log ',n,' --pretty=format:"%h %an, %ar, %s"'
+     ⊃p RunGitCommand'log ',n,' --pretty=format:"%h %an, %ar, %s"'
  }

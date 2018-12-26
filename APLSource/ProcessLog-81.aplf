@@ -1,8 +1,9 @@
  ProcessLog←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ Results of git log  (with --name-status)
      ⍝ ⍺ ←→ Project Space
-     p←⍺
-     pf←⍺.AcreConfig.ProjectFolder
+     ⍺←0
+     p←GetProjectFolder ⍺
      l←⍵~⊂''
      b←'*'=↑¨l
      cl←b/l

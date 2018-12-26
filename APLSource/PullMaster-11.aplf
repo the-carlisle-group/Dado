@@ -1,8 +1,8 @@
  PullMaster←{
-     ⍝ ⍺ ←→ [ProjectSpace]
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ n/a
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      b←p GetCurrentBranch''
      p IsDirty'':'Uncommitted changes.'
      b≢'master':p RunGitCommand'fetch origin master:master'

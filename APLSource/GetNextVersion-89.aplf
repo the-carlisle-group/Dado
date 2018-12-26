@@ -1,6 +1,7 @@
  GetNextVersion←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      b←'major' 'minor' ''∊⊂⍵
      t←p GetTags''
      v←t.MostRecentVersion

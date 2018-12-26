@@ -1,5 +1,7 @@
  DeleteBranch←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍝ ⍵ ←→ Branch Name
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      p RunGitCommand'branch -d ',⍵
  }

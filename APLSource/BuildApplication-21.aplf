@@ -1,11 +1,10 @@
  BuildApplication←{
-     ⍝ ⍺ ←→ Project Folder or  Space
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ Undefined
      ⍝ Assumes all packages already created
      ⍺←0
-     p←GetProjectSpace ⍺
-     pf←GetProjectFolder p
-     pc←GetConfigSpace pf               ⍝ Primary config space
+     pc←GetConfigSpace ⍵                ⍝ Primary config space
+     pf←pc.ProjectFolder
      af←pc.ApplicationFolder            ⍝ Application Folder
      _←DeleteFolder ¯1↓af               ⍝ Delete it first
      _←2 ⎕MKDIR af                      ⍝ Create it

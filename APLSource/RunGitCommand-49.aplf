@@ -1,9 +1,9 @@
  RunGitCommand←{
-     ⍝ ⍺ ←→ ProjectSpace
+     ⍝ ⍺ ←→ ProjectFolder
      ⍝ ⍵ ←→ command
      ⍺←0
-     p←GetProjectSpace ⍺
-     c←'git -C "',p.AcreConfig.ProjectFolder,'" ',⍵,' 2>&1'
+     p←GetProjectFolder ⍺
+     c←'git -C "',p,'" ',⍵,' 2>&1'
      f←{'UTF-8'⎕UCS ⎕UCS ⍵}
      f¨⎕CMD c
  }

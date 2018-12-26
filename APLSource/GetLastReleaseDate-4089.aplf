@@ -1,6 +1,7 @@
  GetLastReleaseDate←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      c←p GetCommits''
      b←'Release '∘≡¨8↑¨c.Message
      (b⍳1)⊃c.Date,⊂''

@@ -1,7 +1,0 @@
- IsPatchToCurrentRelease←{
-     ⍝ ⍵ ←→ Patch version-  'x.y.z'
-     v←GetNumericVersion ⍵
-     s←GetTags''
-     l←↑{⍵[⍒⍵]}s.NumericVersion
-     v≡l+0 0 1
- }

@@ -1,6 +1,9 @@
  IsSquashed←{
-     c←GetCommits''
-     b←GetCurrentBranch''
-     ca←↑#.Git.RunGitCommand'merge-base master ',b
+     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍺←0
+     p←GetProjectFolder ⍺
+     c←p GetCommits''
+     b←p GetCurrentBranch''
+     ca←↑p RunGitCommand'merge-base master ',b
      (7↑ca)≡1⊃c.Hash
  }

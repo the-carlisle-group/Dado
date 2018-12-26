@@ -1,6 +1,0 @@
- Projects←{
-     r←⎕SE.UCMD']acre.projects'
-     p←⍎¨r[;0]
-     b←Git.GetCurrentBranch¨p
-     r,b
- }

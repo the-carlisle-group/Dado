@@ -1,5 +1,6 @@
  GetCommitDate←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      ↑p RunGitCommand'show -s --format=%ci HEAD'
  }

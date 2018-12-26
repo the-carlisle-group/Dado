@@ -1,11 +1,11 @@
  Initialize←{
-    ⍝ Enhance an Acre Project to a Git Repository
-    ⍝ ⍺ ←→ Project Space
-    ⍝ .....
-    ⍝ After this, use GitHub to create a new repository
-    ⍝ then get the URL and run AddToGitHub.
+     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍝ Enhance an Acre Project to a Git Repository
+     ⍝ .....
+     ⍝ After this, use GitHub to create a new repository
+     ⍝ then get the URL and run AddToGitHub.
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
      ⎕←p RunGitCommand'init'
      ⎕←p RunGitCommand'add .'
      ⎕←p RunGitCommand'commit -m ','"first commit"'

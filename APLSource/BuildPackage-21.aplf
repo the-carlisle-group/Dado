@@ -1,11 +1,10 @@
  BuildPackage←{
-     ⍝ ⍺ ←→ Project Folder or Space
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵[0] ←→ 0,  include only runtime code/assets
      ⍝         1,  include all code/assets
      ⍝ ⍵[1] ←→ 1|0 create (or not) an APLSource.dcf code file
      ⍺←0
-     p←GetProjectSpace ⍺
-     c←GetConfigSpace p
+     c←GetConfigSpace ⍺
      df←c.PackageFolder
      _←DeleteFolder ¯1↓df
      pf←c.ProjectFolder

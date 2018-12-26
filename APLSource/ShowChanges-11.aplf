@@ -1,10 +1,9 @@
  ShowChanges←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
-     p←GetProjectSpace ⍺
-     p=0:'Not in project'
-     c←p.AcreConfig
-     b←GetCurrentBranch p
-     n←↑⌽{(⍵≠'/')⊆⍵}c.ProjectFolder
+     p←GetProjectFolder ⍺
+     b←p GetCurrentBranch''
+     n←↑⌽{(⍵≠'/')⊆⍵}p
      z←⊂'Project/Branch: ',n,'/',b
      z,←⊂'Uncommitted Changes:'
      r←p RunGitCommand'status --short'

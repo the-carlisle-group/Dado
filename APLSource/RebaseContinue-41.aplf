@@ -1,5 +1,8 @@
  RebaseContinue←{
-     ⎕←RunGitCommand'add --all'
-     ⎕←RunGitCommand'rebase --continue'
+     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍺←0
+     p←GetProjectSpace ⍺
+     ⎕←p RunGitCommand'add --all'
+     ⎕←p RunGitCommand'rebase --continue'
      'Rebase complete.'
  }
