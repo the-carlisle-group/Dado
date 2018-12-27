@@ -4,10 +4,10 @@
      cs←sf,'acreconfig.txt'       ⍝ Config Source
      ct←tf,'acreconfig.txt'       ⍝ Config target
      q←{'''',⍵,''''}
-     t←0⊃⎕NGET cs 1                   ⍝ Read it in
+     t←0⊃⎕NGET cs 1               ⍝ Read it in
      t←¯1↓t
-     t,←⊂'    BuildID←',q ⍺ Git.GetShortHash''
-     t,←⊂'    BuildDate←',q ⍺ Git.GetCommitDate''
+     t,←⊂'    BuildID←',q sf GetShortHash''
+     t,←⊂'    BuildDate←',q sf GetCommitDate''
      t,←⊂':EndNamespace'
      _←(⊂t)⎕NPUT ct
      0

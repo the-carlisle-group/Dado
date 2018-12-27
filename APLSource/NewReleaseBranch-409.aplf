@@ -4,12 +4,13 @@
      ⍝       If ⍵ does not exist, create ⍵
      ⍝       If ⍵ does exist, create ⍵+0 0 1
      ⍺←0
+     v←⍵
      p←GetProjectFolder ⍺
      p IsDirty'':'Uncommited changes.'
      q m←2↑(⊆⍵),⊂'master'
      t←p GetTags''
      e←(⊂v)∊t.Tag
-     n←FormatVersion ⍵
+     n←FormatVersion v
      r←FormatVersion n+0 0 e
      (⊂r)∊t.Tag:'Target version ',r,' already exists.'
      ⎕←⊃p PullMaster''

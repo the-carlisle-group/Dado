@@ -8,7 +8,7 @@
      df←c.PackageFolder
      _←2 ⎕NDELETE ¯1↓df
      pf←c.ProjectFolder
-     _←⍵ InitTargetFolder pf df
+     _←InitTargetFolder pf df
      _←(df,'ReleaseNotes')⎕NCOPY pf,'ReleaseNotes'
      _←CopyRuntimeAssets pf df
      _←⍵ CopyDevelopmentAssets pf df

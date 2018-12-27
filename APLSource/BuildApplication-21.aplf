@@ -3,7 +3,7 @@
      ⍝ ⍵ ←→ Undefined
      ⍝ Assumes all packages already created
      ⍺←0
-     pc←GetConfigSpace ⍵                ⍝ Primary config space
+     pc←GetConfigSpace ⍺                ⍝ Primary config space
      pf←pc.ProjectFolder
      af←pc.ApplicationFolder            ⍝ Application Folder
      _←2 ⎕NDELETE ¯1↓af                 ⍝ Delete it first

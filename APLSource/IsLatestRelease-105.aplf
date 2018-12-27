@@ -4,7 +4,7 @@
      ⍝ Assumes ⍵ is already tagged.
      ⍺←0
      p←GetProjectFolder ⍺
-     n←GetNumericVersion ⍵
+     n←FormatVersion ⍵
      s←p GetTags''
      n≡s.MostRecentVersion
  }

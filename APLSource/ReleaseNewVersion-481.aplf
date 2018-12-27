@@ -4,7 +4,7 @@
      ⍺←0
      p←GetProjectFolder ⍺
      v←p GetNextVersion ⍵
-     v←p NewReleaseBranch ⍵
+     _←p NewReleaseBranch v
      _←p SetConfigParam'Version'v
      _←p GenerateReleaseNotes v
      _←p Commit''                     ⍝ Combine
