@@ -12,7 +12,6 @@
          q:(GetProjectSpace ExistingAncestor n).ProjectFolder
          cp
      }0
-     p←s.Project
      f←p GetFileName n
      g←'log  --name-status --pretty="*%h,%an,%ai"'
      r←p RunGitCommand g,(f≢'')/' --follow -- ',f

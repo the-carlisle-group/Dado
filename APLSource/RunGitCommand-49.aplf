@@ -3,7 +3,7 @@
      ⍝ ⍵ ←→ command
      ⍺←0
      p←GetProjectFolder ⍺
-     c←'git -C "',p,'" ',⍵,' 2>&1'
+     c←'git -C "',p,'" ',⍵,' 2>&1'    ⍝ 2>&1 redirects errors to screen, otherwise we don't see them
      f←{'UTF-8'⎕UCS ⎕UCS ⍵}
      f¨⎕CMD c
  }

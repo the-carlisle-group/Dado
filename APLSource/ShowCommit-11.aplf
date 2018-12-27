@@ -3,5 +3,5 @@
      ⍺←0
      p←GetProjectFolder ⍺
      r←p RunGitCommand'log ',⍵,' -1 --name-status'
-     ⊃p ProcessFileLine¨r
+     ⊃p∘ProcessFileLine¨r
  }

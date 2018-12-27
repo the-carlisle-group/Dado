@@ -21,8 +21,8 @@
      s.OK←{(2=⍵)∨rn∧3=⍵}≢¨q ⍝ If not, probably due to blanks in file name
      s.FileName1←fn1
      s.FileName2←fn2
-     s.APLItemName1←p FileNameToItemName¨fn1
-     s.APLItemName2←p FileNameToItemName¨fn2
+     s.APLItemName1←p∘FileNameToItemName¨fn1
+     s.APLItemName2←p∘FileNameToItemName¨fn2
      s.Status←↑¨fs
      s.IsAPLItem←'APLSource/'∘≡¨10↑¨fn1
      s.Deleted←'D'=s.Status
