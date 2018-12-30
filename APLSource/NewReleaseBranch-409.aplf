@@ -15,6 +15,7 @@
      (⊂r)∊t.Tag:'Target version ',r,' already exists.'
      ⎕←⊃p PullMaster''
      ⎕←⊃p RunGitCommand'checkout -b release/',r,' ',e⊃m v
+     _←p SetConfigParam'Version'r
      _←p RefreshProject 0
      'release/',r
  }

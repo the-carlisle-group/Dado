@@ -1,17 +1,15 @@
- ReleaseNewVersion←{
+ ReleaseOldPatch←{
      ⍝ ⍺ ←→ [Project Folder|Space]
-     ⍝ ⍵ ←→ 'major'|'minor'| '' (for patch)
      ⍺←0
-     p←GetProjectFolder ⍺
-     v←p GetNextVersion ⍵
-     b←p NewReleaseBranch v
-     _←p GenerateReleaseNotes v
-     _←p Commit'Release ',v
+     b←p GetCurrentBranch''
+     t v←('/'≠b)⊆b
+     'release'≢t:b,' is not a release branch'
+     _←p Squash'Release ',v
      _←p BuildPackage 0 0
      _←p BuildApplication''
      _←p BuildReleaseArtifacts''
      ⎕←⊃p RunGitCommand'checkout master'
-     ⎕←⊃p RunGitCommand'merge --ff-only ',b
+     ⎕←⊃p RunGitCommand'merge -s ours ',b
      ⎕←⊃p DeleteBranch b
      ⎕←⊃p RunGitCommand'tag -a ',v,' -m "Version ',v,'"'
      ⎕←⊃p PushMaster''

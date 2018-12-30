@@ -1,20 +1,17 @@
  MergeReleaseBranch←{
      ⍝ ⍵ ←→ ''
-     OBSOLETE FOR NEW VERSION
-     JUST NEED FOR PATCHING OLD VERSION
+     OBSOLETE
      ⍺←0
-     p←GetProjectFolder ⍺
+     p←GetProjectFolder ⍺ NewReleaseBranch
      p IsDirty'':'Uncommitted changes.'
      b←p GetCurrentBranch''
      t v←('/'≠b)⊆b
      'release'≢t:b,' is not a release branch'
-     ⍝ Is it tagged???!!
      ms←(~p IsLatestRelease v)/'-s ours '
      ⎕←⊃p RunGitCommand'fetch origin master:master'
      ⎕←⊃p RunGitCommand'checkout master'
-     ⎕←⊃p RunGitCommand'merge ',ms,b
+     ⎕←⊃p RunGitCommand'merge -s ours ',b
      ⎕←⊃p DeleteBranch b
-
      ⎕←⊃p PushMaster''
      p RefreshProject 0
  }
