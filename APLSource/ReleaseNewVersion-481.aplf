@@ -4,16 +4,17 @@
      ⍺←0
      p←GetProjectFolder ⍺
      v←p GetNextVersion ⍵
-     _←p NewReleaseBranch v
+     b←p NewReleaseBranch v
      _←p SetConfigParam'Version'v
      _←p GenerateReleaseNotes v
-     _←p Commit''                     ⍝ Combine
-     _←p TagRelease''                 ⍝ ...with this
+     _←p Commit'Release ',v
      _←p BuildPackage 0 0
      _←p BuildApplication''
-     ⎕←'Waiting...'                   ⍝ This needs to be synchronous
-     _←⎕DL 5                          ⍝ The app ws needs to be built....
      _←p BuildReleaseArtifacts''
-     _←p MergeReleaseBranch''
-     'Done totally'
+     ⎕←⊃p RunGitCommand'checkout master'
+     ⎕←⊃p RunGitCommand'merge --ff-only ',b
+     ⎕←⊃p DeleteBranch b
+     ⎕←⊃p RunGitCommand'tag -a ',v,' -m "Version ',v,'"'
+     ⎕←⊃p PushMaster''
+     v
  }

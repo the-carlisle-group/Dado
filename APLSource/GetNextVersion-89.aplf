@@ -2,7 +2,8 @@
      ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
      p←GetProjectFolder ⍺
-     b←'major' 'minor' ''∊⊂⍵
+     j←⍵,(0=≢⍵)/'patch'
+     b←'major' 'minor' 'patch'∊⊂j
      t←p GetTags''
      v←t.MostRecentVersion
      n←v+b×⌽∨\⌽b

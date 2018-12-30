@@ -16,5 +16,5 @@
      ⎕←⊃p PullMaster''
      ⎕←⊃p RunGitCommand'checkout -b release/',r,' ',e⊃m v
      _←p RefreshProject 0
-     r
+     'release/',r
  }

@@ -1,5 +1,7 @@
  MergeReleaseBranch←{
      ⍝ ⍵ ←→ ''
+     OBSOLETE FOR NEW VERSION
+     JUST NEED FOR PATCHING OLD VERSION
      ⍺←0
      p←GetProjectFolder ⍺
      p IsDirty'':'Uncommitted changes.'
@@ -12,6 +14,7 @@
      ⎕←⊃p RunGitCommand'checkout master'
      ⎕←⊃p RunGitCommand'merge ',ms,b
      ⎕←⊃p DeleteBranch b
+
      ⎕←⊃p PushMaster''
      p RefreshProject 0
  }

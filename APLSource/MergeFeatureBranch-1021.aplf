@@ -4,15 +4,14 @@
      ⍝      If '', defaults to branch name
      ⍺←0
      p←GetProjectFolder ⍺
-     p IsDirty'':'Uncommitted changes on branch.'
      b←p GetCurrentBranch''
      t f←('/'≠b)⊆b
      m←⍵,(0=≢⍵)/' '@('-'∘=)f
      t≢'feature':b,' is not a feature branch'
+     p IsDirty'':'Not merged: uncommitted changes on branch.'
      ⎕←p Squash m
-     ~p IsSquashed'':'Branch not squashed.'
-     ~p IsRebased'':'Branch not rebased to master.'
      ⎕←⊃p RunGitCommand'fetch origin master:master'
+     ~p IsRebased'':'Not merged: branch "',b,'" not rebased to master.'
      ⎕←⊃p RunGitCommand'checkout master'
      ⎕←⊃p RunGitCommand'merge --ff-only ',b
      ⎕←⊃p DeleteBranch b

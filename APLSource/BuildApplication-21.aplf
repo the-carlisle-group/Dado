@@ -17,5 +17,8 @@
      _←tf{~⎕NEXISTS ⍵:0 ⋄ ⍺ ⎕NCOPY ⍵}¨sf,¨⊂'Assets'  ⍝ Copy Assets
      _←tf ⎕NCOPY¨sf,¨⊂'acreconfig.txt'  ⍝ Copy config file
      _←tf ⎕NCOPY¨sf,¨⊂'ReleaseNotes'    ⍝ Copy release notes Folder
-     RunInProcess'#.CarlisleGroup.AcreTools.BuildApplicationWorkspace'pc.ProjectFolder
+     _←RunInProcess'#.CarlisleGroup.AcreTools.BuildApplicationWorkspace'pc.ProjectFolder
+     ⎕←'Waiting...'                   ⍝ This needs to be synchronous
+     _←⎕DL 5                          ⍝ The app ws needs to be built....
+     0
  }
