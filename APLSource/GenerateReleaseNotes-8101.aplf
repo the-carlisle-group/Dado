@@ -13,6 +13,7 @@
      t←'# ',c.ProjectName,' Version ',v,' Release Notes ',rd
      b←'Release '∘≡¨8↑¨pn.Message
      k←'~'≠↑¨pn.Message
+     k←k∧'Merge'∘≢¨5↑¨pn.Message
      m←(k∧~∨\b)/pn.Message
      i←(⍕¨1+⍳≢m),¨⊂'. '
      rn←(⊂t),i,¨m

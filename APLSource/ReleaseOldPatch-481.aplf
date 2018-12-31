@@ -1,6 +1,7 @@
  ReleaseOldPatch←{
      ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
+     p←GetProjectFolder ⍺
      b←p GetCurrentBranch''
      t v←('/'≠b)⊆b
      'release'≢t:b,' is not a release branch'
@@ -8,10 +9,10 @@
      _←p BuildPackage 0 0
      _←p BuildApplication''
      _←p BuildReleaseArtifacts''
+     ⎕←⊃p RunGitCommand'tag -a ',v,' -m "Version ',v,'"'
      ⎕←⊃p RunGitCommand'checkout master'
      ⎕←⊃p RunGitCommand'merge -s ours ',b
      ⎕←⊃p DeleteBranch b
-     ⎕←⊃p RunGitCommand'tag -a ',v,' -m "Version ',v,'"'
      ⎕←⊃p PushMaster''
      v
  }
