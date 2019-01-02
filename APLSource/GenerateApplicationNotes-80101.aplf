@@ -1,18 +1,21 @@
- GenerateApplicationReleaseNotes←{
+ GenerateApplicationNotes←{
      ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ Primary Project Notes
      ⍝ ← ←→ Combined release notes
      ⍺←0
      p←GetProjectFolder ⍺
+     pn←nget p,'dist/ReleaseNotes/PackageNotes.md' ⍝ Primary notes
      fn←p,'/dist/ReleaseNotes/ApplicationNotes.md'
      df←GetDependencies p             ⍝ Primary,Dependent projects
-     0=≢df:⍵
+     0=≢df:pn nput fn                 ⍝ None
      c←GetConfigSpace¨df
      kf←c.PackageFolder               ⍝ Dependent Package Folders
      rf←kf,¨⊂'ReleaseNotes/'          ⍝ Release Note Folders
-     pn←nget¨rf,¨⊂'PackageNotes.md'   ⍝ Dependent package notes
-
-     d n←↑¨,/¨↓⍉⊃ProcessPackageNotes¨pn
+     dn←nget¨rf,¨⊂'PackageNotes.md'   ⍝ Dependent package notes
+     an←(⊂an),dn                      ⍝ All Notes
+     b←~(≢an)↑1
+     q←b ProcessPackageNotes¨an
+     d n←↑¨,/¨↓⍉⊃q
      n←n[⍒d]
      n←↑,/n,¨⊂⊂''
      n nput fn

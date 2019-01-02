@@ -6,6 +6,6 @@
      b←'major' 'minor' 'patch'∊⊂j
      t←p GetTags''
      v←t.MostRecentVersion
-     n←v+b×⌽∨\⌽b
+     n←b+v×⌽∨\⌽b
      FormatVersion n
  }

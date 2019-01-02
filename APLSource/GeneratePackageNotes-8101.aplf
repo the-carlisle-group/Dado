@@ -1,4 +1,4 @@
- GenerateReleaseNotes←{
+ GeneratePackageNotes←{
      ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
      c←GetConfigSpace ⍺
@@ -7,7 +7,6 @@
      rf←p,'/dist/ReleaseNotes/'
      _←3 ⎕NDELETE rf
      _←3 ⎕MKDIR rf
-     ⍝ Package Notes:
      pn←p GetCommits''
      m←pn.Message
      k←~('~'=↑¨m)∨'Merge'∘≡¨5↑¨m
@@ -19,9 +18,5 @@
      rn←(⊂¨t),¨i,¨¨pm
      rn←¯1↓↑,/rn,¨⊂⊂''
      _←rn nput rf,'PackageNotes.md'
-
-     an←nget rf,'ApplicationNotes.md'
-     nn←p GenerateApplicationReleaseNotes rn
-     _←(nn,(⊂''),an)nput rf,'ApplicationNotes.md'
      0
  }

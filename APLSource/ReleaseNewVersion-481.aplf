@@ -5,8 +5,9 @@
      p←GetProjectFolder ⍺
      v←p GetNextVersion ⍵
      b←p NewReleaseBranch v
-     _←p GenerateReleaseNotes v
      _←p Commit'Release ',v
+     _←p GeneratePackageNotes''
+     _←p GenerateApplicationNotes''
      _←p BuildPackage 0 0
      _←p BuildApplication''
      _←p BuildReleaseArtifacts''

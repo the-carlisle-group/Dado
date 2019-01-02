@@ -6,10 +6,10 @@
      ⍺←0
      c←GetConfigSpace ⍺
      df←c.PackageFolder
-     _←2 ⎕NDELETE ¯1↓df
+     _←3 ⎕NDELETE ¯1↓df
      pf←c.ProjectFolder
      _←InitTargetFolder pf df
-     _←(df,'ReleaseNotes')⎕NCOPY pf,'ReleaseNotes'
+     _←(df,'ReleaseNotes')⎕NCOPY pf,'dist/ReleaseNotes'
      _←CopyRuntimeAssets pf df
      _←⍵ CopyDevelopmentAssets pf df
      _←⍵ CopyAPLSource c
