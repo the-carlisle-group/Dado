@@ -4,7 +4,7 @@
      ⍺←0
      p←GetProjectFolder ⍺
      n v←⍵
-     ct←p,'acreconfig.txt'
+     ct←p,'acre.config'
      c←1 ⎕FIX'file://',ct
      _←n c.{⍎⍺,'←⍵'}v
      t←NStoScript c

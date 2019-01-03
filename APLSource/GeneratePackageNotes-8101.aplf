@@ -13,7 +13,7 @@
      b←'Release '∘≡¨8↑¨k/m
      pm←1↓¨(+\b)⊆k/m
 
-     t←'# '∘,¨c.ProjectName∘,¨' ',¨(b/k/m),¨' ',¨10↑¨b/k/pn.Date
+     t←'# '∘,¨c.ProjectName∘,¨' ',¨(b/k/m),¨' ',¨19↑¨b/k/pn.Date
      i←(⍕¨¨1+⍳¨≢¨pm),¨¨⊂⊂'. '
      rn←(⊂¨t),¨i,¨¨pm
      rn←¯1↓↑,/rn,¨⊂⊂''

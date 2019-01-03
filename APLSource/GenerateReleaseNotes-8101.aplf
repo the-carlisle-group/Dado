@@ -1,27 +1,11 @@
  GenerateReleaseNotes←{
-     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍝ Generates marginal release notes
+     ⍝ from cumulative application notes
      ⍺←0
-     c←GetConfigSpace ⍺
-     p←c.ProjectFolder
-     v←⍵
-     rf←p,'/dist/ReleaseNotes/'
-     _←3 ⎕NDELETE rf
-     _←3 ⎕MKDIR rf
-     ⍝ Package Notes:
-     pn←p GetCommits''
-     m←pn.Message
-     k←~('~'=↑¨m)∨'Merge'∘≡¨5↑¨m
-     b←'Release '∘≡¨8↑¨k/m
-     pm←1↓¨(+\b)⊆k/m
-
-     t←'# '∘,¨c.ProjectName∘,¨' ',¨(b/k/m),¨' ',¨10↑¨b/k/pn.Date
-     i←(⍕¨¨1+⍳¨≢¨pm),¨¨⊂⊂'. '
-     rn←(⊂¨t),¨i,¨¨pm
-     rn←¯1↓↑,/rn,¨⊂⊂''
-     _←rn nput rf,'PackageNotes.md'
-
-     an←nget rf,'ApplicationNotes.md'
-     nn←p GenerateApplicationReleaseNotes rn
-     _←(nn,(⊂''),an)nput rf,'ApplicationNotes.md'
-     0
+     p←GetProjectFolder ⍺
+     f←p,'ReleaseNotes/'
+     n←1↓nget f,'ApplicationNotes.md'
+     m←(~∨\'# '∘≡¨2↑¨n)/n
+     q←('' '#'['#'=↑¨m]),¨m
+     q nput p,'ReleaseNotes.md'
  }

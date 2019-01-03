@@ -1,8 +1,8 @@
  InitTargetFolder←{
      sf tf←⍵
      _←2 ⎕MKDIR tf
-     cs←sf,'acreconfig.txt'       ⍝ Config Source
-     ct←tf,'acreconfig.txt'       ⍝ Config target
+     cs←sf,'acre.config'       ⍝ Config Source
+     ct←tf,'acre.config'       ⍝ Config target
      q←{'''',⍵,''''}
      t←0⊃⎕NGET cs 1               ⍝ Read it in
      t←¯1↓t

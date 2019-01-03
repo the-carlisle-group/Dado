@@ -12,7 +12,7 @@
      kf←c.PackageFolder               ⍝ Dependent Package Folders
      rf←kf,¨⊂'ReleaseNotes/'          ⍝ Release Note Folders
      dn←nget¨rf,¨⊂'PackageNotes.md'   ⍝ Dependent package notes
-     an←(⊂an),dn                      ⍝ All Notes
+     an←(⊂pn),dn                      ⍝ All Notes
      b←~(≢an)↑1
      q←b ProcessPackageNotes¨an
      d n←↑¨,/¨↓⍉⊃q

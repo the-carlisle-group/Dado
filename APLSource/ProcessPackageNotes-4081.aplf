@@ -1,7 +1,7 @@
  ProcessPackageNotes←{
      ⍝ ⍺ ←→ 1, add header
      p←(~⍵∊⊂'')⊆⍵                   ⍝ Partition
-     d←¯20↑¨↑¨h                     ⍝ Release Date
+     d←¯19↑¨↑¨p                     ⍝ Release Date
      ~⍺:d p
      p←{z←⍵ ⋄ z[0]←⊂'#',0⊃⍵ ⋄ z}¨p  ⍝ Add heading level
      d p                            ⍝ Dates and Notes

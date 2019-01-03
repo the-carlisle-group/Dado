@@ -16,5 +16,6 @@
      ⎕←⊃p DeleteBranch b
      ⎕←⊃p RunGitCommand'tag -a ',v,' -m "Version ',v,'"'
      ⎕←⊃p PushMaster''
+     _←p GitHubRelease v
      v
  }

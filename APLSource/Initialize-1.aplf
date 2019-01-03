@@ -8,6 +8,6 @@
      p←GetProjectFolder ⍺
      ⎕←p RunGitCommand'init'
      ⎕←p RunGitCommand'add .'
-     ⎕←p RunGitCommand'commit -m ','"first commit"'
+     ⎕←p RunGitCommand'commit -m ','"~First commit"'
      'Done'
  }

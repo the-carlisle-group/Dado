@@ -1,0 +1,39 @@
+ GitHubRelease←{
+     ⍝ ⍵ ←→ Version  e.g. '1.2.3'
+     ⍺←0
+     v←⍵
+     p←GetProjectFolder ⍺
+     k←0⊃nget p,'../GitHubToken.txt'
+     s←GetConfigSpace p
+     ⍝ Init, get octokit github client
+     d←AcreConfig.ProjectFolder,'Assets/Runtime/octokit.dll'
+     ⎕USING←'System' 'System.IO' 'System.Net,System.dll'('Octokit,',d)
+     c←⎕NEW GitHubClient(⎕NEW ProductHeaderValue(⊂s.GitHubAccount))
+     c.Credentials←⎕NEW Credentials(⊂k)
+     ⍝ Create The Release
+     r←⎕NEW NewRelease(⊂v)
+     r.Name←v
+     r.Body←0⊃⎕NGET s.PackageFolder,'ReleaseNotes/ReleaseNotes.md'
+     action←c.Repository.Release.Create(s.GitHubAccount s.ProjectName r)   ⍝ wait?
+     release←action.Result
+     ⍝ Upload artifacts.
+     u←{6::'' ⋄ ,⊆⍵⍎'ReleaseArtifacts'}s
+     0=≢u:0
+     gct←{
+         e←0(819⌶)2⊃⎕NPARTS ⍵
+         e≡'.dll':'application/octet-stream'
+         e≡'.msi':'application/x-msdownload'
+         e≡'.zip':'application/zip'
+         'application/octet-stream'
+     }
+     _←{
+         f←File.OpenRead⊂⍵
+         au←⎕NEW ReleaseAssetUpload
+         au.FileName←∊1↓⎕NPARTS ⍵
+         au.ContentType←gct ⍵
+         au.RawData←f
+         resultUpload←c.Repository.Release.UploadAsset(release au)
+         0
+     }¨p∘,¨u
+     'Done'
+ }

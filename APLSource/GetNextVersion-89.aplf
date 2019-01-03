@@ -5,6 +5,7 @@
      j←⍵,(0=≢⍵)/'patch'
      b←'major' 'minor' 'patch'∊⊂j
      t←p GetTags''
+     0=≢t.Tag:'0.0.0'
      v←t.MostRecentVersion
      n←b+v×⌽∨\⌽b
      FormatVersion n
