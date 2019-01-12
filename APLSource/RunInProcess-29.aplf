@@ -12,11 +12,11 @@
      nl←⊂q 0⊃cl
      tf←AcreConfig.ProjectFolder
      ws←tf,'Assets/Runtime/Stub.dws'
-     nl,←⊂q ws
+     nl,←⊂ws    ⍝ Can't quote, but a space will cause problems!
      nl,←⊂'AcreProject=',pf
      nl,←⊂'AcreFunction=',f
      nl,←⊂'AcreArgument=',⍕a
      nl,←⊂'maxws=2g'
-     z←⎕CMD(1↓∊' ',¨nl)''
+     z←⎕CMD 1↓∊' ',¨nl
      0
  }

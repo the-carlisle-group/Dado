@@ -1,0 +1,6 @@
+ GetIncludeInApplicationNotes←{
+     n←'InlcudeInApplicationNotes'
+     0=⍵.⎕NC n:''
+     v←,⊆⍵⍎n
+     ⍵.AuthorFolder∘,¨v
+ }

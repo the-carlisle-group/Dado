@@ -1,0 +1,8 @@
+ Zip←{
+     ⍝ ⍵ ← Source Folder, Target Zip File
+     s t←⍵
+     ⎕USING←,⊂'System.IO.Compression,System.IO.Compression.FileSystem.dll'
+     6::0
+     _←ZipFile.CreateFromDirectory s t
+     0
+ }

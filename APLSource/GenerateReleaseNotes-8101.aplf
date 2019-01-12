@@ -2,10 +2,11 @@
      ⍝ Generates marginal release notes
      ⍝ from cumulative application notes
      ⍺←0
-     p←GetProjectFolder ⍺
-     f←p,'ReleaseNotes/'
+     c←GetConfigSpace ⍺
+     f←c.ReleaseNotesFolder
      n←1↓nget f,'ApplicationNotes.md'
      m←(~∨\'# '∘≡¨2↑¨n)/n
      q←('' '#'['#'=↑¨m]),¨m
-     q nput p,'ReleaseNotes.md'
+     t←⊂'## Release Notes'
+     (t,q)nput f,'ReleaseNotes.md'
  }

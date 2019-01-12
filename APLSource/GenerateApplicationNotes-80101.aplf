@@ -3,12 +3,14 @@
      ⍝ ⍵ ←→ Primary Project Notes
      ⍝ ← ←→ Combined release notes
      ⍺←0
-     p←GetProjectFolder ⍺
-     pn←nget p,'dist/ReleaseNotes/PackageNotes.md' ⍝ Primary notes
-     fn←p,'/dist/ReleaseNotes/ApplicationNotes.md'
-     df←GetDependencies p             ⍝ Primary,Dependent projects
-     0=≢df:pn nput fn                 ⍝ None
-     c←GetConfigSpace¨df
+     c←GetConfigSpace ⍺
+     p←c.ProjectFolder
+     nf←c.ReleaseNotesFolder
+     pn←nget nf,'PackageNotes.md'
+     fn←nf,'ApplicationNotes.md'
+     in←GetIncludeInApplicationNotes c
+     0=≢in:pn nput fn
+     c←GetConfigSpace¨in
      kf←c.PackageFolder               ⍝ Dependent Package Folders
      rf←kf,¨⊂'ReleaseNotes/'          ⍝ Release Note Folders
      dn←nget¨rf,¨⊂'PackageNotes.md'   ⍝ Dependent package notes

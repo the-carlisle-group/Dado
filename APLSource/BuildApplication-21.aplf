@@ -6,7 +6,6 @@
      pc←GetConfigSpace ⍺                ⍝ Primary config space
      pf←pc.ProjectFolder
      af←pc.ApplicationFolder            ⍝ Application Folder
-     _←3 ⎕NDELETE ¯1↓af                 ⍝ Delete it first
      _←2 ⎕MKDIR af                      ⍝ Create it
      dp←GetDependencies pf              ⍝ Dependent projects
      c←{0=≢dp:'' ⋄ GetConfigSpace¨dp}0  ⍝ Dependent Config spaces
@@ -18,7 +17,10 @@
      _←tf ⎕NCOPY¨sf,¨⊂'acre.config'  ⍝ Copy config file
      _←tf ⎕NCOPY¨sf,¨⊂'ReleaseNotes'    ⍝ Copy release notes Folder
      _←RunInProcess'#.CarlisleGroup.AcreTools.BuildApplicationWorkspace'pc.ProjectFolder
-     ⎕←'Waiting...'                   ⍝ This needs to be synchronous
-     _←⎕DL 5                          ⍝ The app ws needs to be built....
+     rf←pf,'dist/ReleaseArtifacts/'
+     _←3 ⎕MKDIR rf
+     zs←pf,'dist/Application'
+     zt←rf,pc.ProjectName,'-Application-',pc.Version,'.zip'
+     _←Zip zs zt
      0
  }

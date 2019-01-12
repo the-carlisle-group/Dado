@@ -5,14 +5,12 @@
      p←c.ProjectFolder
      v←⍵
      rf←p,'/dist/ReleaseNotes/'
-     _←3 ⎕NDELETE rf
      _←3 ⎕MKDIR rf
      pn←p GetCommits''
      m←pn.Message
      k←~('~'=↑¨m)∨'Merge'∘≡¨5↑¨m
      b←'Release '∘≡¨8↑¨k/m
      pm←1↓¨(+\b)⊆k/m
-
      t←'# '∘,¨c.ProjectName∘,¨' ',¨(b/k/m),¨' ',¨19↑¨b/k/pn.Date
      i←(⍕¨¨1+⍳¨≢¨pm),¨¨⊂⊂'. '
      rn←(⊂¨t),¨i,¨¨pm
