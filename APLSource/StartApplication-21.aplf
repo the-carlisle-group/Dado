@@ -4,5 +4,6 @@
      c←GetConfigSpace¨p∘,¨#.Packages,¨'/'
      s←⍎¨c.ProjectSpace
      s.AcreConfig←s.⎕NS c
-     ⍎(↑c).ApplicationStartup
+     0=(↑c).⎕NC'ApplicationStartup':''
+     (↑s)⍎(↑c).ApplicationStartup
  }
