@@ -4,7 +4,7 @@
      ⍺←0
      p←GetProjectFolder ⍺
      r←p RunGitCommand'log ',⍵,' --pretty=format:"%h∆%ci∆%an∆%s"'
-     m←(⎕CSV⍠'Separator' '∆')⊂r
+     m←(⎕CSV⍠('Separator' '∆')('QuoteChar' ''))⊂r
      s←⎕NS''
      s.(Hash Date User Message)←↓⍉m
      s
