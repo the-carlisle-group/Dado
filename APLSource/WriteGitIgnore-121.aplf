@@ -1,0 +1,8 @@
+ WriteGitIgnore←{
+     ⍺←0
+     p←GetProjectFolder ⍺
+     f←p,'.gitignore'
+     t←'.acre/' 'dist/' 'aplcore'
+     _←(⊂t)⎕NPUT f 1
+     0
+ }

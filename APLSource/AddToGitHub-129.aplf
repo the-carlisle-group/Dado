@@ -3,6 +3,12 @@
      ⍝ ⍵ ←→ GitHub URL
      ⍺←0
      p←GetProjectFolder ⍺
+     ga←{1⊃⌽('/'≠⍵)⊆⍵}⍵
+     _←p WriteGitIgnore''
+     _←p SetConfigParam'GitHubAccount'ga
+     ⎕←p RunGitCommand'init'
+     ⎕←p RunGitCommand'add .'
+     ⎕←p RunGitCommand'commit -m ','"~First commit"'
      ⎕←p RunGitCommand'remote add origin ',⍵
      ⎕←p RunGitCommand'remote -v'
      ⎕←p RunGitCommand'push -u origin master'

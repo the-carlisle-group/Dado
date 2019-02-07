@@ -5,6 +5,10 @@
      p←GetProjectFolder ⍺
      n v←⍵
      ct←p,'acre.config'
+     r←↑⎕NGET ct 1
+     r[0]←⊂':Namespace'
+     r←(¯1↓r),⊂':EndNamespace'
+     _←(⊂r)⎕NPUT ct 1
      c←1 ⎕FIX'file://',ct
      _←n c.{⍎⍺,'←⍵'}v
      t←NStoScript c
