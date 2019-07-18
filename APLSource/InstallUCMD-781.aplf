@@ -1,0 +1,11 @@
+ InstallUCMD←{
+     d←↑⎕NPARTS ⎕WSID
+     p←d,'/CarlisleGroup/AcreTools/Assets/Runtime'
+     o←⎕SE.SALT.Settings'cmddir'
+     e←(';'≠o)⊆o
+     f←{¯3↑(~⍵∊'\/')⊆⍵}
+     k←~(f p)∘≡¨f¨e
+     n←1↓∊';',¨(⊂p)k/o
+     _←⎕SE.SALT.Settings'cmddir "',n,'" -permanent'
+     0
+ }
