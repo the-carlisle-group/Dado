@@ -1,0 +1,23 @@
+ UserCommandList←{
+     c←⊂'AddToGitHub' 'Add project to GitHUb'
+     c,←⊂'Commit' 'Commit changes to feature branch'
+     c,←⊂'CheckOut' 'Checkout a branch'
+     c,←⊂'NewFeatureBranch' 'Create a new feature branch'
+     c,←⊂'MergeFeatureBranch' 'Merge feature branch into master branch'
+     c,←⊂'ReleaseNewVersion' 'Release a new version'
+     c,←⊂'RebaseFeatureBranch' 'Rebase feature branch to the master branch'
+     c,←⊂'RebaseContinue' 'Continue rebase after dealing with merge conflicts'
+     c,←⊂'RunGitCommand' 'Run arbitrary Git command'
+     c,←⊂'ShowBranches' 'Show branches'
+     c,←⊂'ShowCommit' 'Show single commit in detail'
+     c,←⊂'ShowCommits' 'Show recent commits'
+     c,←⊂'ShowCommits' 'Show recent commits in detail'
+     c,←⊂'ShowChanges' 'Show changes on current branch'
+     c,←⊂'ShowHistory' 'Show history of an item'
+     c,←⊂'ShowProjects' 'Show projects'
+     c,←⊂'ShowTags' 'Show tags'
+     z←{⎕NS''}¨⍳≢c
+     z.(Group Parse)←⊂'acretools' ''
+     z.(Name Desc)←c
+     z
+ }
