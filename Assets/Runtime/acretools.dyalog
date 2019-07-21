@@ -3,7 +3,7 @@
     
    Load←{
        9=⎕SE.⎕NC 'AcreTools':0
-       f←SALT_Data.SourceFile
+       f←{6::##.t  ⋄ SALT_Data.SourceFile} 0
        ws←'acretools.dws',⍨∊'/',⍨¨¯5↓(~f∊'\/')⊆f
        '#.CarlisleGroup.AcreTools' ⎕SE.⎕CY ws
    }
@@ -15,13 +15,11 @@
     ∇
         
    Help←{                                
-         _←Load 0
-         ⍺ ⎕SE.AcreTools.UserCommandHelp ⍵                             
+      ⍺ ⎕SE.AcreTools.UserCommandHelp ⍵                             
    }                                                                   
    
   
    Run←{
-     _←Load 0
-     ⎕SE.AcreTools.UserCommandRun ⍵
+      ⎕SE.AcreTools.UserCommandRun ⍵
      }                                                                   
  :endnamespace                                                         

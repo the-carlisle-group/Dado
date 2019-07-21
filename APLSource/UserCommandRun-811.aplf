@@ -1,4 +1,4 @@
  UserCommandRun←{
      c a←⍵
-     (⍎c)⍺
+     (⍎c)a
  }
