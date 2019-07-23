@@ -1,7 +1,5 @@
  InstallUCMD←{
-     d←↑⎕NPARTS ⎕WSID
-     a←↑#.Packages
-     p←d,a,'\Assets\Runtime'
+     p←↑⎕NPARTS ⎕WSID
      o←⎕SE.SALT.Settings'cmddir'
      e←(';'≠o)⊆o
      f←{¯3↑(~⍵∊'\/')⊆⍵}

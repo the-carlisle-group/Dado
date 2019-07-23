@@ -1,9 +1,7 @@
  StartApplication←{
      ⍝ ⍵ ←→ n/a
-     p←↑⎕NPARTS ⎕WSID
-     c←GetConfigSpace¨p∘,¨#.Packages,¨'/'
-     s←⍎¨c.ProjectSpace
-     s.AcreConfig←s.⎕NS c
-     0=(↑c).⎕NC'ApplicationStartup':''
-     (↑s)⍎(↑c).ApplicationStartup
+     s←SetAppConfig 0
+     c←s.AcreConfig
+     0=c.⎕NC'ApplicationStartup':''
+     s⍎c.ApplicationStartup
  }

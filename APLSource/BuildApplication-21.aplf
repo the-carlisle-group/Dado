@@ -17,6 +17,7 @@
      _←tf ⎕NCOPY¨sf,¨⊂'acre.config'  ⍝ Copy config file
      _←tf ⎕NCOPY¨sf,¨⊂'ReleaseNotes'    ⍝ Copy release notes Folder
      _←RunInProcess'#.CarlisleGroup.AcreTools.BuildApplicationWorkspace'pc.ProjectFolder
+     _←(af,pc.ProjectName,'_UCMD.dyalog')⎕NCOPY AcreConfig.ProjectFolder,'Assets/Build/UCMD.dyalog'
      rf←pf,'dist/ReleaseArtifacts/'
      _←3 ⎕MKDIR rf
      zs←pf,'dist/Application'
