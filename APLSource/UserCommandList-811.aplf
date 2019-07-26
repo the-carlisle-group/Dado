@@ -16,6 +16,7 @@
      c,←⊂'ShowHistory' 'Show history of an item'
      c,←⊂'ShowProjects' 'Show projects'
      c,←⊂'ShowTags' 'Show tags'
+     c,←⊂'Version' 'Show version'
      z←{⎕NS''}¨⍳≢c
      z.(Group Parse)←⊂'acretools' ''
      z.(Name Desc)←c

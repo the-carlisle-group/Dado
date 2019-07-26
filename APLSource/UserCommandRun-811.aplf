@@ -1,4 +1,5 @@
  UserCommandRun←{
      c a←⍵
-     (⍎c)a
+     q←''''∧.=2↑¯1⌽a
+     (⍎c)(-q)↓q↓a
  }

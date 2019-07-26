@@ -2,6 +2,7 @@
      ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
      p←GetProjectFolder ⍺
-     n←(⍵>0)/'-',⍕⍵
+     w←↑1⊃⎕VFI⍕⍵
+     n←(w>0)/'-',⍕w
      ⊃p RunGitCommand'log ',n,' --pretty=format:"%h %an, %ar, %s"'
  }

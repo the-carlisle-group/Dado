@@ -2,7 +2,8 @@
      ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
      p←GetProjectFolder ⍺
-     n←(⍵>0)/'-',⍕⍵
+     w←↑1⊃⎕VFI⍕⍵
+     n←(w>0)/'-',⍕w
      r←p RunGitCommand'log ',n,' --name-status'
      ⊃p∘ProcessFileLine¨r
  }
