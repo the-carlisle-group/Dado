@@ -1,13 +1,13 @@
 ﻿ :namespace ucmd                                                 
-    ⍝ AcreTools User Command File
-    ⍝ This file is identical for any Acre-based user command project. 
     ⎕IO ⎕ML←0 1                                                         
     GetProjectSpace←{
         9=⎕NC 'ProjectSpace':ProjectSpace 
         f←{6::##.t  ⋄ SALT_Data.SourceFile} 0
         s←⎕NS ''
-        _←s.⎕CY '.dws',⍨(⊃⌽⍸'_'=f)↑f
-        r←s.CarlisleGroup.AcreTools.SetAppConfig ⊃⎕NPARTS f  
+        p n←2↑⎕NPARTS f 
+        d←p,n,'\'
+        _←s.⎕CY d,n,'.dws'
+        r←s.CarlisleGroup.AcreTools.SetAppConfig d 
         ⎕THIS.ProjectSpace←r
         r
     }
