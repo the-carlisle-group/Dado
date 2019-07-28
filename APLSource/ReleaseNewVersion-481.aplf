@@ -3,16 +3,10 @@
      ⍝ ⍵ ←→ 'major'|'minor'| '' (for patch)
      ⍺←0
      p←GetProjectFolder ⍺
-     _←3 ⎕NDELETE p,'dist'
      v←p GetNextVersion ⍵
      b←p NewReleaseBranch v
      _←p Commit'Release ',v
-     _←p GeneratePackageNotes''
-     _←p GenerateApplicationNotes''
-     _←p GenerateReleaseNotes''
-     _←p BuildPackage 0 0
-     _←p BuildApplication''
-     _←p BuildReleaseArtifacts''
+     _←p Build''
      ⎕←⊃p RunGitCommand'checkout master'
      ⎕←⊃p RunGitCommand'merge --ff-only ',b
      ⎕←⊃p DeleteBranch b

@@ -1,0 +1,14 @@
+ Build←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍝ ⍵ ←→ ''
+     ⍺←0
+     p←GetProjectFolder ⍺
+     _←3 ⎕NDELETE p,'dist'
+     _←p GeneratePackageNotes''
+     _←p GenerateApplicationNotes''
+     _←p GenerateReleaseNotes''
+     _←p BuildPackage 0 0
+     _←p BuildApplication''
+     _←p BuildReleaseArtifacts''
+     'Done'
+ }
