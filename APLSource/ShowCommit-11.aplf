@@ -1,7 +1,0 @@
- ShowCommit←{
-     ⍝ ⍺ ←→ [Project Folder|Space]
-     ⍺←0
-     p←GetProjectFolder ⍺
-     r←p RunGitCommand'log ',⍵,' -1 --name-status'
-     ⊃p∘ProcessFileLine¨r
- }

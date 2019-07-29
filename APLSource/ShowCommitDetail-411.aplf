@@ -1,8 +1,8 @@
- ShowCommitsDetail←{
+ ShowCommitDetail←{
      ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
      p←GetProjectFolder ⍺
-     w←↑1⊃⎕VFI⍕⍵
+     w←↑1⊃⎕VFI(⍕⍵),' 1'
      n←(w>0)/'-',⍕w
      r←p RunGitCommand'log ',n,' --name-status'
      ⊃p∘ProcessFileLine¨r
