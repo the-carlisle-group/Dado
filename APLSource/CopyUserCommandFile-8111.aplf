@@ -1,0 +1,8 @@
+ CopyUserCommandFile←{
+     ~⍺ IsUserCommandApp 0:0
+     pc←GetConfigSpace ⍺
+     pf←pc.ProjectFolder
+     tn←pf,'dist/Application/',pc.ProjectName,'.dyalog'
+     sn←AcreConfig.ProjectFolder,'Assets/Build/UCMD.dyalog '
+     tn ⎕NCOPY sn
+ }

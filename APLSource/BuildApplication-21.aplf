@@ -14,10 +14,10 @@
      tf←af∘,¨ac.FullProjectName         ⍝ Target package folders, under application folder
      _←2 ⎕MKDIR¨tf                      ⍝ Create target dirs
      _←tf{~⎕NEXISTS ⍵:0 ⋄ ⍺ ⎕NCOPY ⍵}¨sf,¨⊂'Assets'  ⍝ Copy Assets
-     _←tf ⎕NCOPY¨sf,¨⊂'acre.config'  ⍝ Copy config file
+     _←tf ⎕NCOPY¨sf,¨⊂'acre.config'     ⍝ Copy config file
      _←tf ⎕NCOPY¨sf,¨⊂'ReleaseNotes'    ⍝ Copy release notes Folder
      _←RunInProcess'#.CarlisleGroup.AcreTools.BuildApplicationWorkspace'pc.ProjectFolder
-     _←(pf,'dist/Application/',pc.ProjectName,'.dyalog')⎕NCOPY AcreConfig.ProjectFolder,'Assets/Build/UCMD.dyalog '
+     _←⍺ CopyUserCommandFile 0
      rf←pf,'dist/ReleaseArtifacts/'
      _←3 ⎕MKDIR rf
      zs←pf,'dist/Application'
