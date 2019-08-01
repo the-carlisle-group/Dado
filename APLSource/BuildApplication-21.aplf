@@ -16,7 +16,8 @@
      _←tf{~⎕NEXISTS ⍵:0 ⋄ ⍺ ⎕NCOPY ⍵}¨sf,¨⊂'Assets'  ⍝ Copy Assets
      _←tf ⎕NCOPY¨sf,¨⊂'acre.config'     ⍝ Copy config file
      _←tf ⎕NCOPY¨sf,¨⊂'ReleaseNotes'    ⍝ Copy release notes Folder
-     _←RunInProcess'#.CarlisleGroup.AcreTools.BuildApplicationWorkspace'pc.ProjectFolder
+     _←BuildAppWS pc.ProjectFolder
+     _←pc CopyAcreToolsPackage af
      _←⍺ CopyUserCommandFile 0
      rf←pf,'dist/ReleaseArtifacts/'
      _←3 ⎕MKDIR rf

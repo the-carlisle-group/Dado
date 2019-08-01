@@ -1,6 +1,6 @@
  StartApplication←{
      ⍝ ⍵ ←→ n/a
-     s←SetAppConfig 0
+     s←SetAppConfig''
      c←s.AcreConfig
      0=c.⎕NC'ApplicationStartup':''
      s⍎c.ApplicationStartup
