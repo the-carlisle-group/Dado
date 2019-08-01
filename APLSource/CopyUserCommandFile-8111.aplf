@@ -3,6 +3,6 @@
      pc←GetConfigSpace ⍺
      pf←pc.ProjectFolder
      tn←pf,'dist/Application/',pc.ProjectName,'.dyalog'
-     sn←AcreConfig.ProjectFolder,'Assets/Build/UCMD.dyalog '
+     sn←AcreConfig.ProjectFolder,'Assets/Runtime/UCMD.dyalog '
      tn ⎕NCOPY sn
  }
