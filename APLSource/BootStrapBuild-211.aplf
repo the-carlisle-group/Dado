@@ -1,0 +1,16 @@
+ BootStrapBuild←{
+     ⍺←0
+     pc←AcreConfig
+     pf←pc.ProjectFolder
+     af←pc.ApplicationFolder
+     _←3 ⎕NDELETE pf,'dist'
+     _←2 ⎕MKDIR af
+     tf←af,pc.FullProjectName
+     _←2 ⎕MKDIR tf
+     _←tf ⎕NCOPY pf,'Assets'
+     _←tf ⎕NCOPY pf,'acre.config'
+     _←⍺ CopyUserCommandFile 0
+     #.Packages←,⊂'CarlisleGroup/AcreTools'
+     _←0 ⎕SAVE af,pc.ProjectName
+     'Done: dist/Application/AcreTools created. Copy to MyUCMDs folder.'
+ }
