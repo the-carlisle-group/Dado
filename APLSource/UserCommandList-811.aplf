@@ -4,6 +4,7 @@
      c,←⊂'Checkout' 'Checkout a branch'
      c,←⊂'NewFeatureBranch' 'Create a new feature branch'
      c,←⊂'MergeFeatureBranch' 'Merge feature branch into master branch'
+     c,←⊂'PushMaster' 'Push the master branch'
      c,←⊂'ReleaseNewVersion' 'Release a new version'
      c,←⊂'RebaseFeatureBranch' 'Rebase feature branch to the master branch'
      c,←⊂'RebaseContinue' 'Continue rebase after dealing with merge conflicts'
