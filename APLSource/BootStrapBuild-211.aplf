@@ -1,5 +1,6 @@
  BootStrapBuild←{
      ⍺←0
+     _←SetAcreConfig 0
      pc←AcreConfig
      pf←pc.ProjectFolder
      af←pc.ApplicationFolder
