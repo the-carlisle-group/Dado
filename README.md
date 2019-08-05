@@ -3,7 +3,7 @@ AcreTools is a collection of User Commands for working with Acre projects and Gi
 
 These notes are for working and deloping AcreTools itself.
 
-## BootStrapping ##
+## Bootstrapping ##
 Many AcreTools functions can be called directly from the AcreTools project space.
 This is useful for testing new functionality and debugging.
 However, in general, you should a use a properly installed version of AcreTools when working on AcreTools itself. 
