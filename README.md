@@ -18,8 +18,9 @@ Manually copy and paste the application folder to the installed location of Acre
 and re-attempt put out release using `]ACRETOOLS.ReleaseNewVersion`  
 
 ## The Octokit dll
+The Octokit is a GitHub API client for .NET. 
 The Ockokit dll may be blocked by Windows when it is downloaded from GitHub.
-If you have ay problems with it, edit the properties of the file and manually unblock it.
+If you have any problems with it, edit the properties of the file and manually unblock it.
 Note that this affects end-users of AcreTools as well as developers of AcreTools itself.
 As a developer you will have this dll in two places - as a project you manage and as an user command.
 Make sure it is unblocked in both places. 
