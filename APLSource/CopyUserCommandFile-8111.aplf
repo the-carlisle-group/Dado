@@ -4,5 +4,9 @@
      pf←pc.ProjectFolder
      tn←pf,'dist/Application/',pc.ProjectName,'.dyalog'
      sn←AcreConfig.ProjectFolder,'Assets/Runtime/UCMD.txt'
+     _←tn ⎕NCOPY sn
+     pc.FullProjectName≢'CarlisleGroup/AcreTools':0
+     tn←pf,'dist/Application/Install.dws'
+     sn←pf,'Assets/Runtime/Install.dws'
      tn ⎕NCOPY sn
  }

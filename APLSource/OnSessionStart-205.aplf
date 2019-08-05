@@ -1,0 +1,20 @@
+ OnSessionStart←{
+     ⎕IO ⎕ML←0 1
+     d←'/',⍨⊃{(';'≠⍵)⊆⍵}⎕SE.SALT.Settings'cmddir'
+     ~⎕NEXISTS d:0
+     f←⊃(⎕NINFO⍠1)d,'*.dyalog'
+     0=≢f:0
+     fix←d∘{
+         ⎕IO ⎕ML←0 1
+         n←⍺,(1⊃⎕NPARTS ⍵),'.dyalog'
+         r←1 ⎕FIX'file://',n
+         r.SourceFile←n
+         r.Include←⍺∘∇
+         r
+     }
+     0⊣{
+         s←fix ⍵
+         3≠s.⎕NC'OnSessionStart':0
+         s.OnSessionStart 0
+     }¨f
+ }
