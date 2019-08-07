@@ -1,6 +1,6 @@
  SetAcreConfig←{
      ⍝ Sets up AcreConfig in each project space
-     s f←↓⍉⎕SE.UCMD']Projects'
+     s f←↓⍉⎕SE.UCMD']acre.Projects'
      0=≢s:0
      r←⍎¨s
      c←GetConfigSpace¨f

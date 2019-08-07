@@ -1,5 +1,5 @@
  ShowProjects←{
-     r←⎕SE.UCMD']acre.projects'
+     r←⎕SE.UCMD']acre.Projects'
      n←r[;0]
      sn←{↑⌽('.'≠⍵)⊆⍵}¨n
      p←⍎¨n

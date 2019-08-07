@@ -1,20 +1,46 @@
  OnSessionStart←{
+     ⎕SE≠⎕THIS:{_←⎕SE.⎕FX ⎕CR'OnSessionStart' ⋄ _←⎕SE.⎕FX ⎕CR'UCMD' ⋄ ⎕SE.OnSessionStart ⍵}⍵
+
      ⎕IO ⎕ML←0 1
      d←'/',⍨⊃{(';'≠⍵)⊆⍵}⎕SE.SALT.Settings'cmddir'
      ~⎕NEXISTS d:0
      f←⊃(⎕NINFO⍠1)d,'*.dyalog'
      0=≢f:0
+
+     exe←{
+         3≠⍺.⎕NC ⍵:0
+         0=0 0⊃⍺.⎕AT ⍵:⍺⍎⍵
+         (⍺⍎⍵)0
+     }
+
+     exeList←{
+         6::⍬
+         l←,⍺⍎⍵
+         0=≢l:⍬
+         l.SourceFile←⊂⍺.SourceFile
+         l.FullName←l.Group{⍺,'.',⍵}¨l.Name
+         l
+     }
+
      fix←d∘{
          ⎕IO ⎕ML←0 1
          n←⍺,(1⊃⎕NPARTS ⍵),'.dyalog'
-         r←1 ⎕FIX'file://',n
+         r←0 ⎕FIX'file://',n
          r.SourceFile←n
          r.Include←⍺∘∇
          r
      }
-     0⊣{
+
+     l←∊{
+         ⎕←'Doing: ',⍵
          s←fix ⍵
-         3≠s.⎕NC'OnSessionStart':0
-         s.OnSessionStart 0
+         _←s exe'OnSessionStart'
+         s exeList'List'
      }¨f
+     0=≢l:0
+     _←'AcreTools'⎕SE.⎕NS''
+     ⎕SE.AcreTools.UserCommands←l
+     _←2350⌶l.Group{']',⍺,'.',⍵}¨l.Name
+     0
+
  }

@@ -10,7 +10,7 @@
      9=⎕NC'⍵':f ⍵
      '#'=↑⍵:f ExistingAncestor ⍵
      0≡⍵:f↑⌽⎕RSI
-     r←⎕SE.UCMD']acre.projects'
+     r←⎕SE.UCMD']acre.Projects'
      s←⍎¨r[;0]
      i←s.AcreConfig.ProjectFolder⍳⊂⍵
      i⊃s

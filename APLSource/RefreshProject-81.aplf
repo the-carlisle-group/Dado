@@ -3,5 +3,5 @@
      ⍺←0
      p←GetProjectFolder ⍺
      s←GetProjectSpace p
-     ⎕SE.UCMD']Acre.Refresh ',⍕s
+     ⎕SE.UCMD']acre.Refresh ',⍕s
  }

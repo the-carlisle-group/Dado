@@ -6,8 +6,7 @@
          s.LoadAcreToolsApplication SourceFile
        }
        GetProjectSpace←{
-        f←{6::##.t  ⋄ SALT_Data.SourceFile} 0
-        n←1⊃⎕NPARTS f 
+        n←1⊃⎕NPARTS SourceFile 
         a←⎕SE.AcreTools⍎n
         a⍎'.'@('/'∘=)⊃a.Packages
     }
