@@ -13,5 +13,5 @@
      _←⍺ CopyUserCommandFile 0
      #.Packages←,⊂'CarlisleGroup/AcreTools'
      _←0 ⎕SAVE af,pc.ProjectName
-     'Done: dist/Application/AcreTools created. Copy to MyUCMDs folder.'
+     'Done: dist/Application/AcreTools created.'
  }
