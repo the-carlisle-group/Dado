@@ -5,7 +5,7 @@
      cl←#.GetCommandLineArgs
      q←{'"',⍵,'"'}
      nl←⊂q 0⊃cl
-     tf←AcreConfig.ProjectFolder
+     tf←##.AcreConfig.ProjectFolder
      ws←tf,'Assets\Runtime\Stub.dws'
      nl,←⊂ws    ⍝ Can't quote, but a space will cause problems!
      nl,←⊂'TargetProject=',⍵

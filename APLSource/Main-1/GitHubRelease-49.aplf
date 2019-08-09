@@ -6,7 +6,7 @@
      k←0⊃nget p,'../GitHubToken.txt'
      s←GetConfigSpace p
      ⍝ Init, get octokit github client
-     d←'\'@('/'∘=)AcreConfig.ProjectFolder,'Assets/Runtime/octokit.dll'
+     d←'\'@('/'∘=)##.AcreConfig.ProjectFolder,'Assets/Runtime/octokit.dll'
      ⎕USING←'System' 'System.IO' 'System.Net,System.dll'('Octokit,',d)
      c←⎕NEW GitHubClient(⎕NEW ProductHeaderValue(⊂s.GitHubAccount))
      c.Credentials←⎕NEW Credentials(⊂k)
