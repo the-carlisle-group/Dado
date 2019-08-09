@@ -3,7 +3,7 @@
      pc←GetConfigSpace ⍺
      pf←pc.ProjectFolder
      tn←pf,'dist/Application/',pc.ProjectName,'.dyalog'
-     sn←AcreConfig.ProjectFolder,'Assets/Runtime/UCMD.dyalog'
+     sn←##.AcreConfig.ProjectFolder,'Assets/Runtime/UCMD.dyalog'
      _←tn ⎕NCOPY sn
      pc.FullProjectName≢'CarlisleGroup/AcreTools':0
      sn←pf,'Assets/Build/*'

@@ -1,0 +1,3 @@
+ AddToGitHub←{
+     ⍺←0 ⋄ ⍺ ##.Main.AddToGitHub ⍵
+ }

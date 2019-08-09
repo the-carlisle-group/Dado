@@ -2,7 +2,7 @@
      ⍝ ⍵ ←→ Application Folder
      ⍝ ← ←→ Primary Project Space
      d←{0=≢⍵:↑⎕NPARTS ⎕WSID ⋄ ⍵}⍵
-     r←⎕THIS.##.##
+     r←⎕THIS.##.##.##
      c←GetConfigSpace¨d∘,¨r.Packages,¨'/'
      s←r⍎¨2↓¨c.ProjectSpace
      s.AcreConfig←s.⎕NS c

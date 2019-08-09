@@ -1,5 +1,5 @@
- UserCommandRun←{
+ Run←{
      c a←⍵
      q←''''∧.=2↑¯1⌽a
-     (⍎c)(-q)↓q↓a
+     (##.Main⍎c)(-q)↓q↓a
  }

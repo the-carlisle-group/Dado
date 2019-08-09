@@ -17,7 +17,7 @@
    }                                                                   
    Run←{cmd arg←⍵                                                      
     arg.help:Help cmd                                                  
-    (path wsid)←,\{⍵(↑{⍺⍵}↓)⍨(1+⊢⍳⌈/)+\⍵∊'\/'} {6::##.SourceFile ⋄ SourceFile}0            
+    (path wsid)←,\{⍵(↑{⍺⍵}↓)⍨(1+⊢⍳⌈/)+\⍵∊'\/'} ##.SourceFile            
     new←{⎕se.acre._code. newSession''}⍣(~new)⊢new←0∊⎕SE.⎕NC name        
     z←⎕SE.{6::0 ⋄ ⊢'#.acre'∘⎕CY ⍵}⍣new⊢wsid                             
     nsi←((⎕XSI+.=¨'.')⍳1)⊃⎕NSI  ⍝ whence called                        

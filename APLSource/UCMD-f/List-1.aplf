@@ -1,4 +1,4 @@
- UserCommandList←{
+ List←{
      c←⊂'AddToGitHub' 'Add project to GitHUb'
      c,←⊂'Commit' 'Commit changes to feature branch'
      c,←⊂'Checkout' 'Checkout a branch'

@@ -1,5 +1,5 @@
  IsUserCommandApp←{
      ⍺←0
      s←GetProjectSpace ⍺
-     3∧.=⌊s.⎕NC'UserCommand'∘,¨'List' 'Help' 'Run'
+     3∧.=⌊s.⎕NC'UCMD.'∘,¨'List' 'Help' 'Run'
  }

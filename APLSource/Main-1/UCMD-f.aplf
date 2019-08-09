@@ -36,12 +36,15 @@
 
 
      p←parse(']'=⊃⍵)↓⍵
-     l←⎕SE.AcreTools.UserCommands
+     l←⎕SE.zApps.UserCommands
      i←l.FullName⍳⊂p.Command
      i=≢l:'Command not found'
      c←i⊃l
      s←0 ⎕FIX'file://',c.SourceFile
      s.SourceFile←c.SourceFile
+     ⍝ ***** ↓ So old user commands work ↓ *******
+     ⎕THIS.SourceFile←¯7↓c.SourceFile
+     ⍝ *******************************************
      0=≢c.Parse:s.Run c.Name p.Input
      ps←EvaluateUCMDParse c.Parse
      ps.Arguments←p.Arguments

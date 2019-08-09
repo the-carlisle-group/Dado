@@ -1,3 +1,3 @@
- UserCommandHelp←{
+ Help←{
      'No help available at this time'
  }

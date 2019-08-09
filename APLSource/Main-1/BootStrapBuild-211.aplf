@@ -1,7 +1,7 @@
  BootStrapBuild←{
      ⍺←0
      _←SetAcreConfig 0
-     pc←AcreConfig
+     pc←##.AcreConfig
      pf←pc.ProjectFolder
      af←pc.ApplicationFolder
      _←3 ⎕NDELETE pf,'dist'
