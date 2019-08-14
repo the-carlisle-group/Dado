@@ -1,0 +1,11 @@
+ SetupWorkspace←{
+     r←⎕SE.UCMD']acre.Projects'
+     0=≢r:0
+     p←⍎¨r[;0]
+     f←p.AcreConfig.ProjectFolder
+     c←GetConfigSpace¨f
+     p.AcreConfig←p.⎕NS c
+     _←GetAPISpace¨p
+     _←p∘SetReferences¨p
+     0
+ }

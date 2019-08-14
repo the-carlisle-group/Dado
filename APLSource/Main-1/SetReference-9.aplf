@@ -1,8 +1,10 @@
  SetReference←{
-     ⍝ Inject Source into Target as Name
-     ⍝ ⍵←Source Target Name
-     s t n←⍵
-     r←refs t
-     _←⍎'v.',n,'←s'
+     ⍝ Inject Sources into Target everywhere as Names
+     ⍝ ⍺ ←→ Target
+     ⍝ ⍵ ←→ Sources Names
+     s n←⍵
+     s←(1=≢s)⊃s(↑s)
+     r←refs ⍺
+     _←⍎'r.(',(⍕n),')←⊂s'
      0
  }

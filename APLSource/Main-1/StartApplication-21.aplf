@@ -1,6 +1,7 @@
  StartApplication←{
      ⍝ ⍵ ←→ n/a
-     s←SetAppConfig''
+     f←↑⎕NPARTS ⎕WSID
+     s←SetupApplication f
      c←s.AcreConfig
      0=c.⎕NC'ApplicationStartup':''
      s⍎c.ApplicationStartup

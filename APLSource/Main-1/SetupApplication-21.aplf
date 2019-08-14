@@ -1,0 +1,14 @@
+ SetupApplication←{
+     ⍝ ⍺ ←→ Library Space
+     ⍝ ⍵ ←→ Library Folder
+     ⍝ ← ←→ Primary Project Space
+     ⍺←#
+     p←⍺⍎¨'.'@('/'∘=)¨⍺.Packages
+     c←GetConfigSpace¨⍵∘,¨⍺.Packages
+     p.AcreConfig←p.⎕NS c
+     _←GetAPISpace¨p
+     m t←(¯1↓p)(↑⌽p)
+     0=≢m:t
+     _←m∘SetReferences¨m
+     ↑m
+ }

@@ -1,0 +1,13 @@
+ GetDependentProjects←{
+     c←⍵.AcreConfig
+     0=c.⎕NC'Dependencies':⍬ ⍬
+     0=c.⎕NC'Aliases':⍬ ⍬
+     n←(,⊆c.Dependencies)~⊂''
+     a←(,⊆c.Aliases)~⊂''
+     0=≢n:⍬ ⍬
+     0=≢a:⍬ ⍬
+     (≢n)≠≢a:⍬ ⍬
+     n←c.ProjectAuthor∘{'/'∊⍵:⍵ ⋄ ⍺,'/',⍵}¨n ⍝ Do this somewhere else!
+     d←⍺[⍺.AcreConfig.FullProjectName⍳n]
+     d a
+ }

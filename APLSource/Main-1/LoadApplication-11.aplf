@@ -1,0 +1,10 @@
+ LoadApplication←{
+     ⍝ ⍵ ←→ FQP to app folder (e.g., c:\...\Assets\Runtime\MyApp)
+     ⍝ ← ←→ API/Entry space
+     ps←GetProjectSpace 0
+     p n←2↑⎕NPARTS ⍵
+     s←⍎('zApps.',n)ps.⎕NS''
+     _←s.⎕CY ⍵,'/',n,'.dws'
+     m←s SetupApplication ⍵,'/'
+     GetAPISpace m
+ }

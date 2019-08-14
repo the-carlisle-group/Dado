@@ -2,6 +2,6 @@
      ⍺.FullProjectName≡'CarlisleGroup/AcreTools':0
      cf←⍺.ApplicationFolder,'CarlisleGroup'
      _←3 ⎕MKDIR cf
-     _←(cf,'/AcreTools')⎕NCOPY AcreConfig.ProjectFolder
+     _←(cf,'/AcreTools')⎕NCOPY ##.AcreConfig.ProjectFolder
      0
  }

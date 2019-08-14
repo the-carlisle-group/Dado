@@ -1,53 +1,17 @@
  UCMD←{
-     ⎕IO ⎕ML←0 1
-     popspace←{
-         ⍺←⎕NS''
-         n v←⍵
-         0=≢n:⍺
-         ⍺⊣n ⍺.{⍎⍺,'←⍵'}¨v
-     }
-
-     parse←{
-         r←⎕NS''
-         dlb←{(∨\' '≠⍵)/⍵}
-         pfn←{⍺←' ' ⋄ ⍵⊆⍨⍵≠⍺}
-         i←⍵⍳' '
-         r.Command←i↑⍵
-         r.Input←(1+i)↓⍵
-         r.(Group Name)←dlb¨¯2↑'.'pfn r.Command
-         p←pfn r.Input
-         b←'-'=⊃¨p
-         r.Modifiers←2↑¨('='pfn¨1↓¨b/p),¨0
-         r.Arguments←p/⍨~b
-         r
-     }
-
-     EvaluateUCMDParse←{
-         ⎕IO ⎕ML←0 1
-         p←1↓¨{⎕ML←3 ⋄ (+\'-'=⍵)⊂⍵}⍵
-         n v←↓⍉↑{
-             ':'∊⍵:(⍵≠':')⊆⍵
-             n←(~∨\⍵∊'∊[=')/⍵
-             n 0
-         }¨p
-         popspace n v
-     }
-
-
-
-     p←parse(']'=⊃⍵)↓⍵
-     l←⎕SE.zApps.UserCommands
-     i←l.FullName⍳⊂p.Command
-     i=≢l:'Command not found'
-     c←i⊃l
+     p←UcmdParseCommand ⍵
+     c←UcmdFind p
      s←0 ⎕FIX'file://',c.SourceFile
      s.SourceFile←c.SourceFile
      ⍝ ***** ↓ So old user commands work ↓ *******
      ⎕THIS.SourceFile←¯7↓c.SourceFile
+     ⎕THIS.THIS←⍺   ⍝ Problem, leaves lying around!
      ⍝ *******************************************
      0=≢c.Parse:s.Run c.Name p.Input
-     ps←EvaluateUCMDParse c.Parse
+     ps←UcmdParseSpec c.Parse
      ps.Arguments←p.Arguments
-     ps←ps popspace↓⍉↑p.Modifiers
+     ps←ps popspace↓⍉⊃p.Modifiers
+     ps.SwD←⊃p.Modifiers
+     _←ps.⎕FX ⎕CR'Switch'
      s.Run c.Name ps
  }

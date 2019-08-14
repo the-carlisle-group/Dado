@@ -11,7 +11,7 @@
      load←{⎕SE.UCMD']acre.OpenProject ',⍵,' -dependencies=Off'}
      s←load¨⌽ac.PackageFolder
      #.Packages←ac.FullProjectName,⊂'CarlisleGroup/AcreTools'
-     #.⎕LX←'#.CarlisleGroup.AcreTools.StartApplication 0'
+     #.⎕LX←'#.CarlisleGroup.AcreTools.Main.StartApplication 0'
      _←0 ⎕SAVE pc.ApplicationFolder,pc.ProjectName
      0
  }

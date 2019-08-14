@@ -1,0 +1,8 @@
+ SetReferences←{
+     ⍝ ⍺ ←→ All project spaces
+     ⍝ ⍵ ←→ Project Space
+     d a←⍺ GetDependentProjects ⍵
+     t←⍵.##.##.CarlisleGroup.AcreTools
+     e←GetAPISpace¨d,t
+     ⍵ SetReference e(a,⊂,'A')
+ }

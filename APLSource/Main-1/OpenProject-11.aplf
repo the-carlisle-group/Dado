@@ -1,0 +1,4 @@
+ OpenProject←{
+     r←⎕SE.UCMD'OpenProject ',⍵
+     _←SetupWorkspace''
+ }
