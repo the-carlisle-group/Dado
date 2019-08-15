@@ -1,4 +1,5 @@
- List←{
+ z←List
+ z←{
      c←⊂'AddToGitHub' 'Add project to GitHUb'
      c,←⊂'Commit' 'Commit changes to feature branch'
      c,←⊂'Checkout' 'Checkout a branch'
@@ -22,4 +23,4 @@
      z.(Group Parse)←⊂'acretools' ''
      z.(Name Desc)←c
      z
- }
+ }0

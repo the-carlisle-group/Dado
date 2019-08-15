@@ -1,12 +1,9 @@
  CopyUserCommandFile←{
      ~⍺ IsUserCommandApp 0:0
-     pc←GetConfigSpace ⍺
-     pf←pc.ProjectFolder
-     tn←pf,'dist/Application/',pc.ProjectName,'.dyalog'
-     sn←##.AcreConfig.ProjectFolder,'Assets/Runtime/UCMD.dyalog'
-     _←tn ⎕NCOPY sn
-     pc.FullProjectName≢'CarlisleGroup/AcreTools':0
-     sn←pf,'Assets/Build/*'
-     tn←pf,'dist/Application/'
-     tn(⎕NCOPY⍠1)sn
+     p←GetProjectSpace ⍺
+     pc←p.AcreConfig
+     af←pc.ApplicationFolder
+     tn←af,pc.ProjectName,'.dyalog'
+     _←(⊂BuildUCMDFile p.UCMD)⎕NPUT tn
+     0
  }
