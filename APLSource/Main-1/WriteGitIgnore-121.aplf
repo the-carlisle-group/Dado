@@ -2,7 +2,7 @@
      ⍺←0
      p←GetProjectFolder ⍺
      f←p,'.gitignore'
-     t←'.acre/' 'dist/' 'aplcore'
+     t←'aplcore' '.acre/' 'dist/' 'Assets/Runtime/LocallyDerived/'
      _←(⊂t)⎕NPUT f 1
      0
  }
