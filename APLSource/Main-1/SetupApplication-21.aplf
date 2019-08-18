@@ -6,9 +6,8 @@
      p←⍺⍎¨'.'@('/'∘=)¨⍺.Packages
      c←GetConfigSpace¨⍵∘,¨⍺.Packages
      p.AcreConfig←p.⎕NS c
-     _←GetAPISpace¨p
      m t←(¯1↓p)(↑⌽p)
-     0=≢m:t
+     0=≢m:t⊣GetAPISpace t
      _←m∘SetReferences¨m
      ↑m
  }

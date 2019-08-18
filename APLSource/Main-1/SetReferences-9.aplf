@@ -1,8 +1,10 @@
  SetReferences←{
      ⍝ ⍺ ←→ All project spaces
      ⍝ ⍵ ←→ Project Space
-     d a←⍺ GetDependentProjects ⍵
-     t←⍵.##.##.CarlisleGroup.AcreTools
-     e←GetAPISpace¨d,t
-     ⍵ SetReference e(a,⊂,'A')
+     ⍵.AcreConfig.ProjectName≡'AcreTools':0
+     d←⍵.##.##.CarlisleGroup.AcreTools'A' 0
+     p a t←d,⍨¨⍺ GetDependentProjects ⍵
+     e←GetAPISpace¨p
+     r←refs ⍵
+     r∘SetReference¨↓⍉⊃a e t
  }

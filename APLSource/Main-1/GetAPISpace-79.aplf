@@ -3,13 +3,7 @@
      c←p.AcreConfig
      0=c.⎕NC'API':p
      ''≡c.API:p
-     0≠p.⎕NC c.API:p⍎c.API
-     0=c.⎕NC'APISource':p
-     a←⍎c.API p.⎕NS''
-     s←p⍎c.APISource
-     r←c.API RelativePath c.APISource
-     n←s.APIFunctionNames 0
-     f←{,⊂⍵,'←{',r,'.',⍵,' ⍵}'}¨n
-     _←a.⎕FX¨f
-     a
+     9=p.⎕NC c.API:p⍎c.API
+     3≠p.⎕NC c.API:p
+     (p⍎c.API)0
  }

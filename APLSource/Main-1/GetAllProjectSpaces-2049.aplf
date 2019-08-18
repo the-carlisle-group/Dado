@@ -1,6 +1,0 @@
- GetAllProjectSpaces←{
-     OBSOLETE
-     ⍺←#
-     f←{⍵⍎¨⍵.⎕NL ¯9}
-     ∊f¨f ⍺
- }

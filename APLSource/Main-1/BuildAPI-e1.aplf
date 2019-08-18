@@ -1,0 +1,7 @@
+ BuildAPI←{
+     n←APIFunctionNames 0
+     9=⎕NC'API':API
+     a←'API'⎕NS''
+     f←{,⊂⍵,'←{##.',⍵,' ⍵}'}¨n
+     API⊣API.⎕FX¨f
+ }

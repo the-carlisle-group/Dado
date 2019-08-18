@@ -5,7 +5,6 @@
      f←p.AcreConfig.ProjectFolder
      c←GetConfigSpace¨f
      p.AcreConfig←p.⎕NS c
-     _←GetAPISpace¨p
      _←p∘SetReferences¨p
      0
  }
