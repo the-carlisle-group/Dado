@@ -1,0 +1,14 @@
+ BuildListFunction←{
+     ⍝ REbuild the list function
+     ⍝ ⍵ ←→ UCMD Space
+     l←⍵.List
+     n←≢l
+     q←{1↓∊' ',¨{'''',⍵,''''}¨⍵}
+     t←⊂'z←List'
+     t,←⊂'z←⎕NS¨',(⍕n),'⍴⊂'''''
+     t,←⊂'z.Name←',q l.Name
+     t,←⊂'z.Group←',q l.Group
+     t,←⊂'z.Desc←',q l.Desc
+     t,←⊂'z.Parse←',q l.Parse
+     t
+ }

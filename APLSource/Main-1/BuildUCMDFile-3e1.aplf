@@ -1,7 +1,11 @@
  BuildUCMDFile←{
      ⍝ ⍵ ←→ UCMD Space
-     t←⊂'⎕IO ⎕ML←0 3'
-     t,←{(⊂'∇',0⊃⍵),1↓⍵}(⍵.⎕NR'List'),'∇'
+     t←''
+     t,←⊂'⍝ *******************************************'
+     t,←⊂'⍝ This is an AcreTools system generated file.'
+     t,←⊂'⍝ *******************************************'
+     t,←⊂'⎕IO ⎕ML←0 3'
+     t,←{(⊂'∇',0⊃⍵),1↓⍵}(BuildListFunction ⍵),'∇'
      t,←⊂'Help←{'
      t,←⊂'  (GetProject 0).UCMD.Help ⍵'
      t,←⊂'}'

@@ -1,5 +1,5 @@
  OpenProject←{
-     r←⎕SE.UCMD'OpenProject ',⍵
+     r←⎕SE.UCMD'Acre.OpenProject ',⍵
      _←SetupWorkspace''
      r
  }
