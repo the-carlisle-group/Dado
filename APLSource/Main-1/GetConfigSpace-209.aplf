@@ -1,7 +1,7 @@
  GetConfigSpace←{
      ⍝ ⍵ ←→ ProjectFolder
      f←GetProjectFolder ⍵
-     c←1 ⎕FIX'file://',f,'acre.config'
+     c←ReadConfigFile f,'acre.config'
      p←⌽(~f∊'/\')⊆f
      c.ProjectFolder←f
      c.ProjectName←0⊃p

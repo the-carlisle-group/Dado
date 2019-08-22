@@ -1,0 +1,15 @@
+ ReadConfigFile←{
+     ⍝ Read JSON, NSSccipt or (trivial) APLAN.
+     ⍝ ⍵ ←→ FQP of Config File Name
+     ⍝ ← ←→ Config Space
+     ⍝ See FormatConfigSpace for inverse.
+     r←↑⎕NGET ⍵ 1
+     fix←{⎕NS(0 ⎕FIX ⍵).(⎕NS ⎕NL 2)}
+     set←{⍵._FileType←⍺ ⋄ ⍵}
+     t←↑↑r
+     '{'=t:'JSON'set ⎕JSON∊r
+     ':'=t:'NSScript'set fix r
+     r[0]←⊂':Namespace'
+     r←(¯1↓r),⊂':EndNamespace'
+     'APLAN'set fix r
+ }

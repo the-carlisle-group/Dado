@@ -1,0 +1,13 @@
+ FormatConfigSpace←{
+     ⍝ Format config space as JSON, NSScript, or APLAN
+     ⍝ ⍵ ←→ Config Space
+     ⍝ ← ←→ v/v suitable for ⎕NPUT
+     t←⍵._FileType
+     s←⎕NS ⍵
+     _←s.⎕EX'_FileType'
+     t≡'JSON':{⍵⊆⍨⍵≠⎕UCS 13}(⎕JSON⍠'Compact' 0)s
+     t≡'NSScript':NStoScript s
+     r←NStoScript s
+     r[0]←⊂'['
+     (¯1↓r),⊂']'
+ }
