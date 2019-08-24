@@ -12,8 +12,7 @@
      b←'APLSource/'∘≡¨10↑¨f
      b←b∧~'R'=↑¨m[;0]
      ~∨/b:m
-     ⍝ n←'itemname'⎕SE.acre.run p∘,¨b/f
-     n←⎕SE.acreAPI.itemname p∘,¨b/f
+     n←⎕SE.acre.Itemname p∘,¨b/f
      m[⍸b;1]←n
      m
  }
