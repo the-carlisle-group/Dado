@@ -3,8 +3,8 @@
      ⍝ ⍵ ←→ Specific Branch (defaults to current branch)
      ⍺←0
      p←GetProjectFolder ⍺
-     r←p RunGitCommand'log ',⍵,' --pretty=format:"%h∆%ci∆%an∆%s"'
-     m←(⎕CSV⍠('Separator' '∆')('QuoteChar' ''))⊂r
+     r←p RunGitCommand'log ',⍵,' --pretty=format:"%h|%ci|%an|%s"'
+     m←(⎕CSV⍠('Separator' '|')('QuoteChar' ''))⊂r
      s←⎕NS''
      s.(Hash Date User Message)←↓⍉m
      s
