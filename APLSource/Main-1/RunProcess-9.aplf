@@ -1,0 +1,30 @@
+ RunProcess←{
+     ⍝ ⍺ ←→  Format result like ⎕CMD or not
+     ⍝ ⍵[0] ←→ Executable
+     ⍝ ⍵[1] ←→ Argument
+     ⍺←1
+     ⎕USING←'System' 'System.IO' 'System.Diagnostics,System.dll'
+     p←⎕NEW Process
+     i←p.StartInfo
+     i.FileName←0⊃⍵
+     i.Arguments←1⊃⍵
+     i.RedirectStandardOutput←1
+     i.RedirectStandardInput←1
+     i.RedirectStandardError←1
+     i.UseShellExecute←0
+     i.CreateNoWindow←1
+     _←p.Start ⍬
+     r←⎕NS''
+     t←r{⍺.StdErr←⍵.ReadToEnd}&p.StandardError
+     r.StdOut←p.StandardOutput.ReadToEnd
+     op←{6::0 ⋄ z←⍺⍺ ⍵}
+     _←p.WaitForExit op ⍬
+     _←⎕TSYNC op t
+     r.ExitCode←p.ExitCode
+     ~⍺:r
+     rtc←{' '@((⎕UCS 9)∘=)⍵}
+     pfn←{⍵⊆⍨~⍵∊⎕UCS 10 13}
+     r.StdOut←pfn rtc r.StdOut
+     r.StdErr←pfn rtc r.StdErr
+     r
+ }

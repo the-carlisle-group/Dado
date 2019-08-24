@@ -23,6 +23,7 @@
      t,←⊂'   p n←2↑⎕NPARTS ⍵'
      t,←⊂'   s←⍎(''zApps.'',n)⎕SE.⎕NS '''''
      t,←⊂'   _←s.⎕CY p,n,''.dws'''
+     t,←⊂'   s.ApplicationFolder←p'
      t,←⊂'   a←s.CarlisleGroup.AcreTools.Main'
      t,←⊂'   m←s a.SetupApplication p'
      t,←⊂'   c←m.AcreConfig'

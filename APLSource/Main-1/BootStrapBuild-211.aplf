@@ -13,5 +13,8 @@
      _←⍺ CopyUserCommandFile 0
      #.Packages←,⊂'CarlisleGroup/AcreTools'
      _←0 ⎕SAVE af,pc.ProjectName
-     'Done: dist/Application/AcreTools created.'
+     tf←⎕SE.zApps.AcreTools.ApplicationFolder
+     _←3 ⎕NDELETE tf
+     _←tf ⎕NCOPY af
+     'dist/Application/AcreTools created and copied to installed location.'
  }

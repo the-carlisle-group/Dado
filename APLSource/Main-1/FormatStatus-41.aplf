@@ -4,7 +4,7 @@
      ⍺←0
      p←GetProjectFolder ⍺
      0=≢⍵:' {none}'
-     m←⊃⍵
+     m←⊃DecodeOctalEncoding¨⍵
      b←~∧⌿' '=m
      b[0]←1
      m←b⊆m
