@@ -3,6 +3,7 @@
      ⍝ ⍵[0] ←→ Executable
      ⍝ ⍵[1] ←→ Argument
      ⍺←1
+     r←⎕NS''
      ⎕USING←'System' 'System.IO' 'System.Diagnostics,System.dll'
      p←⎕NEW Process
      i←p.StartInfo
@@ -14,7 +15,6 @@
      i.UseShellExecute←0
      i.CreateNoWindow←1
      _←p.Start ⍬
-     r←⎕NS''
      t←r{⍺.StdErr←⍵.ReadToEnd}&p.StandardError
      r.StdOut←p.StandardOutput.ReadToEnd
      op←{6::0 ⋄ z←⍺⍺ ⍵}

@@ -1,0 +1,15 @@
+ CheckDependencies←{
+     ⍝ ⍺ ←→ Force Package over Existing Project
+     ⍝ ⍵ ←→ Project Folder
+     ⍝ ← ←→ Found, (Some) Missing
+     ⍺←1
+     pj pk←⍺ GetDependentProjectFolders ⍵
+     0=≢pj:⍬ ⍬
+     i←(~⍺)/⍸⎕NEXISTS¨pj
+     pk[i]←pj[i]
+     e←⎕NEXISTS¨pk
+     f←e/pk
+     m←(~e)/pk
+     0=≢f:f m
+     f m{⍺,↑,/⍵}¨∇¨f
+ }

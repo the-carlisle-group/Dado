@@ -1,5 +1,11 @@
  OpenProject←{
-     r←⎕SE.UCMD'Acre.OpenProject ',⍵
+     ⍝ -f option ←→ force package over existing project
+     b←' -f'≡¯3↑⍵
+     p←(b×¯3)↓⍵
+     fd md←b CheckDependencies p
+     0<≢md:⊃(⊂'Missing dependencies:'),md,⊂'Use DownloadDependencies...'
+     open←{⎕SE.UCMD'Acre.OpenProject ',⍵,' -dependencies=off'}
+     r←↑⌽open¨(⌽fd),⊂p
      _←SetupWorkspace''
      r
  }

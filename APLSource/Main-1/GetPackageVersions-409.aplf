@@ -1,0 +1,8 @@
+ GetPackageVersions←{
+     u←'https://github.com/',⍵
+     c←'ls-remote --tags --refs ',u
+     r←RunProcess'git'c
+     v←{↑⌽⍵⊂⍨⍵≠'/'}¨r.StdOut
+     n←FormatVersion¨v
+     v[⍒n]
+ }

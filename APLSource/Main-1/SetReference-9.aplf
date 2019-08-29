@@ -3,7 +3,7 @@
      ⍝ ⍺ ←→ Targets
      ⍝ ⍵ ←→ Name, value, type
      n v t←⍵
-     t=2:0
-     r←⍺⊃⍨⍳t
+     t=0:0
+     r←⍺⊃⍨⍳|t-2
      0⊣⍎'r.',n,'←v'
  }

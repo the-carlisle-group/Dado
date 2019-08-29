@@ -1,0 +1,5 @@
+ CreateProject←{
+     r←⎕SE.UCMD'Acre.CreateProject ',⍵
+     _←SetupWorkspace''
+     r
+ }

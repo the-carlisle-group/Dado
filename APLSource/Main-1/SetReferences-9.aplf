@@ -2,8 +2,8 @@
      ⍝ ⍺ ←→ All project spaces
      ⍝ ⍵ ←→ Project Space
      ⍵.AcreConfig.ProjectName≡'AcreTools':0
-     d←⍵.##.##.CarlisleGroup.AcreTools'A' 0
-     p a t←d,⍨¨⍺ GetDependentProjects ⍵
+     p a t←⍺ GetDependentProjects ⍵
+     0=≢p:0
      e←GetAPISpace¨p
      r←refs ⍵
      r∘SetReference¨↓⍉⊃a e t

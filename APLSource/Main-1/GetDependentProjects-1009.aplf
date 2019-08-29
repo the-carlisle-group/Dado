@@ -1,16 +1,23 @@
  GetDependentProjects←{
      ⍝ ⍺ ←→ All Projects
      ⍝ ⍵ ←→ Project
-     ⍝ ←→ Dependencies, Aliases, AliasTypes
+     ⍝ ←→ Dependencies, Aliases, Inject
      z←⍬ ⍬ ⍬
      c←⍵.AcreConfig
-     0=c.⎕NC'Dependencies':z
-     0=≢c.Dependencies:z
-     n←⊆c.Dependencies
-     n←c.ProjectAuthor∘{'/'∊⍵:⍵ ⋄ ⍺,'/',⍵}¨n ⍝ Do this somewhere else!
-     d←⍺[⍺.AcreConfig.FullProjectName⍳n]
-     def←{2=c.⎕NC ⍺:c⍎⍺ ⋄ (≢n)⍴⍵}
-     a←d.AcreConfig.ProjectName{''≡⍵:⍺ ⋄ ⍵}¨'Aliases'def⊂''
-     t←'AliasTypes'def 0
+     0=c.⎕NC'ZDependencies':z
+     0=≢c.ZDependencies:z
+     m←c.ZDependencies
+     n←m.Name
+     pj←c.ProjectAuthor∘{'/'∊⍵:⍵ ⋄ ⍺,'/',⍵}¨n ⍝ Do this somewhere else!
+     pk←pj,¨'-',¨m.Version
+     pn←⍺.AcreConfig.FullProjectName
+     d←⍺[(pn⍳pk)⌊pn⍳pj]
+     ⍝ a←d.AcreConfig.ProjectName
+     a←m.Alias
+     t←m.Inject
+     0=c.⎕NC'AcreTools':d a t
+     d←d,⍵.##.##.CarlisleGroup.AcreTools
+     a←a,⊂c.AcreTools.Alias
+     t←t,c.AcreTools.Inject
      d a t
  }

@@ -1,0 +1,9 @@
+ DownloadProject←{
+     ⍝ ⍺ ←→ Project Library
+     ⍝ ⍵ ←→ Full project name e.g 'PaulMansour/Stats'
+     ⍺←'C:/APLProjects/'
+     u←'https://github.com/',⍵
+     c←'clone ',u,' ',⍺,⍵
+     r←RunProcess'git'c
+     r.StdErr
+ }

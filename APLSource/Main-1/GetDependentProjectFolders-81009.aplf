@@ -1,0 +1,17 @@
+ GetDependentProjectFolders←{
+     ⍝ ⍵ ←→ Primary Project
+     ⍝ ← ←→ Dependent Projects, Dependent Packages
+     c←GetConfigSpace ⍵
+     0=c.⎕NC'ZDependencies':⍬ ⍬
+     d←c.ZDependencies
+     0=≢d:⍬ ⍬
+     p←⍵⊆⍨~⍵∊'\/'
+     pa pn←¯2↑p
+     pl←∊(¯2↓p),¨'/'
+     fqn←pa∘{'/'∊⍵:⍵ ⋄ ⍺,'/',⍵}
+     n←fqn¨d.Name
+     v←d.Version
+     pj←pl∘,¨n
+     pk←pj{⍺,'-',⍵,'/'}¨v
+     pj pk
+ }
