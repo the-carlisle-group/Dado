@@ -3,6 +3,7 @@
      ⍝ ⍵ ←→ Message
      ⍺←0
      p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      nm←'master'≢p GetCurrentBranch''
      m←⍵,(nm∧0=≢⍵)/'Save point'
      _←p RunGitCommand'add --all'

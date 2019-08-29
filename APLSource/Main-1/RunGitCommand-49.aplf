@@ -3,6 +3,7 @@
      ⍝ ⍵ ←→ command
      ⍺←0
      p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      a←'-C "',p,'" ',⍵
      r←RunProcess'git'a
      r.StdOut,r.StdErr

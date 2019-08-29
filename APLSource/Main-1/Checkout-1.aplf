@@ -4,6 +4,7 @@
      ⍝ ← ←→ New current branch
      ⍺←0
      p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      p IsDirty'':'Uncommited changes.'
      ⎕←p RunGitCommand'checkout ',⍵
      p RefreshProject 0

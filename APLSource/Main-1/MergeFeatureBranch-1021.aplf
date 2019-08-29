@@ -4,6 +4,7 @@
      ⍝      If '', defaults to branch name
      ⍺←0
      p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      b←p GetCurrentBranch''
      t f←('/'≠b)⊆b
      m←⍵,(0=≢⍵)/' '@('-'∘=)f

@@ -3,6 +3,7 @@
      ⍝ ⍵ ←→ 'major'|'minor'| '' (for patch)
      ⍺←0
      p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      v←p GetNextVersion ⍵
      b←p NewReleaseBranch v
      _←p Commit'Release ',v

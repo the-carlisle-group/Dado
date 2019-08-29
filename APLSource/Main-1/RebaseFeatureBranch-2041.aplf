@@ -1,7 +1,8 @@
  RebaseFeatureBranch←{
      ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      p IsDirty'':'Uncommitted changes.'
      b←p GetCurrentBranch''
      t f←('/'≠b)⊆b

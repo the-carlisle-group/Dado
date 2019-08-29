@@ -4,6 +4,7 @@
      ⍝
      ⍺←0
      p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      n←'-'@(' '∘=)⍵
      p IsDirty'':'Uncommited changes.'
      ⎕←⊃p PullMaster''

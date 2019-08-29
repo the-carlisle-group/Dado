@@ -2,6 +2,7 @@
      ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
      p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      b←p GetCurrentBranch''
      n←↑⌽{(⍵≠'/')⊆⍵}p
      z←⊂'Project/Branch: ',n,'/',b

@@ -3,6 +3,7 @@
      ⍝ ⍵ ←→ GitHub URL
      ⍺←0
      p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      ga←{1⊃⌽('/'≠⍵)⊆⍵}⍵
      _←p WriteGitIgnore''
      _←p SetConfigParam'GitHubAccount'ga

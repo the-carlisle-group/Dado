@@ -2,6 +2,7 @@
      ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
      p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      s←p GetHistory ⍵
      c←↓⍕⍉⊃s.(CommitBy CommitDate Status CommitHash)
      l←80⍴'-'

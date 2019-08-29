@@ -2,5 +2,6 @@
      ⍝ ⍺ ←→ [Project Folder|Space]
      ⍺←0
      p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      ⊃p RunGitCommand'tag'
  }

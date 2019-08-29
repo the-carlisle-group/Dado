@@ -2,6 +2,7 @@
      ⍝ ⍺ ←→ [ProjectSpace]
      ⍝ ⍵ ←→ n/a
      ⍺←0
-     p←GetProjectSpace ⍺
+     p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      p RunGitCommand'push --tags origin master'
  }
