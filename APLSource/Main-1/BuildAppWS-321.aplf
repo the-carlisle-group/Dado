@@ -4,7 +4,7 @@
      ⍝ And create ws
      cl←#.GetCommandLineArgs
      tf←##.AcreConfig.ProjectFolder
-     ws←tf,'Assets\Runtime\Stub.dws'
+     ws←'"',tf,'Assets\Runtime\Stub.dws"'
      e←0⊃cl
      a←ws,' TargetProject=',⍵
      a,←' maxws=2g'
