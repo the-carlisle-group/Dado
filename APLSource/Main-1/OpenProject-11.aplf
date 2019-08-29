@@ -7,5 +7,7 @@
      open←{⎕SE.UCMD'Acre.OpenProject ',⍵,' -dependencies=off'}
      r←↑⌽open¨(⌽fd),⊂p
      _←SetupWorkspace''
-     r
+     at←'#.CarlisleGroup.AcreTools'
+     9=⎕NC at:r
+     r⊣at ⎕NS ⎕SE.zApps.AcreTools.CarlisleGroup.AcreTools
  }

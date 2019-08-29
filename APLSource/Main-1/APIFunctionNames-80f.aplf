@@ -19,5 +19,6 @@
      c,←⊂'ShowTags'
      c,←⊂'Version'
      c,←⊂'OpenProject'
+     c,←⊂'DownloadDependencies'
      c
  }
