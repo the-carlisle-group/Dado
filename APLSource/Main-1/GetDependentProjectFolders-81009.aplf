@@ -10,7 +10,7 @@
      pl←∊(¯2↓p),¨'/'
      fqn←pa∘{'/'∊⍵:⍵ ⋄ ⍺,'/',⍵}
      n←fqn¨d.Name
-     v←d.Version
+     v←n ResolveVersion¨d.Version
      pj←pl∘,¨n
      pk←pj{⍺,'-',⍵,'/'}¨v
      pj pk

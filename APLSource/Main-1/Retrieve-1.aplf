@@ -1,0 +1,11 @@
+ Retrieve←{
+     ⍝ ⍺ ←→ Project Name (e.g. Carlisle/FlipDB)
+     ⍝ ⍵ ←→ Version
+     ⍝ ← ←→ List of names
+     ⍺←0
+     n←GetProjectName ⍺
+     b←0=≢⍵
+     pn←n RetrievePackage ⍵ b
+     dn←pn RetrieveDependencies ⍵ b
+     dn,⍨⊂pn
+ }

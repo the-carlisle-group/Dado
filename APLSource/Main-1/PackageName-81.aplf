@@ -1,0 +1,6 @@
+ PackageName←{
+     ⍝ ⍺ ←→ Project Name
+     ⍝ ⍵ ←→ Version
+     0=≢⍵:⍺
+     ⍺,'-',⍵
+ }

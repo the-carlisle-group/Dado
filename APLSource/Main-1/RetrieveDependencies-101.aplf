@@ -1,0 +1,19 @@
+ RetrieveDependencies←{
+     ⍝ ⍺ ←→ Project or Package Name
+     ⍝ ⍵ ←→ Version, [Current Project State Override]
+     ⍝ ← ←→ Dependent Names
+     ⍺←0
+     v b←2↑0,⍨⊆⍵
+     pn←GetProjectName ⍺
+     f←NameToFQP pn
+     c←GetConfigSpace f
+     0=c.⎕NC'ZDependencies':⍬
+     d←c.ZDependencies
+     0=≢d:⍬
+     pa←c.ProjectAuthor
+     fqn←pa∘{'/'∊⍵:⍵ ⋄ ⍺,'/',⍵}
+     n←fqn¨d.Name
+     v←d.Version{⍺ ⍵}¨b
+     kn←n RetrievePackage¨v
+     kn,↑,/kn ∇¨v
+ }

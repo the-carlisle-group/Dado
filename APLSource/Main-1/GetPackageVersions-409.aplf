@@ -1,4 +1,5 @@
  GetPackageVersions←{
+     ⍝ ⍵ ←→ ProjectName
      u←'https://github.com/',⍵
      c←'ls-remote --tags --refs ',u
      r←RunProcess'git'c

@@ -1,0 +1,7 @@
+ ProjectURL←{
+     ⍝ ⍵ ←→ Project Name
+     ⍝ ← ←→ URL
+     jf←NameToFQP ⍵
+     ⎕NEXISTS jf:'file://',jf
+     'https://github.com/',⍵
+ }

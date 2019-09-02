@@ -3,8 +3,8 @@
      ⍝ ⍵ ←→ Library Folder
      ⍝ ← ←→ Primary Project Space
      ⍺←#
-     p←⍺⍎¨'.'@('/'∘=)¨⍺.Packages
      c←GetConfigSpace¨⍵∘,¨⍺.Packages
+     p←⍺⍎¨2↓¨c.ProjectSpace
      p.AcreConfig←p.⎕NS c
      m t←(¯1↓p)(↑⌽p)
      0=≢m:t⊣GetAPISpace t

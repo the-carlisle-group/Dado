@@ -1,0 +1,5 @@
+ NameToFQP←{
+     ⍝ ⍵ ←→ Project or Package name
+     ⍝ ← ←→ Fully qualified path
+     _ProjectLibrary,⍵
+ }

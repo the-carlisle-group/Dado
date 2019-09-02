@@ -1,0 +1,13 @@
+ DownloadPackage←{
+     ⍝ ⍺ ←→ Target Folder
+     ⍝ ⍵ ←→ Name and Version
+     ⎕←'Downloading ',⍺,'...'
+     n v←⍵
+     u←'https://github.com/',n
+     l←'clone ',u,' ',⍺,' --depth 1 --branch ',v
+     r←RunProcess'git'l
+     c←GetConfigSpace ⍺
+     s←c.ProjectSpace,'_','_'@('.'∘=)v
+     _←f SetConfigParam'ProjectSpace's
+     1(r.StdOut)
+ }

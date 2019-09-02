@@ -1,6 +1,10 @@
  GetDependencies←{
      ⍝ ⍵ ←→ Primary Package/Project Folder
      ⍝ ← ←→ List of dependenent Folders
+     fd md←0 CheckDependencies ⍵ ⍝ 0 or 1 left?
+     fd                          ⍝ All fhould be found...
+
+     ⍝ ↓↓↓↓↓ All obsolete now ↓↓↓↓↓↓
      c←GetConfigSpace ⍵    ⍝ Get Config Space
      p←'Dependencies'
      0=c.⎕NC p:''

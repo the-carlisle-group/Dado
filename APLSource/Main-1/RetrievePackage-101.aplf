@@ -1,0 +1,19 @@
+ RetrievePackage←{
+     ⍝ ⍺ ←→ Project Name
+     ⍝ ⍵ ←→ Version, [Current Project State Override]
+     ⍺←0
+     v b←2↑0,⍨⊆⍵
+     jn←GetProjectName ⍺
+     kn←jn PackageName v
+     jf kf←NameToFQP¨jn kn
+     b∧⎕NEXISTS jf:jn
+     ⎕NEXISTS kf:kn
+     u←ProjectURL jn
+     sw←'--depth 1 --branch ',v
+     l←1↓∊' ',¨'clone'sw u kf
+     r←RunProcess'git'l
+     c←GetConfigSpace kf
+     s←c.ProjectSpace,'_','_'@('.'∘=)v
+     _←kf SetConfigParam'ProjectSpace's
+     kn
+ }

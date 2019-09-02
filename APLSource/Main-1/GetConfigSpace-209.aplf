@@ -9,7 +9,7 @@
      c.FullProjectName←c.ProjectAuthor,'/',c.ProjectName
      c.PackageFolder←f,'dist/Package/',c.ProjectName,'/'
      c.ApplicationFolder←f,'dist/Application/',c.ProjectName,'/'
-     c.ReleaseNotesFolder←f,'dist/ReleaseNotes/'
+     c.ReleaseNotesFolder←f,'ReleaseNotes/'
      c.AuthorFolder←0⊃⎕NPARTS ¯1↓f
      c.LibraryFolder←0⊃⎕NPARTS ¯1↓c.AuthorFolder
      c

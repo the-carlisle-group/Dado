@@ -1,0 +1,8 @@
+ GenerateNotes←{
+     ⍺←0
+     p←GetProjectFolder ⍺
+     c←GetConfigSpace ⍺
+     _←p GeneratePackageNotes''
+     _←p GenerateApplicationNotes''
+     _←p GenerateReleaseNotes''
+ }

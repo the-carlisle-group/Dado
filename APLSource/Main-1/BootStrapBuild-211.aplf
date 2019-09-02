@@ -11,7 +11,7 @@
      _←tf ⎕NCOPY pf,'Assets'
      _←tf ⎕NCOPY pf,'acre.config'
      _←⍺ CopyUserCommandFile 0
-     #.Packages←,⊂'CarlisleGroup/AcreTools'
+     #.Packages←,⊂'the-carlisle-group/AcreTools'
      _←0 ⎕SAVE af,pc.ProjectName
      tf←⎕SE.zApps.AcreTools.ApplicationFolder
      _←3 ⎕NDELETE tf

@@ -17,6 +17,7 @@
      t,←⊂'  n←1⊃⎕NPARTS f'
      t,←⊂'  0=⎕SE.⎕NC ''zApps.'',n:LoadProject f'
      t,←⊂'  a←⎕SE.zApps⍎n'
+     t,←⊂'  n≡''AcreTools'':a.CarlisleGroup.AcreTools'
      t,←⊂'  a⍎''.''@(''/''∘=)↑a.Packages'
      t,←⊂'}'
      t,←⊂'LoadProject←{'

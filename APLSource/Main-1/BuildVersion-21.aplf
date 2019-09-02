@@ -1,0 +1,25 @@
+ BuildVersion←{
+     ⍝ ⍺ ←→ Project Name
+     ⍝ ⍵ ←→ Version
+     ⍺←0
+     n←GetProjectName ⍺
+     p←n Retrieve ⍵
+     f←NameToFQP¨p
+     c←GetConfigSpace¨f
+     pc←↑c
+     af←pc.ApplicationFolder
+     tf←af∘,¨c.FullProjectName
+     _←2 ⎕MKDIR¨tf
+     _←tf{~⎕NEXISTS ⍵:0 ⋄ ⍺ ⎕NCOPY ⍵}¨f,¨⊂'Assets'
+     _←tf ⎕NCOPY¨f,¨⊂'acre.config'
+     ⍝ _←tf ⎕NCOPY¨f,¨⊂'ReleaseNotes'
+     _←BuildAppWS pc.ProjectFolder
+     _←pc CopyAcreToolsPackage af
+     _←⍺ CopyUserCommandFile 0
+     rf←pf,'dist/ReleaseArtifacts/'
+     _←3 ⎕MKDIR rf
+     zs←pf,'dist/Application'
+     zt←rf,pc.ProjectName,'-Application-',pc.Version,'.zip'
+     _←Zip zs zt
+     0
+ }

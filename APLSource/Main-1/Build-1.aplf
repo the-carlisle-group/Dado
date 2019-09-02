@@ -1,7 +1,7 @@
  Build←{
      ⍝ ⍺ ←→ [Project Folder|Space]
      ⍝ ⍵ ←→ ''
-     ⍺←0
+     ⍺←0 ReleaseNewVersion
      p←GetProjectFolder ⍺
      _←3 ⎕NDELETE p,'dist'
      _←p GeneratePackageNotes''
