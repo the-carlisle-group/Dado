@@ -5,6 +5,7 @@
      ⍝ Called from BuildApplication
      pc←GetConfigSpace ⍵
      pf←pc.ProjectFolder
+     ⍝ NO, we already have a list now!
      dp←GetDependencies pf
      dc←{0=≢dp:'' ⋄ GetConfigSpace¨dp}0
      ac←pc,dc

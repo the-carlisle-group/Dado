@@ -1,0 +1,17 @@
+ BuildWorkspace←{
+     ⍝ ⍺ ←→ TargetWorkspace
+     ⍝ ⍵ ←→ Packages
+     cl←#.GetCommandLineArgs
+     tf←##.AcreConfig.ProjectFolder
+     ws←tf,'Assets/Runtime/Build.dws'
+     e←0⊃cl
+     q←{'"',⍵,'"'}
+     pl←1↓∊',',¨⍵
+     a←q ws
+     a,←' LibraryFolder=',q GetLibraryFolder 0
+     a,←' Packages=',q pl
+     a,←' TargetWorkspace=',q ⍺
+     a,←' maxws=2g'
+     _←RunProcess e a
+     0
+ }

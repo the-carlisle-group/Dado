@@ -7,8 +7,8 @@
      pn←GetProjectName ⍺
      f←NameToFQP pn
      c←GetConfigSpace f
-     0=c.⎕NC'ZDependencies':⍬
-     d←c.ZDependencies
+     0=c.⎕NC'Dependencies':⍬
+     d←c.Dependencies
      0=≢d:⍬
      pa←c.ProjectAuthor
      fqn←pa∘{'/'∊⍵:⍵ ⋄ ⍺,'/',⍵}

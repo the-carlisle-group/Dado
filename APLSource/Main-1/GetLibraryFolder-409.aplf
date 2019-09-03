@@ -1,0 +1,4 @@
+ GetLibraryFolder←{
+     0=⎕NC'_LibraryFolder':'c:/APLProjects/'
+     _LibraryFolder
+ }

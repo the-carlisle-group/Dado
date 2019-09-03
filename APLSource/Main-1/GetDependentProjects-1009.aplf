@@ -4,9 +4,9 @@
      ⍝ ←→ Dependencies, Aliases, Inject
      z←⍬ ⍬ ⍬
      c←⍵.AcreConfig
-     0=c.⎕NC'ZDependencies':z
-     0=≢c.ZDependencies:z
-     m←c.ZDependencies
+     0=c.⎕NC'Dependencies':z
+     0=≢c.Dependencies:z
+     m←c.Dependencies
      n←m.Name
      pj←c.ProjectAuthor∘{'/'∊⍵:⍵ ⋄ ⍺,'/',⍵}¨n ⍝ Do this somewhere else!
      pk←pj,¨'-',¨m.Version

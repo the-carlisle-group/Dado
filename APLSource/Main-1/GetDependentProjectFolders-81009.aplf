@@ -2,8 +2,8 @@
      ⍝ ⍵ ←→ Primary Project
      ⍝ ← ←→ Dependent Projects, Dependent Packages
      c←GetConfigSpace ⍵
-     0=c.⎕NC'ZDependencies':⍬ ⍬
-     d←c.ZDependencies
+     0=c.⎕NC'Dependencies':⍬ ⍬
+     d←c.Dependencies
      0=≢d:⍬ ⍬
      p←⍵⊆⍨~⍵∊'\/'
      pa pn←¯2↑p
