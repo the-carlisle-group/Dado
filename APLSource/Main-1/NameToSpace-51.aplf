@@ -1,0 +1,8 @@
+ NameToSpace←{
+     ⍝ ⍵ ←→ Author/Name
+     a n←⍵⊆⍨'/'≠⍵
+     b←a≡'the-carlisle-group'
+     a←b⊃a'CarlisleGroup'
+     i←⍸n∊'.-'
+     a,'.',('_'@i)n
+ }

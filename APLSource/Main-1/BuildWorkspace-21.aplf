@@ -7,10 +7,14 @@
      e←0⊃cl
      q←{'"',⍵,'"'}
      pl←1↓∊',',¨⍵
+     lx←'#.CarlisleGroup.'
+     av←NameToSpace↑⌽⍵
+     lx←'#.',av,'.Main.StartApplication 0'
      a←q ws
      a,←' LibraryFolder=',q GetLibraryFolder 0
      a,←' Packages=',q pl
      a,←' TargetWorkspace=',q ⍺
+     a,←' QuadLX=',q lx
      a,←' maxws=2g'
      _←RunProcess e a
      0

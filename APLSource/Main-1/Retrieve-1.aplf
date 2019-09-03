@@ -5,7 +5,7 @@
      ⍺←0
      n←GetProjectName ⍺
      b←0=≢⍵
-     an←RetrieveAcreTools b
+     an←RetrieveAcreTools 1
      pn←n RetrievePackage ⍵ b
      dn←pn RetrieveDependencies ⍵ b
      (⊂pn),dn,⊂an
