@@ -13,9 +13,11 @@
      n←FormatVersion v
      r←FormatVersion n+0 0 e
      (⊂r)∊t.Tag:'Target version ',r,' already exists.'
+     bn←'release/',r
+     _←p DeleteBranch'-D ',bn
      ⎕←⊃p PullMaster''
-     ⎕←⊃p RunGitCommand'checkout -b release/',r,' ',e⊃m v
+     ⎕←⊃p RunGitCommand'checkout -b ',bn,' ',e⊃m v
      _←p SetConfigParam'Version'r
      _←p RefreshProject 0
-     'release/',r
+     bn
  }

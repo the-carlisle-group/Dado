@@ -1,0 +1,7 @@
+ RetrieveAcreTools←{
+     ⍝ ⍵ ←→ Current Project State Override
+     ⍝ ← ←→ AcreTools project or package name
+     n←'the-carlisle-group/AcreTools'
+     v←⎕SE.AcreTools.Version''
+     n RetrievePackage v ⍵
+ }

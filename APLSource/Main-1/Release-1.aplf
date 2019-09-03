@@ -13,8 +13,9 @@
      ⎕←⊃p RunGitCommand'merge --ff-only ',b
      ⎕←⊃p DeleteBranch b
      ⎕←⊃p RunGitCommand'tag -a ',v,' -m "Version ',v,'"'
-     _←p BuildVersion v
+     _←n BuildVersion v
      ⍝ Only Push and Do GitHubRelease if build is clean.
+     ⍝ Or we can delete the tag, delete the commit
      ⎕←⊃p PushMaster''
      _←p GitHubRelease v
      v
