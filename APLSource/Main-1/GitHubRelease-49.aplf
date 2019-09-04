@@ -8,7 +8,7 @@
      ⍝ Init, get octokit github client
      d←'\'@('/'∘=)##.AcreConfig.ProjectFolder,'Assets/Runtime/octokit.dll'
      ⎕USING←'System' 'System.IO' 'System.Net,System.dll'('Octokit,',d)
-     c←⎕NEW GitHubClient(⎕NEW ProductHeaderValue(⊂s.GitHubAccount))
+     c←⎕NEW GitHubClient(⎕NEW ProductHeaderValue(⊂s.ProjectAuthor))
      c.Credentials←⎕NEW Credentials(⊂k)
      ⍝ Create The Release
      r←⎕NEW NewRelease(⊂v)

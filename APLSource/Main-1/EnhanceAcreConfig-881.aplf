@@ -1,0 +1,7 @@
+ EnhanceAcreConfig←{
+     ⍺←0
+     _←⍺ SetConfigParam'API' ''
+     _←⍺ SetConfigParam'OnApplicationStartup' ''
+     _←⍺ SetConfigParam'OnBuild' ''
+     0
+ }

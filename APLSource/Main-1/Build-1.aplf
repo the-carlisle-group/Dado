@@ -1,14 +1,15 @@
  Build←{
-     ⍝ ⍺ ←→ [Project Folder|Space]
-     ⍝ ⍵ ←→ ''
-     ⍺←0 ReleaseNewVersion
-     p←GetProjectFolder ⍺
+     ⍝ ⍺ ←→ Project Name
+     ⍝ ⍵ ←→ Version
+     ⍺←0
+     n←GetProjectName ⍺
+     p←NameToFQP n
      _←3 ⎕NDELETE p,'dist'
-     _←p GeneratePackageNotes''
-     _←p GenerateApplicationNotes''
-     _←p GenerateReleaseNotes''
-     _←p BuildPackage 0 0
-     _←p BuildApplication''
-     _←p BuildReleaseArtifacts''
+     ⍝ _←p GeneratePackageNotes''
+     ⍝ _←p GenerateApplicationNotes''
+     ⍝ _←p GenerateReleaseNotes''
+     _←⍺ BuildApplication ⍵
+     _←⍺ BuildReleaseArtifacts''  ⍝ Should be out of process!
+                                  ⍝ Otherwise using
      'Done'
  }

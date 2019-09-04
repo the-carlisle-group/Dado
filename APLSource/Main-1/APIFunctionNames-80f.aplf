@@ -1,6 +1,7 @@
  APIFunctionNames←{
      c←⊂'AddToGitHub'
      c,←⊂'Commit'
+     c,←⊂'Build'
      c,←⊂'Checkout'
      c,←⊂'NewFeatureBranch'
      c,←⊂'MergeFeatureBranch'

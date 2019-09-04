@@ -1,16 +1,18 @@
  AddToGitHub←{
-     ⍝ ⍺ ←→ [Project Folder|Space]
-     ⍝ ⍵ ←→ GitHub URL
+     ⍝ ⍺ ←→ ProjectName
+     ⍝ ⍵ ←→ 'n/a
      ⍺←0
+     n←GetProjectName ⍺
+     u←'https://github.com/',n
+     p←NameToFQP n
+     0=≢n:'Not in project'
      p←GetProjectFolder ⍺
-     p≡'':'Not in project'
-     ga←{1⊃⌽('/'≠⍵)⊆⍵}⍵
+     _←p EnhanceAcreConfig''
      _←p WriteGitIgnore''
-     _←p SetConfigParam'GitHubAccount'ga
      ⎕←p RunGitCommand'init'
      ⎕←p RunGitCommand'add .'
      ⎕←p RunGitCommand'commit -m ','"~First commit"'
-     ⎕←p RunGitCommand'remote add origin ',⍵
+     ⎕←p RunGitCommand'remote add origin ',u
      ⎕←p RunGitCommand'remote -v'
      ⎕←p RunGitCommand'push -u origin master'
      'Done'

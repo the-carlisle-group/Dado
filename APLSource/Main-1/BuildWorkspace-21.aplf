@@ -7,7 +7,6 @@
      e←0⊃cl
      q←{'"',⍵,'"'}
      pl←1↓∊',',¨⍵
-     lx←'#.CarlisleGroup.'
      av←NameToSpace↑⌽⍵
      lx←'#.',av,'.Main.StartApplication 0'
      a←q ws

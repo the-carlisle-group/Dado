@@ -1,0 +1,10 @@
+ Execute←{
+     ⍝ ⍺ ←→ ProjectSpace
+     ⍝ ⍵ ←→ Config Parameter Name
+     c←⍺.AcreConfig
+     0=c.⎕NC ⍵:0
+     f←c⍎⍵
+     0=≢f:0
+     3≠⍺.⎕NC f:0
+     (s⍎f)0
+ }

@@ -1,18 +1,6 @@
  DownloadDependencies←{
      ⍝ ⍵ ←→ Project Folder
-     c←GetConfigSpace ⍵
-     0=c.⎕NC'ZDependencies':0
-     d←c.ZDependencies
-     0=≢d:0
-     p←⍵⊆⍨~⍵∊'\/'
-     pa pn←¯2↑p
-     pl←∊(¯2↓p),¨'/'
-     fqn←pa∘{'/'∊⍵:⍵ ⋄ ⍺,'/',⍵}
-     n←fqn¨d.Name
-     v←d.Version
-     df←n{pl,⍺,'-',⍵}¨v
-     u←'https://github.com/'∘,¨n
-     _←DownloadDependency¨↓⍉⊃u df v
-     _←∇¨df
-     0
+     RetrieveDependencies
+
+
  }
