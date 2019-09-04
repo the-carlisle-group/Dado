@@ -9,7 +9,7 @@
      ⍝ _←p GenerateApplicationNotes''
      ⍝ _←p GenerateReleaseNotes''
      _←⍺ BuildApplication ⍵
-     _←⍺ BuildReleaseArtifacts''  ⍝ Should be out of process!
+     ⍝ _←⍺ BuildReleaseArtifacts''  ⍝ Should be out of process!
                                   ⍝ Otherwise using
      'Done'
  }

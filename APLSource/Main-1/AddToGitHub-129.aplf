@@ -3,7 +3,7 @@
      ⍝ ⍵ ←→ 'n/a
      ⍺←0
      n←GetProjectName ⍺
-     u←'https://github.com/',n
+     u←'https://github.com/',n,'.git'
      p←NameToFQP n
      0=≢n:'Not in project'
      p←GetProjectFolder ⍺

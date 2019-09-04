@@ -3,5 +3,6 @@
      _←⍺ SetConfigParam'API' ''
      _←⍺ SetConfigParam'OnApplicationStartup' ''
      _←⍺ SetConfigParam'OnBuild' ''
+     _←⍺ SetConfigParam'Version' '0.0.0'
      0
  }
