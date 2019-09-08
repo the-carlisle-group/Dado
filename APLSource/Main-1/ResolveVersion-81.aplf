@@ -4,7 +4,7 @@
      ⍝ ← ←→ Resolved '2.3.4'
      ~'^'∊⍵:⍵
      j n p←FormatVersion ⍵
-     v←⍺ GetPackageVersions ⍺
+     v←GetPackageVersions ⍺
      aj an ap←↓⍉⊃FormatVersion¨v
      j=¯1:↑v
      n=¯1:↑(j=aj)/v

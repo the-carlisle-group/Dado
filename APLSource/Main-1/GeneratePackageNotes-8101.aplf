@@ -1,20 +1,18 @@
  GeneratePackageNotes←{
-     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍝ ⍺ ←→ Project Name
      ⍺←0
-     c←GetConfigSpace ⍺
-     p←c.ProjectFolder
-     v←⍵
-     rf←p,'/dist/ReleaseNotes/'
-     _←3 ⎕MKDIR rf
+     n←GetProjectName ⍺
+     p←NameToFQP n
+     c←GetConfigSpace p
      pn←p GetCommits''
-     m←pn.Message
+     m←(⊂'Release ',⍵),pn.Message
      k←~('~'=↑¨m)∨'Merge'∘≡¨5↑¨m
      b←'Release '∘≡¨8↑¨k/m
      pm←1↓¨(+\b)⊆k/m
-     t←'# '∘,¨c.ProjectName∘,¨' ',¨(b/k/m),¨' ',¨19↑¨b/k/pn.Date
+     t←'# '∘,¨c.ProjectName∘,¨' ',¨(b/k/m),¨' ',¨19↑¨b/k/(⊂''),pn.Date
      i←(⍕¨¨1+⍳¨≢¨pm),¨¨⊂⊂'. '
      rn←(⊂¨t),¨i,¨¨pm
      rn←¯1↓↑,/rn,¨⊂⊂''
-     _←rn nput rf,'PackageNotes.md'
+     _←rn nput p,'ReleaseNotes.md'
      0
  }

@@ -3,9 +3,9 @@
      p b←ProcessOpenArg ⍵
      fd md←b CheckDependencies p
      0<≢md:⊃(⊂'Missing dependencies:'),md,⊂'Use DownloadDependencies...'
-     open←{⎕SE.UCMD'Acre.OpenProject ',⍵,' -dependencies=off'}
-     r←↑⌽open¨(⌽fd),⊂p
-     _←SetupWorkspace''
+     n←OpenOrLoad¨(⌽fd),⊂p
+     r←↑⌽n
+     _←SetupWorkspace⍎¨n
      at←'#.CarlisleGroup.AcreTools'
      9=⎕NC at:r
      r⊣at ⎕NS ⎕SE.zApps.AcreTools.CarlisleGroup.AcreTools

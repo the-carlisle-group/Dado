@@ -1,6 +1,14 @@
  GetIncludeInApplicationNotes←{
-     n←'InlcudeInApplicationNotes'
-     0=⍵.⎕NC n:''
-     v←,⊆⍵⍎n
-     ⍵.AuthorFolder∘,¨v
+     ⍝ ⍵ ←→
+     ⍝   ←→ List of Names
+     c←⍵
+     pf←c.ProjectFolder
+     n←'Dependencies'
+     0=c.⎕NC n:''
+     d←c⍎n
+     n←'IncludeInReleaseNotes'
+     i←d{6::0 ⋄ ⍺⍎⍵}¨⊂n
+     pj pk←GetDependentProjectFolders pf
+     e←⎕NEXISTS¨pk
+     (e∧i)/pk
  }

@@ -3,13 +3,28 @@
      ⍝ ⍵ ←→ Version
      ⍺←0
      n←GetProjectName ⍺
-     p←NameToFQP n
-     _←3 ⎕NDELETE p,'dist'
-     ⍝ _←p GeneratePackageNotes''
-     ⍝ _←p GenerateApplicationNotes''
-     ⍝ _←p GenerateReleaseNotes''
-     _←⍺ BuildApplication ⍵
-     ⍝ _←⍺ BuildReleaseArtifacts''  ⍝ Should be out of process!
-                                  ⍝ Otherwise using
+     pf←NameToFQP n
+     _←3 ⎕NDELETE pf,'dist'
+     p←n Retrieve ⍵
+     f←NameToFQP¨p
+     c←GetConfigSpace¨f
+     pc←↑c
+     af←pc.ApplicationFolder
+     tf←af∘,¨p
+     _←2 ⎕MKDIR¨tf
+     copy←{~⎕NEXISTS ⍵:0 ⋄ ⍺ ⎕NCOPY ⍵}   ⍝ or 19::0
+     _←tf copy¨f,¨⊂'Assets'
+     _←tf ⎕NCOPY¨f,¨⊂'acre.config'
+     _←tf copy¨f,¨⊂'ReleaseNotes.md'
+     ⍝ _←pf CopyUserCommandFile 0
+     ws←pc.ApplicationFolder,pc.ProjectName,'.dws'
+     _←ws BuildWorkspace p
+     _←pc GenerateApplicationNotes 0
+     _←pc GenerateReleaseNotes 0
+     rf←pf,'dist/ReleaseArtifacts/'
+     _←3 ⎕MKDIR rf
+     zs←pf,'dist/Application'
+     zt←rf,pc.ProjectName,'-Application-',pc.Version,'.zip'
+     _←Zip zs zt
      'Done'
  }

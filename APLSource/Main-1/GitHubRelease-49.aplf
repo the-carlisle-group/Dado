@@ -13,8 +13,8 @@
      ⍝ Create The Release
      r←⎕NEW NewRelease(⊂v)
      r.Name←v
-     r.Body←0⊃⎕NGET s.PackageFolder,'ReleaseNotes/ReleaseNotes.md'
-     action←c.Repository.Release.Create(s.GitHubAccount s.ProjectName r)   ⍝ wait?
+     r.Body←0⊃⎕NGET s.ApplicationFolder,'MarginalReleaseNotes.md'
+     action←c.Repository.Release.Create(s.ProjectAuthor s.ProjectName r)   ⍝ wait?
      release←action.Result
      ⍝ Upload artifacts.
      u←↑(⎕NINFO⍠1)p,'dist/ReleaseArtifacts/*.*'

@@ -7,10 +7,10 @@
      c.ProjectName←{↑⍵⊆⍨'-'≠⍵}0⊃p
      c.ProjectAuthor←1⊃p
      c.FullProjectName←c.ProjectAuthor,'/',c.ProjectName
-     c.PackageFolder←f,'dist/Package/',c.ProjectName,'/'
-     c.ReleaseNotesFolder←f,'ReleaseNotes/'
      c.AuthorFolder←0⊃⎕NPARTS ¯1↓f
      c.LibraryFolder←0⊃⎕NPARTS ¯1↓c.AuthorFolder
-     c.ApplicationFolder←c.LibraryFolder,c.FullProjectName,'/dist/Application/',c.ProjectName,'/'
+     d←c.LibraryFolder,c.FullProjectName,'/dist/'
+     c.ApplicationFolder←d,'Application/',c.ProjectName,'/'
+     c.ReleaseArtifactsFolder←d,'ReleaseArtifacts/'
      c
  }
