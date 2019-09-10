@@ -1,9 +1,9 @@
  RetrieveDependencies←{
      ⍝ ⍺ ←→ Project or Package Name
-     ⍝ ⍵ ←→ Version, [Current Project State Override]
+     ⍝ ⍵ ←→ Current Project State Override
      ⍝ ← ←→ Dependent Names
      ⍺←0
-     v b←2↑0,⍨⊆⍵
+     b←⍵
      pn←GetProjectName ⍺
      f←NameToFQP pn
      c←GetConfigSpace f
@@ -15,5 +15,5 @@
      n←fqn¨d.Name
      v←d.Version{⍺ ⍵}¨b
      kn←n RetrievePackage¨v
-     kn,↑,/kn ∇¨v
+     kn,↑,/kn ∇¨b
  }

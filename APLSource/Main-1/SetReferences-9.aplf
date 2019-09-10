@@ -2,7 +2,7 @@
      ⍝ ⍺ ←→ All project spaces
      ⍝ ⍵ ←→ Project Space
      ⍵.AcreConfig.ProjectName≡'AcreTools':0
-     p a t←⍺ GetDependentProjects ⍵
+     p a t←⍺ GetInjectionInfo ⍵
      0=≢p:0
      e←GetAPISpace¨p
      r←refs ⍵

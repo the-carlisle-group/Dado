@@ -1,0 +1,17 @@
+ CheckAPLVersion←{
+     ⍝ ⍵←ConfigFile
+     c←⍵
+     n←'DyalogVersion'
+     0=c.⎕NC n:0
+     tv←c⍎n
+     sv←1⊃'.'⎕VFI tv
+     av←APLVersion.Build
+     lt←{((⍳2)≡⍋⍺ ⍵)∧⍺≢⍵}
+     e←av lt sv
+     ~e:0
+     pd←c.PackageName
+     ij←c.IsProject
+     pt←ij⊃'package' 'project'
+     ⎕←'Warning: ',pt,' ',pd,' specifies a later Dyalog APL interpreter (',tv,')'
+     e
+ }

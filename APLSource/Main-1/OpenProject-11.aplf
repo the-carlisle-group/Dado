@@ -1,11 +1,10 @@
  OpenProject←{
      ⍝ -f option ←→ force package over existing project
-     p b←ProcessOpenArg ⍵
-     fd md←b CheckDependencies p
-     0<≢md:⊃(⊂'Missing dependencies:'),md,⊂'Use DownloadDependencies...'
-     n←OpenOrLoad¨(⌽fd),⊂p
+     pn b←ProcessOpenArg ⍵
+     dp←pn RetrieveDependencies~b
+     n←OpenOrLoad¨(⌽dp),⊂pn
      r←↑⌽n
-     _←SetupWorkspace⍎¨n
+     _←SetupWorkspace,⍎¨n
      at←'#.CarlisleGroup.AcreTools'
      9=⎕NC at:r
      r⊣at ⎕NS ⎕SE.zApps.AcreTools.CarlisleGroup.AcreTools

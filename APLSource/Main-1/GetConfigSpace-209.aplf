@@ -12,5 +12,8 @@
      d←c.LibraryFolder,c.FullProjectName,'/dist/'
      c.ApplicationFolder←d,'Application/',c.ProjectName,'/'
      c.ReleaseArtifactsFolder←d,'ReleaseArtifacts/'
+     c.IsPackage←2=+/'.'=f
+     c.IsProject←~c.IsPackage
+     c.PackageName←0⊃p
      c
  }

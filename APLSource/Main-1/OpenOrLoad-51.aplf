@@ -1,6 +1,7 @@
  OpenOrLoad←{
-     ⍝ ⍵ ←→ Project or Package Folder
-     v←2=+/'.'=⍵  ⍝ Do a proper regex her for trailing 'd.d.d/'
+     ⍝ ⍵ ←→ Project or Package Name
+     f←NameToFQP ⍵
+     v←2=+/'.'=f  ⍝ Do a proper regex her for trailing 'd.d.d/'
      t←v/' -track=off'
-     ⎕SE.UCMD'Acre.OpenProject ',⍵,' -dependencies=off',t
+     ⎕SE.UCMD'Acre.OpenProject ',f,' -dependencies=off',t
  }

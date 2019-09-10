@@ -7,13 +7,15 @@
      v←jn ResolveVersion v
      kn←jn PackageName v
      jf kf←NameToFQP¨jn kn
-     b∧⎕NEXISTS jf:jn
-     ⎕NEXISTS kf:kn
+     je ke←⎕NEXISTS¨jf kf
+     b∧je:jn
+     ke:kn
      u←ProjectURL jn
+     pl←je⊃'https://github.com/'('file:://',GetLibraryFolder 0)
+     ⎕←'Retrieving ',kn,' from ',pl,'...'
      sw←'--depth 1 --branch ',v
      l←1↓∊' ',¨'clone'sw u kf
      r←RunProcess'git'l
-     _←3 ⎕NDELETE kf,'.git'
      c←GetConfigSpace kf
      s←c.ProjectSpace,'_','_'@('.'∘=)v
      _←kf SetConfigParam'ProjectSpace's

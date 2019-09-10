@@ -1,5 +1,5 @@
  Retrieve←{
-     ⍝ ⍺ ←→ Project Name (e.g. Carlisle/FlipDB)
+     ⍝ ⍺ ←→ Project Name, Current Project State Overide
      ⍝ ⍵ ←→ Version
      ⍝ ← ←→ List of names
      ⍺←0
@@ -7,6 +7,6 @@
      b←0=≢⍵
      an←RetrieveAcreTools 1
      pn←n RetrievePackage ⍵ b
-     dn←pn RetrieveDependencies ⍵ b
+     dn←pn RetrieveDependencies b
      (⊂pn),dn,⊂an
  }

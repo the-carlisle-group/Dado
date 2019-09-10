@@ -9,5 +9,6 @@
      ns.BuildID←1⊃ver
      ns.Runtime←'Runtime'≡3⊃ver
      ns.Build←1⊃'.'⎕VFI 1⊃ver
+     ns.Version←2↑ns.Build
  :EndIf
  ns←_aplVersion

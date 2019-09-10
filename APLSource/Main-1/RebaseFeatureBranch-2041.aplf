@@ -10,7 +10,7 @@
      _←p Squash''
      ⎕←⊃p RunGitCommand'fetch origin master:master'
      r←p RunGitCommand'rebase master'
-     ⎕←⊃p ProcessFileLine¨r
+     ⎕←⊃p∘ProcessFileLine¨r
      _←p RefreshProject''
      ~p IsDirty'':'Rebase complete.'
      'Manually merge, then run RebaseContinue'

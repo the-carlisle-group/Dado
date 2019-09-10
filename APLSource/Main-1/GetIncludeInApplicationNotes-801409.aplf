@@ -6,6 +6,7 @@
      n←'Dependencies'
      0=c.⎕NC n:''
      d←c⍎n
+     0=≢d:''
      n←'IncludeInReleaseNotes'
      i←d{6::0 ⋄ ⍺⍎⍵}¨⊂n
      pj pk←GetDependentProjectFolders pf

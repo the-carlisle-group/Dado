@@ -7,5 +7,5 @@
      p←GetProjectFolder ⍺
      0=≢⍵:⍵
      '/'∊⍵:('/'=↑⍵)↓⍵
-     (≢p)↓'sourcefile'⎕SE.acre.run ⍵
+     (≢p)↓↑⎕SE.acre.Sourcefile ⍵
  }

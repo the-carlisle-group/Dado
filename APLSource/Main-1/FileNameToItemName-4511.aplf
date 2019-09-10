@@ -5,5 +5,5 @@
      p←GetProjectFolder ⍺
      f←DecodeOctalEncoding ⍵
      'APLSource/'≢10↑f:f
-     ⊃'itemname'⎕SE.acre.run p,f
+     ↑⎕SE.acre.Itemname p,f
  }

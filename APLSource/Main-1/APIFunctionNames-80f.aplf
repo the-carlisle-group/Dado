@@ -3,6 +3,8 @@
      c,←⊂'Commit'
      c,←⊂'Build'
      c,←⊂'Checkout'
+     c,←⊂'CheckoutMaster'
+     c,←⊂'DeleteBranch'
      c,←⊂'NewFeatureBranch'
      c,←⊂'MergeFeatureBranch'
      c,←⊂'PushMaster'

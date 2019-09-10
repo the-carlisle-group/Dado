@@ -3,6 +3,7 @@
      f←p.AcreConfig.ProjectFolder
      c←GetConfigSpace¨f
      p.AcreConfig←p.⎕NS c
+     _←CheckAPLVersion¨c
      _←p∘SetReferences¨p
      0
  }

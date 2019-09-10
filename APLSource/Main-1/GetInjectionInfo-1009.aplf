@@ -1,4 +1,4 @@
- GetDependentProjects←{
+ GetInjectionInfo←{
      ⍝ ⍺ ←→ All Projects
      ⍝ ⍵ ←→ Project
      ⍝ ←→ Dependencies, Aliases, Inject

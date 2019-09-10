@@ -1,6 +1,4 @@
  DownloadDependencies←{
      ⍝ ⍵ ←→ Project Folder
-     RetrieveDependencies
-
-
+     ⍵ RetrieveDependencies''
  }

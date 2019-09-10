@@ -9,7 +9,7 @@
      ⍝ Use cs
      n←GetFullyQualifiedItemName ⍵
      p←{
-         q:(GetProjectSpace ExistingAncestor n).ProjectFolder
+         q:(GetProjectSpace ExistingAncestor n).AcreConfig.ProjectFolder
          cp
      }0
      f←p GetFileName n
