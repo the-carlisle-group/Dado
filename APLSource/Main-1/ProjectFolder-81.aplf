@@ -1,0 +1,8 @@
+ z←ProjectFolder
+⍝ This is fixed inside the config space
+⍝ It does NOT run from here.
+ z←{
+     f←ProjectFolderName,'/'
+     ∨/(⍕⎕SE)⍷⍕⎕THIS:f,⍨##.##.ApplicationFolder
+     f,⍨↑1 ⎕NPARTS ⎕WSID
+ }0

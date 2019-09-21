@@ -1,10 +1,5 @@
  ProcessOpenArg←{
      b←' -f'≡¯3↑⍵
      p←(b×¯3)↓⍵
-     1=+/p∊'\/':p b
-     s←p⊆⍨~p∊'\/'
-     l←∊(¯2↓s),¨'/'
-     n←1↓∊'/',¨¯2↑s
-     ⎕THIS._LibraryFolder←l
-     n b
+     p b
  }

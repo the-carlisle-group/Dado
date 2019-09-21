@@ -2,8 +2,8 @@
      ~⍺ IsUserCommandApp 0:0
      p←GetProjectSpace ⍺
      pc←p.AcreConfig
-     af←pc.ApplicationFolder
-     tn←af,pc.ProjectName,'.dyalog'
+     af←pc.ProjectFolder,'dist/application/',pc._Name,'/'
+     tn←af,pc._Name,'.dyalog'
      _←(⊂BuildUCMDFile p.UCMD)⎕NPUT tn
      0
  }

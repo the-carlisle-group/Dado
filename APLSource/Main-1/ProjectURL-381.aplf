@@ -1,7 +1,7 @@
  ProjectURL←{
-     ⍝ ⍵ ←→ Project Name
+     ⍝ ⍵ ←→ Project Folder
      ⍝ ← ←→ URL
-     jf←NameToFQP ⍵
-     ⎕NEXISTS jf:'file://',jf
-     'https://github.com/',⍵
+     OBSOLETE
+     ⎕NEXISTS ⍵:'file://',⍵
+     ⍺
  }

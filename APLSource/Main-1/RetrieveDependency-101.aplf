@@ -1,0 +1,26 @@
+ RetrieveDependency←{
+     ⍝ ⍺ ←→ [Current Project State Override]
+     ⍝ ⍵ ←→ Dependency Space
+     ⍝ ← ←→ Project or Package Config Space
+
+     ⍝ Reasons this might not return a dependency ('' for now)
+     ⍝ URL not specified
+     ⍝ URL not found on disk or on web
+     ⍝ Version specified not found on disk or on web
+     0=⍵.⎕NC'URL':0
+     u←⍵.URL
+     v←{6::'' ⋄ ⍵.Version}⍵
+     lp←⎕THIS._LocalProjects
+     jf←(lp.URL⍳⊂u)⊃(lp.ProjectFolder),⊂''
+     ⍺∧jf≢'':⍵ GetConfigSpace jf
+     kn←u PackageName v
+     kf←PackageFQP kn
+     ⎕NEXISTS kf:⍵ GetConfigSpace kf
+     u←(jf≢'')⊃u('file://',jf)
+     ⎕←'Retrieving ',kn,' from ',u,'...'
+     sw←'--depth 1 --branch ',v
+     l←1↓∊' ',¨'clone'sw u kf
+     r←RunProcess'git'l
+     ⍝ Look at r, if failure, return ''
+     ⍵ GetConfigSpace kf
+ }

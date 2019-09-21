@@ -1,19 +1,12 @@
  RetrieveDependencies←{
-     ⍝ ⍺ ←→ Project or Package Name
-     ⍝ ⍵ ←→ Current Project State Override
-     ⍝ ← ←→ Dependent Names
-     ⍺←0
-     b←⍵
-     pn←GetProjectName ⍺
-     f←NameToFQP pn
-     c←GetConfigSpace f
-     0=c.⎕NC'Dependencies':⍬
-     d←c.Dependencies
+     ⍝ ⍵ ←→ Project or Package Config Space
+     ⍝ ⍺ ←→ Current Project State Override
+     ⍝ ← ←→ Dependent project or package config spaces
+     0=⍵:⍬
+     b←⍺
+     0=⍵.⎕NC'Dependencies':⍬
+     d←⍵.Dependencies
      0=≢d:⍬
-     pa←c.ProjectAuthor
-     fqn←pa∘{'/'∊⍵:⍵ ⋄ ⍺,'/',⍵}
-     n←fqn¨d.Name
-     v←d.Version{⍺ ⍵}¨b
-     kn←n RetrievePackage¨v
-     kn,↑,/kn ∇¨b
+     c←b RetrieveDependency¨d
+     c,↑,/b ∇¨c
  }

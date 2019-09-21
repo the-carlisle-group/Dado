@@ -1,0 +1,4 @@
+ PackageFQP←{
+     f←GetPackageCacheFolder 0
+     f,⍵,'/'
+ }

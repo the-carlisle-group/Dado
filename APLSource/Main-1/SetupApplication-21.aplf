@@ -1,13 +1,13 @@
  SetupApplication←{
-     ⍝ ⍺ ←→ Library Space
-     ⍝ ⍵ ←→ Library Folder
+     ⍝ ⍵ ←→ Package Folders
      ⍝ ← ←→ Primary Project Space
-     ⍺←#
-     c←GetConfigSpace¨⍵∘,¨⍺.Packages
-     p←⍺⍎¨2↓¨c.ProjectSpace
-     p.AcreConfig←p.⎕NS c
-     m t←(¯1↓p)(↑⌽p)
-     0=≢m:t⊣GetAPISpace t
-     _←m∘SetReferences¨m
-     ↑m
+     f←⌽⍵
+     c←GetConfigSpace¨f
+     _←c.⎕EX⊂'ProjectFolder'
+     _←c.⎕FX⊂⎕NR'ProjectFolder'
+     load←{⎕SE.UCMD']acre.OpenProject ',⍵,' ',⍺,' -track=off -dependencies=off'}
+     s←⍎¨c._ProjectSpace load¨f
+     s.AcreConfig←s.⎕NS c
+     _←s∘SetReferences¨s
+     ↑⌽s
  }

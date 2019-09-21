@@ -1,6 +1,6 @@
  NameToFQP←{
      ⍝ ⍵ ←→ Project or Package name
      ⍝ ← ←→ Fully qualified path
-     f←GetLibraryFolder 0
-     f,⍵,'/'
+     2=+/'.'=⍵:(GetPackageLibraryFolder 0),⍵,'/'
+     (GetProjectLibraryFolder 0),⍵,'/'
  }

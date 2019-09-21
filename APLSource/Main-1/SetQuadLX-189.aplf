@@ -1,0 +1,8 @@
+ SetQuadLX←{
+     n←'OnApplicationStartup'
+     c←⍵.AcreConfig
+     0=c.⎕NC n:''
+     e←c⍎n
+     0=≢e:''
+     c._ProjectSpace,'.',e,' ',⍕⍵
+ }

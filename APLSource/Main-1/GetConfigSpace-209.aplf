@@ -1,19 +1,14 @@
  GetConfigSpace←{
+     ⍝ ⍺ ←→ Dependency Space
      ⍝ ⍵ ←→ ProjectFolder
+     ⍺←⎕NS''
      f←GetProjectFolder ⍵
      c←ReadConfigFile f,'acre.config'
-     p←⌽(~f∊'/\')⊆f
      c.ProjectFolder←f
-     c.ProjectName←{↑⍵⊆⍨'-'≠⍵}0⊃p
-     c.ProjectAuthor←1⊃p
-     c.FullProjectName←c.ProjectAuthor,'/',c.ProjectName
-     c.AuthorFolder←0⊃⎕NPARTS ¯1↓f
-     c.LibraryFolder←0⊃⎕NPARTS ¯1↓c.AuthorFolder
-     d←c.LibraryFolder,c.FullProjectName,'/dist/'
-     c.ApplicationFolder←d,'Application/',c.ProjectName,'/'
-     c.ReleaseArtifactsFolder←d,'ReleaseArtifacts/'
+     c.ProjectFolderName←↑⌽f⊆⍨'/'≠f
      c.IsPackage←2=+/'.'=f
      c.IsProject←~c.IsPackage
-     c.PackageName←0⊃p
+     c._ProjectSpace←⍺ ProjectSpace c
+     c.(_Group _Name)←¯2↑{⍵⊆⍨'/'≠⍵}c.URL ⍝ Should look at user defined vals!
      c
  }

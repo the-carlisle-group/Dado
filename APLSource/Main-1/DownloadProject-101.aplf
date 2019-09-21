@@ -1,7 +1,7 @@
  DownloadProject←{
      ⍝ ⍺ ←→ Project Library
      ⍝ ⍵ ←→ Full project name e.g 'PaulMansour/Stats'
-     ⍺←'C:/APLProjects/'
+     ⍺←'C:/APLProjectsTest/'
      u←'https://github.com/',⍵
      c←'clone ',u,' ',⍺,⍵
      r←RunProcess'git'c

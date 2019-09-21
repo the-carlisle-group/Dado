@@ -1,0 +1,15 @@
+ ProjectFolderNameAndURL←{
+    ⍝ ⍵ ←→ Dependency Space
+     OBSOLETE
+     {⍵.URL}⍵
+
+
+     n←⍵.Name
+     g←⍵.Group
+
+     {}⍵.URL
+
+
+
+     n u
+ }

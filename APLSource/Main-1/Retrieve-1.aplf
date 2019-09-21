@@ -1,12 +1,14 @@
  Retrieve←{
-     ⍝ ⍺ ←→ Project Name, Current Project State Overide
+     ⍝ ⍺ ←→ Project Folder
      ⍝ ⍵ ←→ Version
-     ⍝ ← ←→ List of names
-     ⍺←0
-     n←GetProjectName ⍺
+     ⍝ ← ←→ Config Spaces
      b←0=≢⍵
-     an←RetrieveAcreTools 1
-     pn←n RetrievePackage ⍵ b
-     dn←pn RetrieveDependencies b
-     (⊂pn),dn,⊂an
+     _←RetrieveLocalProjects ⍺
+     c←GetConfigSpace ⍺
+     d←⎕NS''
+     d.URL←c.URL
+     d.Version←⍵
+     pc←b RetrieveDependency d
+     dc←b RetrieveDependencies pc
+     pc,dc
  }

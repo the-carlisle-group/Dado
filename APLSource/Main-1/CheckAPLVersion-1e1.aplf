@@ -9,7 +9,7 @@
      lt←{((⍳2)≡⍋⍺ ⍵)∧⍺≢⍵}
      e←av lt sv
      ~e:0
-     pd←c.PackageName
+     pd←c.URL
      ij←c.IsProject
      pt←ij⊃'package' 'project'
      ⎕←'Warning: ',pt,' ',pd,' specifies a later Dyalog APL interpreter (',tv,')'

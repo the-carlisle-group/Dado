@@ -3,16 +3,18 @@
      _←SetAcreConfig 0
      pc←##.AcreConfig
      pf←pc.ProjectFolder
-     af←pc.ApplicationFolder
+     af←pf,'dist/Application/AcreTools/'
      _←3 ⎕NDELETE pf,'dist'
      _←2 ⎕MKDIR af
-     tf←af,pc.FullProjectName
+     tf←af,'AcreTools'
      _←2 ⎕MKDIR tf
      _←tf ⎕NCOPY pf,'Assets'
      _←tf ⎕NCOPY pf,'acre.config'
-     _←⍺ CopyUserCommandFile 0
-     #.Packages←,⊂'the-carlisle-group/AcreTools'
-     _←0 ⎕SAVE af,pc.ProjectName
+     _←pf CopyUserCommandFile 0
+     _←pc.⎕EX'ProjectFolder'
+     _←pc.⎕FX ⎕NR'ProjectFolder'
+     _←0 ⎕SAVE af,pc._Name
+     _←SetAcreConfig 0
      tf←⎕SE.zApps.AcreTools.ApplicationFolder
      _←3 ⎕NDELETE tf
      _←tf ⎕NCOPY af

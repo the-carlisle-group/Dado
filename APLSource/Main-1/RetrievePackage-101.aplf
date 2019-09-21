@@ -1,23 +1,24 @@
  RetrievePackage←{
-     ⍝ ⍺ ←→ Project Name
+     ⍝ ⍺ ←→ URL
      ⍝ ⍵ ←→ Version, [Current Project State Override]
-     ⍺←0
+
+     ⍝ need to know where to look for projects
+     jn u←⍺
      v b←2↑0,⍨⊆⍵
-     jn←GetProjectName ⍺
-     v←jn ResolveVersion v
+     ⍝ jn ResolveVersion v
      kn←jn PackageName v
-     jf kf←NameToFQP¨jn kn
+     jf←ProjectFQP jn
+     kf←PackageFQP kn
      je ke←⎕NEXISTS¨jf kf
      b∧je:jn
      ke:kn
-     u←ProjectURL jn
-     pl←je⊃'https://github.com/'('file:://',GetLibraryFolder 0)
-     ⎕←'Retrieving ',kn,' from ',pl,'...'
+     u←u ProjectURL jf
+     ⎕←'Retrieving ',kn,' from ',u,'...'
      sw←'--depth 1 --branch ',v
      l←1↓∊' ',¨'clone'sw u kf
      r←RunProcess'git'l
-     c←GetConfigSpace kf
-     s←c.ProjectSpace,'_','_'@('.'∘=)v
-     _←kf SetConfigParam'ProjectSpace's
+     ⍝ c←GetConfigSpace kf
+     ⍝ s←c.ProjectSpace,'_','_'@('.'∘=)v
+     ⍝ _←kf SetConfigParam'ProjectSpace's
      kn
  }

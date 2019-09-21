@@ -1,11 +1,12 @@
  OpenProject←{
-     ⍝ -f option ←→ force package over existing project
-     pn b←ProcessOpenArg ⍵
-     dp←pn RetrieveDependencies~b
-     n←OpenOrLoad¨(⌽dp),⊂pn
-     r←↑⌽n
+     ⍝ ⍵ ←→ Project Folder (-f option ←→ force package over existing project)
+     pf b←ProcessOpenArg ⍵
+     _←RetrieveLocalProjects pf
+     c←GetConfigSpace ⍵
+     dp←(~b)RetrieveDependencies c
+     dp←dp~0                            ⍝ various reasons this could happen.
+     n←OpenOrLoad¨(⌽dp),c
      _←SetupWorkspace,⍎¨n
-     at←'#.CarlisleGroup.AcreTools'
-     9=⎕NC at:r
-     r⊣at ⎕NS ⎕SE.zApps.AcreTools.CarlisleGroup.AcreTools
+     ↑⌽n
+
  }

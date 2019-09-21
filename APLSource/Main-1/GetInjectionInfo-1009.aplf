@@ -3,21 +3,14 @@
      ⍝ ⍵ ←→ Project
      ⍝ ←→ Dependencies, Aliases, Inject
      z←⍬ ⍬ ⍬
-     c←⍵.AcreConfig
+     q c←(⍺ ⍵).AcreConfig
      0=c.⎕NC'Dependencies':z
      0=≢c.Dependencies:z
      m←c.Dependencies
-     n←m.Name
-     pj←c.ProjectAuthor∘{'/'∊⍵:⍵ ⋄ ⍺,'/',⍵}¨n ⍝ Do this somewhere else!
-     pk←pj,¨'-',¨m.Version
-     pn←⍺.AcreConfig.FullProjectName
-     d←⍺[(pn⍳pk)⌊pn⍳pj]
-     ⍝ a←d.AcreConfig.ProjectName
+     k←q.(URL Version)⍳m.(URL Version)
+     j←q.URL⍳m.URL
+     d←⍺[(k=≢q)⊃¨↓⍉⊃k j]
      a←m.Alias
      t←m.Inject
-     0=c.⎕NC'AcreTools':d a t
-     d←d,⍵.##.##.CarlisleGroup.AcreTools
-     a←a,⊂c.AcreTools.Alias
-     t←t,c.AcreTools.Inject
      d a t
  }

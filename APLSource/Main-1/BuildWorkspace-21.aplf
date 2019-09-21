@@ -1,20 +1,19 @@
  BuildWorkspace←{
-     ⍝ ⍺ ←→ TargetWorkspace
-     ⍝ ⍵ ←→ Packages
+     ⍝ ⍺ ←→ Trace
+     ⍝ ⍵ ←→ TargetWorkspace Packages
+     ⍺←0
+     tw p←⍵
      cl←#.GetCommandLineArgs
      tf←##.AcreConfig.ProjectFolder
      ws←tf,'Assets/Runtime/Build.dws'
      e←0⊃cl
      q←{'"',⍵,'"'}
-     pl←1↓∊',',¨⍵
-     av←NameToSpace↑⌽⍵
-     lx←'#.',av,'.Main.StartApplication 0'
+     pl←1↓∊',',¨p
      a←q ws
-     a,←' LibraryFolder=',q GetLibraryFolder 0
      a,←' Packages=',q pl
-     a,←' TargetWorkspace=',q ⍺
-     a,←' QuadLX=',q lx
+     a,←' TargetWorkspace=',q tw
      a,←' maxws=2g'
+     a,←' Trace=',⍕⍺
      _←RunProcess e a
      0
  }

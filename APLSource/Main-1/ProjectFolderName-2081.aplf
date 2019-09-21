@@ -1,0 +1,12 @@
+ ProjectFolderName←{
+     ⍝ ⍵ ←→ Dependency item
+     ⍝ ← ←→ Folder Name (the trailing node of ProjectFolder)
+     n←{6::'' ⋄ ⍵.Name}⍵
+     g←{6::'' ⋄ ⍵.Group}⍵
+     u←{6::'' ⋄ ⍵.URL}⍵
+     ne ge ue←0=≢¨n g u
+     (~ne)∧~ge:g,'-',n
+     ~ne:n
+     ue:''
+     1↓∊'-',¨¯2↑u⊆⍨u≠'/'
+ }
