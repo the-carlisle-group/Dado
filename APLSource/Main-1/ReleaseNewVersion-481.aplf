@@ -2,9 +2,8 @@
      ⍝ ⍺ ←→ Project Name
      ⍝ ⍵ ←→ 'major'|'minor'| '' (for patch)
      ⍺←0
-     n←GetProjectName ⍺
-     n≡'':'Not in project'
-     p←NameToFQP n
+     p←GetProjectFolder ⍺
+     p≡'':'Not in project'
      v←p GetNextVersion ⍵
      b←p NewReleaseBranch v
      _←⍺ GeneratePackageNotes v
@@ -13,7 +12,7 @@
      ⎕←⊃p RunGitCommand'merge --ff-only ',b
      ⎕←⊃p DeleteBranch b
      ⎕←⊃p RunGitCommand'tag -a ',v,' -m "Version ',v,'"'
-     _←n Build v
+     _←p Build v
      ⍝ Only Push and Do GitHubRelease if build is clean.
      ⍝ Or we can delete the tag, delete the commit
      ⎕←⊃p PushMaster''

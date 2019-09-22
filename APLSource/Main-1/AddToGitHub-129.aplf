@@ -2,11 +2,9 @@
      ⍝ ⍺ ←→ ProjectName
      ⍝ ⍵ ←→ 'n/a
      ⍺←0
-     n←GetProjectName ⍺
-     u←'https://github.com/',n,'.git'
-     p←NameToFQP n
-     0=≢n:'Not in project'
      p←GetProjectFolder ⍺
+     u←p.AcreConfig.URL,'.git'
+     0=≢p:'Not in project'
      _←p EnhanceAcreConfig''
      _←p WriteGitIgnore''
      ⎕←p RunGitCommand'init'

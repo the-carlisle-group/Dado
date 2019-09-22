@@ -1,4 +1,5 @@
  GetIncludeInApplicationNotes←{
+     ⍝ ⍺ ←→ Manifest
      ⍝ ⍵ ←→
      ⍝   ←→ List of Names
      c←⍵
@@ -9,7 +10,5 @@
      0=≢d:''
      n←'IncludeInReleaseNotes'
      i←d{6::0 ⋄ ⍺⍎⍵}¨⊂n
-     pj pk←GetDependentProjectFolders pf
-     e←⎕NEXISTS¨pk
-     (e∧i)/pk
+     (i∧d.URL∊⍵.URL)/⍵.ProjectFolder
  }

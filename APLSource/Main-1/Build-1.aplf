@@ -18,8 +18,8 @@
      _←pf CopyUserCommandFile 0
      ws←af,pn,'.dws'
      _←BuildWorkspace ws f
-     _←pc GenerateApplicationNotes 0
-     _←pc GenerateReleaseNotes 0
+     _←c GenerateApplicationNotes m
+     _←c GenerateReleaseNotes 0
      rf←pf,'dist/ReleaseArtifacts/'
      _←3 ⎕MKDIR rf
      zs←pf,'dist/Application'

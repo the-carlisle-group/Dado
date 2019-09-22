@@ -3,7 +3,7 @@
      ⍝ from cumulative application notes
      c←⍺
      p←⍺.ProjectFolder
-     f←c.ApplicationFolder
+     f←p,'dist/Application/',c._Name,'/'
      n←1↓nget f,'ReleaseNotes.md'
      m←(~∨\'# '∘≡¨2↑¨n)/n
      q←('' '#'['#'=↑¨m]),¨m
