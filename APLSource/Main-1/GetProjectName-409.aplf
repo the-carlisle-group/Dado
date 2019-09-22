@@ -1,6 +1,0 @@
- GetProjectName←{
-     ⍵≢0:⍵
-     p←GetProjectSpace 0
-     p=0:''
-     p.AcreConfig.FullProjectName
- }

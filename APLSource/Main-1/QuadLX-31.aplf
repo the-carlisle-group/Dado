@@ -1,8 +1,0 @@
- QuadLX;z
- ⍝ Set function keys.
- #.A←⎕THIS
- z←('#.A.ShowProjects''''',⊂'ER')⎕PFKEY 4
- z←('#.A.RefreshProject''''',⊂'ER')⎕PFKEY 5
- z←('#.A.ShowBranches''''',⊂'ER')⎕PFKEY 6
- z←('#.A.ShowChanges''''',⊂'ER')⎕PFKEY 7
- z←('#.A.Commit''''',⊂'ER')⎕PFKEY 9

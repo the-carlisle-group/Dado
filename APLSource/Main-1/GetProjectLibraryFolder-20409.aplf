@@ -1,4 +1,0 @@
- GetProjectLibraryFolder←{
-     0=⎕NC'_ProjectLibraryFolder':'c:/APL/Projects/'
-     _ProjectLibraryFolder
- }

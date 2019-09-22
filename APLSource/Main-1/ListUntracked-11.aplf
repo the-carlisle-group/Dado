@@ -1,6 +1,0 @@
- ListUntracked←{
-     pf←⍵.AcreConfig.ProjectFolder
-     bash←'git -C "',pf,'"  ls-files -o --exclude-standard'
-     res←⎕CMD bash
-     ⍵ fqdn res
- }

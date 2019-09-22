@@ -15,7 +15,7 @@
      _←tf copy¨f,¨⊂'Assets'
      _←tf ⎕NCOPY¨f,¨⊂'acre.config'
      _←tf copy¨f,¨⊂'ReleaseNotes.md'
-     ⍝ _←pf CopyUserCommandFile 0
+     _←pf CopyUserCommandFile 0
      ws←af,pn,'.dws'
      _←BuildWorkspace ws f
      _←pc GenerateApplicationNotes 0

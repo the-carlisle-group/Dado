@@ -1,8 +1,0 @@
- CopyAcreToolsPackage←{
-     ⍺.FullProjectName≡'CarlisleGroup/AcreTools':0
-     cf←⍺.ApplicationFolder,'CarlisleGroup'
-     sf←⎕SE.zApps.AcreTools.CarlisleGroup.AcreTools.AcreConfig.ProjectFolder
-     _←3 ⎕MKDIR cf
-     _←(cf,'/AcreTools')⎕NCOPY sf
-     0
- }

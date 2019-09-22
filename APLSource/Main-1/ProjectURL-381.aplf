@@ -1,7 +1,0 @@
- ProjectURL←{
-     ⍝ ⍵ ←→ Project Folder
-     ⍝ ← ←→ URL
-     OBSOLETE
-     ⎕NEXISTS ⍵:'file://',⍵
-     ⍺
- }

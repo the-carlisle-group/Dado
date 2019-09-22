@@ -1,6 +1,0 @@
- ListChanges←{
-     pf←⍵.AcreConfig.ProjectFolder
-     bash←'git -C "',pf,'"  diff --name-only'
-     changed←⎕CMD bash
-     ⍵ fqdn changed
- }

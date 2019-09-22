@@ -1,5 +1,0 @@
- ProjectFQP←{
-     OBSOLETE
-     f←GetProjectLibraryFolder 0
-     f,⍵,'/'
- }

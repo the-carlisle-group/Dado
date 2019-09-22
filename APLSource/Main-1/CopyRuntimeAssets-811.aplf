@@ -1,9 +1,0 @@
- CopyRuntimeAssets←{
-     sf tf←⍵
-     rs←sf,'Assets/Runtime'
-     rt←tf,'Assets/Runtime'
-     ~⎕NEXISTS rs:0
-     _←1 ⎕MKDIR tf,'Assets'
-     _←rt ⎕NCOPY rs
-     0
- }

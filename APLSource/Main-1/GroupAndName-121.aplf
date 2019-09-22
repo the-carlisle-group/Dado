@@ -1,8 +1,0 @@
- GroupAndName←{
-     ⍝ ⍵ ←→ Project Folder
-     ⍝ ← ←→ Group and Name
-     p←↑⌽⍵⊆⍨~⍵∊'/\'
-     s←p⊆⍨'-'≠p
-     1=≢s:⌽s,⊂''
-     2↑s
- }
