@@ -1,0 +1,9 @@
+ DependencyError←{
+     ⍝ ⍺ ←→ Dependency Space
+     ⍝ ⍵ ←→ Error message
+     u←⍺{6::'' ⋄ ⍺⍎⍵}'URL'
+     m←⍵,' (',u,')'
+     ⍺.SignalError:m ⎕SIGNAL 746
+     ⎕←m
+     0
+ }

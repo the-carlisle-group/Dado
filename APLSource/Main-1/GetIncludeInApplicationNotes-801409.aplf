@@ -3,12 +3,12 @@
      ⍝ ⍵ ←→
      ⍝   ←→ List of Names
      c←⍵
-     pf←c.ProjectFolder
      n←'Dependencies'
      0=c.⎕NC n:''
      d←c⍎n
      0=≢d:''
      n←'IncludeInReleaseNotes'
      i←d{6::0 ⋄ ⍺⍎⍵}¨⊂n
-     (i∧d.URL∊⍵.URL)/⍵.ProjectFolder
+     p←⍺[⍺.URL⍳d.URL]
+     i/p.ProjectFolder
  }

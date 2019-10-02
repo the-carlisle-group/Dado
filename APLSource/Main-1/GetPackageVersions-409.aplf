@@ -1,6 +1,6 @@
  GetPackageVersions←{
-     ⍝ ⍵ ←→ ProjectName
-     u←ProjectURL ⍵
+     ⍝ ⍵ ←→ URL
+     u←⍵
      c←'ls-remote --tags --refs ',u
      r←RunProcess'git'c
      v←{↑⌽⍵⊂⍨⍵≠'/'}¨r.StdOut

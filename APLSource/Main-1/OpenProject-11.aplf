@@ -1,12 +1,12 @@
  OpenProject←{
      ⍝ ⍵ ←→ Project Folder (-f option ←→ force package over existing project)
      pf b←ProcessOpenArg ⍵
-     _←RetrieveLocalProjects pf
-     c←GetConfigSpace ⍵
+     c←GetConfigSpace pf
+     c.LocalProjects←RetrieveLocalProjects pf
+     c.SignalError←0
      dp←(~b)RetrieveDependencies c
      dp←dp~0                            ⍝ various reasons this could happen.
      n←OpenOrLoad¨(⌽dp),c
      _←SetupWorkspace,⍎¨n
      ↑⌽n
-
  }

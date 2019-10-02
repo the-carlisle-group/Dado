@@ -1,29 +1,19 @@
  Build←{
      ⍝ ⍺ ←→ Project Folder
      ⍝ ⍵ ←→ Version
-     pf←∊1 ⎕NPARTS ⍺,'/'
-     _←3 ⎕NDELETE pf,'dist'
-     c←GetConfigSpace pf             ⍝ Current config
-     m←pf Retrieve ⍵                 ⍝ Manifest  list of project/package config spaces
-     f←m.ProjectFolder
-     pn←c._Name
-     af←pf,'dist/Application/',pn,'/'
-     p←{↑⌽⍵⊆⍨~⍵∊'/\'}¨f             ⍝ Last segment
-     tf←af∘,¨p                     ⍝ Target folders
-     _←2 ⎕MKDIR¨tf
-     copy←{~⎕NEXISTS ⍵:0 ⋄ ⍺ ⎕NCOPY ⍵}   ⍝ or 19::0
-     _←tf copy¨f,¨⊂'Assets'
-     _←tf ⎕NCOPY¨f,¨⊂'acre.config'
-     _←tf copy¨f,¨⊂'ReleaseNotes.md'
-     _←pf CopyUserCommandFile 0
-     ws←af,pn,'.dws'
-     _←BuildWorkspace ws f
-     _←c GenerateApplicationNotes m
-     _←c GenerateReleaseNotes 0
-     rf←pf,'dist/ReleaseArtifacts/'
-     _←3 ⎕MKDIR rf
-     zs←pf,'dist/Application'
-     zt←rf,pn,'-Application-',⍵,'.zip'
-     _←Zip zs zt
-     'Done'
+     ⍺←0
+     v←⍵
+     pf←GetProjectFolder ⍺
+     cl←#.GetCommandLineArgs
+     e←0⊃cl
+     q←{'"',⍵,'"'}
+     c←##.AcreConfig
+     ws←c.ProjectFolder,'Assets/Runtime/Build.dws'
+     a←q ws
+     a,←' ProjectFolder=',q pf
+     a,←' Version=',q v
+     a,←' maxws=2g'
+     a,←' Trace=',⍕⍺
+     r←RunProcess e a
+     r.ExitCode(↑⌽r.StdErr)
  }

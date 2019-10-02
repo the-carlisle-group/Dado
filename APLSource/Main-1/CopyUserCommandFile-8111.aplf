@@ -1,9 +1,9 @@
  CopyUserCommandFile←{
-     ~⍺ IsUserCommandApp 0:0
-     p←GetProjectSpace ⍺
-     pc←p.AcreConfig
-     af←pc.ProjectFolder,'dist/application/',pc._Name,'/'
-     tn←af,pc._Name,'.dyalog'
-     _←(⊂BuildUCMDFile p.UCMD)⎕NPUT tn
+     ⍝ ⍵ ←→ Project Space
+     9≠⍵.⎕NC'UCMD':0
+     c←⍵.AcreConfig
+     af←c.ApplicationFolder
+     tn←af,c._Name,'.dyalog'
+     _←(⊂BuildUCMDFile ⍵.UCMD)⎕NPUT tn
      0
  }

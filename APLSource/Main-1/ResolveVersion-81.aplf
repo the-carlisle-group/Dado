@@ -1,10 +1,11 @@
  ResolveVersion←{
-     ⍝ ⍺ ←→ Project
+     ⍝ ⍺ ←→ URL
      ⍝ ⍵ ←→ Version  '1.2.3' or '2.∧.∧'
      ⍝ ← ←→ Resolved '2.3.4'
      ~'^'∊⍵:⍵
-     j n p←FormatVersion ⍵
      v←GetPackageVersions ⍺
+     0=≢⍵:↑v
+     j n p←FormatVersion ⍵
      aj an ap←↓⍉⊃FormatVersion¨v
      j=¯1:↑v
      n=¯1:↑(j=aj)/v

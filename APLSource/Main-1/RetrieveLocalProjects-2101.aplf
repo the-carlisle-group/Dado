@@ -2,7 +2,5 @@
      ⍝ ⍵ ←→ Project Folder
      p←↑⎕NPARTS ¯1↓⍵
      n t←0 1(⎕NINFO⍠1)p,'*'
-     c←GetConfigSpace¨(t=1)/n
-     ⎕THIS._LocalProjects←c
-     c
+     GetConfigSpace¨(t=1)/n
  }

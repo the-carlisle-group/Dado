@@ -7,6 +7,8 @@
      0=⍵.⎕NC'Dependencies':⍬
      d←⍵.Dependencies
      0=≢d:⍬
+     d.LocalProjects←⊂⍵.LocalProjects
+     d.SignalError←⍵.SignalError
      c←b RetrieveDependency¨d
      c,↑,/b ∇¨c
  }

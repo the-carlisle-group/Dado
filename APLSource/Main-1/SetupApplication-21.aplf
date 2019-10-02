@@ -1,8 +1,9 @@
  SetupApplication←{
-     ⍝ ⍵ ←→ Package Folders
+     ⍝ ⍵ ←→ ProjectFolder, version
      ⍝ ← ←→ Primary Project Space
-     f←⌽⍵
-     c←GetConfigSpace¨f
+     pf v←⍵
+     c←⌽pf Retrieve v
+     f←c.ProjectFolder
      _←c.⎕EX⊂'ProjectFolder'
      _←c.⎕FX⊂⎕NR'ProjectFolder'
      load←{⎕SE.UCMD']acre.OpenProject ',⍵,' ',⍺,' -track=off -dependencies=off'}

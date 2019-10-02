@@ -5,7 +5,8 @@
      ⍝ See FormatConfigSpace for inverse.
      r←↑⎕NGET ⍵ 1
      fix←{⎕NS(0 ⎕FIX ⍵).(⎕NS ⎕NL 2)}
-     set←{⍵._FileType←⍺ ⋄ ⍵}
+     ⍝ set←{⍵._FileType←⍺ ⋄ ⍵}
+     set←{⍵._FileType←'JSON' ⋄ ⍵}
      t←↑↑r
      '{'=t:'JSON'set ⎕JSON∊r
      ':'=t:'NSScript'set fix r

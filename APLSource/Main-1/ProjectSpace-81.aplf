@@ -1,4 +1,5 @@
  ProjectSpace←{
+     ⍝ ⍺ ←→ Dependency space
      ⍝ ⍵ ←→ Config space
      n←'ProjectSpace'
      2=⍺.⎕NC n:⍺⍎n

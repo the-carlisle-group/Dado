@@ -1,0 +1,44 @@
+ BuildInProcess←{
+     ⍝ ⍺ ←→ Project Folder
+     ⍝ ⍵ ←→ Version
+     ⍝ ← ←→ Return code, error message
+     ⍺←0
+     pf←GetProjectFolder ⍺
+     0=≢pf:1 'Not in a project'
+     _←3 ⎕NDELETE pf,'dist'
+     746::1 ⎕DMX.EM
+     m←pf Retrieve ⍵
+     c←↑m
+     f←m.ProjectFolder
+     af←c.ApplicationFolder
+     p←m.ProjectFolderName
+     tf←af∘,¨p
+     _←2 ⎕MKDIR¨tf
+     copy←{~⎕NEXISTS ⍵:0 ⋄ ⍺ ⎕NCOPY ⍵}   ⍝ or 19::0
+     _←tf copy¨f,¨⊂'Assets'
+     _←tf copy¨f,¨⊂'acre.config'
+     _←tf copy¨f,¨⊂'ReleaseNotes.md'
+     _←c GenerateApplicationNotes m
+     _←c GenerateReleaseNotes 0
+     load←{⎕SE.UCMD']acre.OpenProject ',⍵,' ',⍺,' -track=off -dependencies=off'}
+     s←⌽⍎¨(⌽m._ProjectSpace)load¨⌽f
+     p←↑s
+     _←CopyUserCommandFile p
+     _←m.⎕EX⊂'ProjectFolder'
+     _←m.⎕FX⊂⎕NR'ProjectFolder'
+     s.AcreConfig←s.⎕NS m
+     _←s∘SetReferences¨s
+     #.⎕LX←SetQuadLX p
+     _←⎕EX'#.QuadLX'
+     _←0 ⎕SAVE af,c._Name,'.dws'
+     _←m.⎕EX⊂'ProjectFolder'
+     _←m.ProjectFolder←f
+     s.AcreConfig←s.⎕NS m
+     _←p Execute'OnBuild'
+     rf←pf,'dist/ReleaseArtifacts/'
+     _←3 ⎕MKDIR rf
+     zs←pf,'dist/Application'
+     zt←rf,c._Name,'-Application-',⍵,'.zip'
+     _←Zip zs zt
+     0 'OK'
+ }

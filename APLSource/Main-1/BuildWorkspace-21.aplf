@@ -1,16 +1,16 @@
  BuildWorkspace←{
      ⍝ ⍺ ←→ Trace
-     ⍝ ⍵ ←→ TargetWorkspace Packages
+     ⍝ ⍵ ←→ TargetWorkspace, ProjectFolder, Version
      ⍺←0
-     tw p←⍵
+     tw pf v←⍵
      cl←#.GetCommandLineArgs
      tf←##.AcreConfig.ProjectFolder
      ws←tf,'Assets/Runtime/Build.dws'
      e←0⊃cl
      q←{'"',⍵,'"'}
-     pl←1↓∊',',¨p
      a←q ws
-     a,←' Packages=',q pl
+     a,←' ProjectFolder=',q pf
+     a,←' Version=',v
      a,←' TargetWorkspace=',q tw
      a,←' maxws=2g'
      a,←' Trace=',⍕⍺

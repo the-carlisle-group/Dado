@@ -10,7 +10,7 @@
      _←2 ⎕MKDIR tf
      _←tf ⎕NCOPY pf,'Assets'
      _←tf ⎕NCOPY pf,'acre.config'
-     _←pf CopyUserCommandFile 0
+     _←CopyUserCommandFile ##
      _←pc.⎕EX'ProjectFolder'
      _←pc.⎕FX ⎕NR'ProjectFolder'
      _←0 ⎕SAVE af,pc._Name

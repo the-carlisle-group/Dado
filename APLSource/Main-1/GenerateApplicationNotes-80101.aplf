@@ -1,11 +1,11 @@
  GenerateApplicationNotes←{
-     ⍝ ⍺ ←→ Project Name
-     ⍝ ⍵ ←→ Manifest
+     ⍝ ⍺ ←→ Primary Project Config
+     ⍝ ⍵ ←→ Manifest  (All configs)
      ⍝ ← ←→ Combined release notes
      c←⍺
      p←⍺.ProjectFolder
      pn←nget p,'ReleaseNotes.md'
-     af←p,'dist/Application/',c._Name,'/'
+     af←c.ApplicationFolder
      fn←af,'ReleaseNotes.md'
      in←⍵ GetIncludeInApplicationNotes c
      0=≢in:pn nput fn

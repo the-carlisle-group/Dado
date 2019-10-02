@@ -9,8 +9,12 @@
      m←c.Dependencies
      k←q.(URL Version)⍳m.(URL Version)
      j←q.URL⍳m.URL
-     d←⍺[(k=≢q)⊃¨↓⍉⊃k j]
-     a←m.Alias
-     t←m.Inject
+     i←(k=≢q)⊃¨↓⍉⊃k j
+     b←i<≢q
+     ~∨/b:z
+     d←⍺[b/i]
+     n←d.AcreConfig._Name
+     a←n{6::⍺ ⋄ ⍵.Alias}¨b/m
+     t←{6::0 ⋄ ⍵.Inject}¨b/m
      d a t
  }

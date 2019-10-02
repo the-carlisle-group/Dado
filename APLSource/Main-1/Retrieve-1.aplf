@@ -2,12 +2,14 @@
      ⍝ ⍺ ←→ Project Folder
      ⍝ ⍵ ←→ Version
      ⍝ ← ←→ Config Spaces
+     746::⎕DMX.EM ⎕SIGNAL ⎕DMX.EN
      b←0=≢⍵
-     _←RetrieveLocalProjects ⍺
      c←GetConfigSpace ⍺
      d←⎕NS''
      d.URL←c.URL
      d.Version←⍵
+     d.LocalProjects←RetrieveLocalProjects ⍺
+     d.SignalError←1
      pc←b RetrieveDependency d
      dc←b RetrieveDependencies pc
      pc,dc

@@ -1,0 +1,22 @@
+ AddDependency←{
+     ⍝ ⍺ ←→ ProjectFolder / Space
+     ⍝ ⍵ ←→ ns | URL, Version, Alias, Inject
+     ⍺←0
+     d←{9=⎕NC'⍵':⍵
+         w←⊆⍵
+         z←⎕NS''
+         z.URL←0⊃w
+         z.Version←1⊃w,⊂''
+         3>≢w:z
+         z.Alias←2⊃w
+         4>≢w:z
+         z.Inject←3⊃w
+     }⍵
+     d.Version←d.URL ResolveVersion d.Version
+     f←GetProjectFolder ⍺
+     c←ReadConfigFile f,'acre.config'
+     n←'Dependencies'
+     e←c{6::⍬ ⋄ ⍺⍎⍵}n
+     0=≢e:f SetConfigParam n(,d)
+     f SetConfigParam n(d,⍨(~e.URL∊⊂d.URL)/e)
+ }
