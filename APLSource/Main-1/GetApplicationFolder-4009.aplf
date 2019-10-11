@@ -1,4 +1,4 @@
  GetApplicationFolder←{
-
-
+     ⍝ ⍵ ←→ ProjectSpace
+     ⍵.DistFolder,'Application/',⍵._Name,'/'
  }

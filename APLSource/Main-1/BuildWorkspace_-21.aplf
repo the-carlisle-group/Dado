@@ -1,0 +1,25 @@
+ BuildWorkspace_←{
+     ⍝ ⍺ ←→ Project Folder
+     ⍝ ⍵ ←→ Version
+     ⍝ ← ←→ Return code, error message
+     ⍺←0
+     pf←GetProjectFolder ⍺
+     c←GetConfigSpace pf
+     0=≢pf:1 'Not in a project'
+     746::1 ⎕DMX.EM
+     m←pf Retrieve ⍵
+     f←m.ProjectFolder
+     af←GetApplicationFolder c
+     uc←']acre.OpenProject '
+     up←' -track=off -dependencies=off'
+     load←{⎕SE.UCMD uc,⍵,' ',⍺,up}
+     s←⌽⍎¨(⌽m._ProjectSpace)load¨⌽f
+     _←DeleteDevSpaces¨m
+     _←m.⎕EX⊂'ProjectFolder'
+     _←m.⎕FX⊂⎕NR'ProjectFolder'
+     s.AcreConfig←s.⎕NS m
+     _←s∘SetReferences¨s
+     #.⎕LX←SetQuadLX↑s
+     _←0 ⎕SAVE af,c._Name,'.dws'
+     0 'OK'
+ }

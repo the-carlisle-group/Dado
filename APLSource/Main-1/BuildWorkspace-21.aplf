@@ -1,19 +1,13 @@
  BuildWorkspace←{
-     ⍝ ⍺ ←→ Trace
-     ⍝ ⍵ ←→ TargetWorkspace, ProjectFolder, Version
      ⍺←0
-     tw pf v←⍵
-     cl←#.GetCommandLineArgs
-     tf←##.AcreConfig.ProjectFolder
-     ws←tf,'Assets/Runtime/Build.dws'
-     e←0⊃cl
-     q←{'"',⍵,'"'}
-     a←q ws
-     a,←' ProjectFolder=',q pf
-     a,←' Version=',v
-     a,←' TargetWorkspace=',q tw
-     a,←' maxws=2g'
-     a,←' Trace=',⍕⍺
-     _←RunProcess e a
-     0
+     v←⍵
+     pf←GetProjectFolder ⍺
+     q←{'''',⍵,''''}
+     l←⊂']AcreTools.Version'
+     ⍝ Once saving from ⎕SE works, we can simply do:
+     ⍝ l,←⊂'rc em←',(q pf),' ⎕SE.AcreTools.BuildWorkspace_ ', qv
+     l,←⊂'rc em←',(q pf),' (⎕NS ⎕SE.zApps.AcreTools.AcreTools).Main.BuildWorkspace_ ',q v
+     l,←⊂'em'
+     l,←⊂'⎕OFF (10+rc)'
+     ExecuteAPL l
  }

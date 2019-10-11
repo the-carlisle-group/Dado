@@ -18,5 +18,9 @@
      l←1↓∊' ',¨'clone'sw u kf
      r←RunProcess'git'l
      r.ExitCode≠0:⍵ DependencyError(1⊃2↑r.StdErr)
-     ⍵ GetConfigSpace kf
+     c←⍵ GetConfigSpace kf
+     _←DeleteGitItems c
+     _←DeleteDevSpaceFolders c
+     _←c.IsApplication DeleteDevFolders c
+     c
  }

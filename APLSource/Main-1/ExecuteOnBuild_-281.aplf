@@ -1,0 +1,18 @@
+ ExecuteOnBuild_←{
+     ⍺←0
+     pf←GetProjectFolder ⍺
+     c←GetConfigSpace pf
+     0=≢pf:1 'Not in a project'
+     746::1 ⎕DMX.EM
+     m←pf Retrieve ⍵
+     f←m.ProjectFolder
+     load←{⎕SE.UCMD']acre.OpenProject ',⍵,' ',⍺,' -track=off -dependencies=off'}
+     s←⌽⍎¨(⌽m._ProjectSpace)load¨⌽f
+     s.AcreConfig←s.⎕NS m
+     _←s∘SetReferences¨s
+     p←↑s
+     p.AcreConfig.DistFolder←c.DistFolder
+     _←CopyUserCommandFile p
+     _←p Execute'OnBuild'
+     0 'OK'
+ }

@@ -1,0 +1,44 @@
+ ExecuteAPL2←{
+     ⍝ ⍺ ←→ Command Line Arguments e.g.: '-b maxws=1g default_io=1'
+     ⍝ ⍵ ←→ One or more expressions to execute
+     ⍝ ← ←→ Exit Code, Session Output
+     ⍺←''
+     in←∊(⊆⍵),¨⎕UCS 13
+     ⎕USING←'System'∘,¨'' '.IO' '.Diagnostics,System.dll'
+     p←⎕NEW Process
+     i←p.StartInfo
+     i.FileName←2 ⎕NQ'.' 'GetCommandLine'
+     i.Arguments←⍺
+     i.RedirectStandardOutput←1
+     i.RedirectStandardInput←1
+     i.RedirectStandardError←1
+     i.UseShellExecute←0
+
+     ⍝ Option 2
+     _←p.Start ⍬
+     sw←⎕NEW StreamWriter p.StandardInput.BaseStream
+     op←{6::0 ⋄ ⍺⍺ ⍵}
+     _←sw.Write op⊂in
+     _←{6::0 ⋄ z←sw.Close}0
+     r←⎕NS''
+     t←r{⍺.StdErr←⍵.ReadToEnd}&p.StandardError
+     r.StdOut←p.StandardOutput.ReadToEnd
+     _←p.WaitForExit op ⍬
+     _←⎕TSYNC op t
+     r.ExitCode←p.ExitCode
+     r
+
+
+
+
+     ⍝_←p.Start ⍬
+⍝     sw←⎕NEW StreamWriter p.StandardInput.BaseStream
+⍝     op←{6::0 ⋄ ⍺⍺ ⍵}
+⍝     _←sw.Write op⊂in
+⍝     _←{6::0 ⋄ z←sw.Close}0
+⍝     r←⎕NS''
+⍝     r.SessionOutput←p.StandardError.ReadToEnd
+⍝     _←p.WaitForExit op ⍬
+⍝     r.ExitCode←p.ExitCode
+⍝     r
+ }

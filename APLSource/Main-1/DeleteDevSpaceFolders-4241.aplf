@@ -1,0 +1,8 @@
+ DeleteDevSpaceFolders←{
+     ⍵.IsApplication:0
+     s←{6::'' ⋄ ⍵.DevelopementSpaces}⍵
+     0=≢s:0
+     d←⍵ SpaceToFolder¨s
+     _←3 ⎕NDELETE¨d
+     0
+ }

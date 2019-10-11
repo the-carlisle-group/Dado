@@ -1,0 +1,16 @@
+ CopyProject←{
+     ⍝ Copy a Project or Package
+     ⍝ NB. Most of the deletions will be redundant for a Package
+     ⍝     ...which is already stripped.
+     ⍝ ⍺ ←→ Primary Project Config
+     ⍝ ⍵ ←→ Dependent Package or Project Config Space
+     f←⍵.ProjectFolder
+     af←GetApplicationFolder ⍺
+     t←af,⍵.ProjectFolderName
+     _←2 ⎕MKDIR t
+     p←↑(⎕NINFO⍠1)f,'*'
+     q←f∘,¨'dist' 'APLSource' '.git' '.gitignore' '.gitattributes'
+     _←t∘⎕NCOPY¨p~q
+     _←0 DeleteDevFolders GetConfigSpace t
+     0
+ }

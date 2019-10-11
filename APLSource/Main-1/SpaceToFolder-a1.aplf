@@ -1,0 +1,10 @@
+ SpaceToFolder←{
+    ⍝ ⍺ ←→ Config Space
+    ⍝ ⍵ ←→ Relative space ie. Main or Main.GUI
+     c←{0::0 ⋄ ⍵.CaseCode≡'On'}⍺
+     f←⍺.ProjectFolder
+     p←⍵⊆⍨'.'≠⍵
+     ~c:f,'APLSource',∊'/',¨p
+     cc←ComputeCaseCode¨p
+     f,'APLSource',∊p{'/',⍺,'-',⍵}cc
+ }

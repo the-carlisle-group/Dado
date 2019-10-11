@@ -2,7 +2,7 @@
      ⍝ ⍵ ←→ Project Space
      9≠⍵.⎕NC'UCMD':0
      c←⍵.AcreConfig
-     af←c.ApplicationFolder
+     af←GetApplicationFolder c
      tn←af,c._Name,'.dyalog'
      _←(⊂BuildUCMDFile ⍵.UCMD)⎕NPUT tn
      0

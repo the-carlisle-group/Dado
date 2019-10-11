@@ -1,0 +1,4 @@
+ GetReleaseArtifactsFolder←{
+     ⍝ ⍵ ←→ ProjectSpace
+     ⍵.DistFolder,'ReleaseArtifacts/'
+ }

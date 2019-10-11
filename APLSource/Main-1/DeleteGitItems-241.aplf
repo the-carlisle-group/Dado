@@ -1,0 +1,8 @@
+ DeleteGitItems←{
+     ⍝ ⍵ ←→ Config Space
+     p←⍵.ProjectFolder
+     q←'"',p,'.git/*.*"'
+     _←⎕CMD'attrib -s -h -r ',q,' /s /d'
+     _←3 ⎕NDELETE¨(p,'.git')∘,¨'' 'attributes' 'ignore'
+     0
+ }

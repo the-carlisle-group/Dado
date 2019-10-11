@@ -5,7 +5,7 @@
      c←⍺
      p←⍺.ProjectFolder
      pn←nget p,'ReleaseNotes.md'
-     af←c.ApplicationFolder
+     af←GetApplicationFolder c
      fn←af,'ReleaseNotes.md'
      in←⍵ GetIncludeInApplicationNotes c
      0=≢in:pn nput fn

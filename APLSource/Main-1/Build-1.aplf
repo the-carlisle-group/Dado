@@ -2,18 +2,21 @@
      ⍝ ⍺ ←→ Project Folder
      ⍝ ⍵ ←→ Version
      ⍺←0
-     v←⍵
      pf←GetProjectFolder ⍺
-     cl←#.GetCommandLineArgs
-     e←0⊃cl
-     q←{'"',⍵,'"'}
-     c←##.AcreConfig
-     ws←c.ProjectFolder,'Assets/Runtime/Build.dws'
-     a←q ws
-     a,←' ProjectFolder=',q pf
-     a,←' Version=',q v
-     a,←' maxws=2g'
-     a,←' Trace=',⍕⍺
-     r←RunProcess e a
-     r.ExitCode(↑⌽r.StdErr)
+     c←GetConfigSpace pf
+     0=≢pf:1 'Not in a project'
+     _←3 ⎕NDELETE c.DistFolder
+     rf←GetReleaseArtifactsFolder c
+     _←2 ⎕MKDIR rf
+     746::1 ⎕DMX.EM
+     m←pf Retrieve ⍵
+     _←c CopyProject¨m
+     _←c GenerateApplicationNotes m
+     _←c GenerateReleaseNotes 0
+     _←pf BuildWorkspace ⍵  ⍝ BuildWorkspace_
+     _←pf ExecuteOnBuild ⍵  ⍝ ExecuteOnBuild_
+     zs←c.DistFolder,'Application'
+     zt←rf,c._Name,'-Application-',⍵,'.zip'
+     _←Zip zs zt
+     0 'OK'
  }

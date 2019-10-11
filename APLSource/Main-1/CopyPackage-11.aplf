@@ -1,0 +1,7 @@
+ CopyPackage←{
+     f← ⍝ Package Folder
+     t← ⍝ Target folder
+     n←↑(⎕NINFO⍠1)f,'*'
+     _←t∘⎕NCOPY¨n~⊂f,'APLSource'
+     0
+ }

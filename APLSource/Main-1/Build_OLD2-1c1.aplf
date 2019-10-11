@@ -1,0 +1,15 @@
+ Build_OLD2←{
+     ⍝ ⍺ ←→ Project Folder
+     ⍝ ⍵ ←→ Version
+     ⍺←0
+     v←⍵
+     pf←GetProjectFolder ⍺
+     q←{'''',⍵,''''}
+     l←⊂']AcreTools.Version'
+     ⍝ Once saving from ⎕SE works, we can simply do:
+     ⍝ l,←⊂'rc em←',(q pf),' ⎕SE.AcreTools.BuildInProcess ', qv
+     l,←⊂'rc em←',(q pf),' (⎕NS ⎕SE.zApps.AcreTools.AcreTools).Main.BuildInProcess ',q v
+     l,←⊂'em'
+     l,←⊂'⎕OFF (10+rc)'
+     ExecuteAPL l
+ }

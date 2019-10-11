@@ -1,0 +1,11 @@
+ DeleteDevFolders←{
+     ⍝ ⍺ ←→ IsApplication flag
+     ⍝ ⍵ ←→ Config Space
+     ⍺:0
+     f←{6::'' ⋄ ⍵.DevelopmentFolders}⍵
+     0=≢f:0
+     p←⍵.ProjectFolder
+     d←{∊1 ⎕NPARTS p,⍵}¨f
+     _←3 ⎕NDELETE¨d
+     0
+ }

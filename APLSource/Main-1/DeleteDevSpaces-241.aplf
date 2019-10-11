@@ -1,0 +1,8 @@
+ DeleteDevSpaces←{
+     ⍝ ⍵ ←→ Config Space
+     n←{6::'' ⋄ ⍵.DevelopmentSpaces}⍵
+     0=≢n:0
+     s←⍎⍵._ProjectSpace
+     _←s.⎕EX n
+     0
+ }
