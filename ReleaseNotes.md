@@ -1,4 +1,6 @@
-# AcreTools Release 0.0.40                    
+# AcreTools Release 0.0.41                    
+
+# AcreTools Release 0.0.40 2019-10-15 10:55:33
 1. Move unused assets to RandD folder
 2. remove obsolete stub workspace files
 3. Inlcude package in release artifacts
