@@ -18,5 +18,8 @@
      zs←c.DistFolder,'Application'
      zt←rf,c._Name,'-Application-',⍵,'.zip'
      _←Zip zs zt
+     ps←↑m.ProjectFolder
+     pt←rf,c._Name,'-Package-',⍵,'.zip'
+     _←Zip ps pt 0 1
      0 'OK'
  }

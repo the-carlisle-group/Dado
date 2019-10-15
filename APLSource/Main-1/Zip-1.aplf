@@ -1,8 +1,8 @@
  Zip←{
-     ⍝ ⍵ ← Source Folder, Target Zip File
-     s t←⍵
+     ⍝ ⍵ ← Source Folder, Target Zip File [CompressionLevel [InlcludeBaseDirectory]]
+     ⍝ CompresssionLevel is 0 for optimal, 1 for fastest, 2 for none.
      ⎕USING←,⊂'System.IO.Compression,System.IO.Compression.FileSystem.dll'
      6::0
-     _←ZipFile.CreateFromDirectory s t
+     _←ZipFile.CreateFromDirectory ⍵
      0
  }
