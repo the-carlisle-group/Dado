@@ -1,4 +1,15 @@
-# AcreTools Release 0.0.39                    
+# AcreTools Release 0.0.40                    
+1. Move unused assets to RandD folder
+2. remove obsolete stub workspace files
+3. Inlcude package in release artifacts
+4. Delete obsolete functions
+5. Revamp build process
+6. Redesign build process
+7. Changes
+8. Remove obsolete functions
+9. Numerous changes
+
+# AcreTools Release 0.0.39 2019-09-10 09:01:04
 1. Implement package management
 2. Changes far too numerous to even consider
 3. Even more changes
