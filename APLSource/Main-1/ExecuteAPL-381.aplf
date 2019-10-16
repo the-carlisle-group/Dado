@@ -2,7 +2,7 @@
      ⍝ ⍺ ←→ Command Line Arguments e.g.: '-b maxws=1g default_io=1'
      ⍝ ⍵ ←→ One or more expressions to execute
      ⍝ ← ←→ Exit Code, Session Output
-     ⍺←''
+     ⍺←'ShowStatusOnError=0'
      in←∊(⊆⍵),¨⎕UCS 13
      ⎕USING←'System'∘,¨'' '.IO' '.Diagnostics,System.dll'
      p←⎕NEW Process
