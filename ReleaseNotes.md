@@ -1,4 +1,8 @@
-# AcreTools Release 0.0.41                    
+# AcreTools Release 0.0.42                    
+1. Rename AddToGitHub to AddRemote
+2. Turn of status window when executing APL remotely
+
+# AcreTools Release 0.0.41 2019-10-15 10:57:01
 
 # AcreTools Release 0.0.40 2019-10-15 10:55:33
 1. Move unused assets to RandD folder
