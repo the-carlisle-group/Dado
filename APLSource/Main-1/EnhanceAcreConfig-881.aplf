@@ -1,5 +1,9 @@
  EnhanceAcreConfig←{
      ⍺←0
+     _←⍺ SetConfigParam'URL' ''
+     _←⍺ SetConfigParam'Dependencies'⍬
+     _←⍺ SetConfigParam'DevelopmentFolders'⍬
+     _←⍺ SetConfigParam'DevelopmentSpaces'⍬
      _←⍺ SetConfigParam'API' ''
      _←⍺ SetConfigParam'OnApplicationStartup' ''
      _←⍺ SetConfigParam'OnBuild' ''

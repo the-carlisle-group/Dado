@@ -1,7 +1,8 @@
  APIFunctionNames←{
-     c←⊂'AddToGitHub'
-     c,←⊂'Commit'
+     c←⊂'AddRemote'
      c,←⊂'Build'
+     c,←⊂'Commit'
+     c,←⊂'CreateProject'
      c,←⊂'Checkout'
      c,←⊂'CheckoutMaster'
      c,←⊂'DeleteBranch'

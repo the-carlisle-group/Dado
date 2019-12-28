@@ -1,0 +1,15 @@
+ AddRemote←{
+     ⍝ ⍺ ←→ ProjectName       Replaces     AddToGitHub
+     ⍝ ⍵ ←→ URL
+     ⍺←0
+     p←GetProjectFolder ⍺
+     u←(¯4×'.git'≡¯4↑⍵)↓⍵
+     0=≢p:'Not in project'
+     _←p SetConfigParam'URL'u
+     ⎕←p RunGitCommand'add .'
+     ⎕←p RunGitCommand'commit -m ','"~Add remote URL to acre config file"'
+     ⎕←p RunGitCommand'remote add origin ',u,'.git'
+     ⎕←p RunGitCommand'remote -v'
+     ⎕←p RunGitCommand'push -u origin master'
+     'Done'
+ }

@@ -1,5 +1,11 @@
  CreateProject←{
-     r←⎕SE.UCMD'Acre.CreateProject ',⍵
-     _←SetupWorkspace''
-     r
+     ⍝ ⍵ ←→ Folder Name, Space
+     p←⍎⎕SE.UCMD'Acre.CreateProject ',⍵
+     _←p EnhanceAcreConfig''
+     _←p WriteGitIgnore''
+     ⎕←p RunGitCommand'init'
+     ⎕←p RunGitCommand'add .'
+     ⎕←p RunGitCommand'commit -m ','"~First commit"'
+     _←SetupWorkspace p
+     p
  }

@@ -1,5 +1,5 @@
  SetupWorkspace←{
-     p←⍵
+     p←,⍵
      f←p.AcreConfig.ProjectFolder
      c←GetConfigSpace¨f
      p.AcreConfig←p.⎕NS c
