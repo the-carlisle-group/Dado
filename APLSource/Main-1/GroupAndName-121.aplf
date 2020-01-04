@@ -1,0 +1,6 @@
+ GroupAndName←{
+     dg dn←¯2↑{⍵⊆⍨'/'≠⍵}⍵.URL
+     g←⍵ DefaultParameter'Group'dg
+     n←⍵ DefaultParameter'Name'dn
+     g n
+ }

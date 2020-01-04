@@ -1,0 +1,10 @@
+ DefaultParameter←{
+     ⍝ ⍺ ←→ Config Space
+     ⍝ ⍵ ←→ Parameter Name, Default Value
+     ⍝ ← ←→ Parameter Value
+     n d←⍵
+     6::d
+     v←⍺⍎n
+     v≡'':d
+     v
+ }

@@ -1,0 +1,8 @@
+ GenerateManifest←{
+     ⍝ ⍺ ←→ Primary Project Config
+     ⍝ ⍵ ←→ Manifest  (All configs)
+     af←GetApplicationFolder ⍺
+     fn←af,'Manifest.txt'
+     l←ManifestEntry¨⍵
+     l nput fn
+ }

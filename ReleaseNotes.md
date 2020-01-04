@@ -1,4 +1,6 @@
-# AcreTools Release 0.0.42                    
+# AcreTools Release 0.0.43                    
+
+# AcreTools Release 0.0.42 2019-12-27 20:25:03
 1. Rename AddToGitHub to AddRemote
 2. Turn of status window when executing APL remotely
 

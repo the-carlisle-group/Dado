@@ -1,0 +1,7 @@
+ Get←{
+     ⍝ ⍺ ←→ Config Space
+     ⍝ ⍵ ←→ Parameter Name
+     ⍝ ← ←→ Parameter Value
+     6::''
+     ⍺⍎⍵
+ }

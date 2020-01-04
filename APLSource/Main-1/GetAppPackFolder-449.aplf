@@ -1,0 +1,10 @@
+ GetAppPackFolder←{
+     ⍝ ⍵ ←→ Package Config Spaces
+     ⍝ ← ←→ Minimum names for uniqueness
+     fdn←{1≠+⌿⍵∘.≡⍵}
+     n←⍵._Name
+     gn←⍵._Group,¨' ',¨n
+     vn←gn,¨' ',¨⍵.Version
+     b←↑+/fdn¨n gn
+     b⊃¨↓⍉⊃n gn vn
+ }

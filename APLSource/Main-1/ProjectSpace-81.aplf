@@ -1,12 +1,15 @@
  ProjectSpace←{
      ⍝ ⍺ ←→ Dependency space
      ⍝ ⍵ ←→ Config space
-     n←'ProjectSpace'
-     2=⍺.⎕NC n:⍺⍎n
-     2=⍵.⎕NC n:⍵⍎n
-     v←⍵.IsPackage/'_','_'@('.'∘=)⍵.Version
-     ∧/2=⍵.⎕NC'Group' 'Name':⍵.Group,'_',⍵.Name,v
-     u←'_'@('-'∘=)⍵.URL
-     p←{⍵⊆⍨'/'≠⍵}u
-     v,⍨'#.',1↓∊'_',¨¯2↑p
+     g←⍵._Group
+     n←⍵._Name
+     v←'_'@('.'∘=)⍵.Version
+     d←'#.',g,'_',n,'_',v
+     p←'ProjectSpace'
+     s←⍺ DefaultParameter p''
+     s≡,'*':d
+     '#'≡↑s:s
+     r←⍵ DefaultParameter p('#.',n)
+     r≡,'*':d
+     r
  }

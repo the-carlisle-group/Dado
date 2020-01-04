@@ -10,7 +10,9 @@
      _←2 ⎕MKDIR rf
      746::1 ⎕DMX.EM
      m←pf Retrieve ⍵
+     m.ProjectFolderName←GetAppPackFolder m
      _←c CopyProject¨m
+     _←c GenerateManifest m
      _←c GenerateApplicationNotes m
      _←c GenerateReleaseNotes 0
      _←pf BuildWorkspace ⍵  ⍝ BuildWorkspace_

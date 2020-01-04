@@ -5,12 +5,11 @@
      f←GetProjectFolder ⍵
      c←ReadConfigFile f,'acre.config'
      c.ProjectFolder←f
-     c.ProjectFolderName←↑⌽f⊆⍨'/'≠f
      c.IsPackage←2=+/'.'=f
      c.IsProject←~c.IsPackage
      c.IsApplication←{6::0 ⋄ 0<≢⍵.OnBuild}c
+     c.(_Group _Name)←GroupAndName c
      c._ProjectSpace←⍺ ProjectSpace c
-     c.(_Group _Name)←¯2↑{⍵⊆⍨'/'≠⍵}c.URL ⍝ Should look at user defined vals!
      c.DistFolder←f,'dist/'
      0=⍺.⎕NC'LocalProjects':c
      c.LocalProjects←⍺.LocalProjects

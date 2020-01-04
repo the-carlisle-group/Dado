@@ -15,7 +15,8 @@
      u←(jf≢'')⊃u('file://',jf)
      ⎕←'Retrieving ',kn,' from ',u,'...'
      sw←'--depth 1 --branch ',v
-     l←1↓∊' ',¨'clone'sw u kf
+     q←{'"',⍵,'"'}
+     l←1↓∊' ',¨'clone'sw u(q kf)
      r←RunProcess'git'l
      r.ExitCode≠0:⍵ DependencyError(1⊃2↑r.StdErr)
      c←⍵ GetConfigSpace kf

@@ -1,0 +1,31 @@
+ TestDependencies←{
+
+⍝  0. Create a temp folder for projects.
+⍝
+⍝
+⍝  1. Create utility project U
+⍝     ... add code, create a couple of versions v1, v2
+⍝     ... ProjectSpace is left blank
+⍝  2. Create project D, with dependency on U v1.
+⍝  3. Create project C, with dependency on U v2.
+⍝  4. Create Project B, that depends on D and C ...
+⍝  5. Create Project A, that depends on B
+
+     ⍝ Initialize Test Namespace and Folder
+     tf←##.AcreConfig.ProjectFolder,'temp/'
+
+     _←2 ⎕MKDIR tf
+     _←⎕EX'#.TestProjects'
+
+     ⍝ Create Project U
+     u←⍎'#.TestProjects.ProjectU'⎕NS''
+     _←u.⎕FX¨,¨⊂¨'sum←{+/⍵}' 'product←{⌈/⍵}'
+
+     _←##.Main.CreateProject tf,'ProjectU #.TestProjects.ProjectU'
+     _←##.Main.ReleaseNewVersionLight''
+     _←u.⎕FX,⊂'product←{×/⍵}'
+     _←⎕SE.acre.SetChanged'#.TestProjects.ProjectU.product'
+     _←##.Main.Commit'Fix bug in product function'
+     _←##.Main.ReleaseNewVersionLight''
+     0
+ }
