@@ -1,4 +1,6 @@
-# AcreTools Release 0.0.47                    
+# AcreTools Release 0.0.48                    
+
+# AcreTools Release 0.0.47 2020-01-09 11:48:48
 
 # AcreTools Release 0.0.46 2020-01-09 11:24:39
 
