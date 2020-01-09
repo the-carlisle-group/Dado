@@ -1,7 +1,7 @@
  DeleteTempFolder←{
-     f←##.AcreConfig.ProjectFolder,'temp/'
-     q←'"',f,'.git/*.*"'
+     f←GetTempFolder''
+     q←'"',f,'*.*"'
      _←⎕CMD'attrib -s -h -r ',q,' /s /d'
      _←3 ⎕NDELETE f
-     0
+     f
  }

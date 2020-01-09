@@ -1,0 +1,7 @@
+ DeleteTestPackages←{
+     f←##.Main.GetPackageCacheFolder''
+     n t←0 1(⎕NINFO⍠1)f,'*'
+     b←'Tests '∘≡¨6↑¨1⊃¨⎕NPARTS n
+     _←3 ⎕NDELETE b/n
+     0
+ }

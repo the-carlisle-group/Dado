@@ -1,15 +1,8 @@
  TestDependencies←{
      ⍝ AcreTools API
      A←##.Main
-
-     ⍝ Must clear package cache folder!!!! of test stuff!
-     ⍝ Nust delete temp folder of all projects!
-     ⍝ Initialize Test Namespace and Folder
-     tf←##.AcreConfig.ProjectFolder,'temp/'
-
-     _←2 ⎕MKDIR tf
-     _←⎕EX'#.TestProjects'
-
+     ⍝ Clean up and initialize
+     tf←Initialize''
      ⍝ Create Project U, with a couple of versions
      u←⍎'#.TestProjects.ProjectU'⎕NS''
      _←u.⎕FX¨,¨⊂¨'sum←{⌊/⍵}' 'product←{×/⍵}'  ⍝ N.B. Bug in sum function
@@ -69,7 +62,8 @@
 
      ⍝ Verify the structure
      r←s.TestProjects.ProjectA.fooA 1 2 3 4 5
-
      r≢3 0.2:1
+
+     ⍝ Good!
      0
  }

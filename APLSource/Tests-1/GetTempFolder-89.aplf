@@ -1,0 +1,3 @@
+ GetTempFolder←{
+     ##.AcreConfig.ProjectFolder,'dist/temp/'
+ }
