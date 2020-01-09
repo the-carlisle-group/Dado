@@ -13,6 +13,7 @@
      _←CopyUserCommandFile ##
      _←pc.⎕EX'ProjectFolder'
      _←pc.⎕FX ⎕NR'ProjectFolder'
+     pc.ProjectFolderName←↑GetAppPackFolder,pc
      _←0 ⎕SAVE af,pc._Name
      _←SetAcreConfig 0
      tf←⎕SE.zApps.AcreTools.ApplicationFolder
