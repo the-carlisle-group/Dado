@@ -1,4 +1,6 @@
-# AcreTools Release 0.0.45                    
+# AcreTools Release 0.0.46                    
+
+# AcreTools Release 0.0.45 2020-01-09 11:21:54
 
 # AcreTools Release 0.0.44 2020-01-09 11:18:42
 1. Add tests for dependencies
