@@ -2,7 +2,8 @@
      ⍝ ⍵ ←→ Project or Package Folder
      v←⍵.IsPackage
      t←v/' -track=off'
-     pf←⍵.ProjectFolder
+     q←{'"',⍵,'"'}
+     pf←q ⍵.ProjectFolder
      ps←⍵._ProjectSpace
      ⎕SE.UCMD'Acre.OpenProject ',pf,' ',ps,' -dependencies=off',t
  }

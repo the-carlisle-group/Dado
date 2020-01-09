@@ -1,14 +1,15 @@
  RetrieveDependencies←{
+     ⍝ ⍺ ←→ Already retrieved spaces
      ⍝ ⍵ ←→ Project or Package Config Space
-     ⍝ ⍺ ←→ Current Project State Override
      ⍝ ← ←→ Dependent project or package config spaces
-     0=⍵:⍬
-     b←⍺
-     0=⍵.⎕NC'Dependencies':⍬
-     d←⍵.Dependencies
-     0=≢d:⍬
+     ⍝ N.B. Recursive technique adapted from J. Scholes dfns.refs
+     ⍺←⍬
+     d←{6::'' ⋄ ⍵.Dependencies}⍵
+     0=≢d:⍺,⍵
      d.LocalProjects←⊂⍵.LocalProjects
      d.SignalError←⍵.SignalError
-     c←b RetrieveDependency¨d
-     c,↑,/b ∇¨c
+     d.ProjectOverride←⍵.ProjectOverride
+     c←RetrieveDependency¨d
+     n←~c.(URL Version)∊{0=≢⍵:'' ⋄ ⍵.(URL Version)}⍺
+     ↑∇⍨/(n/c),⊂⍺,⍵
  }

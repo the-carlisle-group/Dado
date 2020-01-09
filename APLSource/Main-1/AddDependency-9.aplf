@@ -11,6 +11,7 @@
          z.Alias←2⊃w
          4>≢w:z
          z.Inject←3⊃w
+         z
      }⍵
      d.Version←d.URL ResolveVersion d.Version
      f←GetProjectFolder ⍺

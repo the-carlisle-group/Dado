@@ -1,5 +1,4 @@
  RetrieveDependency←{
-     ⍝ ⍺ ←→ [Current Project State Override]
      ⍝ ⍵ ←→ Dependency Space
      ⍝ ← ←→ Project or Package Config Space
      0=⍵.⎕NC'URL':⍵ DependencyError'No URL specfied'
@@ -8,7 +7,7 @@
      v←⍵.Version
      lp←⍵.LocalProjects
      jf←(lp.URL⍳⊂u)⊃(lp.ProjectFolder),⊂''
-     ⍺∧jf≢'':⍵ GetConfigSpace jf
+     ⍵.ProjectOverride∧jf≢'':⍵ GetConfigSpace jf
      kn←u PackageName v
      kf←PackageFQP kn
      ⎕NEXISTS kf:⍵ GetConfigSpace kf

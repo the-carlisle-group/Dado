@@ -1,31 +1,75 @@
  TestDependencies←{
+     ⍝ AcreTools API
+     A←##.Main
 
-⍝  0. Create a temp folder for projects.
-⍝
-⍝
-⍝  1. Create utility project U
-⍝     ... add code, create a couple of versions v1, v2
-⍝     ... ProjectSpace is left blank
-⍝  2. Create project D, with dependency on U v1.
-⍝  3. Create project C, with dependency on U v2.
-⍝  4. Create Project B, that depends on D and C ...
-⍝  5. Create Project A, that depends on B
-
+     ⍝ Must clear package cache folder!!!! of test stuff!
+     ⍝ Nust delete temp folder of all projects!
      ⍝ Initialize Test Namespace and Folder
      tf←##.AcreConfig.ProjectFolder,'temp/'
 
      _←2 ⎕MKDIR tf
      _←⎕EX'#.TestProjects'
 
-     ⍝ Create Project U
+     ⍝ Create Project U, with a couple of versions
      u←⍎'#.TestProjects.ProjectU'⎕NS''
-     _←u.⎕FX¨,¨⊂¨'sum←{+/⍵}' 'product←{⌈/⍵}'
+     _←u.⎕FX¨,¨⊂¨'sum←{⌊/⍵}' 'product←{×/⍵}'  ⍝ N.B. Bug in sum function
+     _←A.CreateProject tf,'ProjectU #.TestProjects.ProjectU'
+     _←u A.SetConfigParam'URL' 'Tests/ProjectU'
+     _←u A.SetConfigParam'ProjectSpace' '*'
+     _←u A.Commit'Add config parameters'
+     _←u A.ReleaseNewVersionLight''
+     _←u.⎕FX,⊂'sum←{+/⍵}'
+     _←⎕SE.acre.SetChanged'#.TestProjects.ProjectU.sum'
+     _←u A.Commit'Fix bug in sum function'
+     _←u A.ReleaseNewVersionLight''
 
-     _←##.Main.CreateProject tf,'ProjectU #.TestProjects.ProjectU'
-     _←##.Main.ReleaseNewVersionLight''
-     _←u.⎕FX,⊂'product←{×/⍵}'
-     _←⎕SE.acre.SetChanged'#.TestProjects.ProjectU.product'
-     _←##.Main.Commit'Fix bug in product function'
-     _←##.Main.ReleaseNewVersionLight''
+     ⍝ Create Project D, with dependency on Project U v0.0.0
+     d←⍎'#.TestProjects.ProjectD'⎕NS''
+     _←d.⎕FX'average←{' '(U.sum ⍵)÷≢⍵' '}'
+     _←A.CreateProject tf,'ProjectD #.TestProjects.ProjectD'
+     _←d A.SetConfigParam'URL' 'Tests/ProjectD'
+     _←d A.AddDependency'Tests/ProjectU' '0.0.0' 'U' 1
+     _←d A.Commit'Add config parameters'
+     _←d A.ReleaseNewVersionLight''
+
+     ⍝ Create Project C, with dependency on Project U v0.0.1
+     c←⍎'#.TestProjects.ProjectC'⎕NS''
+     _←c.⎕FX'average←{' '(ProjectU.sum ⍵)÷≢⍵' '}'
+     _←A.CreateProject tf,'ProjectC #.TestProjects.ProjectC'
+     _←c A.SetConfigParam'URL' 'Tests/ProjectC'
+     _←c A.AddDependency'Tests/ProjectU' '0.0.1' '' 1
+     _←c A.Commit'Add config parameters'
+     _←c A.ReleaseNewVersionLight''
+
+     ⍝ Create Project B, with dependency on C and D
+     b←⍎'#.TestProjects.ProjectB'⎕NS''
+     _←b.⎕FX'compareAverages←{' '(C.average ⍵) (D.average ⍵)' '}'
+     _←A.CreateProject tf,'ProjectB #.TestProjects.ProjectB'
+     _←b A.SetConfigParam'URL' 'Tests/ProjectB'
+     _←b A.AddDependency'Tests/ProjectC' '0.0.0' 'C' 1
+     _←b A.AddDependency'Tests/ProjectD' '0.0.0' 'D' 1
+     _←b A.Commit'Add config parameters'
+     _←b A.ReleaseNewVersionLight''
+
+     ⍝ Create Project A, with B as dependency
+     a←⍎'#.TestProjects.ProjectA'⎕NS''
+     _←a.⎕FX'fooA←{' 'B.compareAverages ⍵' '}'
+     _←A.CreateProject tf,'ProjectA #.TestProjects.ProjectA'
+     _←a A.SetConfigParam'URL' 'Tests/ProjectA'
+     _←a A.AddDependency'Tests/ProjectB' '0.0.0' 'B' 1
+     _←a A.Commit'Add config parameters'
+     _←a A.ReleaseNewVersionLight''
+
+     ⍝ Build Project A
+     _←a A.Build'0.0.0'
+
+     ⍝ Open Application A
+     s←⎕NS''
+     _←s.⎕CY a.AcreConfig.DistFolder,'Application/ProjectA/ProjectA.dws'
+
+     ⍝ Verify the structure
+     r←s.TestProjects.ProjectA.fooA 1 2 3 4 5
+
+     r≢3 0.2:1
      0
  }

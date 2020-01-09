@@ -4,9 +4,10 @@
      c←GetConfigSpace pf
      c.LocalProjects←RetrieveLocalProjects pf
      c.SignalError←0
-     dp←(~b)RetrieveDependencies c
-     dp←dp~0                            ⍝ various reasons this could happen.
-     n←OpenOrLoad¨(⌽dp),c
+     c.ProjectOverride←~b
+     dp←RetrieveDependencies c
+     dp←dp~0                 ⍝ various reasons this could happen. ???
+     n←OpenOrLoad¨⌽dp
      _←SetupWorkspace,⍎¨n
      ↑⌽n
  }

@@ -12,7 +12,7 @@
      af←GetApplicationFolder c
      uc←']acre.OpenProject '
      up←' -track=off -dependencies=off'
-     load←{⎕SE.UCMD uc,⍵,' ',⍺,up}
+     load←{⎕SE.UCMD uc,'"',⍵,'" ',⍺,up}
      s←⌽⍎¨(⌽m._ProjectSpace)load¨⌽f
      _←DeleteDevSpaces¨m
      _←m.⎕EX⊂'ProjectFolder'

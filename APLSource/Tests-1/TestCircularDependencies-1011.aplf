@@ -1,0 +1,47 @@
+ TestCircularDependencies←{
+     ⍝ AcreTools API
+     A←##.Main
+
+     ⍝ Must clear package cache folder!!!! of test stuff!
+     ⍝ Nust delete temp folder of all projects!
+     ⍝ Initialize Test Namespace and Folder
+     tf←##.AcreConfig.ProjectFolder,'temp/'
+     _←2 ⎕MKDIR tf
+     _←⎕EX'#.TestProjects'
+
+     ⍝ Create Project C, with dependency on Project A
+     c←⍎'#.TestProjects.ProjectC'⎕NS''
+     _←c.⎕FX'foo←{' '⍺+⍵' '}'
+     _←A.CreateProject tf,'ProjectC #.TestProjects.ProjectC'
+     _←c A.SetConfigParam'URL' 'Tests/ProjectC'
+     _←c A.AddDependency'Tests/ProjectA' '0.0.0' '' 1
+     _←c A.Commit'Add config parameters'
+     _←c A.ReleaseNewVersionLight''
+
+     ⍝ Create Project B, with dependency on C
+     b←⍎'#.TestProjects.ProjectB'⎕NS''
+     _←b.⎕FX'foo←{' '⍺+⍵' '}'
+     _←A.CreateProject tf,'ProjectB #.TestProjects.ProjectB'
+     _←b A.SetConfigParam'URL' 'Tests/ProjectB'
+     _←b A.AddDependency'Tests/ProjectC' '0.0.0' 'C' 1
+     _←b A.Commit'Add config parameters'
+     _←b A.ReleaseNewVersionLight''
+
+     ⍝ Create Project A, with B as dependency
+     a←⍎'#.TestProjects.ProjectA'⎕NS''
+     _←a.⎕FX'foo←{' '⍺+⍵' '}'
+     _←A.CreateProject tf,'ProjectA #.TestProjects.ProjectA'
+     _←a A.SetConfigParam'URL' 'Tests/ProjectA'
+     _←a A.AddDependency'Tests/ProjectB' '0.0.0' 'B' 1
+     _←a A.Commit'Add config parameters'
+     _←a A.ReleaseNewVersionLight''
+
+     ⍝ Build Project A
+     _←a A.Build'0.0.0'
+
+     ⍝ Open Application A
+     s←⎕NS''
+     _←s.⎕CY a.AcreConfig.DistFolder,'Application/ProjectA/ProjectA.dws'
+
+     0
+ }

@@ -15,7 +15,7 @@
      (⊂r)∊t.Tag:'Target version ',r,' already exists.'
      bn←'release/',r
      _←p DeleteBranch'-D ',bn
-     ⎕←⊃p PullMaster''
+     ⍝ ⎕←⊃p PullMaster''
      ⎕←⊃p RunGitCommand'checkout -b ',bn,' ',e⊃m v
      _←p SetConfigParam'Version'r
      ⍝ _←p RefreshProject 0

@@ -2,6 +2,7 @@
      ⍝ ⍵ ←→ Folder Name, Space
      p←⍎⎕SE.UCMD'Acre.CreateProject ',⍵
      _←p EnhanceAcreConfig''
+     p.AcreConfig←GetConfigSpace p
      _←p WriteGitIgnore''
      ⎕←p RunGitCommand'init'
      ⎕←p RunGitCommand'add .'

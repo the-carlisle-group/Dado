@@ -1,0 +1,25 @@
+ REFS←{
+     ⍺←⍬
+     ⍵∊⍺:⍺          ⍝ Been here, done that
+     n←↓⍵.⎕NL 9     ⍝ List of sub items to investigate
+     0=≢n:⍺,⍵       ⍝ None, so return all items investigated previously, plus the current item
+                    ⍝ why union and not catenate? Ah it is now!!!!
+     s←⍵⍎¨n         ⍝ Prep items
+     ⍝ ↑∇⍨/⌽(⊂⍺,⍵),s  ⍝ CANNOT USE EACH HERE!
+     ↑∇⍨/s,⊂⍺,⍵
+
+                    ⍝ each call has to be done sequentially. Unless we use a global somewhere to accumulate
+                    ⍝ Stuff we have seen
+
+
+
+⍝  refs←{                              ⍝ Vector of sub-space references for ⍵.
+⍝     ⍺←⍬ ⋄ (≢⍺)↓⍺{                   ⍝ default exclusion list.
+⍝         ⍵∊⍺:⍺                       ⍝ already been here: quit.
+⍝         ⍵.(↑∇∘⍎⍨/⌽(⊂⍺∪⍵),↓⎕NL 9)    ⍝ recursively traverse any sub-spaces.
+⍝     }⍵                              ⍝ for given starting ref.
+⍝ }
+⍝
+
+
+ }

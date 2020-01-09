@@ -14,5 +14,6 @@
      0=⍺.⎕NC'LocalProjects':c
      c.LocalProjects←⍺.LocalProjects
      c.SignalError←⍺.SignalError
+     c.ProjectOverride←⍺.ProjectOverride
      c
  }
