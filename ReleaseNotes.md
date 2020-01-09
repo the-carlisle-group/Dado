@@ -1,4 +1,8 @@
-# AcreTools Release 0.0.43                    
+# AcreTools Release 0.0.44                    
+1. Add tests for dependencies
+2. Handle circular dependencies
+
+# AcreTools Release 0.0.43 2020-01-04 14:32:20
 
 # AcreTools Release 0.0.42 2019-12-27 20:25:03
 1. Rename AddToGitHub to AddRemote
