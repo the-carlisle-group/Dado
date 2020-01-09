@@ -1,4 +1,6 @@
-# AcreTools Release 0.0.44                    
+# AcreTools Release 0.0.45                    
+
+# AcreTools Release 0.0.44 2020-01-09 11:18:42
 1. Add tests for dependencies
 2. Handle circular dependencies
 
