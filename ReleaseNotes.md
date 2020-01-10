@@ -1,4 +1,7 @@
-# AcreTools Release 0.0.49                    
+# AcreTools Release 0.0.50                    
+1. Refactor ReleaseNewVersion, adding CreateNewVersion
+
+# AcreTools Release 0.0.49 2020-01-10 10:18:46
 1. Relocate package cache folder
 
 # AcreTools Release 0.0.48 2020-01-09 11:55:47
