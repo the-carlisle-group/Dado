@@ -1,4 +1,8 @@
  PackageFQP←{
-     f←GetPackageCacheFolder 0
-     f,⍵,'/'
+     ⍝ ⍵ ←→ Dependency space
+     p←↑⎕NPARTS ¯1↓↑⍵.LocalProjects.ProjectFolder
+     f←p,'APLPackageCache/'
+     g n←¯2↑{⍵⊆⍨'/'≠⍵}⍵.URL
+     _←1 ⎕MKDIR f
+     f,1↓∊' ',¨g n ⍵.Version
  }

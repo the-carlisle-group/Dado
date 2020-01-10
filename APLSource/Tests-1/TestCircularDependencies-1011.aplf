@@ -2,7 +2,7 @@
      ⍝ AcreTools API
      A←##.Main
      ⍝ Clean up and initialize
-     tf←Initialize''
+     tf←Reset 0
      ⍝ Create Project C, with dependency on Project A
      c←⍎'#.TestProjects.ProjectC'⎕NS''
      _←c.⎕FX'SumInC←{' '+/⍵' '}'
@@ -40,5 +40,5 @@
      10≠s.ProjectB.ProjC.SumInC 1 2 3 4:1
      20≠s.ProjectC.ThisIsA.ProductInA 4 5:1
      ⍝ Good!
-     0
+     0⊣Reset 0
  }

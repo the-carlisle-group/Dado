@@ -1,4 +1,0 @@
- GetPackageCacheFolder←{
-     0=⎕NC'_PackageCacheFolder':'c:/APLPackageCache/'
-     _PackageCacheFolder
- }

@@ -2,5 +2,7 @@
      ⍝ ⍵ ←→ Project Folder
      p←↑⎕NPARTS ¯1↓⍵
      n t←0 1(⎕NINFO⍠1)p,'*'
-     GetConfigSpace¨(t=1)/n
+     f←(t=1)/n
+     b←⎕NEXISTS f,¨⊂'/acre.config'
+     GetConfigSpace¨b/f
  }

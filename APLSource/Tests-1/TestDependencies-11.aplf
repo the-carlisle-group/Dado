@@ -2,7 +2,7 @@
      ⍝ AcreTools API
      A←##.Main
      ⍝ Clean up and initialize
-     tf←Initialize''
+     tf←Reset 0
      ⍝ Create Project U, with a couple of versions
      u←⍎'#.TestProjects.ProjectU'⎕NS''
      _←u.⎕FX¨,¨⊂¨'sum←{⌊/⍵}' 'product←{×/⍵}'  ⍝ N.B. Bug in sum function
@@ -65,5 +65,5 @@
      r≢3 0.2:1
 
      ⍝ Good!
-     0
+     0⊣Reset 0
  }

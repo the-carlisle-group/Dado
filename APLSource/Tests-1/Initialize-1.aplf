@@ -1,7 +1,0 @@
- Initialize←{
-     _←DeleteTestPackages''
-     f←DeleteTempFolder''
-    ⍝ _←2 ⎕MKDIR tf   Not needed?
-     _←⎕EX'#.TestProjects'
-     f
- }

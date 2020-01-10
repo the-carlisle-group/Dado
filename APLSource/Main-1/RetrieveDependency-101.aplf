@@ -8,11 +8,11 @@
      lp←⍵.LocalProjects
      jf←(lp.URL⍳⊂u)⊃(lp.ProjectFolder),⊂''
      ⍵.ProjectOverride∧jf≢'':⍵ GetConfigSpace jf
-     kn←u PackageName v
-     kf←PackageFQP kn
+     kf←PackageFQP ⍵
      ⎕NEXISTS kf:⍵ GetConfigSpace kf
      u←(jf≢'')⊃u('file://',jf)
-     ⎕←'Retrieving ',kn,' from ',u,'...'
+     kn←∊1↓⎕NPARTS kf
+     ⎕←'Retrieving "',kn,'" from ',u,'...'
      sw←'--depth 1 --branch ',v
      q←{'"',⍵,'"'}
      l←1↓∊' ',¨'clone'sw u(q kf)
