@@ -1,4 +1,4 @@
- GitHubRelease←{
+ ReleaseOnGitHub←{
      ⍝ ⍵ ←→ Version  e.g. '1.2.3'
      ⍺←0
      v←⍵

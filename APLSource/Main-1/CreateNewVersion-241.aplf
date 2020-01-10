@@ -1,17 +1,11 @@
- ReleaseNewVersionLight←{
-     ⍝ Local version
-     ⍝ Find a good name for this
-     ⍝ Have ReleaseNewVersion call this code.
-     ⍝ Contrast with  release/Build/Upload to GitHub GitHubRelease
-     ⍝
+ CreateNewVersion←{
      ⍝ ⍺ ←→ Project Name
      ⍝ ⍵ ←→ 'major'|'minor'| '' (for patch)
      ⍺←0
      p←GetProjectFolder ⍺
-     p≡'':'Not in project'
      v←p GetNextVersion ⍵
      b←p NewReleaseBranch v
-     _←⍺ GeneratePackageNotes v
+     _←p GeneratePackageNotes v
      _←p Commit'Release ',v
      ⎕←⊃p RunGitCommand'checkout master'
      ⎕←⊃p RunGitCommand'merge --ff-only ',b

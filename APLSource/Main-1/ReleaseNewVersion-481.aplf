@@ -4,18 +4,9 @@
      ⍺←0
      p←GetProjectFolder ⍺
      p≡'':'Not in project'
-     v←p GetNextVersion ⍵
-     b←p NewReleaseBranch v
-     _←⍺ GeneratePackageNotes v
-     _←p Commit'Release ',v
-     ⎕←⊃p RunGitCommand'checkout master'
-     ⎕←⊃p RunGitCommand'merge --ff-only ',b
-     ⎕←⊃p DeleteBranch b
-     ⎕←⊃p RunGitCommand'tag -a ',v,' -m "Version ',v,'"'
+     v←p CreateNewVersion ⍵
      _←p Build v
-     ⍝ Only Push and Do GitHubRelease if build is clean.
-     ⍝ Or we can delete the tag, delete the commit
      ⎕←⊃p PushMaster''
-     _←p GitHubRelease v
-     v
+     _←p ReleaseOnGitHub v
+     0
  }
