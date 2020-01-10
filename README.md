@@ -4,18 +4,12 @@ AcreTools is a collection of User Commands for working with Acre projects and Gi
 These notes are for working and developing AcreTools itself.
 
 ## Bootstrapping
-Many AcreTools functions can be called directly from the AcreTools project space.
-This is useful for testing new functionality and debugging.
-However, in general, you should a use a properly installed version of AcreTools when working on AcreTools itself. 
-That is, you should use User Commands.
+AcreTools functions can be called directly from the AcreTools project space when working on Acre itself.
+This is useful for testing new functionality and debugging. You can also use a properly installed version of AcreTools when working on AcreTools. Thus when working on AcreTools, you can decide whether to use the current state of things or the installed state.
 
-Specifically, you cannot call `#.CarlisleGroup.AcreTools.ReleaseNewVersion` to release a new version. 
-You must use `]ACRETOOLS.RealeaseNewVersion`. 
-This will work in most cases, unless you are making changes deep inside the build process.  
-In this case, you might get an error. If so, you should directly call `#.CarlisleGroup.AcreTools.BootStrapBuild 0`.
-This function creates a new application folder (`dist/Application`) but does not create a new release. 
-Manually copy and paste the application folder to the installed location of AcreTools, restart APL,
-and re-attempt put out release using `]ACRETOOLS.ReleaseNewVersion`  
+You can call `#.CarlisleGroup.AcreTools.BootStrapBuild 0` to install the current state of the project as a User Command.
+This function creates a new application folder (`dist/Application`) but does not create a new release, or push or publish anything. 
+The application folder is then automatically copied over to the location of the user command. Restart APL to see the effects.
 
 ## The Octokit dll
 The Octokit is a GitHub API client for .NET. 
