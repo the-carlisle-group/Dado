@@ -1,4 +1,9 @@
-# AcreTools Release 0.0.50                    
+# AcreTools Release 0.0.51                    
+1. Rename package cache folder
+2. Quote paths for embedded spaces
+3. Update README.md
+
+# AcreTools Release 0.0.50 2020-01-10 14:40:32
 1. Refactor ReleaseNewVersion, adding CreateNewVersion
 
 # AcreTools Release 0.0.49 2020-01-10 10:18:46
