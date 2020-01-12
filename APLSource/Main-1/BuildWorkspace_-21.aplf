@@ -17,6 +17,7 @@
      _←DeleteDevSpaces¨m
      _←m.⎕EX⊂'ProjectFolder'
      _←m.⎕FX⊂⎕NR'ProjectFolder'
+     m.ProjectFolderName←GetAppPackFolder m
      s.AcreConfig←s.⎕NS m
      _←s∘SetReferences¨s
      #.⎕LX←SetQuadLX↑s

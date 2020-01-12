@@ -6,7 +6,7 @@
      746::1 ⎕DMX.EM
      m←pf Retrieve ⍵
      f←m.ProjectFolder
-     load←{⎕SE.UCMD']acre.OpenProject ',⍵,' ',⍺,' -track=off -dependencies=off'}
+     load←{⎕SE.UCMD']acre.OpenProject "',⍵,'" ',⍺,' -track=off -dependencies=off'}
      s←⌽⍎¨(⌽m._ProjectSpace)load¨⌽f
      s.AcreConfig←s.⎕NS m
      _←s∘SetReferences¨s
