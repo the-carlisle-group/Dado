@@ -5,6 +5,6 @@
      p a t←⍺ GetInjectionInfo ⍵
      0=≢p:0
      e←GetAPISpace¨p
-     r←refs ⍵
+     r←{⍵/⍨9.1=⎕NC⍕¨⍵}refs ⍵
      r∘SetReference¨↓⍉⊃a e t
  }
