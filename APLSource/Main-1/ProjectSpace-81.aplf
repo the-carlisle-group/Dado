@@ -3,6 +3,7 @@
      ⍝ ⍵ ←→ Config space
      g←⍵._Group
      n←⍵._Name
+     0=⍵.⎕NC'Version':⍵.ProjectSpace
      v←'_'@('.'∘=)⍵.Version
      d←'#.',g,'_',n,'_',v
      p←'ProjectSpace'
