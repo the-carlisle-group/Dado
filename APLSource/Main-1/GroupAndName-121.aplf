@@ -1,4 +1,5 @@
  GroupAndName←{
+     0=⍵.⎕NC'URL':¯2↑⎕NPARTS ⍵.ProjectFolder
      dg dn←¯2↑{⍵⊆⍨'/'≠⍵}⍵.URL
      g←⍵ DefaultParameter'Group'dg
      n←⍵ DefaultParameter'Name'dn
