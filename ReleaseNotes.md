@@ -1,4 +1,7 @@
-# AcreTools Release 0.0.58                    
+# AcreTools Release 0.0.59                    
+1. handle config files without Version
+
+# AcreTools Release 0.0.58 2020-01-14 15:54:39
 1. Handle config files without URLs
 
 # AcreTools Release 0.0.57 2020-01-14 12:13:38
