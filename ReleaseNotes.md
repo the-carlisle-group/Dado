@@ -1,4 +1,7 @@
-# AcreTools Release 0.0.53                    
+# AcreTools Release 0.0.54                    
+1. Fix IsPackage
+
+# AcreTools Release 0.0.53 2020-01-14 10:56:32
 1. Update Acre to 7.0.0
 
 # AcreTools Release 0.0.52 2020-01-14 10:45:52
