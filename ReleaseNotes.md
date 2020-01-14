@@ -1,4 +1,7 @@
-# AcreTools Release 0.0.52                    
+# AcreTools Release 0.0.53                    
+1. Update Acre to 7.0.0
+
+# AcreTools Release 0.0.52 2020-01-14 10:45:52
 1. Prevent reference injection in unnamed namespaces
 
 # AcreTools Release 0.0.51 2020-01-12 08:03:34
