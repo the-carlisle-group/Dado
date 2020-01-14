@@ -1,4 +1,7 @@
-# AcreTools Release 0.0.51                    
+# AcreTools Release 0.0.52                    
+1. Prevent reference injection in unnamed namespaces
+
+# AcreTools Release 0.0.51 2020-01-12 08:03:34
 1. Rename package cache folder
 2. Quote paths for embedded spaces
 3. Update README.md
