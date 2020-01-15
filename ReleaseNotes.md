@@ -1,4 +1,7 @@
-# AcreTools Release 0.0.59                    
+# AcreTools Release 0.0.60                    
+1. Fix issues #38 and #40
+
+# AcreTools Release 0.0.59 2020-01-14 16:05:52
 1. handle config files without Version
 
 # AcreTools Release 0.0.58 2020-01-14 15:54:39
