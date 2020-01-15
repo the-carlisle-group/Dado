@@ -4,5 +4,5 @@
      f←p,'.APLPackageCache/'
      g n←¯2↑{⍵⊆⍨'/'≠⍵}⍵.URL
      _←1 ⎕MKDIR f
-     f,1↓∊' ',¨g n ⍵.Version
+     f,1↓∊' ',¨g n(⍵.Version,'/')
  }

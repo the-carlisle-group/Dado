@@ -11,7 +11,7 @@
      kf←PackageFQP ⍵
      ⎕NEXISTS kf:⍵ GetConfigSpace kf
      u←(jf≢'')⊃u('file://',jf)
-     kn←∊1↓⎕NPARTS kf
+     kn←∊1↓⎕NPARTS ¯1↓kf
      ⎕←'Retrieving "',kn,'" from ',u,'...'
      sw←'--depth 1 --branch ',v
      q←{'"',⍵,'"'}
