@@ -15,8 +15,10 @@
      i.UseShellExecute←0
      i.CreateNoWindow←1
      _←p.Start ⍬
-     t←r{⍺.StdErr←⍵.ReadToEnd}&p.StandardError
-     r.StdOut←p.StandardOutput.ReadToEnd
+     re←⎕NEW StreamReader p.StandardError.BaseStream
+     ro←⎕NEW StreamReader p.StandardOutput.BaseStream
+     t←r{⍺.StdErr←⍵.ReadToEnd}&re
+     r.StdOut←ro.ReadToEnd
      op←{6::0 ⋄ z←⍺⍺ ⍵}
      _←p.WaitForExit op ⍬
      _←⎕TSYNC op t
