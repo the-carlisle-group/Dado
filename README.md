@@ -1,3 +1,9 @@
+
+>**He too spoke well- whoever it was, for his identity is uncertain - who said, when asked why he took so much trouble 
+over a piece of craftsmanship that would never reach more than a very few people: "A few is enough for me; so is one; so is none."**
+
+Seneca, *Epistles 7.11*
+
 # AcreTools
 AcreTools is a collection of User Commands for working with Acre projects and Git (and GitHub). See the wiki for how to install and use AcreTools in your Dyalog APL session as a user (as an APL programmer).
 
