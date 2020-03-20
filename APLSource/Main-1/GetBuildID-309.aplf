@@ -1,0 +1,19 @@
+ GetBuildID←{
+     ⍺←0
+     p←GetProjectFolder ⍺
+     s←GetConfigSpace ⍺
+     n←'PrivateBuildIDs'
+     u←n,⍨↑⎕NPARTS s.URL
+     d←n,⍨↑⎕NPARTS ¯1↓p
+     _←DownloadProject u d
+     f←d,'/BuildIDs.json'
+     b←{0::⎕NS'' ⋄ ⎕JSON↑⎕NGET ⍵}f
+     pn←s._Name  ⍝ Replace blanks or dashes with _
+     i←1+b{6::0 ⋄ ⍺⍎⍵}pn
+     _←pn b.{⍎⍺,'←⍵'}i
+     t←1(⎕JSON⍠'Compact' 0)b
+     _←t ⎕NPUT f 1
+     _←p Commit'Increment build ID for ',pn
+     _←p Push''
+     i
+ }
