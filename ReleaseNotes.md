@@ -1,4 +1,9 @@
-# AcreTools Release 0.0.60                    
+# AcreTools Release 0.0.61                    
+1. Add BuildID to build process
+2. Update README.md
+3. Fix Issue #41
+
+# AcreTools Release 0.0.60 2020-01-15 10:32:34
 1. Fix issues #38 and #40
 
 # AcreTools Release 0.0.59 2020-01-14 16:05:52
