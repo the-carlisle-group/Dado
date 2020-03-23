@@ -9,6 +9,7 @@
      rf←GetReleaseArtifactsFolder c
      _←2 ⎕MKDIR rf
      746::1 ⎕DMX.EM
+     c.BuildID←c GetBuildID 0
      m←pf Retrieve ⍵
      m.ProjectFolderName←GetAppPackFolder m
      _←c CopyProject¨m

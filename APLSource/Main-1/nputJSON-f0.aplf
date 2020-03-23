@@ -1,0 +1,4 @@
+ nputJSON←{
+     t←{⍵⊆⍨⍵≠⎕UCS 13}1(⎕JSON⍠'Compact' 0)⍺
+     (⊂t)⎕NPUT ⍵ 1
+ }

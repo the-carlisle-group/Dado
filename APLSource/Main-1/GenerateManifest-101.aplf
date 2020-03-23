@@ -2,7 +2,8 @@
      ⍝ ⍺ ←→ Primary Project Config
      ⍝ ⍵ ←→ Manifest  (All configs)
      af←GetApplicationFolder ⍺
-     fn←af,'Manifest.txt'
-     l←ManifestEntry¨⍵
-     l nput fn
+     m←⎕NS''
+     m.BuildID←⍺.BuildID
+     m.Packages←ManifestEntry¨⍵
+     m nputJSON af,'Manifest.json'
  }

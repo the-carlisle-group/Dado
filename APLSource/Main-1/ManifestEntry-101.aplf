@@ -1,8 +1,11 @@
  ManifestEntry←{
-     ⍵.IsPackage:⍵.URL,' ',⍵.Version
+     s←⎕NS''
+     s.URL←⍵.URL
+     s.Version←⍵.Version
+     ⍵.IsPackage:s
      p←⍵.ProjectFolder
-     b←p GetCurrentBranch 0
-     h←p GetShortHash 0
-     d←(IsDirty 0)⊃'Clean' 'Dirty'
-     1↓∊' ',¨⍵.URL b h d
+     s.Branch←p GetCurrentBranch 0
+     s.Hash←p GetShortHash 0
+     s.State←(p IsDirty 0)⊃'Clean' 'Dirty'
+     s
  }

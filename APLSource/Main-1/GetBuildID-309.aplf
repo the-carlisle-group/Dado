@@ -1,0 +1,20 @@
+ GetBuildID←{
+     s←⍺
+     0=≢{6::'' ⋄ ⍵.OnBuild}s:0
+     p←s.ProjectFolder
+     q←{6::0 ⋄ ⍵.Public}s
+     n←'BuildIDs',⍨q⊃'Private' 'Public'
+     u←n,⍨↑⎕NPARTS s.URL
+     d←('.',n),⍨↑⎕NPARTS ¯1↓p
+     r←DownloadProject u d
+     ∨/r∊⊂'remote: Repository not found.':0
+     f←d,'/BuildIDs.json'
+     b←{0::⎕NS'' ⋄ ⎕JSON↑⎕NGET ⍵}f
+     pn←'_'@{⍵∊' -'}s._Name
+     i←1+b{6::0 ⋄ ⍺⍎⍵}pn
+     _←pn b.{⍎⍺,'←⍵'}i
+     _←b nputJSON f
+     _←d Commit'Increment build ID for ',pn,' v ',s.Version,' to ',⍕i
+     _←d Push''
+     i
+ }

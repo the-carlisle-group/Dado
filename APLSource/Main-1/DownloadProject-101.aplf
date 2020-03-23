@@ -1,9 +1,8 @@
  DownloadProject←{
-     ⍝ ⍺ ←→ Project Library
-     ⍝ ⍵ ←→ Full project name e.g 'PaulMansour/Stats'
-     ⍺←'C:/APLProjectsTest/'
-     u←'https://github.com/',⍵
-     c←'clone ',u,' ',⍺,⍵
+     ⍝ ⍵ ←→ url, directory
+     u d←⍵
+     ⎕NEXISTS d:d PullMaster''
+     c←'clone ',u,' ',d
      r←RunProcess'git'c
      r.StdErr
  }
