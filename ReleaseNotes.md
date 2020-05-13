@@ -1,4 +1,7 @@
-# AcreTools Release 0.0.61                    
+# AcreTools Release 0.0.62                    
+1. Add new command DependencyReport
+
+# AcreTools Release 0.0.61 2020-03-23 13:02:09
 1. Add BuildID to build process
 2. Update README.md
 3. Fix Issue #41
