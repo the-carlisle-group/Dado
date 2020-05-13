@@ -1,0 +1,26 @@
+ DependencyState←{
+     ⍺←0
+     p←GetProjectFolder ⍺
+     0=≢p:1 'Not in a project'
+     c←GetConfigSpace p
+     c.SignalError←0
+     c.LocalProjects←RetrieveLocalProjects p
+     c.ProjectOverride←1
+     nd←1↓RetrieveDependencies c
+     c.ProjectOverride←0
+     vd←1↓RetrieveDependencies c
+     ap←∧/(⍎¨vd._ProjectSpace).AcreConfig.IsPackage  ⍝ Actually loaded
+     nd←ap⊃nd vd
+     t←{⍵.IsProject:⍵.ProjectFolder GetTags 0 ⋄ GetRemoteTags ⍵}¨nd
+     r←⎕NS''
+     r.Dependency←(' ' '*'[nd.IsProject]),¨vd._Name
+     r.SpecifiedVersion←vd.Version
+     r.LoadedVersion←vd.Version{⍺≡⍵:'←' ⋄ ⍵}¨nd.Version
+     r.MostRecentVersion←FormatVersion¨t.MostRecentVersion
+     r.NewVersion←{0=≢⍵:⍵ ⋄ 'Yes (',⍵,')'}¨(r.SpecifiedVersion≡¨r.MostRecentVersion)⊃¨{⍵''}¨r.MostRecentVersion
+     r.UnreleasedCommits←nd{⍺.IsPackage:'?' ⋄ ⍵}¨{⍵=0:'' ⋄ 'Yes (',(⍕⍵),')'}¨≢¨nd.ProjectFolder{⍺ RunGitCommand'log  ',⍵,'..HEAD --pretty=format:"%h %an, %ar, %s'}¨r.MostRecentVersion
+     r.IsDirty←{⍵.IsPackage:0 ⋄ ⍵.ProjectFolder IsDirty 0}¨nd
+     r.CurrentBranch←' !'[r.IsDirty],¨{⍵.IsPackage:'n/a' ⋄ ⍵.ProjectFolder GetCurrentBranch 0}¨nd
+     r.IsSafeToTestForRelease←∧/nd.IsPackage∨(r.CurrentBranch∊⊂' master')∧~r.UnreleasedCommits∊⊂''
+     r
+ }

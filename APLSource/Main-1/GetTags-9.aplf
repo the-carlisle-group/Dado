@@ -1,5 +1,5 @@
  GetTags←{
-     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍝ ⍺ ←→ [Project Folder| Project/Package Config space]
      ⍺←0
      p←GetProjectFolder ⍺
      t←p RunGitCommand'tag'

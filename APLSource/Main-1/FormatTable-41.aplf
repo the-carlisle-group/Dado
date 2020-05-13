@@ -1,0 +1,14 @@
+ FormatTable←{
+     ⍺←⍵.⎕NL ¯2
+     v←⍕¨¨⍵⍎¨⍺
+     p←{⎕ML←1 ⋄ ⍵⊂⍨⍵∊⎕A}¨⍺
+     hr←⌈/≢¨p
+     h←(-hr)↑¨p
+     m←⊃¨h,¨'-',¨v
+     m←⍕m
+     m[hr;]←'-' ⍝ '─'
+     ⍝ m←1 2{⍵↑⍨-⍺+⍴⍵}m    ⍝ Top Left
+     ⍝ m←1 2{⍵↑⍨⍺+⍴⍵}m     ⍝ Bot Right
+     m←↑{⌽⊖⍵↑⍨⍺+⍴⍵}/(0 2)(0 2)m
+     box ⍵.Title m ⍵.Subtitle
+ }

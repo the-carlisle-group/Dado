@@ -1,0 +1,10 @@
+ GetRemoteTags←{
+     a←'ls-remote -t --refs ',⍵.URL
+     r←RunProcess'git'a
+     t←{↑⌽⍵⊆⍨'/'≠⍵}¨r.StdOut
+     s←⎕NS''
+     s.Tag←t
+     s.NumericVersion←FormatVersion¨t
+     s.MostRecentVersion←↑{⍵[⍒⍵]}s.NumericVersion,⊂3⍴0
+     s
+ }

@@ -1,0 +1,13 @@
+ box←{
+     h b f←⎕FMT¨⊃¨⍵
+     mw←⌈/{↑⌽⍴⍵}¨h b f
+     h b f←mw(↑⍤1)¨h b f
+     r c←⍴b
+     e←1 c 1
+     tl tr bl br vt hz le re←'┌┐└┘│─├┤'
+     top←e/tl hz tr
+     mid←e/le hz re
+     bot←e/bl hz br
+     h b f←{vt,⍵,vt}¨h b f
+     ⊃⍪/top h mid b mid f bot
+ }

@@ -1,0 +1,12 @@
+ DependencyReport←{
+     ⍺←0
+     p←GetProjectFolder ⍺
+     c←GetConfigSpace p
+     r←p DependencyState 0
+     ns←~r.IsSafeToTestForRelease
+     t←'   Current workspace state is ',(ns/'**NOT** '),'safe for testing for release.'
+     o←'Dependency' 'SpecifiedVersion' 'LoadedVersion' 'CurrentBranch' 'NewVersion' 'UnreleasedCommits'
+     r.Title←' ',c._Name,' Dependency Report'
+     r.Subtitle←' * Locally cloned project (vs package)' ' ! Uncommitted changes't
+     o FormatTable r
+ }
