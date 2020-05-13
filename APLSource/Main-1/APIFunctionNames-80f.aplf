@@ -6,6 +6,7 @@
      c,←⊂'Checkout'
      c,←⊂'CheckoutMaster'
      c,←⊂'DeleteBranch'
+     c,←⊂'DependencyReport'
      c,←⊂'NewFeatureBranch'
      c,←⊂'MergeFeatureBranch'
      c,←⊂'PushMaster'
