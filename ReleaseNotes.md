@@ -1,4 +1,8 @@
-# AcreTools Release 0.0.62                    
+# AcreTools Release 0.0.63                    
+1. Add DependencyReport function to user commands and API
+2. Update to Acre 1.8.0+318
+
+# AcreTools Release 0.0.62 2020-05-13 08:05:58
 1. Add new command DependencyReport
 
 # AcreTools Release 0.0.61 2020-03-23 13:02:09
