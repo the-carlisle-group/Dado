@@ -1,71 +1,77 @@
-# AcreTools Release 0.0.63                    
+# Dado Release 0.0.64                    
+1. Rename project from AcreTools to Dado
+2. Update README.md
+3. Update README.md
+4. Update README.md
+
+# Dado Release 0.0.63 2020-05-13 08:33:33
 1. Add DependencyReport function to user commands and API
 2. Update to Acre 1.8.0+318
 
-# AcreTools Release 0.0.62 2020-05-13 08:05:58
+# Dado Release 0.0.62 2020-05-13 08:05:58
 1. Add new command DependencyReport
 
-# AcreTools Release 0.0.61 2020-03-23 13:02:09
+# Dado Release 0.0.61 2020-03-23 13:02:09
 1. Add BuildID to build process
 2. Update README.md
 3. Fix Issue #41
 
-# AcreTools Release 0.0.60 2020-01-15 10:32:34
+# Dado Release 0.0.60 2020-01-15 10:32:34
 1. Fix issues #38 and #40
 
-# AcreTools Release 0.0.59 2020-01-14 16:05:52
+# Dado Release 0.0.59 2020-01-14 16:05:52
 1. handle config files without Version
 
-# AcreTools Release 0.0.58 2020-01-14 15:54:39
+# Dado Release 0.0.58 2020-01-14 15:54:39
 1. Handle config files without URLs
 
-# AcreTools Release 0.0.57 2020-01-14 12:13:38
+# Dado Release 0.0.57 2020-01-14 12:13:38
 
-# AcreTools Release 0.0.56 2020-01-14 12:12:19
+# Dado Release 0.0.56 2020-01-14 12:12:19
 
-# AcreTools Release 0.0.55 2020-01-14 12:09:59
+# Dado Release 0.0.55 2020-01-14 12:09:59
 
-# AcreTools Release 0.0.54 2020-01-14 12:02:55
+# Dado Release 0.0.54 2020-01-14 12:02:55
 1. Fix IsPackage
 
-# AcreTools Release 0.0.53 2020-01-14 10:56:32
+# Dado Release 0.0.53 2020-01-14 10:56:32
 1. Update Acre to 7.0.0
 
-# AcreTools Release 0.0.52 2020-01-14 10:45:52
+# Dado Release 0.0.52 2020-01-14 10:45:52
 1. Prevent reference injection in unnamed namespaces
 
-# AcreTools Release 0.0.51 2020-01-12 08:03:34
+# Dado Release 0.0.51 2020-01-12 08:03:34
 1. Rename package cache folder
 2. Quote paths for embedded spaces
 3. Update README.md
 
-# AcreTools Release 0.0.50 2020-01-10 14:40:32
+# Dado Release 0.0.50 2020-01-10 14:40:32
 1. Refactor ReleaseNewVersion, adding CreateNewVersion
 
-# AcreTools Release 0.0.49 2020-01-10 10:18:46
+# Dado Release 0.0.49 2020-01-10 10:18:46
 1. Relocate package cache folder
 
-# AcreTools Release 0.0.48 2020-01-09 11:55:47
+# Dado Release 0.0.48 2020-01-09 11:55:47
 
-# AcreTools Release 0.0.47 2020-01-09 11:48:48
+# Dado Release 0.0.47 2020-01-09 11:48:48
 
-# AcreTools Release 0.0.46 2020-01-09 11:24:39
+# Dado Release 0.0.46 2020-01-09 11:24:39
 
-# AcreTools Release 0.0.45 2020-01-09 11:21:54
+# Dado Release 0.0.45 2020-01-09 11:21:54
 
-# AcreTools Release 0.0.44 2020-01-09 11:18:42
+# Dado Release 0.0.44 2020-01-09 11:18:42
 1. Add tests for dependencies
 2. Handle circular dependencies
 
-# AcreTools Release 0.0.43 2020-01-04 14:32:20
+# Dado Release 0.0.43 2020-01-04 14:32:20
 
-# AcreTools Release 0.0.42 2019-12-27 20:25:03
+# Dado Release 0.0.42 2019-12-27 20:25:03
 1. Rename AddToGitHub to AddRemote
 2. Turn of status window when executing APL remotely
 
-# AcreTools Release 0.0.41 2019-10-15 10:57:01
+# Dado Release 0.0.41 2019-10-15 10:57:01
 
-# AcreTools Release 0.0.40 2019-10-15 10:55:33
+# Dado Release 0.0.40 2019-10-15 10:55:33
 1. Move unused assets to RandD folder
 2. remove obsolete stub workspace files
 3. Inlcude package in release artifacts
@@ -76,14 +82,14 @@
 8. Remove obsolete functions
 9. Numerous changes
 
-# AcreTools Release 0.0.39 2019-09-10 09:01:04
+# Dado Release 0.0.39 2019-09-10 09:01:04
 1. Implement package management
 2. Changes far too numerous to even consider
 3. Even more changes
 4. Many more changes
 5. More changes
 
-# AcreTools Release 0.0.38 2019-09-03 13:38:07
+# Dado Release 0.0.38 2019-09-03 13:38:07
 1. Changes too numerous to list
 2. Too many changes to mention
 3. Fix Issue #21
@@ -92,121 +98,121 @@
 6. Double quote workspace path when calling stub ws (Issue #23)
 7. Add automatic dependency detection and download
 
-# AcreTools Release 0.0.37 2019-08-24 12:08:35
+# Dado Release 0.0.37 2019-08-24 12:08:35
 1. Update to acre 6.0
 
-# AcreTools Release 0.0.36 2019-08-24 10:50:53
+# Dado Release 0.0.36 2019-08-24 10:50:53
 1. Change csv separator for git commit report
 
-# AcreTools Release 0.0.35 2019-08-24 08:58:30
+# Dado Release 0.0.35 2019-08-24 08:58:30
 1. Fix Issue #11 and Issue #12
 2. Support JSON and APLAN in config files (Issue #9)
 
-# AcreTools Release 0.0.34 2019-08-21 13:46:29
+# Dado Release 0.0.34 2019-08-21 13:46:29
 1. Make UCMD list function more dynamic
 2. Add folder to Git ignore file (Issue #8)
 
-# AcreTools Release 0.0.33 2019-08-18 14:09:13
+# Dado Release 0.0.33 2019-08-18 14:09:13
 1. Add AliasType parameter
 
-# AcreTools Release 0.0.32 2019-08-15 11:32:10
+# Dado Release 0.0.32 2019-08-15 11:32:10
 1. Revamp install yet again
 
-# AcreTools Release 0.0.31 2019-08-14 15:52:50
+# Dado Release 0.0.31 2019-08-14 15:52:50
 
-# AcreTools Release 0.0.30 2019-08-14 15:36:45
+# Dado Release 0.0.30 2019-08-14 15:36:45
 
-# AcreTools Release 0.0.29 2019-08-14 15:22:42
+# Dado Release 0.0.29 2019-08-14 15:22:42
 
-# AcreTools Release 0.0.28 2019-08-14 15:07:12
+# Dado Release 0.0.28 2019-08-14 15:07:12
 1. Define references for cross-project calls
 
-# AcreTools Release 0.0.27 2019-08-09 16:29:56
+# Dado Release 0.0.27 2019-08-09 16:29:56
 
-# AcreTools Release 0.0.26 2019-08-09 16:28:24
+# Dado Release 0.0.26 2019-08-09 16:28:24
 
-# AcreTools Release 0.0.25 2019-08-09 16:13:37
+# Dado Release 0.0.25 2019-08-09 16:13:37
 1. Add API to QuadSE
 
-# AcreTools Release 0.0.24 2019-08-09 09:10:52
+# Dado Release 0.0.24 2019-08-09 09:10:52
 1. Revamp installation
 
-# AcreTools Release 0.0.23 2019-08-07 16:39:45
+# Dado Release 0.0.23 2019-08-07 16:39:45
 1. Initial UCMD replacement
 2. Update README.md
 3. Update README.md
 4. Update README.md
 
-# AcreTools Release 0.0.22 2019-08-05 13:29:29
+# Dado Release 0.0.22 2019-08-05 13:29:29
 
-# AcreTools Release 0.0.21 2019-08-05 13:27:58
+# Dado Release 0.0.21 2019-08-05 13:27:58
 
-# AcreTools Release 0.0.20 2019-08-05 12:53:32
+# Dado Release 0.0.20 2019-08-05 12:53:32
 
-# AcreTools Release 0.0.19 2019-08-05 12:40:09
+# Dado Release 0.0.19 2019-08-05 12:40:09
 
-# AcreTools Release 0.0.18 2019-08-05 12:37:56
+# Dado Release 0.0.18 2019-08-05 12:37:56
 
-# AcreTools Release 0.0.17 2019-08-05 12:33:11
+# Dado Release 0.0.17 2019-08-05 12:33:11
 1. Update README.md
 2. Update README.md
 
-# AcreTools Release 0.0.16 2019-08-05 11:52:08
+# Dado Release 0.0.16 2019-08-05 11:52:08
 
-# AcreTools Release 0.0.15 2019-08-05 11:40:27
+# Dado Release 0.0.15 2019-08-05 11:40:27
 1. Add startup session functionality
 
-# AcreTools Release 0.0.14 2019-08-01 16:35:06
+# Dado Release 0.0.14 2019-08-01 16:35:06
 1. Add PushMaster command
 
-# AcreTools Release 0.0.13 2019-08-01 16:23:03
+# Dado Release 0.0.13 2019-08-01 16:23:03
 
-# AcreTools Release 0.0.13 2019-08-01 14:58:29
+# Dado Release 0.0.13 2019-08-01 14:58:29
 1. Modify CopyUserCommandFile to reflect new file name
 2. Rename UCMD.dyalog to UCMD.txt so NOT found by User Command framework
 3. Move UCMD.dyalog file to Runtime Assets folder
 4. Redesign how application ws is created (Issue #10)
 
-# AcreTools Release 0.0.12 2019-07-31 09:59:25
+# Dado Release 0.0.12 2019-07-31 09:59:25
 1. Only include ucmd.dyalog if user command app (Issue #6)
 
-# AcreTools Release 0.0.11 2019-07-31 08:59:28
+# Dado Release 0.0.11 2019-07-31 08:59:28
 1. Rename CheckOut command to Checkout
 2. Rename ShowCommit family of commands
 
-# AcreTools Release 0.0.10 2019-07-28 11:26:37
+# Dado Release 0.0.10 2019-07-28 11:26:37
 1. Extract Build function from ReleaseNewVersion
 2. Add command SourceCode to display source
 
-# AcreTools Release 0.0.9 2019-07-27 15:56:29
+# Dado Release 0.0.9 2019-07-27 15:56:29
 1. Revamp User Command installation
 2. Update README.md
 
-# AcreTools Release 0.0.8 2019-07-26 09:39:40
+# Dado Release 0.0.8 2019-07-26 09:39:40
 1. Add new user command Version
 
-# AcreTools Release 0.0.7 2019-07-24 09:22:10
+# Dado Release 0.0.7 2019-07-24 09:22:10
 1. Generalize UCMD installation for any project
 2. Enhance user command process
 
-# AcreTools Release 0.0.6 2019-07-20 17:33:54
+# Dado Release 0.0.6 2019-07-20 17:33:54
 1. Refactor user command code
 
-# AcreTools Release 0.0.5 2019-07-19 09:16:01
+# Dado Release 0.0.5 2019-07-19 09:16:01
 1. Add automatic UCMD install
 
-# AcreTools Release 0.0.4 2019-07-18 17:34:20
+# Dado Release 0.0.4 2019-07-18 17:34:20
 1. Implement as user command
 2. Add ReleaseExperimentalVersion function
 3. Fix ShowChanges output
 
-# AcreTools Release 0.0.3 2019-02-07 10:04:30
+# Dado Release 0.0.3 2019-02-07 10:04:30
 1. Add testing framework, other misc changes
 
-# AcreTools Release 0.0.2 2019-02-06 13:32:14
+# Dado Release 0.0.2 2019-02-06 13:32:14
 1. Fix value error on missing ApplicationStartup parameter (Issue #3)
 
-# AcreTools Release 0.0.1 2019-01-12 13:05:39
+# Dado Release 0.0.1 2019-01-12 13:05:39
 1. Changes
 2. Changes
 3. Changes
