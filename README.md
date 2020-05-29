@@ -7,7 +7,7 @@ Seneca, *Epistles 7.11*
 # Dado
 Dado is a collection of User Commands that implemetns a framework for Dyalog APL development operations.  See the wiki for how to install and use Dado in your Dyalog APL session as a user (as an APL developer).
 
-These notes are for working and developing AcreTools itself.
+These notes are for working and developing Dado itself.
 
 ## Bootstrapping
 Dado functions can be called directly from the Dado project space when working on Dodo itself.
