@@ -38,8 +38,8 @@
          s exeList'List'
      }¨f
      0=≢l:0
-     _←'AcreTools'⎕SE.⎕NS''
-     ⎕SE.AcreTools.UserCommands←l
+     _←'Dado'⎕SE.⎕NS''
+     ⎕SE.Dado.UserCommands←l
      _←2350⌶l.Group{']',⍺,'.',⍵}¨l.Name
      0
 

@@ -3,10 +3,10 @@
      _←SetAcreConfig 0
      pc←##.AcreConfig
      pf←pc.ProjectFolder
-     af←pf,'dist/Application/AcreTools/'
+     af←pf,'dist/Application/Dado/'
      _←3 ⎕NDELETE pf,'dist'
      _←2 ⎕MKDIR af
-     tf←af,'AcreTools'
+     tf←af,'Dado'
      _←2 ⎕MKDIR tf
      _←tf ⎕NCOPY pf,'Assets'
      _←tf ⎕NCOPY pf,'acre.config'
@@ -16,8 +16,8 @@
      pc.ProjectFolderName←↑GetAppPackFolder,pc
      _←0 ⎕SAVE af,pc._Name
      _←SetAcreConfig 0
-     tf←⎕SE.zApps.AcreTools.ApplicationFolder
+     tf←⎕SE.zApps.Dado.ApplicationFolder
      _←3 ⎕NDELETE tf
      _←tf ⎕NCOPY af
-     'dist/Application/AcreTools created and copied to installed location.'
+     'dist/Application/Dado created and copied to installed location.'
  }

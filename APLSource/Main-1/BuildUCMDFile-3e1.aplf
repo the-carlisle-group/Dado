@@ -2,7 +2,7 @@
      ⍝ ⍵ ←→ UCMD Space
      t←''
      t,←⊂'⍝ *******************************************'
-     t,←⊂'⍝ This is an AcreTools system generated file.'
+     t,←⊂'⍝ This is a Dado system generated file.'
      t,←⊂'⍝ *******************************************'
      t,←⊂'⎕IO ⎕ML←0 3'
      t,←{(⊂'∇',0⊃⍵),1↓⍵}(BuildListFunction ⍵),'∇'
@@ -24,7 +24,7 @@
      t,←⊂'   s←⍎(''zApps.'',n)⎕SE.⎕NS '''''
      t,←⊂'   _←s.⎕CY p,n,''.dws'''
      t,←⊂'   s.ApplicationFolder←p'
-     t,←⊂'   a←s.AcreTools.Main'
+     t,←⊂'   a←s.Dado.Main'
      t,←⊂'   m←s⍎n'
      t,←⊂'   c←m.AcreConfig'
      t,←⊂'   _←⍎''⎕SE.'',n,''←a.GetAPISpace m'''

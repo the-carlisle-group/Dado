@@ -4,7 +4,7 @@
      z←{⎕NS''}¨⍳≢f
      z.Name←f
      z.Desc←f
-     z.Group←⊂'acretools'
+     z.Group←⊂'dado'
      z.Parse←⊂''
      z
  }0

@@ -1,5 +1,5 @@
  TestCircularDependencies←{
-     ⍝ AcreTools API
+     ⍝ Dado API
      A←##.Main
      ⍝ Clean up and initialize
      tf←Reset 0

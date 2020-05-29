@@ -3,8 +3,8 @@
      v←⍵
      pf←GetProjectFolder ⍺
      q←{'''',⍵,''''}
-     l←⊂']AcreTools.Version'
-     l,←⊂'rc em←',(q pf),' ⎕SE.AcreTools.##.ExecuteOnBuild_ ',q v
+     l←⊂']Dado.Version'
+     l,←⊂'rc em←',(q pf),' ⎕SE.Dado.##.ExecuteOnBuild_ ',q v
      l,←⊂'em'
      l,←⊂'⎕OFF (10+rc)'
      ExecuteAPL l
