@@ -10,7 +10,7 @@ Dado is a collection of User Commands that implements a framework for Dyalog APL
 These notes are for working and developing Dado itself.
 
 ## Bootstrapping
-Dado functions can be called directly from the Dado project space when working on Dodo itself.
+Dado functions can be called directly from the Dado project space when working on Dado itself.
 This is useful for testing new functionality and debugging. You can also use a properly installed version of Dado when working on Dado. Thus when working on Dado, you can decide whether to use the current state of things or the installed state.
 
 You can call `#.Dado.BootStrapBuild 0` to install the current state of the project as a User Command.
