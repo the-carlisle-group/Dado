@@ -1,4 +1,8 @@
-# Dado Release 0.0.64                    
+# Dado Release 0.0.65                    
+1. Add OnRelease callback
+2. Update README.md
+
+# Dado Release 0.0.64 2020-05-29 15:53:19
 1. Rename project from AcreTools to Dado
 2. Update README.md
 3. Update README.md

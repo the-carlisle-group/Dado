@@ -1,6 +1,6 @@
  APIFunctionNames←{
      c←⊂'AddRemote'
-     c,⊂'About'
+     c,←⊂'About'
      c,←⊂'Build'
      c,←⊂'Commit'
      c,←⊂'CreateProject'
