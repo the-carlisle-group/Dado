@@ -7,6 +7,7 @@
      v←p CreateNewVersion ⍵
      _←p Build v
      ⎕←⊃p PushMaster''
+     _←p Execute'OnRelease'
      _←p ReleaseOnGitHub v
      0
  }
