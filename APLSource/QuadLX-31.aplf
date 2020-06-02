@@ -1,13 +1,13 @@
  QuadLX←{
-     t←⊂,'┌─────────┐ **************************************************'
-     t,←⊂'│         │ *                                                *'
-     t,←⊂'│   APL   │ *                   Dado                         *'
-     t,←⊂'│ \¯¯¯¯¯/ │ *       Dyalog APL Development Operations        *'
-     t,←⊂'│  |   |  │ *                   ----                         *'
-     t,←⊂'│  |   |  │ *   https://github.com/the-carlisle-group/Dado   *'
-     t,←⊂'│ /_____\ │ *                   ----                         *'
-     t,←⊂'│ |_____| │ *     "Put your apps on a solid foundation"      *'
-     t,←⊂'│         │ *                                                *'
-     t,←⊂'└─────────┘ **************************************************'
+     t←⊂,'┌─────────────────────────────────────────────────────────────┐'
+     t,←⊂'│                                                             │'
+     t,←⊂'│      APL                      Dado                          │'
+     t,←⊂'│    \¯¯¯¯¯/        Dyalog APL Development Operations         │'
+     t,←⊂'│     |   |                     ----                          │'
+     t,←⊂'│     |   |     https://github.com/the-carlisle-group/Dado    │'
+     t,←⊂'│    /_____\                    ----                          │'
+     t,←⊂'│    |_____|      "Put your apps on a solid foundation"       │'
+     t,←⊂'│                                                             │'
+     t,←⊂'└─────────────────────────────────────────────────────────────┘'
      ⊃t
  }
