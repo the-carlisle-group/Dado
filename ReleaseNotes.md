@@ -1,4 +1,7 @@
-# Dado Release 0.0.66                    
+# Dado Release 0.0.67                    
+1. Fix OnRelease feature
+
+# Dado Release 0.0.66 2020-06-02 15:50:26
 
 # Dado Release 0.0.65 2020-06-02 15:46:52
 1. Add OnRelease callback
