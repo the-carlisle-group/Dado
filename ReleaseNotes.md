@@ -1,4 +1,7 @@
-# Dado Release 0.0.68                    
+# Dado Release 0.0.69                    
+1. Fix issue #53
+
+# Dado Release 0.0.68 2020-06-02 16:17:22
 1. Add About command
 
 # Dado Release 0.0.67 2020-06-02 16:01:42
