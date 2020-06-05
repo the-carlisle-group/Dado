@@ -1,6 +1,7 @@
  RetrieveDependency←{
      ⍝ ⍵ ←→ Dependency Space
      ⍝ ← ←→ Project or Package Config Space
+     ⍝ Do not replace ⎕CMD below with RunProcess. See issue #53
      0=⍵.⎕NC'URL':⍵ DependencyError'No URL specfied'
      0=⍵.⎕NC'Version':⍵ DependencyError'No version specified'
      u←⍵.URL
@@ -16,8 +17,7 @@
      sw←'--depth 1 --branch ',v
      q←{'"',⍵,'"'}
      l←1↓∊' ',¨'clone'sw u(q kf)
-     r←RunProcess'git'l
-     r.ExitCode≠0:⍵ DependencyError(1⊃2↑r.StdErr)
+     r←⎕CMD'git ',l
      _←DeleteGitItems kf
      c←⍵ GetConfigSpace kf
      _←DeleteDevSpaceFolders c
