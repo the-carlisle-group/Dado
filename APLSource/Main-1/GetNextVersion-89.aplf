@@ -1,6 +1,8 @@
  GetNextVersion←{
      ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍝ ⍵ ←→ 'major'|'minor'| 'patch' | '' (for patch) | 'i.j.k'
      ⍺←0
+     2=+/⍵='.':⍵
      p←GetProjectFolder ⍺
      j←⍵,(0=≢⍵)/'patch'
      b←'major' 'minor' 'patch'∊⊂j

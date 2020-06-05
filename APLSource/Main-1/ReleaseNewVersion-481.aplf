@@ -1,6 +1,6 @@
  ReleaseNewVersion←{
      ⍝ ⍺ ←→ Project Name
-     ⍝ ⍵ ←→ 'major'|'minor'| '' (for patch)
+     ⍝ ⍵ ←→ 'major'|'minor'| 'patch' | '' (for patch) | 'i.j.k'
      ⍺←0
      p←GetProjectFolder ⍺
      p≡'':'Not in project'
