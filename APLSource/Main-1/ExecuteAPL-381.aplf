@@ -1,14 +1,19 @@
  ExecuteAPL←{
-     ⍝ ⍺ ←→ Command Line Arguments e.g.: '-b maxws=1g default_io=1'
+     ⍝ ⍺ ←→ [Executable] [Arguments]
+     ⍝      Executable defaults to current session executable
+     ⍝                 (use '' to default if providing args)
+     ⍝      Arguments e.g.: '-b maxws=1g default_io=1'
      ⍝ ⍵ ←→ One or more expressions to execute
      ⍝ ← ←→ Exit Code, Session Output
-     ⍺←'ShowStatusOnError=0'
+     ⍺←''
+     (x a)←2↑(⊆⍺),⊂'ShowStatusOnError=0'
+     cx←↑2 ⎕NQ'.' 'GetCommandLineArgs'
      in←∊(⊆⍵),¨⎕UCS 13
      ⎕USING←'System'∘,¨'' '.IO' '.Diagnostics,System.dll'
      p←⎕NEW Process
      i←p.StartInfo
-     i.FileName←2 ⎕NQ'.' 'GetCommandLine'
-     i.Arguments←⍺
+     i.FileName←x cx⊃⍨0=≢x
+     i.Arguments←a
      i.RedirectStandardOutput←1
      i.RedirectStandardInput←1
      i.RedirectStandardError←1
@@ -20,7 +25,7 @@
      _←{6::0 ⋄ z←sw.Close}0
      r←⎕NS''
      sr←⎕NEW StreamReader p.StandardError.BaseStream
-     r.SessionOutput←sr.ReadToEnd
+     r.SessionOutput←{⍵⊆⍨~⍵∊⎕UCS 13 10}sr.ReadToEnd
      _←p.WaitForExit op ⍬
      r.ExitCode←p.ExitCode
      r
