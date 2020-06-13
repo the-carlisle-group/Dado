@@ -10,7 +10,7 @@
      _←2 ⎕MKDIR rf
      746::1 ⎕DMX.EM
      c.BuildID←c GetBuildID 0
-     m←pf Retrieve ⍵
+     m←RemoveDevelopmentPackages pf Retrieve ⍵
      m.ProjectFolderName←GetAppPackFolder m
      _←c CopyProject¨m
      _←c GenerateManifest m

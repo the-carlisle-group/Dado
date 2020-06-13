@@ -1,0 +1,5 @@
+ RemoveDevelopmentPackages←{
+     0=≢⍵:''
+     d←{6::0 ⋄ ⍵.Development}¨⍵
+     (~d)/⍵
+ }
