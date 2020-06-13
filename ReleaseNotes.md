@@ -1,4 +1,11 @@
-# Dado Release 0.0.69                    
+# Dado Release 0.0.70                    
+1. Update to Acre 8.2.0+323
+2. Add development dependency parameter (Issue #33)
+3. Diplay current branch in session on OpenProject
+4. Enhance ExecuteAPL function (Issue #50)
+5. Address issue #54
+
+# Dado Release 0.0.69 2020-06-05 08:04:52
 1. Fix issue #53
 
 # Dado Release 0.0.68 2020-06-02 16:17:22
