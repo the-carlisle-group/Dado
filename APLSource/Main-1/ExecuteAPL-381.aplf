@@ -6,7 +6,7 @@
      ⍝ ⍵ ←→ One or more expressions to execute
      ⍝ ← ←→ Exit Code, Session Output
      ⍺←''
-     (x a)←2↑(⊆⍺),⊂'ShowStatusOnError=0'
+     (x a)←2↑(⊆⍺),⊂'ShowStatusOnError=0 Dyalog_LineEditor_Mode=1'
      cx←↑2 ⎕NQ'.' 'GetCommandLineArgs'
      in←∊(⊆⍵),¨⎕UCS 13
      ⎕USING←'System'∘,¨'' '.IO' '.Diagnostics,System.dll'
@@ -25,7 +25,7 @@
      _←{6::0 ⋄ z←sw.Close}0
      r←⎕NS''
      sr←⎕NEW StreamReader p.StandardError.BaseStream
-     r.SessionOutput←{⍵⊆⍨~⍵∊⎕UCS 13 10}sr.ReadToEnd
+     r.SessionOutput←{(~' '∧.=¨⍵)/⍵}{⍵⊆⍨~⍵∊⎕UCS 13 10}sr.ReadToEnd
      _←p.WaitForExit op ⍬
      r.ExitCode←p.ExitCode
      r
