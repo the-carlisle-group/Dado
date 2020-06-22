@@ -9,6 +9,7 @@
      tf←af,'Dado'
      _←2 ⎕MKDIR tf
      _←tf ⎕NCOPY pf,'Assets'
+     _←tf ⎕NCOPY pf,'Dyalog'
      _←tf ⎕NCOPY pf,'acre.config'
      _←CopyUserCommandFile ##
      _←pc.⎕EX'ProjectFolder'
