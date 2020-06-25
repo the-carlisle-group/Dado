@@ -9,12 +9,18 @@
      r←DownloadProject u d
      ∨/r∊⊂'remote: Repository not found.':0
      f←d,'/BuildIDs.json'
-     b←{0::⎕NS'' ⋄ ⎕JSON↑⎕NGET ⍵}f
-     pn←'_'@{⍵∊' -'}s._Name
-     i←1+b{6::0 ⋄ ⍺⍎⍵}pn
-     _←pn b.{⍎⍺,'←⍵'}i
+     b←{0::'' ⋄ ⎕JSON↑⎕NGET ⍵}f
+     in id←{0::⊂'' ⋄ ⍵.ProjectName ⍵.BuildID}b
+     pn←s._Name
+     ne←~in∊⍨⊂pn
+     in,←ne/⊂pn
+     id,←ne/0
+     i←in⍳⊂pn
+     id[i]+←1
+     b←⎕NS¨(≢in)⍴⊂''
+     b.ProjectName b.BuildID←in id
      _←b nputJSON f
      _←d Commit'Increment build ID for ',pn,' v ',s.Version,' to ',⍕i
      _←d Push''
-     i
+     id[i]
  }
