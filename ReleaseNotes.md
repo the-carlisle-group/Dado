@@ -1,4 +1,12 @@
-# Dado Release 0.0.70                    
+# Dado Release 0.0.71                    
+1. Fix DownloadProject to handle spaces in path (Issue #57)'
+2. Restructure BuildID JSON (Issue #58)
+3. Update README.md
+4. Update bootstrap function
+5. Add Dyalog system files
+6. Enhance ExecuteAPL to handle multi-line session input
+
+# Dado Release 0.0.70 2020-06-13 08:02:11
 1. Update to Acre 8.2.0+323
 2. Add development dependency parameter (Issue #33)
 3. Diplay current branch in session on OpenProject
