@@ -2,7 +2,7 @@
      ⍝ ⍵ ←→ url, directory
      u d←⍵
      ⎕NEXISTS d:d PullMaster''
-     c←'clone ',u,' ',d
+     c←'clone ',u,' "',d,'"'
      r←RunProcess'git'c
      r.StdErr
  }
