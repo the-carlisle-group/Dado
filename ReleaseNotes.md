@@ -1,4 +1,6 @@
-# Dado Release 0.0.73                    
+# Dado Release 0.0.74                    
+
+# Dado Release 0.0.73 2020-06-26 13:40:23
 
 # Dado Release 0.0.72 2020-06-26 13:15:14
 1. Fix up BootStrapBuild
