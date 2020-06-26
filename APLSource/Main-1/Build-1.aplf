@@ -21,6 +21,7 @@
      zs←c.DistFolder,'Application'
      zt←rf,c._Name,'-Application-',⍵,'.zip'
      _←Zip zs zt
+     ⎕←'Build results in: ',c.DistFolder
      ↑m.IsProject:0 'OK'
      ps←↑m.ProjectFolder
      pt←rf,c._Name,'-Package-',⍵,'.zip'

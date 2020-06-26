@@ -10,7 +10,7 @@
      c.IsApplication←{6::0 ⋄ 0<≢⍵.OnBuild}c
      c.(_Group _Name)←GroupAndName c
      c._ProjectSpace←⍺ ProjectSpace c
-     c.DistFolder←f,'dist/'
+     c.DistFolder←(GetTempDir 0),'/Dado/',c._Name,'/'
      0=⍺.⎕NC'LocalProjects':c
      c.LocalProjects←⍺.LocalProjects
      c.SignalError←⍺.SignalError
