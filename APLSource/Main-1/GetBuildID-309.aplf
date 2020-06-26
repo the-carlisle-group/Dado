@@ -20,7 +20,7 @@
      b←⎕NS¨(≢in)⍴⊂''
      b.ProjectName b.BuildID←in id
      _←b nputJSON f
-     _←d Commit'Increment build ID for ',pn,' v ',s.Version,' to ',⍕i
+     _←d Commit'Increment build ID for ',pn,' v ',s.Version,' to ',⍕id[i]
      _←d Push''
      id[i]
  }
