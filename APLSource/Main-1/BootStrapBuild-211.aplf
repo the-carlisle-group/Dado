@@ -3,8 +3,9 @@
      _←SetAcreConfig 0
      pc←##.AcreConfig
      pf←pc.ProjectFolder
-     af←pf,'dist/Application/Dado/'
-     _←3 ⎕NDELETE pf,'dist'
+     df←pc.DistFolder
+     af←df,'Application/Dado/'
+     _←3 ⎕NDELETE df
      _←2 ⎕MKDIR af
      tf←af,'Dado'
      _←2 ⎕MKDIR tf
@@ -19,5 +20,5 @@
      tf←⎕SE.zApps.Dado.ApplicationFolder
      _←3 ⎕NDELETE tf
      _←tf ⎕NCOPY af
-     'dist/Application/Dado created and copied to installed location.'
+     '[dist]/Application/Dado created and copied to installed location.'
  }
