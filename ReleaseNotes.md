@@ -1,4 +1,11 @@
-# Dado Release 0.0.71                    
+# Dado Release 0.0.72                    
+1. Fix up BootStrapBuild
+2. WIP
+3. Move dist folder to op sys temp folder (Issue #65)
+4. Fix build ID message (Issue #61)
+5. Remove Dyalog system file (Issue #59)
+
+# Dado Release 0.0.71 2020-06-25 12:27:46
 1. Fix DownloadProject to handle spaces in path (Issue #57)'
 2. Restructure BuildID JSON (Issue #58)
 3. Update README.md
