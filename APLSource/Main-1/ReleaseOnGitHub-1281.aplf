@@ -5,7 +5,8 @@
      p←GetProjectFolder ⍺
      k←0⊃nget p,'../GitHubToken.txt'
      s←GetConfigSpace p
-     af←p,'dist/Application/',s._Name,'/'
+     df←s.DistFolder
+     af←df,'Application/',s._Name,'/'
      ⍝ Init, get octokit github client
      d←'\'@('/'∘=)##.AcreConfig.ProjectFolder,'Assets/Runtime/octokit.dll'
      ⎕USING←'System' 'System.IO' 'System.Net,System.dll'('Octokit,',d)

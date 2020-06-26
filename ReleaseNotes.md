@@ -1,4 +1,6 @@
-# Dado Release 0.0.72                    
+# Dado Release 0.0.73                    
+
+# Dado Release 0.0.72 2020-06-26 13:15:14
 1. Fix up BootStrapBuild
 2. WIP
 3. Move dist folder to op sys temp folder (Issue #65)
