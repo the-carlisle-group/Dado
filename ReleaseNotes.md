@@ -1,4 +1,8 @@
-# Dado Release 0.0.74                    
+# Dado Release 0.0.75                    
+1. Quote paths when retrieving dependencies (Issue #67)
+2. Modify ReleaseOnGithub
+
+# Dado Release 0.0.74 2020-06-26 13:55:28
 
 # Dado Release 0.0.73 2020-06-26 13:40:23
 
