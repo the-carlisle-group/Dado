@@ -19,7 +19,7 @@
      action←c.Repository.Release.Create(s._Group s._Name r)   ⍝ wait?
      release←action.Result
      ⍝ Upload artifacts.
-     u←↑(⎕NINFO⍠1)p,'dist/ReleaseArtifacts/*.*'
+     u←↑(⎕NINFO⍠1)df,'ReleaseArtifacts/*.*'
      0=≢u:0
      gct←{
          e←0(819⌶)2⊃⎕NPARTS ⍵
