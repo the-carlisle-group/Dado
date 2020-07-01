@@ -1,4 +1,10 @@
-# Dado Release 0.0.75                    
+# Dado Release 0.0.76                    
+1. Add DyalogProjectsFolder to config file
+2. Split session output on Build into multiple lines (Issue #69)
+3. Provide proper error message on Build when not in project (Issue #66)
+4. Build workspaces using targeted Dyalog version
+
+# Dado Release 0.0.75 2020-06-29 12:04:27
 1. Quote paths when retrieving dependencies (Issue #67)
 2. Modify ReleaseOnGithub
 
