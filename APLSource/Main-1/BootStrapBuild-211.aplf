@@ -20,5 +20,5 @@
      tf←⎕SE.zApps.Dado.ApplicationFolder
      _←3 ⎕NDELETE tf
      _←tf ⎕NCOPY af
-     '[dist]/Application/Dado created and copied to installed location.'
+     '[dist]/Application/Dado created and copied to ',tf
  }

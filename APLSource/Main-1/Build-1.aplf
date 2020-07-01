@@ -16,8 +16,8 @@
      _←c GenerateManifest m
      _←c GenerateApplicationNotes m
      _←c GenerateReleaseNotes 0
-     _←pf BuildWorkspace ⍵  ⍝ BuildWorkspace_
-     _←pf ExecuteOnBuild ⍵  ⍝ ExecuteOnBuild_
+     _←c BuildWorkspace ⍵  ⍝ BuildWorkspace_
+     _←c ExecuteOnBuild ⍵  ⍝ ExecuteOnBuild_
      zs←c.DistFolder,'Application'
      zt←rf,c._Name,'-Application-',⍵,'.zip'
      _←Zip zs zt

@@ -1,7 +1,6 @@
  ExecuteOnBuild←{
-     ⍺←0
      v←⍵
-     pf←GetProjectFolder ⍺
+     pf←⍺.ProjectFolder
      q←{'''',⍵,''''}
      l←⊂']Dado.Version'
      l,←⊂'rc em←',(q pf),' ⎕SE.Dado.##.ExecuteOnBuild_ ',q v

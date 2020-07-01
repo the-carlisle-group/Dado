@@ -1,0 +1,5 @@
+ GetDyalogSystemFolder←{
+     d←⍵ DefaultParameter'Dyalog' ''
+     0=≢d:0
+     ⍵.ParentFolder,'.DyalogSystem/Versions/',d,'/'
+ }

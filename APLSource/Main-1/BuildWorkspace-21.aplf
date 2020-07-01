@@ -1,7 +1,8 @@
  BuildWorkspace←{
-     ⍺←0
      v←⍵
-     pf←GetProjectFolder ⍺
+     pf←⍺.ProjectFolder
+     df←⍺.DyalogSystem
+     dx←df,(0<≢df)/'dyalog.exe'
      q←{'''',⍵,''''}
      l←⊂']Dado.Version'
      ⍝ Once saving from ⎕SE works, we can simply do:
@@ -9,5 +10,5 @@
      l,←⊂'rc em←',(q pf),' (⎕NS ⎕SE.zApps.Dado.Dado).Main.BuildWorkspace_ ',q v
      l,←⊂'em'
      l,←⊂'⎕OFF (10+rc)'
-     ExecuteAPL l
+     dx ExecuteAPL l
  }
