@@ -3,8 +3,8 @@
      ⍝ ⍵ ←→ Version
      ⍺←0
      pf←GetProjectFolder ⍺
-     c←GetConfigSpace pf
      0=≢pf:1 'Not in a project'
+     c←GetConfigSpace pf
      _←3 ⎕NDELETE c.DistFolder
      rf←GetReleaseArtifactsFolder c
      _←2 ⎕MKDIR rf
