@@ -5,7 +5,7 @@
      q←{6::0 ⋄ ⍵.Public}s
      n←'BuildIDs',⍨q⊃'Private' 'Public'
      u←n,⍨↑⎕NPARTS s.URL
-     d←s.ParentFolder,'.',n
+     d←s.ProjectsFolder,'.',n
      r←DownloadProject u d
      ∨/r∊⊂'remote: Repository not found.':0
      f←d,'/BuildIDs.json'

@@ -1,7 +1,7 @@
  BuildWorkspace←{
      v←⍵
      pf←⍺.ProjectFolder
-     df←⍺.DyalogSystem
+     df←⍺.DyalogVersionFolder
      dx←df,(0<≢df)/'dyalog.exe'
      q←{'''',⍵,''''}
      l←⊂']Dado.Version'

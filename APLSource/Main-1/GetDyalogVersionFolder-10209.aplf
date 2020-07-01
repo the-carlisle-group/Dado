@@ -1,0 +1,5 @@
+ GetDyalogVersionFolder←{
+     d←⍵ DefaultParameter'Dyalog' ''
+     0=≢d:''
+     ⍵.ProjectsFolder,'.DyalogSystem/Versions/',d,'/'
+ }
