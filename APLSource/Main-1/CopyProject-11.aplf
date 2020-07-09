@@ -9,7 +9,7 @@
      t←af,⍵.ProjectFolderName
      _←2 ⎕MKDIR t
      p←↑(⎕NINFO⍠1)f,'*'
-     q←f∘,¨'dist' 'APLSource' '.git' '.gitignore' '.gitattributes'
+     q←f∘,¨'dist' 'APLSource' '.git' '.gitignore' '.gitattributes' '.github'
      _←t∘⎕NCOPY¨p~q
      _←0 DeleteDevFolders GetConfigSpace t
      0
