@@ -1,0 +1,15 @@
+ BuildNSS←{
+     ⍺←1
+     n←↑⌽{⍵⊆⍨'.'≠⍵}⍕⍵
+     n≡'[Namespace]':''
+     t←{16::'' ⋄ ⎕SRC ⍵}⍵
+     0<≢t:t
+     r←⊂':Namespace ',⍺/n
+     q←{(⊂'∇',↑⍵),(1↓⍵),⊂,'∇'}
+     r,←↑,/q¨⍵.⎕NR¨⍵.⎕NL-3.1 4.1
+     r,←↑,/⍵.⎕NR¨⍵.⎕NL-3.2 4.2
+     s←⍵{⍵[⍋⍺.⎕NC ⍵]}⍵.⎕NL-9
+     0=≢s:r,⊂':EndNamespace'
+     r,←↑,/∇¨⍵⍎¨s
+     r,⊂':EndNamespace'
+ }

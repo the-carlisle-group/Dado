@@ -1,0 +1,18 @@
+ UnscriptableFunctions←{
+     o←refs ⍵                      ⍝ Find all objects
+     s←(9.1=⎕NC⍕¨o)/o              ⍝ Remove unnamed namespaces and classes
+     r←({16::1 ⋄ 0⊣⎕SRC ⍵}¨s)/s    ⍝ Remove scripted namespaces
+     f←r.⎕NL⊂-3 4                  ⍝ All funs/ops
+     f r←(0≠≢¨f)∘/¨f r             ⍝ Remove empties
+     n←↑,/((⍕¨r),¨'.'){⍺∘,¨⍵}¨f    ⍝ All FQP names
+     q←{(⊂'∇',↑⍵),(1↓⍵),⊂,'∇'}     ⍝
+     t←(⎕NC n)∊3.1 4.1             ⍝ Trad
+     en em←↓⍉⊃t{
+         p←⊂':Namespace'
+         p,←(q⍣⍺)⎕NR ⍵
+         p,←⊂':EndNamespace'
+         0::⎕DMX.EN ⎕DMX.Message
+         (0⊣1 ⎕FIX p)''
+     }¨n
+     (en≠0)⌿⍉⊃n en em
+ }

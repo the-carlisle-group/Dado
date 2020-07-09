@@ -1,0 +1,37 @@
+ TestBuildNSS←{
+     A←##.Main
+     ⍝ Construct a script
+     s←⊂':Namespace'
+
+     ⍝s,←⊂':Namespace MoreCode'
+⍝     s,←⊂'∇Z←Double X'
+⍝     s,←⊂':Access Public Shared'
+⍝     s,←⊂'Z←X×2'
+⍝     s,←⊂'∇'
+⍝     s,←⊂':EndNamespace'
+⍝
+     s,←⊂':Class MyClass'
+     s,←⊂':Include MoreCode'
+     s,←⊂'∇Z←Triple X'
+     s,←⊂':Access Public Shared'
+     s,←⊂'Z←X×3'
+     s,←⊂'∇'
+     s,←⊂':EndClass'
+
+     s,←⊂':Namespace MoreCode'
+     s,←⊂'∇Z←Double X'
+     s,←⊂':Access Public Shared'
+     s,←⊂'Z←X×2'
+     s,←⊂'∇'
+     s,←⊂':EndNamespace'
+
+
+
+     s,←⊂':EndNamespace'
+     r←⎕FIX s
+     12≠r.MyClass.Triple 4:1
+     8≠r.MoreCode.Double 4:1
+     8≠r.MyClass.Double 4:1
+     0
+
+ }
