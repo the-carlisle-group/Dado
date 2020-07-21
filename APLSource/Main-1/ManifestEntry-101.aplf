@@ -2,6 +2,8 @@
      s←⎕NS''
      s.URL←⍵.URL
      s.Version←⍵.Version
+     s.Folder←⍵.ProjectFolderName
+     s.ProjectSpace←⍵._ProjectSpace
      ⍵.IsPackage:s
      p←⍵.ProjectFolder
      s.Branch←p GetCurrentBranch 0

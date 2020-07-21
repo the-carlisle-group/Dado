@@ -1,14 +1,16 @@
  BuildNSS←{
+     ⍝ ⍺ ←→ Named namespace
      ⍺←1
      n←↑⌽{⍵⊆⍨'.'≠⍵}⍕⍵
-     n≡'[Namespace]':''
+     '['=↑n:''
      t←{16::'' ⋄ ⎕SRC ⍵}⍵
      0<≢t:t
      r←⊂':Namespace ',⍺/n
+     r,←⊂'⎕IO ⎕ML←',⍕⍵.⎕IO ⍵.⎕ML
      q←{(⊂'∇',↑⍵),(1↓⍵),⊂,'∇'}
      r,←↑,/q¨⍵.⎕NR¨⍵.⎕NL-3.1 4.1
      r,←↑,/⍵.⎕NR¨⍵.⎕NL-3.2 4.2
-     s←⍵{⍵[⍋⍺.⎕NC ⍵]}⍵.⎕NL-9
+     s←⍵{⍵[⍋⍺.⎕NC ⍵]}⍵.⎕NL-9.1 9.4 9.5
      0=≢s:r,⊂':EndNamespace'
      r,←↑,/∇¨⍵⍎¨s
      r,⊂':EndNamespace'

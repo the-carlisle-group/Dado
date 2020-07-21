@@ -1,0 +1,26 @@
+ BuildScript_←{
+     ⍝ ⍺ ←→ Project Folder
+     ⍝ ⍵ ←→ Version
+     ⍝ ← ←→ Return code, error message
+     ⍺←0
+     pf←GetProjectFolder ⍺
+     c←GetConfigSpace pf
+     0=≢pf:1 'Not in a project'
+     746::1 ⎕DMX.EM
+     m←RemoveDevelopmentPackages pf Retrieve ⍵
+     f←m.ProjectFolder
+     af←GetApplicationFolder c
+     uc←']acre.OpenProject '
+     up←' -track=off -dependencies=off'
+     load←{⎕SE.UCMD uc,'"',⍵,'" ',⍺,up}
+     s←⌽⍎¨(⌽m._ProjectSpace)load¨⌽f
+     _←DeleteDevSpaces¨m
+     t←BuildNSS¨s
+     m.ProjectFolderName←GetAppPackFolder m
+     fn←{af,⍵,'/APLSource.apln'}¨m.ProjectFolderName
+     _←t nput¨fn
+     d←0 BuildNSS ⎕THIS
+     _←d nput af,'Dado.apln'
+     _←((⊂':Namespace Run'),(⎕NR'Run'),⊂':EndNamespace')nput af,'Run.apln'
+     0 'OK'
+ }

@@ -1,0 +1,15 @@
+ Run←{
+     ⍺←↑⎕NPARTS 2 ⎕NQ'.' 'GetEnvironment' 'load'
+     f←⍺
+     m←⎕JSON∊↑⎕NGET(f,'Manifest.json')1
+     p←m.Packages
+     r←{1↓∊'.',¨¯1↓⍵⊆⍨'.'≠⍵}¨p.ProjectSpace
+     r←⍎¨r ⎕NS¨⊂''
+     d←0 #.⎕FIX'file://',f,'Dado.apln'
+     s←1 r.⎕FIX{'file://',f,⍵,'/APLSource.apln'}¨p.Folder
+     c←d.GetConfigSpace¨f∘,¨p.Folder
+     s.AcreConfig←s.⎕NS c
+     _←d.CheckAPLVersion¨c
+     _←s∘d.SetReferences¨s
+     'Done'
+ }
