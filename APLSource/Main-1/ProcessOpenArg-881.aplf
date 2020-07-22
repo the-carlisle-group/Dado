@@ -1,5 +1,6 @@
  ProcessOpenArg←{
      b←' -f'≡¯3↑⍵
-     p←(b×¯3)↓⍵
+     ⎕USING←,⊂⍕'System'
+     p←Environment.ExpandEnvironmentVariables(b×¯3)↓⍵
      p b
  }
