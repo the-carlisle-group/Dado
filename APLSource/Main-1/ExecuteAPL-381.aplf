@@ -9,8 +9,17 @@
      (x a)←2↑(⊆⍺),⊂'ShowStatusOnError=0 Dyalog_LineEditor_Mode=1'
      cx←↑2 ⎕NQ'.' 'GetCommandLineArgs'
      in←∊(⊆⍵),¨⎕UCS 13
-     ⎕USING←'System'∘,¨'' '.IO' '.Diagnostics,System.dll'
-     p←⎕NEW Process
+     c←'1'≡↑2 ⎕NQ'.' 'GetEnvironment' 'DYALOG_NETCORE'
+     _net←⎕NS''
+     _net.⎕USING←{
+         ~c:'System' 'System.IO' 'System.Diagnostics,System.dll'
+         cp←GetNetCorePath''
+         u←'' 'System'
+         u,←⊆'System.IO,',cp,'System.Runtime.Extensions.dll'
+         u,←⊂'System.Diagnostics,',cp,'System.Diagnostics.Process.dll'
+         u}c
+     r←⎕NS''
+     p←⎕NEW _net.Process
      i←p.StartInfo
      i.FileName←x cx⊃⍨0=≢x
      i.Arguments←a
@@ -19,12 +28,12 @@
      i.RedirectStandardError←1
      i.UseShellExecute←0
      _←p.Start ⍬
-     sw←⎕NEW StreamWriter p.StandardInput.BaseStream
+     sw←⎕NEW _net.StreamWriter p.StandardInput.BaseStream
      op←{6::0 ⋄ ⍺⍺ ⍵}
      _←sw.Write op⊂in
      _←{6::0 ⋄ z←sw.Close}0
      r←⎕NS''
-     sr←⎕NEW StreamReader p.StandardError.BaseStream
+     sr←⎕NEW _net.StreamReader p.StandardError.BaseStream
      r.SessionOutput←{(~' '∧.=¨⍵)/⍵}{⍵⊆⍨~⍵∊⎕UCS 13 10}sr.ReadToEnd
      _←p.WaitForExit op ⍬
      r.ExitCode←p.ExitCode

@@ -1,0 +1,6 @@
+ GetNetCorePath←{
+     n←⎕NS''
+     n.⎕USING←'' 'System'
+     p←0⊃⎕NPARTS↑n.AppDomain.CurrentDomain.GetAssemblies.CodeBase
+     (8×'file:///'≡8↑p)↓p
+ }
