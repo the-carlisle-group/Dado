@@ -1,4 +1,5 @@
  RetrieveDependency←{
+     ⍝ ⍺ ←→ Project Folder
      ⍝ ⍵ ←→ Dependency Space
      ⍝ ← ←→ Project or Package Config Space
      ⍝ Do not replace ⎕CMD below with RunProcess. See issue #53
@@ -14,9 +15,15 @@
      u←(jf≢'')⊃u('file://',jf)
      kn←∊1↓⎕NPARTS ¯1↓kf
      ⎕←'Retrieving "',kn,'" from ',u,'...'
+     u←⍺{
+         'file'≡4↑⍵:⍵
+         t←GetGithubToken ⍺,'../'
+         t,←(0≠≢t)↑'@'
+         'https://',t,8↓⍵
+     }u
      sw←'--depth 1 --branch ',v
      q←{'"',⍵,'"'}
-     l←1↓∊' ',¨'clone'sw(q u)(q kf)
+     l←1↓∊' ',¨'clone'sw(q tu)(q kf)
      r←⎕CMD'git ',l
      _←DeleteGitItems kf
      c←⍵ GetConfigSpace kf

@@ -9,7 +9,7 @@
      d.LocalProjects←⊂⍵.LocalProjects
      d.SignalError←⍵.SignalError
      d.ProjectOverride←⍵.ProjectOverride
-     c←RetrieveDependency¨d
+     c←⍵.ProjectFolder∘RetrieveDependency¨d
      c.Development←{6::0 ⋄ ⍵.Development}¨d
      n←~c.(URL Version)∊{0=≢⍵:'' ⋄ ⍵.(URL Version)}⍺
      ↑∇⍨/(n/c),⊂⍺,⍵

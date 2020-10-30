@@ -1,7 +1,11 @@
  DownloadProject←{
+     ⍝ ⍺ ←→ Parent project config space
      ⍝ ⍵ ←→ url, directory
      u d←⍵
      ⎕NEXISTS d:d PullMaster''
+     t←GetGithubToken ⍺.ProjectsFolder
+     t,←(0≠≢t)↑'@'
+     u←'https://',t,8↓u
      c←'clone ',u,' "',d,'"'
      r←RunProcess'git'c
      r.StdErr
