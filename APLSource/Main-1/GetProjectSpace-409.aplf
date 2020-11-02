@@ -12,6 +12,6 @@
      0≡⍵:f↑⌽⎕RSI
      r←⎕SE.UCMD']acre.Projects'
      s←⍎¨r[;0]
-     i←s.AcreConfig.ProjectFolder⍳⊂⍵
+     i←s.AcreConfig.ProjectFolder⍳⊂FixPath lowercase ⍵
      i⊃s
  }

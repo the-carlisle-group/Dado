@@ -10,14 +10,15 @@
      cx←↑2 ⎕NQ'.' 'GetCommandLineArgs'
      in←∊(⊆⍵),¨⎕UCS 13
      c←'1'≡↑2 ⎕NQ'.' 'GetEnvironment' 'DYALOG_NETCORE'
+     c∨←'W'≠↑0⊃'#'⎕WG'APLVersion'
      _net←⎕NS''
      _net.⎕USING←{
          ~c:'System' 'System.IO' 'System.Diagnostics,System.dll'
-         cp←GetNetCorePath''
          u←'' 'System'
-         u,←⊆'System.IO,',cp,'System.Runtime.Extensions.dll'
-         u,←⊂'System.Diagnostics,',cp,'System.Diagnostics.Process.dll'
+         u,←⊆'System.IO,System.Runtime.Extensions'
+         u,←⊂'System.Diagnostics,System.Diagnostics.Process'
          u}c
+
      r←⎕NS''
      p←⎕NEW _net.Process
      i←p.StartInfo

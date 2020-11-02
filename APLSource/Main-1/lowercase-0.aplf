@@ -1,0 +1,4 @@
+ lowercase←{
+     ⎕USING←'System'
+     (⎕NEW String(⊆⍵)).ToLower ⍬
+ }

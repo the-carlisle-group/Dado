@@ -23,7 +23,7 @@
      }u
      sw←'--depth 1 --branch ',v
      q←{'"',⍵,'"'}
-     l←1↓∊' ',¨'clone'sw(q tu)(q kf)
+     l←1↓∊' ',¨'clone'sw(q u)(q kf)
      r←⎕CMD'git ',l
      _←DeleteGitItems kf
      c←⍵ GetConfigSpace kf

@@ -2,8 +2,9 @@
      ⍝ ⍵ ←→ Project Folder
      ⍝      or Project Space
      ⍝      or 0, in context
-     0=80|⎕DR ⍵:∊1 ⎕NPARTS ⍵,'/'
-     p←GetProjectSpace ⍵
+     pf←FixPath ⍵
+     0=80|⎕DR ⍵:∊1 ⎕NPARTS pf,'/'
+     p←GetProjectSpace pf
      p=0:''
      p.AcreConfig.ProjectFolder
  }
