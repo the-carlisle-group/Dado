@@ -1,5 +1,8 @@
  FixPath←{
     ⍝ ⍵ ←→ Filepath
     ⍝ ← ←→ Normalized filepath
-     ('/'@('\'=⊢))⍵
+     0≠80|⎕DR ⍵:⍵
+     p←('/'@('\'=⊢))⍵
+     p,←('/'≠¯1↑p)/'/'
+     p
  }
