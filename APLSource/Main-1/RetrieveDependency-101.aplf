@@ -17,7 +17,7 @@
      ⎕←'Retrieving "',kn,'" from ',u,'...'
      u←⍺{
          'file'≡4↑⍵:⍵
-         t←GetGithubToken ⍺,'../'
+         t←GetGithubToken ⍺
          t,←(0≠≢t)↑'@'
          'https://',t,8↓⍵
      }u
