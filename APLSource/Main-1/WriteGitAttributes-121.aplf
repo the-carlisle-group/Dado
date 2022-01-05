@@ -1,0 +1,8 @@
+ WriteGitAttributes←{
+     ⍺←0
+     p←GetProjectFolder ⍺
+     f←p,'.gitattributes'
+     t←'*.apl? linguist-language=APL'
+     _←(⊂t)⎕NPUT f 1
+     0
+ }
