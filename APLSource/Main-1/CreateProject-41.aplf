@@ -4,6 +4,7 @@
      _←p EnhanceAcreConfig''
      p.AcreConfig←GetConfigSpace p
      _←p WriteGitIgnore''
+     _←p WriteGitAttributes''
      ⎕←p RunGitCommand'init'
      ⎕←p RunGitCommand'add .'
      ⎕←p RunGitCommand'commit -m ','"~First commit"'
