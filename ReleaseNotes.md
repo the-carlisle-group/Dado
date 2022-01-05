@@ -1,4 +1,13 @@
-# Dado Release 0.0.76                    
+# Dado Release 0.0.77                    
+1. Add default OnSave to config file
+2. Add OnSave config parameter
+3. Create gitattributes file (Issue #88) (#92)
+4. Accommodate SSH URLs (#89)
+5. Intitial effort at distributing code in namespace scripts
+6. Add .github folder to omit list in CopyProject (Issue #71)
+7. Add project-to-scripted namespace functionality
+
+# Dado Release 0.0.76 2020-07-01 16:54:15
 1. Add DyalogProjectsFolder to config file
 2. Split session output on Build into multiple lines (Issue #69)
 3. Provide proper error message on Build when not in project (Issue #66)
