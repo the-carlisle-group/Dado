@@ -3,13 +3,11 @@
      ⍝ ⍵[0] ←→ Executable
      ⍝ ⍵[1] ←→ Argument
      ⍺←1
-     c←'1'≡↑2 ⎕NQ'.' 'GetEnvironment' 'DYALOG_NETCORE'
-     c∨←'W'≠↑0⊃'#'⎕WG'APLVersion'
      _net←⎕NS''
      _net.⎕USING←{
          ⍵:'System' 'System.IO,System.Runtime.Extensions' 'System.Diagnostics,System.Diagnostics.Process'
          'System' 'System.IO' 'System.Diagnostics,System.dll'
-     }c
+     }IsNetCore''
      r←⎕NS''
      p←⎕NEW _net.Process
      i←p.StartInfo
