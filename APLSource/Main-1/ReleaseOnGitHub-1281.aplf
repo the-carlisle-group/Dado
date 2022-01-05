@@ -35,6 +35,8 @@
          au.ContentType←gct ⍵
          au.RawData←f
          resultUpload←c.Repository.Release.UploadAsset(release au)
+         _←⎕DL 1
+         _←resultUpload.Result
          0
      }¨u
      'Done'
