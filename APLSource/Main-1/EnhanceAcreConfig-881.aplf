@@ -6,6 +6,7 @@
      _←⍺ SetConfigParam'DevelopmentSpaces'⍬
      _←⍺ SetConfigParam'API' ''
      _←⍺ SetConfigParam'OnApplicationStartup' ''
+     _←⍺ SetConfigParam'OnSave' ''
      _←⍺ SetConfigParam'OnBuild' ''
      _←⍺ SetConfigParam'Version' '0.0.0'
      0
