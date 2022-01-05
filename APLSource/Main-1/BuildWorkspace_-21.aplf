@@ -21,6 +21,7 @@
      s.AcreConfig←s.⎕NS m
      _←s∘SetReferences¨s
      #.⎕LX←SetQuadLX↑s
+     _←(↑s)Execute'OnSave'
      _←0 ⎕SAVE af,c._Name,'.dws'
      0 'OK'
  }
