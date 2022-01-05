@@ -9,6 +9,7 @@
      rf←GetReleaseArtifactsFolder c
      _←2 ⎕MKDIR rf
      746::1 ⎕DMX.EM
+     _←ProcessExternalDependencies c
      c.BuildID←c GetBuildID 0
      m←RemoveDevelopmentPackages pf Retrieve ⍵
      m.ProjectFolderName←GetAppPackFolder m
