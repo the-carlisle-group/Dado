@@ -1,0 +1,5 @@
+ IsNetCore←{
+     c←'1'≡↑2 ⎕NQ'.' 'GetEnvironment' 'DYALOG_NETCORE'
+     c∨←'W'≠↑0⊃'#'⎕WG'APLVersion'
+     c
+ }

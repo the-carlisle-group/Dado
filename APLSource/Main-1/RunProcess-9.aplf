@@ -3,9 +3,13 @@
      ⍝ ⍵[0] ←→ Executable
      ⍝ ⍵[1] ←→ Argument
      ⍺←1
+     _net←⎕NS''
+     _net.⎕USING←{
+         ⍵:'System' 'System.IO,System.Runtime.Extensions' 'System.Diagnostics,System.Diagnostics.Process'
+         'System' 'System.IO' 'System.Diagnostics,System.dll'
+     }IsNetCore''
      r←⎕NS''
-     ⎕USING←'System' 'System.IO' 'System.Diagnostics,System.dll'
-     p←⎕NEW Process
+     p←⎕NEW _net.Process
      i←p.StartInfo
      i.FileName←0⊃⍵
      i.Arguments←1⊃⍵
@@ -15,8 +19,8 @@
      i.UseShellExecute←0
      i.CreateNoWindow←1
      _←p.Start ⍬
-     re←⎕NEW StreamReader p.StandardError.BaseStream
-     ro←⎕NEW StreamReader p.StandardOutput.BaseStream
+     re←⎕NEW _net.StreamReader p.StandardError.BaseStream
+     ro←⎕NEW _net.StreamReader p.StandardOutput.BaseStream
      t←r{⍺.StdErr←⍵.ReadToEnd}&re
      r.StdOut←ro.ReadToEnd
      op←{6::0 ⋄ z←⍺⍺ ⍵}

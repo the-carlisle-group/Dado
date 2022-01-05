@@ -1,8 +1,8 @@
  ExecuteOnBuild_←{
      ⍺←0
      pf←GetProjectFolder ⍺
-     c←GetConfigSpace pf
      0=≢pf:1 'Not in a project'
+     c←GetConfigSpace pf
      746::1 ⎕DMX.EM
      m←pf Retrieve ⍵
      f←m.ProjectFolder
