@@ -1,0 +1,1 @@
+ ToLowerCase←{('.+'⎕R'\l0')⍵}
