@@ -1,9 +1,0 @@
- ProcessExternalDependencies←{
-     ⍝ ⍵ ←→ Project Config Space
-     2≠⍵.⎕NC'ExternalDependencies':⍬
-     0=≢⍵.ExternalDependencies:⍬
-     e←⍵.ExternalDependencies
-     e.Directory←{2=⍵.⎕NC'Directory':⍵.Directory ⋄ 1⊃⎕NPARTS ⍵.URL}¨e
-     _←⍵ DownloadProject¨↓⍉⊃e.URL(⍵.ProjectsFolder∘,¨e.Directory)
-     ⍵
- }

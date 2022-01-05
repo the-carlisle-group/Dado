@@ -6,7 +6,6 @@
      0=≢pf:1 'Not in a project'
      c←GetConfigSpace pf
      _←3 ⎕NDELETE c.DistFolder
-     rf←GetReleaseArtifactsFolder c
      _←2 ⎕MKDIR rf
      746::1 ⎕DMX.EM
      _←ProcessExternalDependencies c
