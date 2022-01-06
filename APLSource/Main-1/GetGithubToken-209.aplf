@@ -1,0 +1,8 @@
+ GetGithubToken←{
+     ⍝ ⍵ ←→ Projects Folder
+     ⍝ ← ←→ GitHub Personal Access Token
+     p←⍵,'GitHubToken.txt'
+     ~⎕NEXISTS p:''
+     t←0⊃⎕NGET p
+     t~⎕UCS 13 10
+ }

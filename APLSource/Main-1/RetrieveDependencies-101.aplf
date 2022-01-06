@@ -9,6 +9,7 @@
      d.LocalProjects←⊂⍵.LocalProjects
      d.SignalError←⍵.SignalError
      d.ProjectOverride←⍵.ProjectOverride
+     d.Token←⊂GetGithubToken ⍵.ProjectsFolder
      c←RetrieveDependency¨d
      c.Development←{6::0 ⋄ ⍵.Development}¨d
      n←~c.(URL Version)∊{0=≢⍵:'' ⋄ ⍵.(URL Version)}⍺

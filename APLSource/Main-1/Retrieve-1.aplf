@@ -10,6 +10,7 @@
      d.LocalProjects←RetrieveLocalProjects ⍺
      d.SignalError←1
      d.ProjectOverride←0=≢⍵
+     d.Token←GetGithubToken c.ProjectsFolder
      pc←RetrieveDependency d
      RetrieveDependencies pc
  }

@@ -1,0 +1,7 @@
+ AddTokenToURL←{
+ ⍝ ⍺ ←→ Git auth. token
+ ⍝ ⍵ ←→ URL
+     0=≢⍺:⍵
+     'https'≢5↑⍵:⍵
+     'https://',⍺,'@',8↓⍵
+ }

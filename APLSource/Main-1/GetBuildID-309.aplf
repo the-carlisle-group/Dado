@@ -6,7 +6,8 @@
      n←'BuildIDs',⍨q⊃'Private' 'Public'
      u←n,⍨↑⎕NPARTS s.URL
      d←s.ProjectsFolder,'.',n
-     r←DownloadProject u d
+     t←GetGithubToken s.ProjectsFolder
+     r←t DownloadProject u d
      ∨/r∊⊂'remote: Repository not found.':0
      f←d,'/BuildIDs.json'
      b←{0::'' ⋄ ⎕JSON↑⎕NGET ⍵}f
