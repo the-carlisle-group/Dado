@@ -1,4 +1,9 @@
-# Dado Release 0.0.77                    
+# Dado Release 0.0.80                    
+1. Feature/GitHub pat support (#98)
+2. OpenProject error when leading spaces present in the path (#97)
+3. Minor changes (#95)
+
+# Dado Release 0.0.77 2022-01-05 11:47:36
 1. Add default OnSave to config file
 2. Add OnSave config parameter
 3. Create gitattributes file (Issue #88) (#92)
