@@ -1,8 +1,9 @@
  FixPath←{
-    ⍝ ⍵ ←→ Filepath
+    ⍝ ⍵ ←→ Directory path
     ⍝ ← ←→ Normalized filepath
     ⍝ Add trailing slash if required.
     ⍝ ⎕NINFO fails on nonstandard and nonexistent paths.
+     0≠80|⎕DR ⍵:⍵
      p←('/'@('\'=⊢))⍵
      p,←('/'≠¯1↑p)/'/'
      p
