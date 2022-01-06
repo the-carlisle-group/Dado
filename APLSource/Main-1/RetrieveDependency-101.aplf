@@ -11,6 +11,7 @@
      ⍵.ProjectOverride∧jf≢'':⍵ GetConfigSpace jf
      kf←PackageFQP ⍵
      ⎕NEXISTS kf:⍵ GetConfigSpace kf
+     _←{⍵≡'':0 ⋄ ⍵ PullMaster''}jf
      u←(jf≢'')⊃u('file://',jf)
      kn←∊1↓⎕NPARTS ¯1↓kf
      ⎕←'Retrieving "',kn,'" from ',u,'...'
