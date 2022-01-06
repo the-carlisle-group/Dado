@@ -1,6 +1,9 @@
  ProcessOpenArg←{
-     b←' -f'≡¯3↑⍵
+     ⍝ Process project path for Environment variables and leading blanks.
+     ⍝ ⍵ ←→ Project path
+     p←{(∨\' '≠⍵)/⍵}⍵
+     b←' -f'≡¯3↑p
      ⎕USING←,⊂⍕'System'
-     p←Environment.ExpandEnvironmentVariables(⊆ (b×¯3)↓⍵)
-     p b
+     pp←Environment.ExpandEnvironmentVariables(⊆(b×¯3)↓p)
+     pp b
  }
