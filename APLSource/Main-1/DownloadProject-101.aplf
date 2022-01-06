@@ -1,8 +1,11 @@
  DownloadProject←{
+     ⍝ ⍺ ←→ Git token or empty
      ⍝ ⍵ ←→ url, directory
+     ⍺←''
      u d←⍵
      ⎕NEXISTS d:d PullMaster''
-     c←'clone ',u,' "',d,'"'
+     au←⍺ AddTokenToURL u
+     c←'clone ',au,' "',d,'"'
      r←RunProcess'git'c
      r.StdErr
  }

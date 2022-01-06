@@ -14,9 +14,10 @@
      u←(jf≢'')⊃u('file://',jf)
      kn←∊1↓⎕NPARTS ¯1↓kf
      ⎕←'Retrieving "',kn,'" from ',u,'...'
+     au←⍵.Token AddTokenToURL u
      sw←'--depth 1 --branch ',v
      q←{'"',⍵,'"'}
-     l←1↓∊' ',¨'clone'sw(q u)(q kf)
+     l←1↓∊' ',¨'clone'sw(q au)(q kf)
      r←⎕CMD'git ',l
      _←DeleteGitItems kf
      c←⍵ GetConfigSpace kf
