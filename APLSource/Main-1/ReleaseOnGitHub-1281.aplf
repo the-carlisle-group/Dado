@@ -10,8 +10,7 @@
      r.Body←0⊃⎕NGET af,'MarginalReleaseNotes.md'
      r.Tag←⍵
      r.Assets←↑(⎕NINFO⍠1)df,'ReleaseArtifacts/*.*'
-     r.URL←'https://api.github.com/repos/'
-     r.URL,←19↓s.URL
+     r.URL←'https://api.github.com/repos/',19↓s.URL
      r.GitToken←GetGithubToken p,'../'
      r←GitHubCreateRelease r
      'Done'
