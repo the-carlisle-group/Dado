@@ -1,4 +1,8 @@
-# Dado Release 0.0.80                    
+# Dado Release 0.0.81                    
+1. Remove OctoKit with native GitHub API calls (#100)
+2. Fix issue #90
+
+# Dado Release 0.0.80 2022-01-06 15:24:56
 1. Feature/GitHub pat support (#98)
 2. OpenProject error when leading spaces present in the path (#97)
 3. Minor changes (#95)
