@@ -1,0 +1,23 @@
+ GitHubCreateRelease←{
+    ⍝ Create release on GitHub
+    ⍝ ⍵ ←→ Property space
+     b←⎕NS''
+     b.name←⍵.Tag
+     b.tag_name←⍵.Tag
+     b.body←⍵.Body
+     http←⎕SE.SALT.New'HTTPCommand'
+     http.Headers←1 2⍴'Accept' 'application/vnd.github.v3+json'
+     http.Headers⍪←'Content-Type' 'application/json'
+     http.Headers⍪←'Authorization'('token ',⍵.GitToken)
+     http.URL←⍵.URL,'/releases'
+     http.Params←⎕JSON b
+     http.Command←'POST'
+     r←http.Run
+     201≠r.HttpStatus:'Error creating GitHub project.'⎕SIGNAL 11
+     d←⎕JSON r.Data
+     0=≢⍵.Assets:0
+     ⍵.AssetsURL←d.assets_url
+     ⍵.AssetsUploadURL←d.upload_url
+     _←⍵ GitHubReleaseUploadAsset¨⍵.Assets
+     0
+ }
