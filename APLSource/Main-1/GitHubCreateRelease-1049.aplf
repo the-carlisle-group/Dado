@@ -1,4 +1,6 @@
  GitHubCreateRelease←{
+    ⍝ Create release on GitHub
+    ⍝ ⍵ ←→ Property space
      b←⎕NS''
      b.name←⍵.Tag
      b.tag_name←⍵.Tag

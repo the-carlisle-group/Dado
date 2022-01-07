@@ -1,5 +1,7 @@
  GitHubReleaseUploadAsset←{
-
+    ⍝ Upload release file asset to existing release
+    ⍝ ⍺ ←→ Property space
+    ⍝ ⍵ ←→ Filepath
      gct←{
          e←0(819⌶)2⊃⎕NPARTS ⍵
          e≡'.dll':'application/octet-stream'
@@ -8,10 +10,11 @@
          'application/octet-stream'
      }⍵
 
+
      rawread←{              ⍝ Read native file ⍵
          t←⍵ ⎕NTIE 0        ⍝ Tie w/nxt avail num<
          s←⎕NSIZE t         ⍝ Bytes
-         b←⎕NREAD t 82 s 0  ⍝ Read em all
+         b←⎕NREAD t 83 s 0  ⍝ Read em all
          t←⎕NUNTIE t        ⍝ Untie it
          b                  ⍝ Return
      }
@@ -20,8 +23,7 @@
      http.Headers←1 2⍴'Accept' 'application/vnd.github.v3+json'
      http.Headers⍪←'Content-Type'gct
      http.Headers⍪←'Authorization'('token ',⍺.GitToken)
-     http.Params←rawread ⍵
-     http.(Params←⎕UCS'UTF-8'⎕UCS Params)
+     http.Params←80 ⎕DR rawread ⍵
      http.Command←'POST'
      http.URL←¯13↓⍺.AssetsUploadURL
      http.URL,←'?name=',∊1↓⎕NPARTS ⍵
