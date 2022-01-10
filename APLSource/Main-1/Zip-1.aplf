@@ -4,7 +4,7 @@
      _net←⎕NS''
      _net.⎕USING←{
          u←'System.IO.Compression,System.IO.Compression.'
-         u,(⍵⊃'FileSystem' 'ZipFile'),'.dll'
+         u,⍵⊃'FileSystem.dll' 'ZipFile'
      }IsNetCore''
      6::0
      0{⍺}_net.ZipFile.CreateFromDirectory ⍵
