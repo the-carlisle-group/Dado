@@ -1,4 +1,9 @@
-# Dado Release 0.0.81                    
+# Dado Release 0.0.82                    
+1. Fix uploading large files and files with blanks
+2. Make Zip .NET Core Compatible (#101)
+3. Update README.md
+
+# Dado Release 0.0.81 2022-01-06 18:01:15
 1. Remove OctoKit with native GitHub API calls (#100)
 2. Fix issue #90
 
