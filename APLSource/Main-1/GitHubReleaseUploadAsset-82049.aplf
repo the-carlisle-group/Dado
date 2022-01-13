@@ -8,8 +8,13 @@
          e≡'.msi':'application/x-msdownload'
          e≡'.zip':'application/zip'
          'application/octet-stream'
-     }⍵
+     }
 
+     percentEncode←{
+         r←⊂'%20'
+         f←' '∘=
+         ∊r@f ⍵
+     }
 
      rawread←{              ⍝ Read native file ⍵
          t←⍵ ⎕NTIE 0        ⍝ Tie w/nxt avail num<
@@ -21,12 +26,13 @@
 
      http←⎕SE.SALT.New'HTTPCommand'
      http.Headers←1 2⍴'Accept' 'application/vnd.github.v3+json'
-     http.Headers⍪←'Content-Type'gct
+     http.Headers⍪←'Content-Type'(gct ⍵)
      http.Headers⍪←'Authorization'('token ',⍺.GitToken)
      http.Params←80 ⎕DR rawread ⍵
      http.Command←'POST'
+     http.WaitTime←200
      http.URL←¯13↓⍺.AssetsUploadURL
-     http.URL,←'?name=',∊1↓⎕NPARTS ⍵
+     http.URL,←'?name=',percentEncode∊1↓⎕NPARTS ⍵
      r←http.Run
      201≠r.HttpStatus:'Error GitHub release asset not uploaded.'⎕SIGNAL 11
      0
