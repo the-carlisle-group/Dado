@@ -1,4 +1,6 @@
-# Dado Release 0.0.82                    
+# Dado Release 0.0.83                    
+
+# Dado Release 0.0.82 2022-01-12 22:40:29
 1. Fix uploading large files and files with blanks
 2. Make Zip .NET Core Compatible (#101)
 3. Update README.md
