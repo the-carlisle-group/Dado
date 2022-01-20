@@ -30,7 +30,7 @@
      http.Headers⍪←'Authorization'('token ',⍺.GitToken)
      http.Params←80 ⎕DR rawread ⍵
      http.Command←'POST'
-     http.WaitTime←200
+     http.WaitTime←600
      http.URL←¯13↓⍺.AssetsUploadURL
      http.URL,←'?name=',percentEncode∊1↓⎕NPARTS ⍵
      r←http.Run
