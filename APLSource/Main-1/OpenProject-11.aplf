@@ -8,6 +8,7 @@
      dp←RetrieveDependencies c
      dp←dp~0                 ⍝ various reasons this could happen. ???
      n←OpenOrLoad¨⌽dp
+     _←(⍎¨n)SetAttributes¨0
      _←SetupWorkspace,⍎¨n
      ⎕←'Current branch: ',pf GetCurrentBranch''
      ↑⌽n

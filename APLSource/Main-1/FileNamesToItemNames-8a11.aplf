@@ -1,0 +1,14 @@
+ FileNamesToItemNames←{
+     ⍝ ⍺ ←→ [Project Folder|Space]
+     ⍝ ⍵ ←→ File Names v/v
+     ⍺←0
+     f←9↓[1]⊃⍵
+     s←⍕GetProjectSpace ⍺
+     c←⊃∪{⍵⊆⍨~⍵∊'/.'}' '~⍨∊f
+     d←DecodeCaps c
+     c d←(~∘' '¨↓)¨c d
+     p←f(⊆⍤1)⍨~f∊'/.'
+     m←(d,⊂'')[c⍳p]
+     i←∊¨'.',¨¨(↓m)~¨⊂⊂''
+     (s''[0=≢¨i]),¨i
+ }

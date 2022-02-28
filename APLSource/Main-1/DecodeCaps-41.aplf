@@ -1,0 +1,11 @@
+ DecodeCaps←{
+     ⍝ ⍵ ←→ Matrix of case coded names
+     ⍝ ← ←→ Decoded names
+     ~'-'∊⍵:⍵
+     p←⍵(⊆⍤1)⍨⍵≠'-'
+     n←⊃p[;0]
+     c←⌽{⍵⌽⍨+/∧\' '=⍵}⌽⊃p[;1]~¨' '
+     h←⎕D,'abcdef'
+     b←(⍴n)↑⌽,[1 2]⍉(4⍴2)⊤h⍳⍉¯1 ⎕C c   ⍝ investigate (,⍤2) ←→ ,[1 2]
+     ⊣⌿b⊖⊃¯1 1 ⎕C¨⊂n
+ }
