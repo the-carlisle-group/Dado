@@ -17,7 +17,7 @@ BuildWorkspace_←{
      _←DeleteDevSpaces¨m
      _←m.⎕EX⊂'ProjectFolder'
      m.ProjectFolderName←GetAppPackFolder m
-     s.AcreConfig←#.⎕JSON ⎕JSON m            ⍝ break any interal references to ⎕se
+     s.AcreConfig←#.⎕JSON ⎕JSON m            ⍝ break any internal references to ⎕SE
      _←s.AcreConfig.⎕FX⊂⎕NR'ProjectFolder'
      _←s∘SetReferences¨s
      #.⎕LX←SetQuadLX↑s
