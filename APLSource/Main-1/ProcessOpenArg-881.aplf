@@ -1,9 +1,13 @@
  ProcessOpenArg←{
      ⍝ Process project path for Environment variables and leading blanks.
-     ⍝ ⍵ ←→ Project path
-     p←{(∨\' '≠⍵)/⍵}⍵
-     b←' -f'≡¯3↑p
+     ⍝ ⍵ ←→ Project Folder, project override flag
+     dlb←{(∨\' '≠⍵)/⍵}
+     a←dlb⌽dlb⌽⍵
+     b←' -f'≡¯3↑a
+     f←a↓⍨b×¯3
+     d←2 ⎕NQ'.' 'GetEnvironment' 'DadoProjectsFolder'
+     q←(0<≢d)∧~∨/f∊'/\'
+     p←f,⍨q/d,'/'
      ⎕USING←,⊂⍕'System'
-     pp←Environment.ExpandEnvironmentVariables(⊆(b×¯3)↓p)
-     pp b
+     (Environment.ExpandEnvironmentVariables⊂p)b
  }
