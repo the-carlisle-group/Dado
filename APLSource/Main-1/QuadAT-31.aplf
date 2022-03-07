@@ -1,0 +1,9 @@
+ QuadAT←{
+     ⍝ To avoid limit error.
+     ⍝ ⍺ ←→ Optional Values to set
+     ⍝ ⍵ ←→ Names to get or set
+     ⎕ML←1
+     p←(≢⍵)⍴4095↑1
+     0=⎕NC'⍺':⊃⍪/⎕AT¨p⊂⍵
+     (p⊂[0]⍺)(1159⌶)¨p⊂⍵
+ }

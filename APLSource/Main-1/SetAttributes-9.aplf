@@ -1,13 +1,13 @@
  SetAttributes←{
-     ⍝ ⍺ ←→ [Project Folder|Space]
-     ⍺←0
-     p←GetProjectFolder ⍺
+     ⍝ ⍵ ←→ Dependency Space
+     ⍵.IsPackage:0
+     p←⍵.ProjectFolder
      s←p GetHistory''
      b←s.(MostRecent∧Exists)
      n←b/s.APLItemName
-     a←⎕AT n
+     a←QuadAT n
      a[;1]←7↑¨b/s.CommitTS
      a[;3]←b/s.CommitBy
-     _←a(1159⌶)n
+     _←a QuadAT n
      0
  }
