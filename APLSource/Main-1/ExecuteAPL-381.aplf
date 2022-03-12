@@ -7,7 +7,7 @@
      ⍝ ← ←→ Exit Code, Session Output
      ⍺←''
      (x a)←2↑(⊆⍺),⊂'ShowStatusOnError=0 Dyalog_LineEditor_Mode=1'
-     cx←↑2 ⎕NQ'.' 'GetCommandLineArgs'
+     cx aa←2↑(2 ⎕NQ'.' 'GetCommandLineArgs'),⊂''
      in←∊(⊆⍵),¨⎕UCS 13
      _net←⎕NS''
      _net.⎕USING←{
@@ -18,7 +18,7 @@
      p←⎕NEW _net.Process
      i←p.StartInfo
      i.FileName←x cx⊃⍨0=≢x
-     i.Arguments←a
+     i.Arguments←aa,' ',a
      i.RedirectStandardOutput←1
      i.RedirectStandardInput←1
      i.RedirectStandardError←1
