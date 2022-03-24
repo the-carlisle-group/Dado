@@ -5,6 +5,6 @@
      l←⊂']Dado.Version'
      l,←⊂'rc em←',(q pf),' ⎕SE.Dado.##.ExecuteOnBuild_ ',q v
      l,←⊂'em'
-     l,←⊂'⎕OFF (10+rc)'
+     l,←⊂'⎕OFF (12+rc)'
      ExecuteAPL l
  }
