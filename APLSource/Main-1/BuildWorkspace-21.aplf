@@ -9,6 +9,9 @@
      ⍝ l,←⊂'rc em←',(q pf),' ⎕SE.Dado.BuildWorkspace_ ', qv
      l,←⊂'rc em←',(q pf),' (⎕NS ⎕SE.zApps.Dado.Dado).Main.BuildWorkspace_ ',q v
      l,←⊂'em'
-     l,←⊂'⎕OFF (10+rc)'
-     dx ExecuteAPL l
+     l,←⊂'⎕OFF (12+rc)'
+     _←dx ExecuteAPL l
+     p←(GetApplicationFolder ⍺),⍺._Name,'.dws'
+     ⎕NEXISTS p:_
+     746 ⎕SIGNAL'BuildWorkspace failed to generate .dws file.'
  }
