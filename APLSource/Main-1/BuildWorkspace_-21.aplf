@@ -18,7 +18,7 @@
      _←m.⎕EX⊂'ProjectFolder'
      m.ProjectFolderName←GetAppPackFolder m
      s.AcreConfig←#.⎕JSON ⎕JSON m
-     _←m.⎕FX⊂⎕NR'ProjectFolder'
+     _←s.AcreConfig.⎕FX⊂⎕NR'ProjectFolder'
      _←s∘SetReferences¨s
      #.⎕LX←SetQuadLX↑s
      _←(↑s)Execute'OnSave'
