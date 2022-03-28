@@ -1,0 +1,7 @@
+ GetStartupEnvironmentVariables←{
+     ev←0⊃2 ⎕NQ'.' 'GetCommandLineArgs'
+     evl←2 ⎕NQ'.' 'GetCommandLine'
+     si←1+≢ev
+     si+←2×'"'=↑evl
+     ev(si↓evl)
+ }

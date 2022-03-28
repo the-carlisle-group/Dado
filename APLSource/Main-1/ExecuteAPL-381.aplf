@@ -7,7 +7,7 @@
      ⍝ ← ←→ Exit Code, Session Output
      ⍺←''
      (x a)←2↑(⊆⍺),⊂'ShowStatusOnError=0 Dyalog_LineEditor_Mode=1'
-     cx aa←2↑(2 ⎕NQ'.' 'GetCommandLineArgs'),⊂''
+     cx aa←GetStartupEnvironmentVariables''
      in←∊(⊆⍵),¨⎕UCS 13
      _net←⎕NS''
      _net.⎕USING←{
