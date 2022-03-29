@@ -1,4 +1,6 @@
-# Dado Release 0.0.85                    
+# Dado Release 0.0.86                    
+
+# Dado Release 0.0.85 2022-03-29 09:45:00
 1. Revert BuildWorkspace_
 2. Fix to last commit, instantiated ProjectFolder function in wrong place
 3. Workaround for ⎕SAVE problem
