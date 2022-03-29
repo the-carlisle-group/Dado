@@ -1,4 +1,6 @@
-# Dado Release 0.0.87                    
+# Dado Release 0.0.88                    
+
+# Dado Release 0.0.87 2022-03-29 10:37:29
 1. Relocate ⎕JSON to #.⎕JSON to emulate old behavior in ReadConfigFile
 
 # Dado Release 0.0.86 2022-03-29 09:51:11
