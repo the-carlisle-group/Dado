@@ -1,4 +1,7 @@
-# Dado Release 0.0.86                    
+# Dado Release 0.0.87                    
+1. Relocate ⎕JSON to #.⎕JSON to emulate old behavior in ReadConfigFile
+
+# Dado Release 0.0.86 2022-03-29 09:51:11
 
 # Dado Release 0.0.85 2022-03-29 09:45:00
 1. Revert BuildWorkspace_
