@@ -1,0 +1,10 @@
+ ExpandProjectPath←{
+     ⍝ Process project path for Environment variables and leading blanks.
+     ⍝ ⍵ ←→ Project Folder
+     f←dlb⌽dlb⌽⍵
+     d←2 ⎕NQ'.' 'GetEnvironment' 'DadoProjectsFolder'
+     q←(0<≢d)∧~∨/f∊'/\'
+     p←f,⍨q/d,'/'
+     ⎕USING←,⊂'System'
+     Environment.ExpandEnvironmentVariables⊂p
+ }

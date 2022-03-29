@@ -1,0 +1,9 @@
+ ProcessCreateArg←{
+    ⍝ ⍵ ←→ Folder, Space (one character vector)
+    ⍝ ← ←→ Expanded Folder, Space
+     a←⌽dlb⌽⍵
+     i←' '⍳⍨⌽a
+     f←ExpandProjectPath(-i+1)↓a
+     s←(-i)↑a
+     f,' ',s
+ }
