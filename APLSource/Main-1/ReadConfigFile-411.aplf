@@ -8,7 +8,7 @@
      ⍝ set←{⍵._FileType←⍺ ⋄ ⍵}
      set←{⍵._FileType←'JSON' ⋄ ⍵}
      t←↑↑r
-     '{'=t:'JSON'set ⎕JSON∊r
+     '{'=t:'JSON'set #.⎕JSON∊r
      ':'=t:'NSScript'set fix r
      r[0]←⊂':Namespace'
      r←(¯1↓r),⊂':EndNamespace'

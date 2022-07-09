@@ -16,9 +16,9 @@
      s←⌽⍎¨(⌽m._ProjectSpace)load¨⌽f
      _←DeleteDevSpaces¨m
      _←m.⎕EX⊂'ProjectFolder'
+     _←m.⎕FX⊂⎕NR'ProjectFolder'
      m.ProjectFolderName←GetAppPackFolder m
-     s.AcreConfig←#.⎕JSON ⎕JSON m
-     _←s.AcreConfig.⎕FX⊂⎕NR'ProjectFolder'
+     s.AcreConfig←s.⎕NS m
      _←s∘SetReferences¨s
      #.⎕LX←SetQuadLX↑s
      _←(↑s)Execute'OnSave'

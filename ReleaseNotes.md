@@ -1,4 +1,23 @@
-# Dado Release 0.0.84                    
+# Dado Release 0.0.88                    
+
+# Dado Release 0.0.87 2022-03-29 10:37:29
+1. Relocate ⎕JSON to #.⎕JSON to emulate old behavior in ReadConfigFile
+
+# Dado Release 0.0.86 2022-03-29 09:51:11
+
+# Dado Release 0.0.85 2022-03-29 09:45:00
+1. Revert BuildWorkspace_
+2. Fix to last commit, instantiated ProjectFolder function in wrong place
+3. Workaround for ⎕SAVE problem
+4. Build failure notification improvements (#107)
+5. Fix for GetCommandLineArgs dropping double quots on paths. (#106)
+6. Change HTTPCommand timeout to 600 seconds. (#103)
+7. Enhance ExecuteAPL to use existing command line parameters
+8. Handle limit error in getting and setting QuadAT
+9. Add support for configuration parameter DadoProjectsFolder
+10. Set quadAT attributes on opening project
+
+# Dado Release 0.0.84 2022-01-18 10:21:23
 
 # Dado Release 0.0.83 2022-01-18 09:15:15
 
