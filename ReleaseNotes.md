@@ -1,4 +1,7 @@
-# Dado Release 0.0.88                    
+# Dado Release 0.0.89                    
+1. Fix issue #109 (Pushing tags)
+
+# Dado Release 0.0.88 2022-03-29 10:37:48
 
 # Dado Release 0.0.87 2022-03-29 10:37:29
 1. Relocate ⎕JSON to #.⎕JSON to emulate old behavior in ReadConfigFile
