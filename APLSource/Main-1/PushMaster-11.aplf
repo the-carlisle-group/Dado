@@ -4,5 +4,5 @@
      ⍺←0
      p←GetProjectFolder ⍺
      p≡'':'Not in project'
-     p RunGitCommand'push --tags origin master'
+     p RunGitCommand'push origin master'
  }
