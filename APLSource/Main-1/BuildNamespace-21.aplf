@@ -1,0 +1,11 @@
+ BuildNamespace←{
+     0=⍺.⎕NC'BuildNamespace':0
+     ~⍺.BuildNamespace:0
+     s←⍎⍺.ProjectSpace,'.Main'
+     n←⍺._Name
+     t←(⊂':Namespace ',n),1↓BuildNSS s
+     rf←GetReleaseArtifactsFolder ⍺
+     fn←rf,n,'.apln'
+     _←t nput fn
+     0
+ }
