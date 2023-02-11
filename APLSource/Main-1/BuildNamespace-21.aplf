@@ -3,7 +3,10 @@
      ~⍺.BuildNamespace:0
      s←⍎⍺.ProjectSpace,'.Main'
      n←⍺._Name
-     t←(⊂':Namespace ',n),1↓BuildNSS s
+     h←⊂'⍝ URL: ',⍺.URL
+     h,←⊂'⍝ Version: ',⍺.Version
+     h,←⊂'⍝ Build date: ',↑'Mmmm D, YYYY'(1200⌶),¯1 1 ⎕DT⊂⎕TS
+     t←(⊂':Namespace ',n),h,1↓BuildNSS s
      rf←GetReleaseArtifactsFolder ⍺
      fn←rf,n,'.apln'
      _←t nput fn

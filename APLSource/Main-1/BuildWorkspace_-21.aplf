@@ -23,5 +23,6 @@
      #.⎕LX←SetQuadLX↑s
      _←(↑s)Execute'OnSave'
      _←0 ⎕SAVE af,c._Name,'.dws'
+     _←c BuildNamespace''
      0 'OK'
  }
