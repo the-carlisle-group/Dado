@@ -6,7 +6,8 @@
      p≡'':'Not in project'
      v←p CreateNewVersion ⍵
      _←p Build v
-     ⎕←⊃p PushMaster''
+     ⍝ ⎕←⊃p PushMaster''
+     ⎕←⊃p RunGitCommand'push --follow-tags origin master'
      s←GetProjectSpace ⍺
      _←s Execute'OnRelease'
      _←p ReleaseOnGitHub v

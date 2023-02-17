@@ -1,15 +1,5 @@
  RunTests←{
      ⍺←0
      p←GetProjectSpace ⍺
-     f←'T'p.Tests.⎕NL-3
-     b←p{
-         b←⍺.Tests⍎⍵,' 0'
-         ⎕←⍵,': ',b⊃'Passed' '*** Failed ***'
-         b
-     }¨f
-     tf←+/b
-     r←⊂'Tests run: ',⍕≢b
-     r,←⊂'Passed: ',⍕+/~b
-     r,←⊂'Failed: ',⍕+/b
-     ⊃r
+     Provanto.Run p.Tests p.Main
  }

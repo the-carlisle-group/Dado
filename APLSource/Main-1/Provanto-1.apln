@@ -1,0 +1,82 @@
+:Namespace Provanto
+⎕IO ⎕ML←0 1
+ Assert←{
+     0⊣'TEST FAILED'⎕SIGNAL 789/⍨~⍵
+ }
+ Coverage←{
+     ~⍵.Profile:¯1 ''
+     s←Spaces⍕⍵.CodeSpace
+     n←s.⎕NL⊂-3 4
+     p←'.',¨⍨⍕¨s
+     af←⊃,/p{⍺∘,¨⍵}¨n
+     d←⎕PROFILE'data'
+     b←d[;1]∊⊂⍬
+     ef←b/d[;0]
+     el←(+\b)⊆d[;1]
+     nr←(⎕NR¨af)~¨⊂⊂' }'
+     al←⍳¨≢¨nr
+     ul←al~¨(el,⊂⍬)[ef⍳af]
+     c←100×1-÷/≢¨∊¨ul al
+     k←0<≢¨ul
+     uf←~af∊ef
+     (uf/ul)←⊂⍬
+     z←k/af{0=≢⍵:⍺ ⋄ ⍺,'[',(⍕⍵),']'}¨ul  ⍝
+     c z
+ }
+ Display←{
+     ⍵.Quiet>1:0
+     r←⍵.Result
+     h←'Number of tests:'(≢r)
+     ⎕←'*'⍪(⍕h⍪⍵.Status,⍪+⌿r∘.=⍳5)⍪'*'
+     ~⍵.Profile:0
+     ⎕←'Code coverage: ',,'Q<%>I4'⎕FMT ⍵.Coverage
+     ⍵.Coverage=100:0
+     ⎕←'Untested code:'
+     ⎕←↑⍵.Untested
+     0
+ }
+ Exe←{
+     r←⍺{
+         0/⍨~⍺.Stop::1+789≠⎕DMX.EN
+         ⍺.TestSpace⍎⍵,' 0'
+     }⍵
+     ⍺.Quiet>0:r
+     r⊣⎕←(r⊃⍺.DecoratedStatus),' ',(⍕⍺.TestSpace),'.',⍵
+ }
+ Run←{
+     ⍝ ⍺ ←→ [Stop 0|1 [Quiet 0|1|2]]
+     ⍝ ⍵ ←→ Test space, [Code space]
+     ⍝ ← ←→ Result space
+     ⍺←0
+     z←⎕NS''
+     z.(Stop Quiet)←2↑⍺
+     z.(TestSpace CodeSpace)←2↑⍵,0
+     z.(Status DecoratedStatus)←Status''
+     z.Profile←z.CodeSpace≠0
+     _←z.TestSpace.⎕FX¨⎕NR¨'Assert' 'Try'
+     z.Function←'T'z.TestSpace.⎕NL ¯3
+     p←⎕PROFILE⍣z.Profile
+     _←p¨'Clear'('Start' 'coverage')
+     z.Result←z Exe¨z.Function
+     _←p'stop'
+     z.(Coverage Untested)←Coverage z
+     _←p'clear'
+     1:z←z⊣Display z
+ }
+ Spaces←{
+     ⍵≢⍕⍎⍵:⍬
+     s←⍵∘,¨'.',¨(⍎⍵).⎕NL ¯9
+     0=≢s:,⍎⍵
+     ∊(⍎⍵),∇¨s
+ }
+ Status←{
+     s←'Passed' 'Failed' 'Broken' 'N/A' 'Disabled'
+     d←↓(↑':',¨⍨s),' ',↑3/¨' !!--'
+     s d
+ }
+ Try←{
+     ⍺←⊢
+     0::⎕DMX.EN
+     0⊣⍺ ⍺⍺ ⍵
+ }
+:EndNamespace
