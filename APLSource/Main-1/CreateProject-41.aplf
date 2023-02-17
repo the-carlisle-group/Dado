@@ -1,6 +1,6 @@
  CreateProject←{
      ⍝ ⍵ ←→ Folder Name, Space
-     a←ProcessCreateArg ⍵
+     a←ExpandProjectPath ⍵
      p←⍎⎕SE.UCMD'Acre.CreateProject ',a
      _←p EnhanceAcreConfig''
      p.AcreConfig←GetConfigSpace p

@@ -1,7 +1,6 @@
  ExpandProjectPath←{
-     ⍝ Process project path for Environment variables and leading blanks.
-     ⍝ ⍵ ←→ Project Folder
-     f←dlb⌽dlb⌽⍵
+     ⍝ ⍵ ←→ Character array leading with Project Folder
+     f←dlb∘⌽⍣2⊢⍵
      d←2 ⎕NQ'.' 'GetEnvironment' 'DadoProjectsFolder'
      q←(0<≢d)∧~∨/f∊'/\'
      p←f,⍨q/d,'/'

@@ -1,7 +1,6 @@
  UcmdParseCommand←{
      l←(']'=↑⍵)↓⍵
      r←⎕NS''
-     dlb←{(∨\' '≠⍵)/⍵}
      pfn←{⍺←' ' ⋄ ⍵⊆⍨⍵≠⍺}
      i←l⍳' '
      r.Command←i↑l
