@@ -1,6 +1,7 @@
  CreateProject←{
      ⍝ ⍵ ←→ Folder Name, Space
-     p←⍎⎕SE.UCMD'Acre.CreateProject ',⍵
+     a←ExpandProjectPath ⍵
+     p←⍎⎕SE.UCMD'Acre.CreateProject ',a
      _←p EnhanceAcreConfig''
      p.AcreConfig←GetConfigSpace p
      _←p WriteGitIgnore''
