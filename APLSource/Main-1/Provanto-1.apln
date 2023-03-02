@@ -1,4 +1,7 @@
 :Namespace Provanto
+⍝ URL: https://github.com/the-carlisle-group/Provanto
+⍝ Version: 0.0.3
+⍝ Build date: March 1, 2023
 ⎕IO ⎕ML←0 1
  Assert←{
      0⊣'TEST FAILED'⎕SIGNAL 789/⍨~⍵
@@ -6,6 +9,7 @@
  Coverage←{
      ~⍵.Profile:¯1 ''
      s←Spaces⍕⍵.CodeSpace
+     s,←Spaces⍕⍵.TestSpace
      n←s.⎕NL⊂-3 4
      p←'.',¨⍨⍕¨s
      af←⊃,/p{⍺∘,¨⍵}¨n
@@ -23,25 +27,35 @@
      z←k/af{0=≢⍵:⍺ ⋄ ⍺,'[',(⍕⍵),']'}¨ul  ⍝
      c z
  }
- Display←{
+ DisplayCodeCoverage←{
      ⍵.Quiet>1:0
-     r←⍵.Result
-     h←'Number of tests:'(≢r)
-     ⎕←'*'⍪(⍕h⍪⍵.Status,⍪+⌿r∘.=⍳5)⍪'*'
      ~⍵.Profile:0
      ⎕←'Code coverage: ',,'Q<%>I4'⎕FMT ⍵.Coverage
      ⍵.Coverage=100:0
      ⎕←'Untested code:'
-     ⎕←↑⍵.Untested
+     ⎕←↑{25>≢⍵:⍵ ⋄ (10↑⍵),⊂'... and ',(⍕¯10+≢⍵),' more.'}⍵.Untested
      0
  }
- Exe←{
-     r←⍺{
-         0/⍨~⍺.Stop::1+789≠⎕DMX.EN
-         ⍺.TestSpace⍎⍵,' 0'
-     }⍵
-     ⍺.Quiet>0:r
-     r⊣⎕←(r⊃⍺.DecoratedStatus),' ',(⍕⍺.TestSpace),'.',⍵
+ DisplaySuite←{
+     ⍺.Quiet>1:0
+     r←⍵.Result
+     h←'Number of tests:'(≢r)
+     ⎕←'*'⍪(⍕h⍪⍺.Status,⍪+⌿r∘.=⍳5)⍪'*'
+     0
+ }
+ DisplayTotal←{
+     ⍵.Quiet>1:0
+     n←≢⍵.Suites
+     n=1:0
+     r←⊃,/⍵.Results.Result
+     h←('Total number of tests in ',(⍕n),' suites:')(≢r)
+     ⎕←'*'⍪(⍕h⍪⍵.Status,⍪+⌿r∘.=⍳5)⍪'*'
+     0
+ }
+ Execute←{
+     s f←⍵
+     0=⍺.⎕NC f:0
+     (⍺⍎f),' s'
  }
  Run←{
      ⍝ ⍺ ←→ [Stop 0|1 [Quiet 0|1|2]]
@@ -52,16 +66,40 @@
      z.(Stop Quiet)←2↑⍺
      z.(TestSpace CodeSpace)←2↑⍵,0
      z.(Status DecoratedStatus)←Status''
+     z.Suites←{⍵↓⍨1<≢⍵}Spaces⍕z.TestSpace
+     z.IsSuite←z.TestSpace≠⊃z.Suites
      z.Profile←z.CodeSpace≠0
-     _←z.TestSpace.⎕FX¨⎕NR¨'Assert' 'Try'
-     z.Function←'T'z.TestSpace.⎕NL ¯3
      p←⎕PROFILE⍣z.Profile
+     e←z.TestSpace∘Execute⍣z.IsSuite
+     _←e z'Startup'
      _←p¨'Clear'('Start' 'coverage')
-     z.Result←z Exe¨z.Function
+     z.Results←z RunSuite¨z.Suites
      _←p'stop'
+     _←e z'Teardown'
      z.(Coverage Untested)←Coverage z
      _←p'clear'
-     1:z←z⊣Display z
+     _←DisplayTotal z
+     1:z←z⊣DisplayCodeCoverage z
+ }
+ RunSuite←{
+     _←⍵ Execute ⍺'Startup'
+     ⎕←'Running suite: ',⍕⍵
+     _←⍵.⎕FX¨⎕NR¨'Assert' 'Try'
+     r←⎕NS''
+     f←⍵.⎕NL ¯3
+     r.Function←f/⍨'Test'∘≡¨4↑¨f
+     p←r.Function{⍵,'.',⍺}¨⊂⍕⍵
+     r.Result←⍺ RunTest¨p
+     _←⍵ Execute ⍺'Teardown'
+     r⊣⍺ DisplaySuite r
+ }
+ RunTest←{
+     r←⍺{
+         0/⍨~⍺.Stop::1+789≠⎕DMX.EN
+         ⍎⍵,' 0'
+     }⍵
+     ⍺.Quiet>0:r
+     r⊣⎕←(r⊃⍺.DecoratedStatus),' ',⍵
  }
  Spaces←{
      ⍵≢⍕⍎⍵:⍬
