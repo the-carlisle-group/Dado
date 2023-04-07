@@ -4,5 +4,9 @@
  z←{
      f←ProjectFolderName,'/'
      ∨/(⍕⎕SE)⍷⍕⎕THIS:f,⍨##.##.ApplicationFolder
-     f,⍨↑1 ⎕NPARTS ⎕WSID
+     0<≢⎕WSID:f,⍨↑1 ⎕NPARTS ⎕WSID
+     s←⎕NS''
+     s.⎕USING←'System' 'System.Diagnostics,System.dll'
+     p←s.Process.GetCurrentProcess
+     f,⍨↑⎕NPARTS p.MainModule.FileName
  }0
