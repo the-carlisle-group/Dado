@@ -1,4 +1,13 @@
-# Dado Release 0.0.90                    
+# Dado Release 0.0.91                    
+1. Handle empty WSID for DLL apps
+2. Update Provanto
+3. Cleanup
+4. Delete obsolete functions
+5. Utilize DadoProjectsFolder in CreateProject (#108)
+6. Add BuildNamespace parameter and associated functionality
+7. Add Provanto testing
+
+# Dado Release 0.0.90 2023-01-20 13:25:40
 1. Bump Acre version to 8.3.1+342
 
 # Dado Release 0.0.89 2023-01-17 10:40:54
