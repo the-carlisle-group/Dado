@@ -1,0 +1,5 @@
+ ExpandPath←{
+ ⍝ ⍵ ←→ File path. I.e. %temp%\path\file.csv
+     ⎕USING←,⊂'System'
+     Environment.ExpandEnvironmentVariables⊂⍵
+ }

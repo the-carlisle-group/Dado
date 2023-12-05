@@ -1,0 +1,7 @@
+ GetEnvironmentVariable←{
+ ⍝ ⍺ ←→ Default string value
+ ⍝ ⍵ ←→ Environment variable name
+     ⍺←''
+     v←+2 ⎕NQ'.' 'GetEnvironment'⍵
+     (0=≢v)⊃v ⍺
+ }

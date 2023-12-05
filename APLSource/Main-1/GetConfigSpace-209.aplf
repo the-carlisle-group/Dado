@@ -10,7 +10,7 @@
      c.IsApplication←{6::0 ⋄ 0<≢⍵.OnBuild}c
      c.(_Group _Name)←GroupAndName c
      c._ProjectSpace←⍺ ProjectSpace c
-     c.DistFolder←(GetTempDir 0),'/Dado/',c._Name,'/'
+     c.DistFolder←GetDistFolder c
      c.ProjectsFolder←({↑⎕NPARTS ¯1↓⍵}⍣(1+c.IsPackage))f
      c.DyalogVersionFolder←GetDyalogVersionFolder c
      0=⍺.⎕NC'LocalProjects':c
