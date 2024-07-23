@@ -4,10 +4,8 @@
      ⍺←0
      p←GetProjectFolder ⍺
      0=≢⍵:' {none}'
-     m←⊃DecodeOctalEncoding¨⍵
-     b←~∧⌿' '=m
-     b[0]←1
-     m←b⊆m
+     m←DecodeOctalEncoding¨⍵
+     m←⊃{b←' '≠⍵ ⋄ b[0]←1 ⋄ b⊆⍵}¨m
      f←m[;1]
      b←'APLSource/'∘≡¨10↑¨f
      b←b∧~'R'=↑¨m[;0]
