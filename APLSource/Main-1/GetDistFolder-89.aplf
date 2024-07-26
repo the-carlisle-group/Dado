@@ -1,0 +1,7 @@
+ GetDistFolder←{
+ ⍝ ⍵ ←→ Project config space
+     df←(GetTempDir 0),'/Dado/'
+     f←df GetEnvironmentVariable'DadoDistFolder'
+     f,←⍵._Name,'/'
+     ExpandPath f
+ }
