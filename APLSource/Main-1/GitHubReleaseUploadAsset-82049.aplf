@@ -3,7 +3,7 @@
     ⍝ ⍺ ←→ Property space
     ⍝ ⍵ ←→ Filepath
      gct←{
-         e←0(819⌶)2⊃⎕NPARTS ⍵
+         e←⎕C⊃⎕NPARTS ⍵
          e≡'.dll':'application/octet-stream'
          e≡'.msi':'application/x-msdownload'
          e≡'.zip':'application/zip'
